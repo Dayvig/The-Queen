@@ -1,0 +1,226 @@
+{
+        "QueenMod:CommonPower": {
+                "NAME": "Placeholder Power",
+                "DESCRIPTIONS": [
+                        "You applied #b",
+                        " keyword.",
+                        " keywords."
+                ]
+        },
+        "QueenMod:RarePower": {
+                "NAME": "Placeholder Power",
+                "DESCRIPTIONS": [
+                        "At the start of your turn, TOUCH #b",
+                        " enemy.",
+                        " enemies."
+                ]
+        },
+        "QueenMod:Nectar": {
+                "NAME": "Nectar",
+                "DESCRIPTIONS": [
+                        "Spend to use more potent effects",
+                        "",
+                        ""
+                ]
+        },
+        "QueenMod:Swarm": {
+                "NAME": "Swarm",
+                "DESCRIPTIONS": [
+                        "At the end of your turn, gain #b Block",
+                        "",
+                        ""
+                ]
+        },
+        "QueenMod:SwarmE": {
+                "NAME": "Swarmed Enemy",
+                "DESCRIPTIONS": [
+                        "At the end of your turn, lose #b HP",
+                        "",
+                        ""
+                ]
+        },
+        "QueenMod:HoneyPower": {
+                "NAME": "Energized Bees",
+                "DESCRIPTIONS": [
+                        "Honeybees gain #b energy when played.",
+                        "",
+                        ""
+                ]
+        },
+        "QueenMod:DefenderPower": {
+                "NAME": "Royal Defenders",
+                "DESCRIPTIONS": [
+                        "When attacked, automatically uses",
+                        "a Bumblebee to gain its Block.",
+                        "up to #b Bumblebees to gain their Block."
+                ]
+        },
+        "QueenMod:StingerPower": {
+                "NAME": "Sharpened Stingers",
+                "DESCRIPTIONS": [
+                        "Hornets deal #b more damage.",
+                        "",
+                        ""
+                ]
+        },
+        "QueenMod:PollinatePower": {
+                "NAME": "Pollinated",
+                "DESCRIPTIONS": [
+                        "When taking attack damage, the Queen gains #b*2 Nectar.",
+                        "",
+                        ""
+                ]
+        },
+        "QueenMod:SwarmTacticsPower": {
+                "NAME": "Swarm Tactics",
+                "DESCRIPTIONS": [
+                        "When you play a card, gain #b Swarm.",
+                        "",
+                        ""
+                ]
+        },
+        "QueenMod:StrategicGeniusPower": {
+                "NAME": "Strategic Genius",
+                "DESCRIPTIONS": [
+                        "When you draw a card, gain #b Strength this turn only.",
+                        "",
+                        ""
+                ]
+        },
+        "QueenMod:HeartOfTheSwarm": {
+                "NAME": "Heart of the Swarm",
+                "DESCRIPTIONS": [
+                        "Command a powerful swarm. It follows the targets of your cards, granting you block and damaging enemies at the end of the turn.",
+                        "",
+                        ""
+                ]
+        },
+        "QueenMod:GrowingSwarmPower": {
+                "NAME": "Gathering Swarm...",
+                "DESCRIPTIONS": [
+                                "At the end of your turn, gain #b Swarm.",
+                                "",
+                                ""
+                ]
+        },
+        "QueenMod:OrganizedWorkForcePower": {
+                "NAME": "Organized Work Force",
+                "DESCRIPTIONS": [
+                        "At the end of your turn, add ",
+                        "a Drone to your Draw Pile.",
+                        "#b Drones to your Draw Pile."
+                ]
+        },
+        "QueenMod:QueenFlightPower": {
+                "NAME": "Flight",
+                "DESCRIPTIONS": [
+                        "Take 50% reduced damage. If you take attack damage, lose Flight. At the end of your turn, spend 3 Nectar or lose Flight.",
+                        "Take 50% reduced damage. If you take attack damage, lose Flight. At the end of your turn, spend 2 Nectar or lose Flight.",
+                        ""
+                ]
+        },
+        "QueenMod:FocusedSwarm": {
+                "NAME": "Focused Swarm",
+                "DESCRIPTIONS": [
+                        "At the end of your turn, gain #b Block. Will not move this turn.",
+                        "",
+                        ""
+                ]
+        },
+        "QueenMod:FocusedSwarmE": {
+                "NAME": "Focused Swarm",
+                "DESCRIPTIONS": [
+                        "At the end of your turn, lose #b HP. Will not move this turn.",
+                        "",
+                        ""
+                ]
+        },
+        "QueenMod:FlightDrain": {
+                "NAME": "Nectar Drain",
+                "DESCRIPTIONS": [
+                        "At the end of your turn, lose #b Nectar or lose 1 Flight.",
+                        "",
+                        ""
+                ]
+        },
+        "QueenMod:BlitzDrain": {
+                "NAME": "Nectar Drain",
+                "DESCRIPTIONS": [
+                        "At the end of your turn, lose #b Nectar or lose 2 Strength and Dexterity.",
+                        "",
+                        ""
+                ]
+        },
+        "QueenMod:HornetCommanderPower": {
+                "NAME": "Hornet's Command",
+                "DESCRIPTIONS": [
+                        "When you play a Hive card, deal #b damage to a random enemy.",
+                        "",
+                        ""
+                ]
+        },
+        "QueenMod:BumbleBeeCommanderPower": {
+                "NAME": "Bumblebee's Command",
+                "DESCRIPTIONS": [
+                        "When you play a Hive card, gain #b block next turn.",
+                        "",
+                        ""
+                ]
+        },
+        "QueenMod:AttackNextTurnPower": {
+                "NAME": "Next Turn Attack",
+                "DESCRIPTIONS": [
+                        "At the end of the turn, add #b random Attacks from your draw pile to the top.",
+                        "",
+                        ""
+                ]
+        },
+        "QueenMod:SkillNextTurnPower": {
+                "NAME": "Next Turn Skill",
+                "DESCRIPTIONS": [
+                        "At the end of the turn, add #b random Skills from your draw pile to the top.",
+                        "",
+                        ""
+                ]
+        },
+        "QueenMod:ReinforcementsPower": {
+                "NAME": "Reinforcements",
+                "DESCRIPTIONS": [
+                        "At the start of your turn, play a Hornet, Bumblebee or Honeybee from your draw pile.",
+                        "",
+                        ""
+                ]
+        },
+        "QueenMod:DroneArmyPower": {
+                "NAME": "Drone Army",
+                "DESCRIPTIONS": [
+                        "When you play a Drone, gain #b Swarm.",
+                        "",
+                        ""
+                ]
+        },
+        "QueenMod:HoneyShieldPower": {
+                "NAME": "Honey Shield",
+                "DESCRIPTIONS": [
+                        "When you gain Nectar, gain #b block.",
+                        "",
+                        ""
+                ]
+        },
+        "QueenMod:AggressionPower": {
+                "NAME": "Aggression Policy",
+                "DESCRIPTIONS": [
+                        "If you have more attacks than skills and powers, attacks are played #b+1 times.",
+                        "",
+                        ""
+                ]
+        },
+        "QueenMod:IndustryPower": {
+                "NAME": "Industry",
+                "DESCRIPTIONS": [
+                        "At the start of your turn, gain #b Nectar. For every 5 Industry, also draw a card.",
+                        "",
+                        ""
+                ]
+        }
+}

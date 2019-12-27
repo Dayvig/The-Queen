@@ -1,0 +1,437 @@
+{
+  "QueenMod:DignifiedSlap": {
+    "NAME": "Dignified Slap",
+    "DESCRIPTION": "Deal !D! damage. Gain !M! Strength this turn only."
+  },
+  "QueenMod:GnatSquadron": {
+    "NAME": "Gnat Squadron",
+    "DESCRIPTION": "Deal !D! damage !M! times."
+  },
+  "QueenMod:AttackOrder": {
+    "NAME": "Attack Order",
+    "DESCRIPTION": "Deal !D! damage. queenmod:Recruit a queenmod:Hornet.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. queenmod:Recruit !M! queenmod:Hornets."
+  },
+  "QueenMod:Hornet": {
+    "NAME": "Hornet",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "QueenMod:DefendOrder": {
+    "NAME": "Defend Order",
+    "DESCRIPTION": "Gain !B! block. queenmod:Recruit a queenmod:Bumblebee. Recall your queenmod:Swarm.",
+    "UPGRADE_DESCRIPTION": "Gain !B! block. queenmod:Recruit !M! queenmod:Bumblebees. Recall your queenmod:Swarm."
+  },
+  "QueenMod:BumbleBee": {
+    "NAME": "BumbleBee",
+    "DESCRIPTION": "Gain !B! Block. Recall your queenmod:Swarm."
+  },
+  "QueenMod:MosquitoPlatoon": {
+    "NAME": "Mosquito Platoon",
+    "DESCRIPTION": "Deal !D! damage two times. Gain queenmod:Nectar equal to the damage dealt."
+  },
+  "QueenMod:GatheringSwarm": {
+    "NAME": "Gathering Swarm",
+    "DESCRIPTION": "At the start of your turn, spend !M! queenmod:Nectar to gain !M! queenmod:Swarm. Recall your queenmod:Swarm"
+  },
+  "QueenMod:Godcard": {
+    "NAME": "God Card",
+    "DESCRIPTION": "Win the game"
+  },
+  "QueenMod:HexGuard": {
+    "NAME": "Hex Guard",
+    "DESCRIPTION": "Gain !B! Block. Spend queenmod:Nectar to Empower. Recall your queenmod:Swarm."
+  },
+  "QueenMod:HoneycombSmash": {
+    "NAME": "Honeycomb Smash",
+    "DESCRIPTION": "Deal !D! Damage. Apply 1 Weak. Spend queenmod:Nectar to Empower."
+  },
+  "QueenMod:Populate": {
+    "NAME": "Populate",
+    "DESCRIPTION": "Add !M! queenmod:Drones to your Draw Pile."
+  },
+  "QueenMod:Drone": {
+    "NAME": "Drone",
+    "DESCRIPTION": "Draw a card. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Draw 2 cards. Exhaust."
+  },
+  "QueenMod:Assimilate": {
+    "NAME": "Assimilate",
+    "DESCRIPTION": "Exhaust all queenmod:Hive cards in your hand. Gain !M! queenmod:Swarm for each. Recall your queenmod:Swarm."
+  },
+  "QueenMod:WorkerBee": {
+    "NAME": "Worker Bee",
+    "DESCRIPTION": "Gain !M! queenmod:Industry."
+  },
+  "QueenMod:BuildOrder": {
+    "NAME": "Build Order",
+    "DESCRIPTION": "Gain !QueenMod:M2! queenmod:Industry. Recruit a queenmod:Workerbee.",
+    "UPGRADE_DESCRIPTION": "Gain !QueenMod:M2! queenmod:Industry. Recruit !M! queenmod:Workerbees."
+  },
+  "QueenMod:KillerQueen": {
+    "NAME": "Killer Queen",
+    "DESCRIPTION": "If you have more Attacks than Skills and Powers, deal !D! damage."
+  },
+  "QueenMod:HiveNetwork": {
+    "NAME": "Hive Network",
+    "DESCRIPTION": "Draw !M! cards. For each queenmod:Hive card drawn, gain [E] ."
+  },
+  "QueenMod:BusyBees": {
+    "NAME": "Busy Bees",
+    "DESCRIPTION": "Add a copy of all queenmod:Hive cards in your hand to your draw pile, then upgrade the queenmod:Hive cards in your hand.",
+    "UPGRADE_DESCRIPTION": "Add a copy of your hand to your draw pile, then upgrade your hand."
+  },
+  "QueenMod:Beekeeping": {
+    "NAME": "Beekeeping",
+    "DESCRIPTION": "Exhaust a card in your hand. Add a queenmod:Drone from your draw pile to your hand. queenmod:Recruit a queenmod:Bumblebee. Recall your queenmod:Swarm",
+    "UPGRADE_DESCRIPTION": "Exhaust a card in your hand. Add a queenmod:Drone from your draw pile to your hand. queenmod:Recruit an upgraded queenmod:Bumblebee. Recall your queenmod:Swarm"
+  },
+  "QueenMod:Metamorphosis": {
+    "NAME": "Metamorphosis",
+    "DESCRIPTION": "Replace all queenmod:Drones with queenmod:Hornets, queenmod:Bumblebees, or queenmod:Workerbees."
+  },
+  "QueenMod:Nourish": {
+    "NAME": "Nourish",
+    "DESCRIPTION": "Spend queenmod:Nectar to recover Health. Exhaust."
+  },
+  "QueenMod:HornetSwarm": {
+  "NAME": "Hornet Swarm",
+  "DESCRIPTION": "Play all queenmod:Hornets in your Hand and Draw Pile. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Play all queenmod:Hornets in your Hand and Draw Pile."
+  },
+  "QueenMod:WarBuzz": {
+  "NAME": "War Buzz",
+  "DESCRIPTION": "Exhaust all non-attacks in your hand. Replace them with queenmod:Hornets."
+},
+  "QueenMod:PressTheAttack": {
+  "NAME": "Press the Attack",
+  "DESCRIPTION": "Deal !D! damage. If you've played !M! or more cards this turn, draw a card and gain [E} ."
+},
+  "QueenMod:RoyalDefenders": {
+  "NAME": "Royal Defenders",
+  "DESCRIPTION": "When you would take attack damage, Play and Exhaust a queenmod:Bumblebee from your draw pile. queenmod:Recruit 2 queenmod:Bumblebees.",
+    "UPGRADE_DESCRIPTION": "When you would take attack damage, Play a queenmod:Bumblebee from your draw pile. queenmod:Recruit 2 queenmod:Bumblebees."
+},
+  "QueenMod:SharpStingers": {
+    "NAME": "Sharper Stingers",
+    "DESCRIPTION": "queenmod:Hornets do !M! more damage. queenmod:Recruit 2 Hornets."
+  },
+  "QueenMod:EnergyBees": {
+    "NAME": "Energy Gatherers",
+    "DESCRIPTION": "Gain [E] at the start of your turn for every 5 queenmod:Industry. queenmod:Recruit 2 queenmod:Workerbees."
+  },
+  "QueenMod:PheremoneSwap": {
+    "NAME": "Pheremone Swap",
+    "DESCRIPTION": "Swap your queenmod:Hornets and queenmod:Bumblebees. Draw a card.",
+    "UPGRADE_DESCRIPTION": "Swap your queenmod:Hornets and queenmod:Bumblebees. Draw !M! cards."
+  },
+  "QueenMod:Mark": {
+    "NAME": "Mark",
+    "DESCRIPTION": "Apply !M! Vulnerable, !M! queenmod:Pollinate and your queenmod:Swarm for the turn."
+  },
+  "QueenMod:SwarmTactics": {
+    "NAME": "Swarm Tactics",
+    "DESCRIPTION": "When you play a card this turn, gain !M! queenmod:Swarm."
+  },
+  "QueenMod:StrategicGenius": {
+  "NAME": "Strategic Genius",
+  "DESCRIPTION": "When you draw a card this turn, gain 1 Strength this turn only."
+},
+  "QueenMod:OverwhelmingForce": {
+  "NAME": "Overwhelming Force",
+  "DESCRIPTION": "Deal damage to all enemies equal to the number of cards in your deck.",
+    "EXTENDED_DESCRIPTION": [
+      "Deal !D! damage to all enemies (Equal to the number of cards in your deck)."
+    ]
+  },
+  "QueenMod:Flyby": {
+    "NAME": "Flyby",
+    "DESCRIPTION": "Deal !D! damage to all enemies. Add this card to your draw pile instead of your discard pile."
+  },
+  "QueenMod:PerfectLanding": {
+    "NAME": "Perfect Landing",
+    "DESCRIPTION": "queenmod:Finisher. If you've played 5 or more cards this turn, gain !B! block. Recall your queenmod:Swarm."
+  },
+  "QueenMod:CalculatedAttack": {
+  "NAME": "Calculated Attack",
+  "DESCRIPTION": "Deal !D! Damage. Recall half your queenmod:Swarm for the turn."
+},
+  "QueenMod:Feast": {
+  "NAME": "Feast",
+  "DESCRIPTION": "Deal damage equal to your Swarm. If this kills an enemy, gain !M! Swarm.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to your Swarm + 4. If this kills an enemy, gain !M! Swarm.",
+    "EXTENDED_DESCRIPTION": [
+      "Deal !D! damage. If this kills an enemy, gain !M! queenmod:Swarm."
+    ]
+},
+  "QueenMod:OrganizedWorkforce": {
+    "NAME": "Organized Workers",
+    "DESCRIPTION": "At the end of your turn, add a queenmod:Drone to your draw pile."
+  },
+  "QueenMod:CrossGuard": {
+    "NAME": "Cross-guard",
+    "DESCRIPTION": "Gain !B! Block for each Attack in your hand. Recall your queenmod:Swarm."
+  },
+  "QueenMod:TakeFlight": {
+    "NAME": "Take Flight",
+    "DESCRIPTION": "Gain queenmod:Flight. Lose 3 queenmod:Nectar at the end of your turn or lose queenmod:Flight."
+  },
+  "QueenMod:Anticipate": {
+    "NAME": "Anticipate",
+    "DESCRIPTION": "Add a queenmod:Drone from your draw pile to your hand. queenmod:Recruit a queenmod:Hive card based on enemy intent.",
+    "EXTENDED_DESCRIPTION": [
+      "Add a queenmod:Drone from your draw pile to your hand. Add a queenmod:Bumblebee to your hand.",
+      "Add a queenmod:Drone from your draw pile to your hand. Add a queenmod:Hornet to your hand.",
+      "Add a queenmod:Drone from your draw pile to your hand. Add a queenmod:Workerbee to your hand.",
+      "Gain !B! block. Add a Drone to your hand."
+    ]
+  },
+  "QueenMod:ScoutingParty": {
+    "NAME": "Scouting Party",
+    "DESCRIPTION": "Draw !M! cards. queenmod:Recruit 2 queenmod:Workerbees."
+  },
+  "QueenMod:MilitaryHandbook": {
+    "NAME": "Military Handbook",
+    "DESCRIPTION": "Draw !M! cards. Spend queenmod:Nectar to improve. Exhaust."
+  },
+  "QueenMod:PollenBlast": {
+    "NAME": "Pollen Blast",
+    "DESCRIPTION": "Deal !D! damage and inflict !M! queenmod:Pollinate to all enemies."
+  },
+  "QueenMod:BlindingSwarm": {
+    "NAME": "Blinding Swarm",
+    "DESCRIPTION": "Gain !B! Block. Distribute your queenmod:Swarm among all enemies for the turn and inflict 1 Weak to all enemies for every !M! queenmod:Swarm."
+  },
+  "QueenMod:SecretWeapon": {
+    "NAME": "Secret Weapon",
+    "DESCRIPTION": "Spend all queenmod:Nectar. Deal double that amount to an enemy ( !D! damage.)",
+    "UPGRADE_DESCRIPTION": "Spend all Nectar. Deal triple that amount to an enemy ( !D! damage.)",
+    "EXTENDED_DESCRIPTION": [
+      "Spend all Nectar. Deal !D! damage."
+      ]
+  },
+  "QueenMod:GeneralForm": {
+    "NAME": "General Form",
+    "DESCRIPTION": "Gain !M! Strength and Dexterity. Spend 5 queenmod:Nectar at the end of each turn or lose 2 Strength and Dexterity."
+  },
+  "QueenMod:InspiringStrike": {
+    "NAME": "Inspiring Strike",
+    "DESCRIPTION": "Deal !D! damage. Upgrade a random card in your draw pile.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. Upgrade !M! random cards in your draw pile."
+  },
+  "QueenMod:HornetCommander": {
+    "NAME": "Hornet Commander",
+    "DESCRIPTION": "Deal !D! damage. When you play a queenmod:Hive card this turn, deal !M! damage to a random enemy."
+  },
+  "QueenMod:BumbleBeeCommander": {
+    "NAME": "Bumblebee Commander",
+    "DESCRIPTION": "Gain !B! Block. When you play a queenmod:Hive card this turn, gain !M! Block next turn. Recall your queenmod:Swarm."
+  },
+  "QueenMod:DroneCommander": {
+    "NAME": "Drone Commander",
+    "DESCRIPTION": "Upgrade all queenmod:Drones in your draw pile. Draw a card.",
+    "UPGRADE_DESCRIPTION": "Upgrade all queenmod:Drones in your draw pile. Draw 2 cards."
+  },
+  "QueenMod:WorkerBeeCommander": {
+    "NAME": "Worker Bee Commander",
+    "DESCRIPTION": "Gain !M! queenmod:Industry. Apply 1 queenmod:Pollinate.",
+    "UPGRADE_DESCRIPTION": "Gain !M! queenmod:Industry. Apply 1 queenmod:Pollinate."
+  },
+  "QueenMod:Promotion": {
+    "NAME": "Promotion",
+    "DESCRIPTION": "Promote a queenmod:Hive card in your draw pile to a queenmod:Commander. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Promote a queenmod:Hive card in your draw pile to a queenmod:Commander+. Exhaust."
+  },
+    "QueenMod:Knighting":{
+      "NAME": "Knighting",
+      "DESCRIPTION": "Add a queenmod:Hive card in your hand to your deck permanently.",
+      "UPGRADE_DESCRIPTION": "Add a queenmod:Hive card in your hand to your deck permanently. Gain 5 Block."
+    },
+  "QueenMod:Lunge":{
+    "NAME": "Lunge",
+    "DESCRIPTION": "If the last card you played was a skill, deal !D! damage !M! times."
+  },
+  "QueenMod:Parry":{
+    "NAME": "Parry",
+    "DESCRIPTION": "Gain !B! block. Apply 1 Vulnerable. Add a queenmod:Riposte to your hand.",
+    "UPGRADE_DESCRIPTION": "Gain !B! block. Apply 1 Vulnerable. Add a queenmod:Riposte+ to your hand."
+  },
+  "QueenMod:Riposte":{
+    "NAME": "Riposte",
+    "DESCRIPTION": "Deal !D! damage. Ethereal. Exhaust."
+  },
+  "QueenMod:FinishingBlow":{
+    "NAME": "Finishing Blow",
+    "DESCRIPTION": "queenmod:Finisher. If you've played 6 or more cards this turn, deal !D! damage."
+  },
+  "QueenMod:Ambush":{
+    "NAME": "Ambush",
+    "DESCRIPTION": "X random cards in your draw pile cost 0 until played.",
+    "UPGRADE_DESCRIPTION": "X+1 random cards in your draw pile cost 0 until played."
+  },
+  "QueenMod:Charge":{
+    "NAME": "Charge!",
+    "DESCRIPTION": "Deal !D! damage. Draw 2 cards."
+  },
+  "QueenMod:PlanAhead":{
+    "NAME": "Plan Ahead",
+    "DESCRIPTION": "queenmod:Scry 10."
+  },
+  "QueenMod:RelentlessAssault":{
+  "NAME": "Relentless Assault",
+  "DESCRIPTION": "Deal !D! damage !M! times. Attacks once more this combat."
+},
+  "QueenMod:Conscripts":{
+    "NAME": "Conscripts",
+    "DESCRIPTION": "Deal !D! damage. When you add this to your deck, add two additional copies."
+  },
+  "QueenMod:Strike":{
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "QueenMod:Defend":{
+    "NAME": "Defend",
+    "DESCRIPTION": "Gain !B! Block. Recall your queenmod:Swarm."
+  },
+  "QueenMod:Recruit":{
+    "NAME": "Recruit",
+    "DESCRIPTION": "queenmod:Recruit a queenmod:Hornet. NL queenmod:Recruit a queenmod:Bumblebee"
+  },
+  "QueenMod:KillerBee":{
+    "NAME": "Killer Bee",
+    "DESCRIPTION": "Deal !D! damage. While this is in your draw pile, its damage is doubled each turn until played."
+  },
+  "QueenMod:FlankingStrike":{
+    "NAME": "Flanking Strike",
+    "DESCRIPTION": "Deal !D! damage and apply !M! Vulnerable to all enemies. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Innate. Deal !D! damage and apply !M! Vulnerable to all enemies. Exhaust."
+  },
+  "QueenMod:Reinforcements":{
+    "NAME": "Reinforcements",
+    "DESCRIPTION": "At the start of your turn, play a non queenmod:Drone queenmod:Hive card from your draw pile."
+  },
+  "QueenMod:Regroup":{
+    "NAME": "Regroup",
+    "DESCRIPTION": "Gain !B! block. Shuffle your discard pile into your deck. Recall your queenmod:Swarm."
+  },
+  "QueenMod:WarTrumpet":{
+    "NAME": "War Trumpet",
+    "DESCRIPTION": "Add a queenmod:Drone to your deck for each Attack played this turn.",
+    "UPGRADE_DESCRIPTION": "Add a queenmod:Drone+ to your deck for each Attack played this turn."
+  },
+  "QueenMod:SpaDay": {
+    "NAME": "Spa Day",
+    "DESCRIPTION": "Remove all queenmod:CommonDebuffs and gain double the amount removed as queenmod:Nectar ( !queenmod:M2! ). NL queenmod:Recruit a queenmod:Workerbee.",
+    "UPGRADE_DESCRIPTION": "Remove all queenmod:CommonDebuffs and gain double the amount removed as queenmod:Nectar ( !queenmod:M2! ). NL queenmod:Recruit a queenmod:Workerbee."
+  },
+  "QueenMod:RoyalGuards":{
+    "NAME": "Royal Guards",
+    "DESCRIPTION": "Add 3 queenmod:Drones to your draw pile. queenmod:Recruit 3 queenmod:Bumblebees. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Innate. Add 3 queenmod:Drones to your draw pile. queenmod:Recruit 3 queenmod:Bumblebees. Exhaust."
+  },
+  "QueenMod:HoneyFactory":{
+    "NAME": "Honey Factory",
+    "DESCRIPTION": "Unplayable. When drawn, discard to gain !M! queenmod:Nectar and draw a card.",
+    "EXTENDED_DESCRIPTION": [
+      "I can't play this."
+    ]
+  },
+  "QueenMod:SwarmEconomics":{
+    "NAME": "Swarm Economics",
+    "DESCRIPTION": "Recall your queenmod:Swarm for the turn. Gain [E] for every !M! queenmod:Swarm."
+  },
+  "QueenMod:HoneyShield":{
+    "NAME": "Honey Shield",
+    "DESCRIPTION": "When you gain queenmod:Nectar, gain !M! block."
+  },
+  "QueenMod:Reposition":{
+    "NAME": "Reposition",
+    "DESCRIPTION": "Gain 1 Strength. queenmod:Recruit a queenmod:Hornet. Recall your queenmod:Swarm."
+  },
+  "QueenMod:FullRetreat":{
+    "NAME": "Full Retreat",
+    "DESCRIPTION": "Gain !B! Block. Shuffle your hand into your draw pile. Recall your queenmod:Swarm."
+  },
+  "QueenMod:Fortify":{
+    "NAME": "Fortify",
+    "DESCRIPTION": "Gain !M! block for each queenmod:Hive card in your draw pile. Recall your queenmod:Swarm."
+  },
+  "QueenMod:HoldPosition":{
+    "NAME": "Hold Position",
+    "DESCRIPTION": "Gain !B! block. Add 2 queenmod:Drones to your draw pile. Recall your queenmod:Swarm."
+  },
+  "QueenMod:Rally":{
+    "NAME": "Rally",
+    "DESCRIPTION": "Deal !D! damage. Add queenmod:Drones to your draw pile equal to your Strength."
+  },
+  "QueenMod:Multiply":{
+    "NAME": "Multiply",
+    "DESCRIPTION": "Add a copy of each queenmod:Hive card in your draw pile to your draw pile."
+  },
+  "QueenMod:Fleche":{
+    "NAME": "Fleche",
+    "DESCRIPTION": "Deal !D! damage. Exhaust two random skills in your draw pile."
+  },
+  "QueenMod:AggressionPolicy":{
+    "NAME": "Aggression Policy",
+    "DESCRIPTION": "If you have more Attacks than skills and powers, Attacks are played once more."
+  },
+  "QueenMod:MatingDance": {
+    "NAME": "Mating Dance",
+    "DESCRIPTION": "Unplayable. While in your hand, complete a queenmod:Dance to gain !M! queenmod:Swarm, Add !QueenMod:M2! queenmod:Drones to your draw pile and upgrade !QueenMod:M2! cards in your draw pile.",
+    "EXTENDED_DESCRIPTION": [
+      "Gain !M! Swarm. Add !QueenMod:M2! Drones to your deck. Upgrade !QueenMod:M2! cards in your draw pile.",
+      "I can't play this."
+    ]
+  },
+  "QueenMod:OverwhelmingPower": {
+    "NAME": "Overwhelming Power",
+    "DESCRIPTION": "Deal !D! damage. NL Gain [E] for every 10 cards in your deck.",
+    "EXTENDED_DESCRIPTION": [
+      "Deal !D! damage.",
+      "Deal !D! damage. NL Gain [E]",
+      "Deal !D! damage. NL Gain [E] [E]",
+      "Deal !D! damage. NL Gain [E] [E] [E}",
+      "Deal !D! damage. NL Gain [E] [E] [E] [E]",
+      "Deal !D! damage. NL Gain [E] [E] [E] [E] [E}",
+      "Deal !D! damage. NL Gain !M! [E]"
+    ]
+  },
+  "QueenMod:Blitz": {
+    "NAME": "Blitz",
+    "DESCRIPTION": "Deal !D! damage. Damages increases by 1 for each card played this turn and lasts for this combat when played.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage twice. Damages increases by 1 for each card played this turn and lasts for this combat when played."
+  },
+  "QueenMod:SupplyLines": {
+    "NAME": "Supply Lines",
+    "DESCRIPTION": "Spend queenmod:Nectar to gain queenmod:Swarm. Recall your queenmod:Swarm."
+  },
+  "QueenMod:Incubate": {
+    "NAME": "Incubate",
+    "DESCRIPTION": "Gain !M! queenmod:Swarm. Recall your queenmod:Swarm."
+  },
+  "QueenMod:Frenzy": {
+    "NAME": "Frenzy",
+    "DESCRIPTION": "Gain queenmod:Swarm equal to your Strength plus !M!. Apply your queenmod:Swarm to an enemy for the turn."
+  },
+  "QueenMod:SecretService": {
+    "NAME": "Secret Service",
+    "DESCRIPTION": "Exhaust one of each type of queenmod:Hive card in your draw pile. Combine them into a W.A.S.P. and add it to your hand. Exhaust."
+  },
+  "QueenMod:WASP": {
+    "NAME": "W.A.S.P.",
+    "DESCRIPTION": ""
+  },
+  "QueenMod:CallToArms": {
+    "NAME": "Call to Arms",
+    "DESCRIPTION": "Fill your hand with queenmod:Drones from your draw pile. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Fill your hand with queenmod:Drones from your draw pile."
+  },
+  "QueenMod:TeaTime": {
+    "NAME": "Tea Time",
+    "DESCRIPTION": "Gain !B! Block and !M! Nectar. Costs 1 more for each Attack in your hand."
+  },
+  "QueenMod:PlanOfAction": {
+    "NAME": "Plan of Action",
+    "DESCRIPTION": "Innate. Choose to gain Strength, Dexterity, Industry or a mixture of all three. Exhaust."
+  }
+}

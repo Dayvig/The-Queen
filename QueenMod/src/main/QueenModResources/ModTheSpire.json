@@ -1,0 +1,12 @@
+{
+  "modid": "QueenMod",
+  "name": "QueenMod",
+  "author_list": ["Dayvigilante"],
+  "description": "A deposed queen, set to conquer the spire and seize it as her own hive.",
+  "version": "${project.version}",
+  "sts_version": "${SlayTheSpire.version}",
+  "mts_version": "${ModTheSpire.version}",
+  "dependencies": ["basemod", "stslib"],
+  "update_json": ""
+}
+

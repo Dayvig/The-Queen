@@ -1,0 +1,124 @@
+[
+  {
+      "NAMES": [
+        "hornet",
+        "hornets"
+      ],
+      "DESCRIPTION": "Hornets are 1-cost attacks that deal 11 damage."
+  },
+  {
+      "NAMES": [
+        "bumblebee",
+        "bumblebees"
+      ],
+      "DESCRIPTION": "Bumblebees are 1-cost skills that gain 10 block."
+    },
+  {
+      "NAMES": [
+        "workerbee",
+        "workerbees"
+      ],
+    "DESCRIPTION": "Worker Bees are 0-cost skills that gain 1 queenmod:Industry."
+    },
+  {
+      "NAMES": [
+        "drone",
+        "drones"
+      ],
+      "DESCRIPTION": "Drones are 0-cost skills that draw a card and exhaust."
+    },
+  {
+    "NAMES": [
+        "nectar",
+        "nectar"
+      ],
+    "DESCRIPTION": "Nectar is used with certain cards to improve their effects."
+    },
+  {
+      "NAMES": [
+        "swarm"
+      ],
+    "DESCRIPTION": "Swarm grants you block and damages enemies. It follows the targets of your cards."
+    },
+  {
+    "NAMES": [
+        "hive"
+      ],
+    "DESCRIPTION": "Hive cards are Hornets, Bumblebees, Honeybees and Drones."
+    },
+  {
+      "NAMES": [
+        "pollinate",
+        "pollinate"
+      ],
+    "DESCRIPTION": "When a Pollinated enemy is attacked, gain 2 Nectar."
+    },
+  {
+      "NAMES": [
+        "recruit",
+        "recruit"
+      ],
+    "DESCRIPTION": "Transform a Drone in your hand or draw pile into the chosen hive card. Hand is checked before draw pile."
+  },
+  {
+    "NAMES": [
+      "dance"
+    ],
+    "DESCRIPTION": "While this is in your hand, it will list a series of card types. Play them in sequence to reap the rewards!"
+  },
+  {
+    "NAMES": [
+      "flight"
+    ],
+    "DESCRIPTION": "Take 50% less damage. On receiving attack damage, lose 1 Flight."
+  },
+  {
+    "NAMES": [
+      "riposte"
+    ],
+    "DESCRIPTION": "A Riposte is a 1-cost Attack that deals 9 damage."
+  },
+  {
+    "NAMES": [
+      "riposte+"
+    ],
+    "DESCRIPTION": "A Riposte+ is a 1-cost Attack that deals 11 damage."
+  },
+  {
+    "NAMES": [
+      "commander"
+    ],
+    "DESCRIPTION": "A Commander is an upgraded version of a Hive card that costs 1 more and has bonus effects. NL Drone Commander: Upgrade all Drones in your draw pile. Draw a card. NL Hornet Commander: Deal 11 damage. When you play a Hive card this turn, deal 4 damage to a random enemy NL Bumblebee Commander: Gain 10 Block. When you play a Hive card this turn, gain 2 Block next turn. NL Honeybee Commander: Gain 5 Nectar. Apply 1 Pollinate."
+  },
+  {
+    "NAMES": [
+      "finisher"
+    ],
+    "DESCRIPTION": "Playing a finisher ends your turn immediately."
+  },
+  {
+  "NAMES": [
+    "drone+"
+  ],
+  "DESCRIPTION": "A Drone+ is a 0-cost skill that draw 2 cards and Exhausts."
+},
+  {
+  "NAMES": [
+    "scry"
+  ],
+  "DESCRIPTION": "Look at the top X cards of your deck, and choose any number to send to your discard pile."
+},
+  {
+  "NAMES": [
+    "commondebuff",
+    "commondebuffs"
+  ],
+  "DESCRIPTION": "Weak, Vulnerable and Frail are Common Debuffs."
+},
+  {
+  "NAMES": [
+    "industry"
+  ],
+  "DESCRIPTION": "At the start of your turn, gain 1 queenmod:Nectar for each Industry, also draw one additional card at the start of your turn for every 5 Industry you have."
+}
+]
