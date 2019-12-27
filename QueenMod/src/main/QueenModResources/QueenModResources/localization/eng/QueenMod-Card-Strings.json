@@ -82,8 +82,8 @@
   },
   "QueenMod:Beekeeping": {
     "NAME": "Beekeeping",
-    "DESCRIPTION": "Exhaust a card in your hand. Add a queenmod:Drone from your draw pile to your hand. queenmod:Recruit a queenmod:Bumblebee. Recall your queenmod:Swarm",
-    "UPGRADE_DESCRIPTION": "Exhaust a card in your hand. Add a queenmod:Drone from your draw pile to your hand. queenmod:Recruit an upgraded queenmod:Bumblebee. Recall your queenmod:Swarm"
+    "DESCRIPTION": "Exhaust a card in your hand. Recruit a queenmod:Bumblebee and add it to your hand.",
+    "UPGRADE_DESCRIPTION": "Exhaust a card in your hand. Recruit 2 queenmod:Bumblebees and add them to your hand."
   },
   "QueenMod:Metamorphosis": {
     "NAME": "Metamorphosis",
