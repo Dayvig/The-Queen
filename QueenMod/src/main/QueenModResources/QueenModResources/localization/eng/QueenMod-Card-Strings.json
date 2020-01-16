@@ -82,8 +82,8 @@
   },
   "QueenMod:Beekeeping": {
     "NAME": "Beekeeping",
-    "DESCRIPTION": "Exhaust a card in your hand. Recruit a queenmod:Bumblebee and add it to your hand.",
-    "UPGRADE_DESCRIPTION": "Exhaust a card in your hand. Recruit 2 queenmod:Bumblebees and add them to your hand."
+    "DESCRIPTION": "Exhaust 1 card. Add a queenmod:Bumblebee to your hand.",
+    "UPGRADE_DESCRIPTION": "Exhaust 1 card. Add an upgraded queenmod:Bumblebee to your hand."
   },
   "QueenMod:Metamorphosis": {
     "NAME": "Metamorphosis",
@@ -151,8 +151,8 @@
     "NAME": "Perfect Landing",
     "DESCRIPTION": "queenmod:Finisher. If you've played 5 or more cards this turn, gain !B! block. Recall your queenmod:Swarm."
   },
-  "QueenMod:CalculatedAttack": {
-  "NAME": "Calculated Attack",
+  "QueenMod:SplitStrike": {
+  "NAME": "Split Strike",
   "DESCRIPTION": "Deal !D! Damage. Recall half your queenmod:Swarm for the turn."
 },
   "QueenMod:Feast": {
@@ -199,7 +199,7 @@
   },
   "QueenMod:BlindingSwarm": {
     "NAME": "Blinding Swarm",
-    "DESCRIPTION": "Gain !B! Block. Distribute your queenmod:Swarm among all enemies for the turn and inflict 1 Weak to all enemies for every !M! queenmod:Swarm."
+    "DESCRIPTION": "Apply !M! Weak to all enemies. Split your queenmod:Swarm among all enemies for the turn."
   },
   "QueenMod:SecretWeapon": {
     "NAME": "Secret Weapon",
@@ -411,7 +411,7 @@
   },
   "QueenMod:Frenzy": {
     "NAME": "Frenzy",
-    "DESCRIPTION": "Gain queenmod:Swarm equal to your Strength plus !M!. Apply your queenmod:Swarm to an enemy for the turn."
+    "DESCRIPTION": "Deal !D! damage twice. Apply queenmod:Swarm for the turn equal to the damage dealt."
   },
   "QueenMod:SecretService": {
     "NAME": "Secret Service",

@@ -4,8 +4,10 @@ import QueenMod.QueenMod;
 import QueenMod.actions.FlybyAction;
 import QueenMod.characters.TheQueen;
 import QueenMod.powers.FocusedSwarmE;
+import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -38,13 +40,15 @@ public class Frenzy extends AbstractDynamicCard {
 
     public Frenzy() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = 3;
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new FocusedSwarmE(m, p, magicNumber),magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HEAVY));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HEAVY));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new FocusedSwarmE(m, p, this.damage),this.damage));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new FocusedSwarmE(m, p, this.damage),this.damage));
     };
 
     // Upgraded stats.
@@ -52,7 +56,7 @@ public class Frenzy extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(2);
+            upgradeDamage(1);
             initializeDescription();
         }
     }

@@ -80,6 +80,7 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
     @Override
     public void onAfterUseCard(AbstractCard c, UseCardAction a) {
         int totalSwarm = 0;
+
         for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (m.hasPower(SwarmPowerEnemy.POWER_ID)) {
                 totalSwarm += m.getPower(SwarmPowerEnemy.POWER_ID).amount;
@@ -88,18 +89,11 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
         if (AbstractDungeon.player.hasPower(SwarmPower.POWER_ID)) {
             totalSwarm += AbstractDungeon.player.getPower(SwarmPower.POWER_ID).amount;
         }
-        if (c.cardID.equals(Frenzy.ID) && totalSwarm != 0){
-            if (AbstractDungeon.player.hasPower(StrengthPower.POWER_ID)){
-                totalSwarm += AbstractDungeon.player.getPower(StrengthPower.POWER_ID).amount;
-            }
-            AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, true, totalSwarm, a));
-            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(a.target, AbstractDungeon.player, SwarmPowerEnemy.POWER_ID));
-        }
        else if (c.cardID.equals(Mark.ID) && totalSwarm != 0){
             AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, true, totalSwarm, a));
             AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(a.target, AbstractDungeon.player, SwarmPowerEnemy.POWER_ID));
         }
-        else if (c.cardID.equals(CalculatedAttack.ID) && totalSwarm > 1){
+        else if (c.cardID.equals(SplitStrike.ID) && totalSwarm > 1){
             if (!a.target.isDying || !a.target.isDeadOrEscaped()) {
                 int temp = totalSwarm / 2;
                 totalSwarm -= temp;
@@ -113,12 +107,6 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
             AbstractCard tmp = c;
             tmp.target = ALL_ENEMY;
             AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(tmp, true, totalSwarm, a));
-            int n = totalSwarm/c.magicNumber;
-            if (n > 0) {
-                for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, AbstractDungeon.player, new WeakPower(m, n, false), n));
-                }
-            }
         }
         else if (c.cardID.equals(SwarmEconomics.ID) && totalSwarm != 0){
             int temp = totalSwarm;

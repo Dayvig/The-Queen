@@ -394,7 +394,7 @@ public class QueenMod implements
         BaseMod.addCard(new CrossGuard());
         BaseMod.addCard(new OrganizedWorkforce());
         BaseMod.addCard(new Feast());
-        BaseMod.addCard(new CalculatedAttack());
+        BaseMod.addCard(new SplitStrike());
         BaseMod.addCard(new PerfectLanding());
         BaseMod.addCard(new Flyby());
         BaseMod.addCard(new OverwhelmingForce());
@@ -471,7 +471,7 @@ public class QueenMod implements
         UnlockTracker.unlockCard(OverwhelmingForce.ID);
         UnlockTracker.unlockCard(Flyby.ID);
         UnlockTracker.unlockCard(PerfectLanding.ID);
-        UnlockTracker.unlockCard(CalculatedAttack.ID);
+        UnlockTracker.unlockCard(SplitStrike.ID);
         UnlockTracker.unlockCard(Feast.ID);
         UnlockTracker.unlockCard(OrganizedWorkforce.ID);
         UnlockTracker.unlockCard(CrossGuard.ID);

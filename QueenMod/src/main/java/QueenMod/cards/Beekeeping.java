@@ -37,12 +37,13 @@ public class Beekeeping extends AbstractDynamicCard {
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 0;  // COST = ${COST}
+    private static final int MAGIC = 1;
     // /STAT DECLARATION/
 
 
     public Beekeeping() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = magicNumber = 1;
+        baseMagicNumber = magicNumber = MAGIC;
     }
 
 
@@ -50,15 +51,9 @@ public class Beekeeping extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ExhaustAction(p,p,magicNumber,false));
-        for (AbstractCard c : AbstractDungeon.player.drawPile.group){
-            if (c.cardID.equals(Drone.ID)) {
-                AbstractDungeon.actionManager.addToTop(new DrawToHandAction(c));
-                break;
-            }
-        }
         AbstractCard d = new BumbleBee();
         if (upgraded){ d.upgrade(); }
-        AbstractDungeon.actionManager.addToBottom(new RecruitAction(d, magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(d, magicNumber));
     }
 
 
