@@ -36,6 +36,9 @@ public class MatingDance extends AbstractDynamicCard {
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = -2;  // COST = ${COST}
+    private static final int MAGIC = 10;
+
+
     private int combo;
     CardType dance[] = new CardType[4];
     String[] danceDescriptions = new String[4];
@@ -45,8 +48,7 @@ public class MatingDance extends AbstractDynamicCard {
 
     public MatingDance() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = 5;
-        defaultBaseSecondMagicNumber = defaultSecondMagicNumber = 2;
+        baseMagicNumber = magicNumber = MAGIC;
     }
 
 
@@ -257,8 +259,7 @@ public class MatingDance extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.upgradeMagicNumber(3);
-            this.upgradeDefaultSecondMagicNumber(1);
+            this.upgradeMagicNumber(5);
             initializeDescription();
         }
     }

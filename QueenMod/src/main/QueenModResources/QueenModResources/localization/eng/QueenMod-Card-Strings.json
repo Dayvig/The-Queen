@@ -39,11 +39,11 @@
   },
   "QueenMod:HexGuard": {
     "NAME": "Hex Guard",
-    "DESCRIPTION": "Gain !B! Block. Spend queenmod:Nectar to Empower. Recall your queenmod:Swarm."
+    "DESCRIPTION": "Gain !B! Block. Spend 10 queenmod:Nectar: Gain !B! Block."
   },
   "QueenMod:HoneycombSmash": {
     "NAME": "Honeycomb Smash",
-    "DESCRIPTION": "Deal !D! Damage. Apply 1 Weak. Spend queenmod:Nectar to Empower."
+    "DESCRIPTION": "Deal !D! Damage. Spend 10 queenmod:Nectar: Apply 2 Weak. "
   },
   "QueenMod:Populate": {
     "NAME": "Populate",
@@ -102,9 +102,9 @@
   "NAME": "War Buzz",
   "DESCRIPTION": "Exhaust all non-attacks in your hand. Replace them with queenmod:Hornets."
 },
-  "QueenMod:PressTheAttack": {
-  "NAME": "Press the Attack",
-  "DESCRIPTION": "Deal !D! damage. If you've played !M! or more cards this turn, draw a card and gain [E} ."
+  "QueenMod:ChainStrike": {
+  "NAME": "Chain strike",
+  "DESCRIPTION": "Deal !D! damage. If you've played !M! or more cards this turn, draw a card and gain [E] ."
 },
   "QueenMod:RoyalDefenders": {
   "NAME": "Royal Defenders",
@@ -163,8 +163,8 @@
       "Deal !D! damage. If this kills an enemy, gain !M! queenmod:Swarm."
     ]
 },
-  "QueenMod:OrganizedWorkforce": {
-    "NAME": "Organized Workers",
+  "QueenMod:DroneSpawner": {
+    "NAME": "Drone Spawner",
     "DESCRIPTION": "At the end of your turn, add a queenmod:Drone to your draw pile."
   },
   "QueenMod:CrossGuard": {
@@ -379,7 +379,7 @@
     "NAME": "Mating Dance",
     "DESCRIPTION": "Unplayable. While in your hand, complete a queenmod:Dance to gain !M! queenmod:Swarm, Add !QueenMod:M2! queenmod:Drones to your draw pile and upgrade !QueenMod:M2! cards in your draw pile.",
     "EXTENDED_DESCRIPTION": [
-      "Gain !M! Swarm. Add !QueenMod:M2! Drones to your deck. Upgrade !QueenMod:M2! cards in your draw pile.",
+      "Gain !M! Swarm.",
       "I can't play this."
     ]
   },

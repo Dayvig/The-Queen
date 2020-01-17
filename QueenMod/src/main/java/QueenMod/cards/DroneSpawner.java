@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static QueenMod.QueenMod.makeCardPath;
 
-public class OrganizedWorkforce extends AbstractDynamicCard {
+public class DroneSpawner extends AbstractDynamicCard {
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
@@ -23,7 +23,7 @@ public class OrganizedWorkforce extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = QueenMod.makeID(OrganizedWorkforce.class.getSimpleName());
+    public static final String ID = QueenMod.makeID(DroneSpawner.class.getSimpleName());
     public static final String IMG = makeCardPath("Power.png");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -50,7 +50,7 @@ public class OrganizedWorkforce extends AbstractDynamicCard {
     // /STAT DECLARATION/
 
 
-    public OrganizedWorkforce() {
+    public DroneSpawner() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
     }
 

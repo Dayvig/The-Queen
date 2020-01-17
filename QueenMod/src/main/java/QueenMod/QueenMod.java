@@ -392,7 +392,7 @@ public class QueenMod implements
         BaseMod.addCard(new Anticipate());
         BaseMod.addCard(new TakeFlight());
         BaseMod.addCard(new CrossGuard());
-        BaseMod.addCard(new OrganizedWorkforce());
+        BaseMod.addCard(new DroneSpawner());
         BaseMod.addCard(new Feast());
         BaseMod.addCard(new SplitStrike());
         BaseMod.addCard(new PerfectLanding());
@@ -405,7 +405,7 @@ public class QueenMod implements
         BaseMod.addCard(new EnergyBees());
         BaseMod.addCard(new SharpStingers());
         BaseMod.addCard(new RoyalDefenders());
-        BaseMod.addCard(new PressTheAttack());
+        BaseMod.addCard(new ChainStrike());
         BaseMod.addCard(new WarBuzz());
         BaseMod.addCard(new HornetSwarm());
         BaseMod.addCard(new Nourish());
@@ -473,7 +473,7 @@ public class QueenMod implements
         UnlockTracker.unlockCard(PerfectLanding.ID);
         UnlockTracker.unlockCard(SplitStrike.ID);
         UnlockTracker.unlockCard(Feast.ID);
-        UnlockTracker.unlockCard(OrganizedWorkforce.ID);
+        UnlockTracker.unlockCard(DroneSpawner.ID);
         UnlockTracker.unlockCard(CrossGuard.ID);
         UnlockTracker.unlockCard(TakeFlight.ID);
         UnlockTracker.unlockCard(Anticipate.ID);
@@ -511,7 +511,7 @@ public class QueenMod implements
         UnlockTracker.unlockCard(Nourish.ID);
         UnlockTracker.unlockCard(HornetSwarm.ID);
         UnlockTracker.unlockCard(WarBuzz.ID);
-        UnlockTracker.unlockCard(PressTheAttack.ID);
+        UnlockTracker.unlockCard(ChainStrike.ID);
         UnlockTracker.unlockCard(HoneycombSmash.ID);
         UnlockTracker.unlockCard(HexGuard.ID);
         UnlockTracker.unlockCard(GatheringSwarm.ID);

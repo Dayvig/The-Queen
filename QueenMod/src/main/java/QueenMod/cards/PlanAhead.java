@@ -7,7 +7,7 @@ import QueenMod.powers.SkillNextTurnPower;
 import basemod.helpers.ModalChoice;
 import basemod.helpers.ModalChoiceBuilder;
 import com.megacrit.cardcrawl.actions.common.*;
-import com.megacrit.cardcrawl.actions.unique.ReprogramAction;
+import com.megacrit.cardcrawl.actions.utility.ScryAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -51,7 +51,7 @@ public class PlanAhead extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ReprogramAction(10));
+        AbstractDungeon.actionManager.addToBottom(new ScryAction(5));
     }
 
     // Upgraded stats.
