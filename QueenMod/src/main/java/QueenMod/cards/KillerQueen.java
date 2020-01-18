@@ -37,7 +37,6 @@ public class KillerQueen extends AbstractDynamicCard {
 
     private static final int COST = 2;  // COST = ${COST}
     private static final int UPGRADED_COST = 2; // UPGRADED_COST = ${UPGRADED_COST}
-    public static final String EXTENDED_DESCRIPTION = "I must have more Attacks than Skills and Powers to play this!";
     private static final int DAMAGE = 24;    // DAMAGE = ${DAMAGE}
     private static final int UPGRADE_PLUS_DMG = 6;  // UPGRADE_PLUS_DMG = ${UPGRADED_DAMAGE_INCREASE}
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -80,11 +79,9 @@ public class KillerQueen extends AbstractDynamicCard {
                 if (c.type.equals(CardType.ATTACK)){numAttacks++;}
                 else if (c.type.equals(CardType.SKILL) || c.type.equals(CardType.POWER)){numOther++;}
             }
-            this.rawDescription = DESCRIPTION + " NL Other: " +numOther+" | Attacks: "+numAttacks;
-            initializeDescription();
-            if (numAttacks > numOther){return true;}
+            if (numAttacks >= numOther){return true;}
             else {
-                this.cantUseMessage = EXTENDED_DESCRIPTION;
+                this.cantUseMessage = "My skills and powers outnumber my attacks by "+(numOther-numAttacks)+"!";
                 return false;}
         }
     }
