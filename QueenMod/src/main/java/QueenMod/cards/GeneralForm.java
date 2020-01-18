@@ -2,7 +2,7 @@ package QueenMod.cards;
 
 import QueenMod.QueenMod;
 import QueenMod.characters.TheQueen;
-import QueenMod.powers.BlitzDrain;
+import QueenMod.powers.GeneralUpkeep;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -54,7 +54,7 @@ public class GeneralForm extends AbstractDynamicCard {
     public void use(final AbstractPlayer p, final AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber),magicNumber));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber),magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new BlitzDrain(p,p,5),5));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new GeneralUpkeep(p,p,5),5));
     }
 
     //Upgraded stats.

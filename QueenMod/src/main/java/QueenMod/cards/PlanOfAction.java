@@ -65,7 +65,7 @@ public class PlanOfAction extends AbstractDynamicCard implements ModalChoice.Cal
                 .addOption("Gain 3 Dexterity. queenmod:Recruit a queenmod:Bumblebee.", CardTarget.NONE)
                 .setColor(CardColor.GREEN) // Sets color of any following cards to colorless
                 .setTitle("Industrial")
-                .addOption("Gain 3 Industry and 4 queenmod:Swarm. queenmod:Recruit a queenmod:Workerbee", CardTarget.NONE)
+                .addOption("Gain 20 Industry and 4 queenmod:Swarm. queenmod:Recruit a queenmod:Workerbee", CardTarget.NONE)
                 .create();
         modal.generateTooltips();
     }

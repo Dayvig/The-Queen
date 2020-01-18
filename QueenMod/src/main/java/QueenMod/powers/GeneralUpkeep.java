@@ -5,6 +5,7 @@ import QueenMod.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -18,10 +19,10 @@ import static QueenMod.QueenMod.makePowerPath;
 
 //Gain 1 dex for the turn for each card played.
 
-public class BlitzDrain extends AbstractPower implements CloneablePowerInterface {
+public class GeneralUpkeep extends AbstractPower implements CloneablePowerInterface {
     public AbstractCreature source;
 
-    public static final String POWER_ID = QueenMod.makeID("BlitzDrain");
+    public static final String POWER_ID = QueenMod.makeID("GeneralUpkeep");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
@@ -31,7 +32,7 @@ public class BlitzDrain extends AbstractPower implements CloneablePowerInterface
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("placeholder_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("placeholder_power32.png"));
 
-    public BlitzDrain(final AbstractCreature owner, final AbstractCreature source, final int amount) {
+    public GeneralUpkeep(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = NAME;
         ID = POWER_ID;
 
@@ -56,8 +57,9 @@ public class BlitzDrain extends AbstractPower implements CloneablePowerInterface
             AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, Nectar.POWER_ID, this.amount));
         }
         else {
-            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, StrengthPower.POWER_ID,2));
-            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, DexterityPower.POWER_ID,2));
+            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, AbstractDungeon.player.getPower(StrengthPower.POWER_ID), 5));
+            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, AbstractDungeon.player.getPower(DrawPlusPower.POWER_ID), 2));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new GeneralDisabledPower(this.owner, this.owner, 1), 1));
         }
     }
 
@@ -73,6 +75,6 @@ public class BlitzDrain extends AbstractPower implements CloneablePowerInterface
 
     @Override
     public AbstractPower makeCopy() {
-        return new BlitzDrain(owner, source, amount);
+        return new GeneralUpkeep(owner, source, amount);
     }
 }

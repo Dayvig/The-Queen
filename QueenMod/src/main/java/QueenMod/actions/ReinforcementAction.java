@@ -47,10 +47,8 @@ public class ReinforcementAction extends AbstractGameAction {
             for (AbstractCard c : p.group) {
                 if (c.cardID.equals(Hornet.ID) ||
                         c.cardID.equals(BumbleBee.ID) ||
-                        c.cardID.equals(WorkerBee.ID) ||
                         c.cardID.equals(HornetCommander.ID) ||
                         c.cardID.equals(BumbleBeeCommander.ID) ||
-                        c.cardID.equals(WorkerBeeCommander.ID) ||
                         c.cardID.equals(WASP.ID)) {
                     upgradeMatrix.add(c);
                 }
