@@ -24,6 +24,7 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
+import org.apache.commons.codec.binary.Hex;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -169,9 +170,17 @@ public class TheQueen extends CustomPlayer {
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
         retVal.add(Recruit.ID);
-        retVal.add(Frenzy.ID);
-        retVal.add(Beekeeping.ID);
-        retVal.add(BlindingSwarm.ID);
+        retVal.add(HexGuard.ID);
+        retVal.add(HoneycombSmash.ID);
+        retVal.add(MatingDance.ID);
+        retVal.add(ChainStrike.ID);
+        retVal.add(DroneSpawner.ID);
+        retVal.add(WorkerBee.ID);
+        retVal.add(WorkerBee.ID);
+        retVal.add(WorkerBee.ID);
+        retVal.add(WorkerBee.ID);
+        retVal.add(WorkerBee.ID);
+
 
         return retVal;
     }

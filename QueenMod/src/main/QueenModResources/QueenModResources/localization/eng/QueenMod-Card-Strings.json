@@ -60,7 +60,7 @@
   },
   "QueenMod:WorkerBee": {
     "NAME": "Worker Bee",
-    "DESCRIPTION": "Gain !M! queenmod:Industry."
+    "DESCRIPTION": "Apply 1 queenmod:Pollinate. NL Deal 2 damage."
   },
   "QueenMod:BuildOrder": {
     "NAME": "Build Order",
@@ -185,13 +185,13 @@
       "Gain !B! block. Add a Drone to your hand."
     ]
   },
-  "QueenMod:ScoutingParty": {
-    "NAME": "Scouting Party",
+  "QueenMod:HoneyCorps": {
+    "NAME": "Honey Corps",
     "DESCRIPTION": "Draw !M! cards. queenmod:Recruit 2 queenmod:Workerbees."
   },
   "QueenMod:MilitaryHandbook": {
     "NAME": "Military Handbook",
-    "DESCRIPTION": "Draw !M! cards. Spend queenmod:Nectar to improve. Exhaust."
+    "DESCRIPTION": "Draw !M! cards. Spend 10 queenmod:Nectar: Attacks in your hand cost 1 less this turn."
   },
   "QueenMod:PollenBlast": {
     "NAME": "Pollen Blast",
@@ -403,7 +403,7 @@
   },
   "QueenMod:SupplyLines": {
     "NAME": "Supply Lines",
-    "DESCRIPTION": "Spend queenmod:Nectar to gain queenmod:Swarm. Recall your queenmod:Swarm."
+    "DESCRIPTION": "Spend 10 queenmod:Nectar: Gain !M! queenmod:Swarm."
   },
   "QueenMod:Incubate": {
     "NAME": "Incubate",

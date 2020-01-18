@@ -5,8 +5,12 @@ import QueenMod.characters.TheQueen;
 import QueenMod.powers.HoneyPower;
 import QueenMod.powers.IndustryPower;
 import QueenMod.powers.Nectar;
+import QueenMod.powers.PollinatePower;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -26,30 +30,31 @@ public class WorkerBee extends AbstractDynamicCard {
     // STAT DECLARATION
 
     private static final CardRarity RARITY = CardRarity.SPECIAL; //  Up to you, I like auto-complete on these
-    private static final CardTarget TARGET = CardTarget.NONE;  //   since they don't change much.
-    private static final CardType TYPE = CardType.SKILL;       //
+    private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
+    private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 0;  // COST = ${COST}
     private static final int UPGRADED_COST = 0; // UPGRADED_COST = ${UPGRADED_COST}
+    private static final int DAMAGE = 2;
 
     // /STAT DECLARATION/
 
 
     public WorkerBee() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = 5;
+        this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
+        baseDamage = damage = DAMAGE;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new Nectar(p, p, magicNumber), magicNumber));
-        if (p.hasPower(HoneyPower.POWER_ID)){
-            AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(p.getPower(HoneyPower.POWER_ID).amount));
-        }
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new PollinatePower(m, p, magicNumber), magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+
     }
 
 

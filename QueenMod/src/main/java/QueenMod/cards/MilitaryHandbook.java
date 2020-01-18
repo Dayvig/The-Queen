@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static QueenMod.QueenMod.makeCardPath;
 
 // public class ${NAME} extends AbstractDynamicCard
-public class MilitaryHandbook extends AbstractDynamicCard implements ModalChoice.Callback{
+public class MilitaryHandbook extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
@@ -34,8 +34,8 @@ public class MilitaryHandbook extends AbstractDynamicCard implements ModalChoice
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 0;  // COST = ${COST}
-    private static final int MAGIC = 2;
-    private ModalChoice modal;
+    private static final int MAGIC = 4;
+    private static final int UPGRADE_MAGIC = 1;
     // /STAT DECLARATION/
 
 
@@ -49,108 +49,22 @@ public class MilitaryHandbook extends AbstractDynamicCard implements ModalChoice
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, magicNumber));
         if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) &&
-                AbstractDungeon.player.getPower(Nectar.POWER_ID).amount < 5){
-            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, magicNumber));
-        }
-        else if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) &&
-                AbstractDungeon.player.getPower(Nectar.POWER_ID).amount < 10 &&
-                AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 5){
-            modal = new ModalChoiceBuilder()
-                    .setCallback(this) // Sets callback of all the below options to this
-                    .setColor(CardColor.COLORLESS) // Sets color of any following cards to colorless
-                    .addOption("Draw "+magicNumber+" cards. Exhaust.", CardTarget.SELF)
-                    .setColor(CardColor.GREEN) // Sets color of any following cards to red
-                    .addOption("Spend 5 Nectar. Draw "+(magicNumber+1)+" cards. Exhaust.", CardTarget.SELF)
-                    .create();
-            modal.generateTooltips();
-            modal.open();
-        }
-        else if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) &&
-                AbstractDungeon.player.getPower(Nectar.POWER_ID).amount < 20 &&
-                AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10){
-            modal = new ModalChoiceBuilder()
-                    .setCallback(this) // Sets callback of all the below options to this
-                    .setColor(CardColor.COLORLESS) // Sets color of any following cards to colorless
-                    .addOption("Draw "+magicNumber+" cards. Exhaust.", CardTarget.SELF)
-                    .setColor(CardColor.GREEN) // Sets color of any following cards to red
-                    .addOption("Spend 5 Nectar. Draw "+(magicNumber+1)+" cards. Exhaust.", CardTarget.SELF)
-                    .setColor(CardColor.BLUE) // Sets color of any following cards to green
-                    .addOption("Spend 10 Nectar. Draw "+(magicNumber+2)+" cards. Exhaust.", CardTarget.SELF)
-                    .create();
-            modal.generateTooltips();
-            modal.open();
-
-        }
-        else if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) &&
-                AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 20){
-            modal = new ModalChoiceBuilder()
-                    .setCallback(this) // Sets callback of all the below options to this
-                    .setColor(CardColor.COLORLESS) // Sets color of any following cards to colorless
-                    .addOption("Draw "+magicNumber+" cards. Exhaust.", CardTarget.SELF)
-                    .setColor(CardColor.GREEN) // Sets color of any following cards to red
-                    .addOption("Spend 5 Nectar. Draw "+(magicNumber+1)+" cards. Exhaust.", CardTarget.SELF)
-                    .setColor(CardColor.BLUE) // Sets color of any following cards to green
-                    .addOption("Spend 10 Nectar. Draw "+(magicNumber+2)+" cards. Exhaust.", CardTarget.SELF)
-                    .setColor(CardColor.RED) // Sets color of any following cards to green
-                    .addOption("Spend 20 Nectar. Draw " + (magicNumber+2) + " cards. Reduce the cost of Attacks in your hand by 1 this turn. Exhaust.", CardTarget.SELF)
-                    .create();
-            modal.generateTooltips();
-            modal.open();
-        }
-        else {
-            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, magicNumber));
-        }
-    }
-
-    // This is called when one of the option cards us chosen
-    @Override
-    public void optionSelected(AbstractPlayer p, AbstractMonster m, int i)
-    {
-        CardColor color;
-        switch (i) {
-            case 0:
-                color = CardColor.COLORLESS;
-                break;
-            case 1:
-                color = CardColor.GREEN;
-                break;
-            case 2:
-                color = CardColor.BLUE;
-                break;
-            case 3:
-                color = CardColor.RED;
-                break;
-            default:
-                return;
-        }
-
-        if (color == CardColor.COLORLESS) {
-            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, magicNumber));
-        } else if (color == CardColor.GREEN){
-            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, magicNumber+1));
-            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(AbstractDungeon.player, AbstractDungeon.player, Nectar.POWER_ID, 5));
-        } else if (color == CardColor.BLUE){
-            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, magicNumber+2));
-            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(AbstractDungeon.player, AbstractDungeon.player, Nectar.POWER_ID, 10));
-        } else if (color == CardColor.RED){
-            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, magicNumber+2));
-            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(AbstractDungeon.player, AbstractDungeon.player, Nectar.POWER_ID, 20));
-            for (AbstractCard c : AbstractDungeon.player.hand.group){
-                if (c.type.equals(CardType.ATTACK)){
-                    System.out.println("Trace");
+                AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10) {
+            for (AbstractCard c : AbstractDungeon.player.hand.group) {
+                if (c.type.equals(CardType.ATTACK)) {
                     c.costForTurn--;
                 }
             }
         }
     }
 
-    // Upgraded stats.
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.upgradeMagicNumber(1);
+            this.upgradeMagicNumber(UPGRADE_MAGIC);
             initializeDescription();
         }
     }

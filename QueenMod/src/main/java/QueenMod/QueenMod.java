@@ -388,7 +388,7 @@ public class QueenMod implements
         BaseMod.addCard(new BlindingSwarm());
         BaseMod.addCard(new PollenBlast());
         BaseMod.addCard(new MilitaryHandbook());
-        BaseMod.addCard(new ScoutingParty());
+        BaseMod.addCard(new HoneyCorps());
         BaseMod.addCard(new Anticipate());
         BaseMod.addCard(new TakeFlight());
         BaseMod.addCard(new CrossGuard());
@@ -477,7 +477,7 @@ public class QueenMod implements
         UnlockTracker.unlockCard(CrossGuard.ID);
         UnlockTracker.unlockCard(TakeFlight.ID);
         UnlockTracker.unlockCard(Anticipate.ID);
-        UnlockTracker.unlockCard(ScoutingParty.ID);
+        UnlockTracker.unlockCard(HoneyCorps.ID);
         UnlockTracker.unlockCard(MilitaryHandbook.ID);
         UnlockTracker.unlockCard(PollenBlast.ID);
         UnlockTracker.unlockCard(BlindingSwarm.ID);

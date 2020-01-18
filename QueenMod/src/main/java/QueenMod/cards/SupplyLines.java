@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static QueenMod.QueenMod.makeCardPath;
 
 // public class ${NAME} extends AbstractDynamicCard
-public class SupplyLines extends AbstractDynamicCard implements ModalChoice.Callback{
+public class SupplyLines extends AbstractDynamicCard {
 
     public static final String ID = QueenMod.makeID(SupplyLines.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
     public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("${NAME}.png");
@@ -33,6 +33,8 @@ public class SupplyLines extends AbstractDynamicCard implements ModalChoice.Call
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 1;  // COST = ${COST}
+    private static final int MAGIC = 10;
+    private static final int UPGRADE_MAGIC = 2;
 
     // /STAT DECLARATION/
     int totalSwarm;
@@ -40,7 +42,7 @@ public class SupplyLines extends AbstractDynamicCard implements ModalChoice.Call
 
     public SupplyLines() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = magicNumber = 6;
+        this.baseMagicNumber = magicNumber = MAGIC;
     }
 
 
@@ -48,71 +50,9 @@ public class SupplyLines extends AbstractDynamicCard implements ModalChoice.Call
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) &&
-                AbstractDungeon.player.getPower(Nectar.POWER_ID).amount < 5){
-        }
-        else if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) &&
-                AbstractDungeon.player.getPower(Nectar.POWER_ID).amount < 10 &&
-                AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 5){
-            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(p,p,Nectar.POWER_ID,5));
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new SwarmPower(p,p,magicNumber+2),magicNumber+2));
-        }
-        else if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) &&
-                AbstractDungeon.player.getPower(Nectar.POWER_ID).amount < 20 &&
                 AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10){
-            modal = new ModalChoiceBuilder()
-                    .setCallback(this) // Sets callback of all the below options to this
-                    .setColor(CardColor.GREEN) // Sets color of any following cards to red
-                    .addOption("Spend 5 Nectar. Gain " + (magicNumber) + " Swarm.", CardTarget.SELF)
-                    .setColor(CardColor.BLUE) // Sets color of any following cards to green
-                    .addOption("Spend 10 Nectar. Gain " + (magicNumber+4) + " Swarm.", CardTarget.SELF)
-                    .create();
-            modal.generateTooltips();
-            modal.open();
-
-        }
-        else if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) &&
-                AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 20){
-            modal = new ModalChoiceBuilder()
-                    .setCallback(this) // Sets callback of all the below options to this
-                    .setColor(CardColor.GREEN) // Sets color of any following cards to red
-                    .addOption("Spend 5 Nectar. Gain " + (magicNumber) + " Swarm.", CardTarget.SELF)
-                    .setColor(CardColor.BLUE) // Sets color of any following cards to green
-                    .addOption("Spend 10 Nectar. Gain " + (magicNumber+4) + " Swarm.", CardTarget.SELF)
-                    .setColor(CardColor.RED) // Sets color of any following cards to green
-                    .addOption("Spend 20 Nectar. Gain " + (magicNumber+4) + " Swarm. Draw 2 cards.", CardTarget.SELF)
-                    .create();
-            modal.generateTooltips();
-            modal.open();
-        }
-    }
-
-    @Override
-    public void optionSelected(AbstractPlayer p, AbstractMonster m, int i)
-    {
-        CardColor color;
-        switch (i) {
-            case 0:
-                color = CardColor.GREEN;
-                break;
-            case 1:
-                color = CardColor.BLUE;
-                break;
-            case 2:
-                color = CardColor.RED;
-                break;
-            default:
-                return;
-        }
-        if (color == CardColor.GREEN){
-            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(p,p,Nectar.POWER_ID,5));
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new SwarmPower(p,p,magicNumber),magicNumber));
-        } else if (color == CardColor.BLUE){
-            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(p,p,Nectar.POWER_ID,10));
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new SwarmPower(p,p,magicNumber+4),magicNumber+4));
-        } else if (color == CardColor.RED){
-            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(p,p,Nectar.POWER_ID,20));
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new SwarmPower(p,p,magicNumber+4),magicNumber+4));
-            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, 2));
+            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(p, p, p.getPower(Nectar.POWER_ID), 10));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SwarmPower(p, p, magicNumber), magicNumber));
         }
     }
 
@@ -121,7 +61,7 @@ public class SupplyLines extends AbstractDynamicCard implements ModalChoice.Call
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(2);
+            upgradeMagicNumber(UPGRADE_MAGIC);
             initializeDescription();
         }
     }
