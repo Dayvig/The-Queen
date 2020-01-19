@@ -119,10 +119,9 @@
     "NAME": "Stockpile",
     "DESCRIPTION": "Gain [E] at the start of your turn for every 10 queenmod:Nectar. NL queenmod:Recruit two queenmod:Worker bees."
   },
-  "QueenMod:PheremoneSwap": {
-    "NAME": "Pheremone Swap",
-    "DESCRIPTION": "Swap your queenmod:Hornets and queenmod:Bumblebees. NL Draw a card.",
-    "UPGRADE_DESCRIPTION": "Swap your queenmod:Hornets and queenmod:Bumblebees. NL Draw !M! cards."
+  "QueenMod:Repurpose": {
+    "NAME": "Repurpose",
+    "DESCRIPTION": "Exhaust all queenmod:Drones in your hand and draw pile. Gain 1 queenmod:Production for each."
   },
   "QueenMod:Mark": {
     "NAME": "Mark",

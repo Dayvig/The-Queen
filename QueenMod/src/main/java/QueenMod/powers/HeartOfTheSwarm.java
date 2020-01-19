@@ -103,7 +103,6 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
             }
         }
         else if (c.cardID.equals(BlindingSwarm.ID) && totalSwarm != 0){
-            System.out.println("Trace");
             AbstractCard tmp = c;
             tmp.target = ALL_ENEMY;
             AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(tmp, true, totalSwarm, a));
