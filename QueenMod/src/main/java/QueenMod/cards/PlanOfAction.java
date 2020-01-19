@@ -52,16 +52,16 @@ public class PlanOfAction extends AbstractDynamicCard implements ModalChoice.Cal
                 .setCallback(this) // Sets callback of all the below options to this
                 .setColor(CardColor.COLORLESS) // Sets color of any following cards to colorless
                 .setTitle("Balanced")
-                .addOption("Gain 1 Strength, 1 Dexterity, 1 Industry and 4 queenmod:Swarm. Add 3 queenmod:Drones to your draw pile.", CardTarget.NONE)
+                .addOption("Gain 1 Strength, 1 Dexterity and 1 Production. NL Add 3 queenmod:Drones to your draw pile.", CardTarget.NONE)
                 .setColor(CardColor.RED) // Sets color of any following cards to colorless
                 .setTitle("Aggressive")
-                .addOption("Gain 3 Strength. queenmod:Recruit a queenmod:Hornet.", CardTarget.NONE)
+                .addOption("Gain 3 Strength. NL queenmod:Recruit a queenmod:Hornet.", CardTarget.NONE)
                 .setColor(CardColor.BLUE) // Sets color of any following cards to colorless
                 .setTitle("Defensive")
-                .addOption("Gain 3 Dexterity. queenmod:Recruit a queenmod:Bumblebee.", CardTarget.NONE)
+                .addOption("Gain 3 Dexterity. NL queenmod:Recruit a queenmod:Bumblebee.", CardTarget.NONE)
                 .setColor(CardColor.GREEN) // Sets color of any following cards to colorless
                 .setTitle("Industrial")
-                .addOption("Gain 20 Industry and 4 queenmod:Swarm. queenmod:Recruit a queenmod:Workerbee", CardTarget.NONE)
+                .addOption("Gain 3 Production. NL queenmod:Recruit a queenmod:Workerbee", CardTarget.NONE)
                 .create();
         modal.generateTooltips();
     }
@@ -90,7 +90,6 @@ public class PlanOfAction extends AbstractDynamicCard implements ModalChoice.Cal
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(abstractPlayer, abstractPlayer, new StrengthPower(abstractPlayer, 1), 1));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(abstractPlayer, abstractPlayer, new DexterityPower(abstractPlayer, 1), 1));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(abstractPlayer, abstractPlayer, new ProductionPower(abstractPlayer, abstractPlayer, 1), 1));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(abstractPlayer, abstractPlayer, new SwarmPower(abstractPlayer, abstractPlayer, 4), 4));
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Drone(), 3, true, false));
             case 1:
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(abstractPlayer, abstractPlayer, new StrengthPower(abstractPlayer, 3), 3));
@@ -100,7 +99,6 @@ public class PlanOfAction extends AbstractDynamicCard implements ModalChoice.Cal
                 AbstractDungeon.actionManager.addToBottom(new RecruitAction(new BumbleBee(), 1));
             case 3:
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(abstractPlayer, abstractPlayer, new ProductionPower(abstractPlayer, abstractPlayer, 3), 3));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(abstractPlayer, abstractPlayer, new SwarmPower(abstractPlayer, abstractPlayer, 4), 4));
                 AbstractDungeon.actionManager.addToBottom(new RecruitAction(new WorkerBee(), 1));
             default:
         }

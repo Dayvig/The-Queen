@@ -38,8 +38,7 @@ public class Anticipate extends AbstractDynamicCard {
     private static final int COST = 1;  // COST = ${COST}
     private static final int UPGRADED_COST = 0;
 
-    public AbstractMonster hoverTarget = null;
-    public AbstractMonster.Intent intentions;
+    private AbstractMonster.Intent intentions;
     // /STAT DECLARATION/
 
 
@@ -103,7 +102,6 @@ public class Anticipate extends AbstractDynamicCard {
                 this.rawDescription = DESCRIPTION;
                 initializeDescription();
                 System.out.println("To normal");
-                return;
             }
         }
 

@@ -177,12 +177,12 @@
   },
   "QueenMod:Anticipate": {
     "NAME": "Anticipate",
-    "DESCRIPTION": "Add a queenmod:Drone from your draw pile to your hand. queenmod:Recruit a queenmod:Hive card based on enemy intent.",
+    "DESCRIPTION": "queenmod:Recruit a queenmod:Hive card based on enemy intent, and add it to your hand.",
     "EXTENDED_DESCRIPTION": [
-      "Add a queenmod:Drone from your draw pile to your hand. Add a queenmod:Bumblebee to your hand.",
-      "Add a queenmod:Drone from your draw pile to your hand. Add a queenmod:Hornet to your hand.",
-      "Add a queenmod:Drone from your draw pile to your hand. Add a queenmod:Workerbee to your hand.",
-      "Gain !B! block. Add a Drone to your hand."
+      "queenmod:Recruit a queenmod:Bumblebee and add it to your hand.",
+      "queenmod:Recruit a queenmod:Hornet and add it to your hand.",
+      "queenmod:Recruit a queenmod:Workerbee and add it to your hand.",
+,      "Gain !B! block. Add a Drone to your hand."
     ]
   },
   "QueenMod:HoneyCorps": {
@@ -432,6 +432,6 @@
   },
   "QueenMod:PlanOfAction": {
     "NAME": "Plan of Action",
-    "DESCRIPTION": "Innate. NL Choose to gain Strength, Dexterity, Industry or a mixture of all three."
+    "DESCRIPTION": "Innate. NL Choose to gain Strength, Dexterity, queenmod:Production or a mixture of all three. NL queenmod:Recruit a queenmod:Hive card based on your choice."
   }
 }
