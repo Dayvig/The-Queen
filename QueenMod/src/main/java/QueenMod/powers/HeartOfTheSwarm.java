@@ -78,7 +78,7 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
     }
 
     @Override
-    public void onAfterUseCard(AbstractCard c, UseCardAction a) {
+    public void onUseCard(AbstractCard c, UseCardAction a) {
         int totalSwarm = 0;
 
         for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
@@ -92,6 +92,9 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
         if (c.cardID.equals(Mark.ID) && totalSwarm != 0){
             AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, true, totalSwarm, a));
             AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(a.target, AbstractDungeon.player, SwarmPowerEnemy.POWER_ID));
+        }
+        else if (c.cardID.equals(Frenzy.ID) && totalSwarm != 0){
+            AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, true, totalSwarm, a));
         }
         else if (c.cardID.equals(SplitStrike.ID) && totalSwarm > 1){
             if (!a.target.isDying || !a.target.isDeadOrEscaped()) {

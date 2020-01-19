@@ -410,7 +410,7 @@
   },
   "QueenMod:Frenzy": {
     "NAME": "Frenzy",
-    "DESCRIPTION": "Deal !D! damage twice. NL Apply queenmod:Swarm for the turn equal to the damage dealt."
+    "DESCRIPTION": "Deal !D! damage to all enemies. NL Gain !B! Block. NL Split your queenmod:Swarm among all enemies and yourself for the turn."
   },
   "QueenMod:SecretService": {
     "NAME": "Secret Service",
