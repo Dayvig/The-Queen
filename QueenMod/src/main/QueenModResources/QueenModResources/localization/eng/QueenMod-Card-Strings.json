@@ -433,5 +433,9 @@
   "QueenMod:PlanOfAction": {
     "NAME": "Plan of Action",
     "DESCRIPTION": "Innate. NL Choose to gain Strength, Dexterity, queenmod:Production or a mixture of all three. NL queenmod:Recruit a queenmod:Hive card based on your choice."
+  },
+  "QueenMod:Drain": {
+    "NAME": "Drain",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! queenmod:Nectar."
   }
 }

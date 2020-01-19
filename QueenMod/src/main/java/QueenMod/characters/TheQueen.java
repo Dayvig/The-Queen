@@ -170,17 +170,7 @@ public class TheQueen extends CustomPlayer {
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
         retVal.add(Recruit.ID);
-        retVal.add(HexGuard.ID);
-        retVal.add(HoneyCorps.ID);
-        retVal.add(Nourish.ID);
-        retVal.add(GeneralForm.ID);
-        retVal.add(SupplyLines.ID);
-        retVal.add(WorkerBee.ID);
-        retVal.add(WorkerBee.ID);
-        retVal.add(WorkerBee.ID);
-        retVal.add(WorkerBee.ID);
-        retVal.add(WorkerBee.ID);
-
+        retVal.add(Drain.ID);
 
         return retVal;
     }

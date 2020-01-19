@@ -338,6 +338,8 @@ public class QueenMod implements
         // Add the cards
         // Don't comment out/delete these cards (yet). You need 1 of e0ach type and rarity (technically) for your game not to crash
         // when generating card rewards/shop screen items.
+
+        BaseMod.addCard(new Drain());
         BaseMod.addCard(new PlanOfAction());
         BaseMod.addCard(new TeaTime());
         BaseMod.addCard(new CallToArms());
@@ -434,6 +436,8 @@ public class QueenMod implements
         // Unlock the cards
         // This is so that they are all "seen" in the library, for people who like to look at the card list
         // before playing your mod.
+
+        UnlockTracker.unlockCard(Drain.ID);
         UnlockTracker.unlockCard(PlanOfAction.ID);
         UnlockTracker.unlockCard(TeaTime.ID);
         UnlockTracker.unlockCard(SecretService.ID);
