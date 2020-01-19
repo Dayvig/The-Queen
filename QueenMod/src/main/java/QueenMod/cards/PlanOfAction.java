@@ -3,9 +3,7 @@ package QueenMod.cards;
 import QueenMod.QueenMod;
 import QueenMod.actions.RecruitAction;
 import QueenMod.characters.TheQueen;
-import QueenMod.powers.AttackNextTurnPower;
-import QueenMod.powers.IndustryPower;
-import QueenMod.powers.SkillNextTurnPower;
+import QueenMod.powers.ProductionPower;
 import QueenMod.powers.SwarmPower;
 import basemod.helpers.ModalChoice;
 import basemod.helpers.ModalChoiceBuilder;
@@ -15,10 +13,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.potions.StrengthPotion;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.sun.corba.se.spi.orbutil.threadpool.Work;
 
 import static QueenMod.QueenMod.makeCardPath;
 
@@ -93,7 +89,7 @@ public class PlanOfAction extends AbstractDynamicCard implements ModalChoice.Cal
             case 0:
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(abstractPlayer, abstractPlayer, new StrengthPower(abstractPlayer, 1), 1));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(abstractPlayer, abstractPlayer, new DexterityPower(abstractPlayer, 1), 1));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(abstractPlayer, abstractPlayer, new IndustryPower(abstractPlayer, abstractPlayer, 1), 1));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(abstractPlayer, abstractPlayer, new ProductionPower(abstractPlayer, abstractPlayer, 1), 1));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(abstractPlayer, abstractPlayer, new SwarmPower(abstractPlayer, abstractPlayer, 4), 4));
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Drone(), 3, true, false));
             case 1:
@@ -103,7 +99,7 @@ public class PlanOfAction extends AbstractDynamicCard implements ModalChoice.Cal
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(abstractPlayer, abstractPlayer, new DexterityPower(abstractPlayer, 3), 3));
                 AbstractDungeon.actionManager.addToBottom(new RecruitAction(new BumbleBee(), 1));
             case 3:
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(abstractPlayer, abstractPlayer, new IndustryPower(abstractPlayer, abstractPlayer, 3), 3));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(abstractPlayer, abstractPlayer, new ProductionPower(abstractPlayer, abstractPlayer, 3), 3));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(abstractPlayer, abstractPlayer, new SwarmPower(abstractPlayer, abstractPlayer, 4), 4));
                 AbstractDungeon.actionManager.addToBottom(new RecruitAction(new WorkerBee(), 1));
             default:

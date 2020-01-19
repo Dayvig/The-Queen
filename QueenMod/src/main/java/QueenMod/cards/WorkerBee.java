@@ -2,14 +2,10 @@ package QueenMod.cards;
 
 import QueenMod.QueenMod;
 import QueenMod.characters.TheQueen;
-import QueenMod.powers.HoneyPower;
-import QueenMod.powers.IndustryPower;
-import QueenMod.powers.Nectar;
 import QueenMod.powers.PollinatePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -63,7 +59,8 @@ public class WorkerBee extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.upgradeMagicNumber(5);
+            this.upgradeMagicNumber(1);
+            this.upgradeDamage(2);
             initializeDescription();
         }
     }

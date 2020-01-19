@@ -18,10 +18,10 @@ import static QueenMod.QueenMod.makePowerPath;
 
 //Gain 1 dex for the turn for each card played.
 
-public class IndustryPower extends AbstractPower implements CloneablePowerInterface {
+public class ProductionPower extends AbstractPower implements CloneablePowerInterface {
     public AbstractCreature source;
 
-    public static final String POWER_ID = QueenMod.makeID("IndustryPower");
+    public static final String POWER_ID = QueenMod.makeID("ProductionPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
@@ -31,7 +31,7 @@ public class IndustryPower extends AbstractPower implements CloneablePowerInterf
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("placeholder_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("placeholder_power32.png"));
 
-    public IndustryPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
+    public ProductionPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = NAME;
         ID = POWER_ID;
 
@@ -50,14 +50,10 @@ public class IndustryPower extends AbstractPower implements CloneablePowerInterf
 
     public void atStartOfTurnPostDraw(){
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner, new Nectar(owner, owner, amount), amount));
-        int n = this.amount/5;
-        if (n > 0){
-            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(owner, n));
             if (AbstractDungeon.player.hasPower(HoneyPower.POWER_ID)){
-                AbstractDungeon.actionManager.addToBottom(new GainEnergyAction((AbstractDungeon.player.getPower(HoneyPower.POWER_ID).amount) * n));
+                AbstractDungeon.actionManager.addToBottom(new GainEnergyAction((AbstractDungeon.player.getPower(HoneyPower.POWER_ID).amount)));
             }
         }
-    }
 
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
     @Override
@@ -71,6 +67,6 @@ public class IndustryPower extends AbstractPower implements CloneablePowerInterf
 
     @Override
     public AbstractPower makeCopy() {
-        return new HoneyPower(owner, source, amount);
+        return new ProductionPower(owner, source, amount);
     }
 }

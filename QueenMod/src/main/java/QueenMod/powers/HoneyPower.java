@@ -5,8 +5,10 @@ import QueenMod.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
@@ -42,6 +44,14 @@ public class HoneyPower extends AbstractPower implements CloneablePowerInterface
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
         updateDescription();
+    }
+
+    @Override
+    public void atStartOfTurn(){
+        if (AbstractDungeon.player.hasPower(Nectar.POWER_ID)) {
+            int n = AbstractDungeon.player.getPower(Nectar.POWER_ID).amount / 10;
+            AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(n*this.amount));
+        }
     }
 
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))

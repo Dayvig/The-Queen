@@ -117,8 +117,8 @@
 },
   {
   "NAMES": [
-    "industry"
+    "production"
   ],
-  "DESCRIPTION": "At the start of your turn, gain 1 queenmod:Nectar for each Industry, also draw one additional card at the start of your turn for every 5 Industry you have."
+  "DESCRIPTION": "At the start of your turn, gain 1 Nectar for each Production."
 }
 ]

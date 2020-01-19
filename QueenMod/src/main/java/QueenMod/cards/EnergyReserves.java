@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static QueenMod.QueenMod.makeCardPath;
 
-public class EnergyBees extends AbstractDynamicCard {
+public class EnergyReserves extends AbstractDynamicCard {
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
@@ -23,7 +23,7 @@ public class EnergyBees extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = QueenMod.makeID(EnergyBees.class.getSimpleName());
+    public static final String ID = QueenMod.makeID(EnergyReserves.class.getSimpleName());
     public static final String IMG = makeCardPath("Power.png");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -38,13 +38,12 @@ public class EnergyBees extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
-    private static final int COST = 1;
-    private static final int UPGRADED_COST = 0;
+    private static final int COST = 2;
+    private static final int UPGRADED_COST = 1;
 
     // /STAT DECLARATION/
 
-    public EnergyBees() {
-
+    public EnergyReserves() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
 
     }

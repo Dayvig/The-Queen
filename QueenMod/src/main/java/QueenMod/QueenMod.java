@@ -402,7 +402,7 @@ public class QueenMod implements
         BaseMod.addCard(new SwarmTactics());
         BaseMod.addCard(new Mark());
         BaseMod.addCard(new PheremoneSwap());
-        BaseMod.addCard(new EnergyBees());
+        BaseMod.addCard(new EnergyReserves());
         BaseMod.addCard(new SharpStingers());
         BaseMod.addCard(new RoyalDefenders());
         BaseMod.addCard(new ChainStrike());
@@ -463,7 +463,7 @@ public class QueenMod implements
         UnlockTracker.unlockCard(Incubate.ID);
         UnlockTracker.unlockCard(Conscripts.ID);
         UnlockTracker.unlockCard(SharpStingers.ID);
-        UnlockTracker.unlockCard(EnergyBees.ID);
+        UnlockTracker.unlockCard(EnergyReserves.ID);
         UnlockTracker.unlockCard(PheremoneSwap.ID);
         UnlockTracker.unlockCard(Mark.ID);
         UnlockTracker.unlockCard(SwarmTactics.ID);

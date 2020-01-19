@@ -64,8 +64,8 @@
   },
   "QueenMod:BuildOrder": {
     "NAME": "Build Order",
-    "DESCRIPTION": "Gain !QueenMod:M2! queenmod:Industry. NL Recruit a queenmod:Workerbee.",
-    "UPGRADE_DESCRIPTION": "Gain !QueenMod:M2! queenmod:Industry. NL Recruit !M! queenmod:Workerbees."
+    "DESCRIPTION": "Gain !queenmod:M2! queenmod:Production. NL Recruit a queenmod:Workerbee.",
+    "UPGRADE_DESCRIPTION": "Gain !queenmod:M2! queenmod:Production. NL Recruit !M! queenmod:Workerbees."
   },
   "QueenMod:KillerQueen": {
     "NAME": "Killer Queen",
@@ -115,9 +115,9 @@
     "NAME": "Sharper Stingers",
     "DESCRIPTION": "queenmod:Hornets do !M! more damage. NL queenmod:Recruit 2 Hornets."
   },
-  "QueenMod:EnergyBees": {
-    "NAME": "Energy Gatherers",
-    "DESCRIPTION": "Gain [E] at the start of your turn for every 5 queenmod:Industry. queenmod:Recruit 2 queenmod:Workerbees."
+  "QueenMod:EnergyReserves": {
+    "NAME": "Stockpile",
+    "DESCRIPTION": "Gain [E] at the start of your turn for every 10 queenmod:Nectar. NL queenmod:Recruit two queenmod:Worker bees."
   },
   "QueenMod:PheremoneSwap": {
     "NAME": "Pheremone Swap",

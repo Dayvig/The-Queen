@@ -3,8 +3,8 @@ package QueenMod.cards;
 import QueenMod.QueenMod;
 import QueenMod.actions.RecruitAction;
 import QueenMod.characters.TheQueen;
-import QueenMod.powers.IndustryPower;
 import QueenMod.powers.Nectar;
+import QueenMod.powers.ProductionPower;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -32,27 +32,28 @@ public class BuildOrder extends AbstractDynamicCard {
 
     private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.NONE;  //   since they don't change much.
-    private static final CardType TYPE = CardType.SKILL;       //
+    private static final CardType TYPE = CardType.POWER;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 1;  // COST = ${COST}
     private static final int UPGRADED_COST = 1; // UPGRADED_COST = ${UPGRADED_COST}
+    private static final int MAGIC = 1;
+    private static final int MAGIC2 = 2;
     // /STAT DECLARATION/
 
 
     public BuildOrder() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = 1;
-        this.magicNumber = this.baseMagicNumber;
-        this.defaultBaseSecondMagicNumber = this.defaultSecondMagicNumber = 5;
+        this.baseMagicNumber = magicNumber = MAGIC;
+        this.defaultBaseSecondMagicNumber = defaultSecondMagicNumber = MAGIC2;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new Nectar(p, p, defaultSecondMagicNumber), defaultSecondMagicNumber));
-        AbstractDungeon.actionManager.addToBottom(new RecruitAction(new WorkerBee(),this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ProductionPower(p, p, magicNumber), magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new RecruitAction(new WorkerBee(), magicNumber));
     }
 
 
@@ -62,7 +63,7 @@ public class BuildOrder extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             this.upgradeMagicNumber(1);
-            this.upgradeDefaultSecondMagicNumber(5);
+            this.upgradeDefaultSecondMagicNumber(1);
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
