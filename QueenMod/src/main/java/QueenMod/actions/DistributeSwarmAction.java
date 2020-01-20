@@ -183,6 +183,7 @@ public class DistributeSwarmAction extends AbstractGameAction {
                     AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, SwarmPower.POWER_ID));
                 }
                 n++;
+                System.out.println("Swarm amount: "+s+", Number of targets: "+n);
                 if (n == 0 || s == 0){
                     isDone = true;
                 }
@@ -224,10 +225,9 @@ public class DistributeSwarmAction extends AbstractGameAction {
                 else {
                     swarmdivide1 = (int) Math.floor(s / n);
                     swarmdivide2 = (int) Math.floor(s / n);
-                    if (s % n == 1){
-                        swarmdivide1++;
-                    }
+                    swarmdivide1 += s % n;
                     int toApply = swarmdivide1;
+                    System.out.println(swarmdivide1);
                     if (f){
                         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new FocusedSwarm(AbstractDungeon.player, AbstractDungeon.player, toApply),toApply));
                         s -= toApply;
