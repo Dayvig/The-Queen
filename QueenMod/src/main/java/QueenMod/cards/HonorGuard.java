@@ -1,7 +1,6 @@
 package QueenMod.cards;
 
 import QueenMod.QueenMod;
-import QueenMod.actions.RecruitAction;
 import QueenMod.characters.TheQueen;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -13,11 +12,11 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static QueenMod.QueenMod.makeCardPath;
 
 // public class ${NAME} extends AbstractDynamicCard
-public class RoyalGuards extends AbstractDynamicCard {
+public class HonorGuard extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = QueenMod.makeID(RoyalGuards.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
+    public static final String ID = QueenMod.makeID(HonorGuard.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
     public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("${NAME}.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -37,7 +36,7 @@ public class RoyalGuards extends AbstractDynamicCard {
     // /STAT DECLARATION/
 
 
-    public RoyalGuards() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
+    public HonorGuard() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.isInnate = false;
         this.exhaust = true;
@@ -47,8 +46,7 @@ public class RoyalGuards extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Drone(),3, true, false));
-        AbstractDungeon.actionManager.addToBottom(new RecruitAction(new BumbleBee(),3));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new BumbleBee(),3));
     }
 
     // Upgraded stats.

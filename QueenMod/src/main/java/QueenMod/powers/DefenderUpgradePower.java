@@ -24,10 +24,10 @@ import static QueenMod.QueenMod.makePowerPath;
 
 //Gain 1 dex for the turn for each card played.
 
-public class DefenderPower extends AbstractPower implements CloneablePowerInterface {
+public class DefenderUpgradePower extends AbstractPower implements CloneablePowerInterface {
     public AbstractCreature source;
 
-    public static final String POWER_ID = QueenMod.makeID("DefenderPower");
+    public static final String POWER_ID = QueenMod.makeID("DefenderUpgradePower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
@@ -39,7 +39,7 @@ public class DefenderPower extends AbstractPower implements CloneablePowerInterf
     private int numTimes;
     private boolean isUpgraded;
 
-    public DefenderPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
+    public DefenderUpgradePower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = NAME;
         ID = POWER_ID;
 
@@ -66,7 +66,7 @@ public class DefenderPower extends AbstractPower implements CloneablePowerInterf
                     c.applyPowers();
                     damageAmount -= c.block;
                     AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.owner.hb.cX, this.owner.hb.cY, AbstractGameAction.AttackEffect.SHIELD));
-                        AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(c, AbstractDungeon.player.drawPile, true));
+                        AbstractDungeon.actionManager.addToBottom(new DrawToDiscardAction(c));
                     numTimes--;
                     if (numTimes<=0){
                         break;
@@ -78,7 +78,7 @@ public class DefenderPower extends AbstractPower implements CloneablePowerInterf
                     c.applyPowers();
                     damageAmount -= c.block;
                     AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.owner.hb.cX, this.owner.hb.cY, AbstractGameAction.AttackEffect.SHIELD));
-                        AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(c, AbstractDungeon.player.drawPile, true));
+                        AbstractDungeon.actionManager.addToBottom(new DrawToDiscardAction(c));
                     numTimes--;
                     if (numTimes<=0){
                         break;
@@ -90,7 +90,7 @@ public class DefenderPower extends AbstractPower implements CloneablePowerInterf
                     c.applyPowers();
                     damageAmount -= c.block;
                     AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.owner.hb.cX, this.owner.hb.cY, AbstractGameAction.AttackEffect.SHIELD));
-                        AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(c, AbstractDungeon.player.drawPile, true));
+                    AbstractDungeon.actionManager.addToBottom(new DrawToDiscardAction(c));
                     numTimes--;
                     if (numTimes<=0){
                         break;
@@ -129,6 +129,6 @@ public class DefenderPower extends AbstractPower implements CloneablePowerInterf
 
     @Override
     public AbstractPower makeCopy() {
-        return new DefenderPower(owner, source, amount);
+        return new DefenderUpgradePower(owner, source, amount);
     }
 }

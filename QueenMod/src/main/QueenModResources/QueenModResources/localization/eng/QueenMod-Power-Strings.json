@@ -27,14 +27,16 @@
                 "NAME": "Swarm",
                 "DESCRIPTIONS": [
                         "At the end of your turn, gain #b",
-                        " #yBlock. Then reduce #ySwarm by #b1."
+                        " #yBlock. Then reduce #ySwarm by #b1.",
+                        ""
                 ]
         },
         "QueenMod:SwarmE": {
                 "NAME": "Swarmed Enemy",
                 "DESCRIPTIONS": [
                         "At the end of your turn, lose #b",
-                        " HP. Then reduce #ySwarm by #b1."
+                        " HP. Then reduce #ySwarm by #b1.",
+                        ""
                 ]
         },
         "QueenMod:HoneyPower": {
@@ -46,11 +48,19 @@
                 ]
         },
         "QueenMod:DefenderPower": {
-                "NAME": "Royal Defenders",
+                "NAME": "At the ready",
                 "DESCRIPTIONS": [
-                        "When attacked, automatically uses",
-                        "a Bumblebee to gain its Block.",
-                        "up to #b Bumblebees to gain their Block."
+                        "When attacked, automatically Exhausts up to #b",
+                        "#yBumblebee from your Draw Pile to gain its Block.",
+                        "#yBumblebees from your Draw Pile to gain their Block."
+                ]
+        },
+        "QueenMod:DefenderUpgradePower": {
+                "NAME": "At the ready!",
+                "DESCRIPTIONS": [
+                        "When attacked, automatically Discards up to #b",
+                        "#yBumblebee from your Draw Pile to gain its Block.",
+                        "#yBumblebees from your Draw Pile to gain their Block."
                 ]
         },
         "QueenMod:StingerPower": {
@@ -63,7 +73,9 @@
         "QueenMod:PollinatePower": {
                 "NAME": "Pollinated",
                 "DESCRIPTIONS": [
-                        "When taking attack damage, the Queen gains 2 Nectar. At the start of the turn, reduce #yPollinate by #b1."
+                        "When taking attack damage, the Queen gains 2 Nectar. At the start of the turn, reduce #yPollinate by #b1.",
+                        "",
+                        ""
                 ]
         },
         "QueenMod:SwarmTacticsPower": {
@@ -83,7 +95,9 @@
         "QueenMod:HeartOfTheSwarm": {
                 "NAME": "Heart of the Swarm",
                 "DESCRIPTIONS": [
-                        "Command a powerful #ySwarm. When attacking enemies, it is applied to them, dealing damage. When you #yBlock it returns to you, granting #yBlock. #ySwarm is reduced by #b1 each turn on all targets."
+                        "Command a powerful #ySwarm. When attacking enemies, it is applied to them, dealing damage. When you #yBlock it returns to you, granting #yBlock. #ySwarm is reduced by #b1 each turn on all targets.",
+                        "",
+                        ""
                 ]
         },
         "QueenMod:GrowingSwarmPower": {
@@ -97,9 +111,8 @@
         "QueenMod:OrganizedWorkForcePower": {
                 "NAME": "Organized Work Force",
                 "DESCRIPTIONS": [
-                        "At the end of your turn, add ",
-                        "a #yDrone to your Draw Pile.",
-                        "#b",
+                        "At the end of your turn, add #b",
+                        " #yDrone to your Draw Pile.",
                         " #yDrones to your Draw Pile."
                 ]
         },
@@ -115,14 +128,16 @@
                 "NAME": "Focused Swarm",
                 "DESCRIPTIONS": [
                         "At the end of your turn, gain #b",
-                        " #yBlock and reduce this by #b1. Will not move this turn."
+                        " #yBlock and reduce this by #b1. Will not move this turn.",
+                        ""
                 ]
         },
         "QueenMod:FocusedSwarmE": {
                 "NAME": "Focused Swarm",
                 "DESCRIPTIONS": [
                         "At the end of your turn, lose #b",
-                        "  HP and reduce this by #b1. Will not move this turn."
+                        "  HP and reduce this by #b1. Will not move this turn.",
+                        ""
                 ]
         },
         "QueenMod:FlightDrain": {

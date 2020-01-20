@@ -4,6 +4,7 @@ import QueenMod.QueenMod;
 import QueenMod.actions.RecruitAction;
 import QueenMod.characters.TheQueen;
 import QueenMod.powers.DefenderPower;
+import QueenMod.powers.DefenderUpgradePower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -13,7 +14,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static QueenMod.QueenMod.makeCardPath;
 
-public class RoyalDefenders extends AbstractDynamicCard {
+public class ProtectQueen extends AbstractDynamicCard {
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
@@ -23,7 +24,7 @@ public class RoyalDefenders extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = QueenMod.makeID(RoyalDefenders.class.getSimpleName());
+    public static final String ID = QueenMod.makeID(ProtectQueen.class.getSimpleName());
     public static final String IMG = makeCardPath("Power.png");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -33,7 +34,7 @@ public class RoyalDefenders extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.NONE;
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
@@ -43,7 +44,7 @@ public class RoyalDefenders extends AbstractDynamicCard {
 
     // /STAT DECLARATION/
 
-    public RoyalDefenders() {
+    public ProtectQueen() {
 
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = MAGIC;
@@ -55,10 +56,10 @@ public class RoyalDefenders extends AbstractDynamicCard {
     public void use(final AbstractPlayer p, final AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new RecruitAction(new BumbleBee(),2));
         if (upgraded){
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p, new DefenderPower(p,p,1, true),1));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p, new DefenderUpgradePower(p,p,1),1));
         }
         else {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p, new DefenderPower(p,p,1, false),1));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p, new DefenderPower(p,p,1),1));
         }
     }
 

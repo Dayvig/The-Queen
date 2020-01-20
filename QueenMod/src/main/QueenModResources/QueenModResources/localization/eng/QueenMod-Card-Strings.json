@@ -106,10 +106,10 @@
   "NAME": "Chain strike",
   "DESCRIPTION": "Deal !D! damage. NL If you've played !M! or more cards this turn, draw a card and gain [E] ."
 },
-  "QueenMod:RoyalDefenders": {
-  "NAME": "Royal Defenders",
+  "QueenMod:ProtectQueen": {
+  "NAME": "Protect The Queen!",
   "DESCRIPTION": "When you would take attack damage, Exhaust a queenmod:Bumblebee from your draw pile to gain its Block. NL queenmod:Recruit 2 queenmod:Bumblebees.",
-    "UPGRADE_DESCRIPTION": "When you would take attack damage, play a queenmod:Bumblebee from your draw pile. NL queenmod:Recruit 2 queenmod:Bumblebees."
+    "UPGRADE_DESCRIPTION": "When you would take attack damage, Discard a queenmod:Bumblebee from your draw pile to gain its Block. NL queenmod:Recruit 2 queenmod:Bumblebees."
 },
   "QueenMod:SharpStingers": {
     "NAME": "Sharper Stingers",
@@ -321,10 +321,10 @@
     "DESCRIPTION": "Remove all queenmod:CommonDebuffs and gain double the amount removed as queenmod:Nectar ( !queenmod:M2! ). NL queenmod:Recruit a queenmod:Workerbee.",
     "UPGRADE_DESCRIPTION": "Remove all queenmod:CommonDebuffs and gain double the amount removed as queenmod:Nectar ( !queenmod:M2! ). NL queenmod:Recruit a queenmod:Workerbee."
   },
-  "QueenMod:RoyalGuards":{
-    "NAME": "Royal Guards",
-    "DESCRIPTION": "Add 3 queenmod:Drones to your draw pile. NL queenmod:Recruit 3 queenmod:Bumblebees. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Add 3 queenmod:Drones to your draw pile. NL queenmod:Recruit 3 queenmod:Bumblebees. NL Exhaust."
+  "QueenMod:HonorGuard":{
+    "NAME": "Honor Guards",
+    "DESCRIPTION": "Add 3 queenmod:Bumblebees to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Add 3 queenmod:Bumblebees to your hand. NL Exhaust."
   },
   "QueenMod:HoneyFactory":{
     "NAME": "Honey Factory",

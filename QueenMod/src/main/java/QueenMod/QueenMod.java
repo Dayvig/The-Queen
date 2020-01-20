@@ -359,7 +359,7 @@ public class QueenMod implements
         BaseMod.addCard(new HoneyShield());
         BaseMod.addCard(new SwarmEconomics());
         BaseMod.addCard(new HoneyFactory());
-        BaseMod.addCard(new RoyalGuards());
+        BaseMod.addCard(new HonorGuard());
         BaseMod.addCard(new SpaDay());
         BaseMod.addCard(new WarTrumpet());
         BaseMod.addCard(new Regroup());
@@ -406,7 +406,7 @@ public class QueenMod implements
         BaseMod.addCard(new Repurpose());
         BaseMod.addCard(new EnergyReserves());
         BaseMod.addCard(new SharpStingers());
-        BaseMod.addCard(new RoyalDefenders());
+        BaseMod.addCard(new ProtectQueen());
         BaseMod.addCard(new ChainStrike());
         BaseMod.addCard(new WarBuzz());
         BaseMod.addCard(new HornetSwarm());
@@ -455,7 +455,7 @@ public class QueenMod implements
         UnlockTracker.unlockCard(Reposition.ID);
         UnlockTracker.unlockCard(SwarmEconomics.ID);
         UnlockTracker.unlockCard(HoneyFactory.ID);
-        UnlockTracker.unlockCard(RoyalGuards.ID);
+        UnlockTracker.unlockCard(HonorGuard.ID);
         UnlockTracker.unlockCard(SpaDay.ID);
         UnlockTracker.unlockCard(WarTrumpet.ID);
         UnlockTracker.unlockCard(Regroup.ID);
