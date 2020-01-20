@@ -1,6 +1,7 @@
 package QueenMod.cards;
 
 import QueenMod.QueenMod;
+import QueenMod.actions.DrawToHandAction;
 import QueenMod.actions.PromotionAction;
 import QueenMod.characters.TheQueen;
 import basemod.helpers.ModalChoice;
@@ -34,10 +35,10 @@ public class Promotion extends AbstractDynamicCard implements ModalChoice.Callba
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
-    private static final int COST = 0;  // COST = ${COST}
+    private static final int COST = 1;  // COST = ${COST}
+    private static final int UPGRADED_COST = 0;
     private ModalChoice modal;
-    public boolean seriousUpgrade=false;
-    public String [] modalID = new String[4];
+    private String [] modalID = new String[4];
 
 
     // /STAT DECLARATION/
@@ -70,11 +71,16 @@ public class Promotion extends AbstractDynamicCard implements ModalChoice.Callba
                 containsDrone=true;
             }
         }
-        buildMassivePromotionChoice(containsHornet,containsBumblebee,containsHoneybee,containsDrone,upgraded);
+        for (AbstractCard c : AbstractDungeon.player.drawPile.group){
+            if (c.cardID.equals(Drone.ID)) {
+                AbstractDungeon.actionManager.addToTop(new DrawToHandAction(c));
+                break;
+            }
+        }
+        buildMassivePromotionChoice(containsHornet,containsBumblebee,containsHoneybee,containsDrone);
     }
 
-    public void buildMassivePromotionChoice(boolean h, boolean b, boolean hb, boolean d, boolean upgr){
-        if (!upgr) {
+    private void buildMassivePromotionChoice(boolean h, boolean b, boolean hb, boolean d){
             if (h && b && hb && d) {
                 modalID[0] = Hornet.ID;
                 modalID[1] = BumbleBee.ID;
@@ -83,13 +89,13 @@ public class Promotion extends AbstractDynamicCard implements ModalChoice.Callba
                 modal = new ModalChoiceBuilder()
                         .setCallback(this) // Sets callback of all the below options to this
                         .setColor(CardColor.RED) // Sets color of any following cards to colorless
-                        .addOption("Hornet Commander: Promotes a Hornet. When you play a Hive card, deal 4 damage to a random enemy.", CardTarget.NONE)
+                        .addOption("Hornet Commander: Promotes a Hornet.", CardTarget.NONE)
                         .setColor(CardColor.BLUE) // Sets color of any following cards to red
                         .addOption("Bumblebee Commander: Promotes a Bumblebee. When you play a Hive card, gain 1 block next turn.", CardTarget.NONE)
                         .setColor(CardColor.GREEN)
-                        .addOption("Honeybee Commander: Promotes a Honeybee to apply 2 Pollinate.", CardTarget.NONE)
+                        .addOption("Honeybee Commander: Promotes a Honeybee.", CardTarget.NONE)
                         .setColor(CardColor.COLORLESS) // Sets color of any following cards to red
-                        .addOption("Drone Commander: Promotes a Drone to upgrade all Drones in your draw pile.", CardTarget.NONE)
+                        .addOption("Drone Commander: Promotes a Drone.", CardTarget.NONE)
                         .create();
                 modal.open();
                 return;
@@ -100,11 +106,11 @@ public class Promotion extends AbstractDynamicCard implements ModalChoice.Callba
                 modal = new ModalChoiceBuilder()
                         .setCallback(this) // Sets callback of all the below options to this
                         .setColor(CardColor.RED) // Sets color of any following cards to colorless
-                        .addOption("Hornet Commander: Promotes a Hornet. When you play a Hive card, deal 4 damage to a random enemy.", CardTarget.NONE)
+                        .addOption("Hornet Commander: Promotes a Hornet.", CardTarget.NONE)
                         .setColor(CardColor.BLUE) // Sets color of any following cards to red
-                        .addOption("Bumblebee Commander: Promotes a Bumblebee. When you play a Hive card, gain 1 block next turn.", CardTarget.NONE)
+                        .addOption("Bumblebee Commander: Promotes a Bumblebee.", CardTarget.NONE)
                         .setColor(CardColor.GREEN)
-                        .addOption("Honeybee Commander: Promotes a Honeybee to apply 2 Pollinate.", CardTarget.ENEMY)
+                        .addOption("Honeybee Commander: Promotes a Honeybee.", CardTarget.NONE)
                         .create();
                 modal.open();
                 return;
@@ -115,11 +121,11 @@ public class Promotion extends AbstractDynamicCard implements ModalChoice.Callba
                 modal = new ModalChoiceBuilder()
                         .setCallback(this) // Sets callback of all the below options to this
                         .setColor(CardColor.RED) // Sets color of any following cards to colorless
-                        .addOption("Hornet Commander: Promotes a Hornet. When you play a Hive card, deal 4 damage to a random enemy.", CardTarget.NONE)
+                        .addOption("Hornet Commander: Promotes a Hornet.", CardTarget.NONE)
                         .setColor(CardColor.BLUE) // Sets color of any following cards to red
-                        .addOption("Bumblebee Commander: Promotes a Bumblebee. When you play a Hive card, gain 1 block next turn.", CardTarget.NONE)
+                        .addOption("Bumblebee Commander: Promotes a Bumblebee.", CardTarget.NONE)
                         .setColor(CardColor.COLORLESS) // Sets color of any following cards to red
-                        .addOption("Drone Commander: Promotes a Drone to upgrade all Drones in your draw pile.", CardTarget.NONE)
+                        .addOption("Drone Commander: Promotes a Drone.", CardTarget.NONE)
                         .create();
                 modal.open();
                 return;
@@ -130,11 +136,11 @@ public class Promotion extends AbstractDynamicCard implements ModalChoice.Callba
                 modal = new ModalChoiceBuilder()
                         .setCallback(this) // Sets callback of all the below options to this
                         .setColor(CardColor.RED) // Sets color of any following cards to colorless
-                        .addOption("Hornet Commander: Promotes a Hornet. When you play a Hive card, deal 4 damage to a random enemy.", CardTarget.NONE)
+                        .addOption("Hornet Commander: Promotes a Hornet.", CardTarget.NONE)
                         .setColor(CardColor.GREEN)
-                        .addOption("Honeybee Commander: Promotes a Honeybee to apply 2 Pollinate.", CardTarget.ENEMY)
+                        .addOption("Honeybee Commander: Promotes a Honeybee.", CardTarget.NONE)
                         .setColor(CardColor.COLORLESS) // Sets color of any following cards to red
-                        .addOption("Drone Commander: Promotes a Drone to upgrade all Drones in your draw pile.", CardTarget.NONE)
+                        .addOption("Drone Commander: Promotes a Drone.", CardTarget.NONE)
                         .create();
                 modal.open();
                 return;
@@ -145,11 +151,11 @@ public class Promotion extends AbstractDynamicCard implements ModalChoice.Callba
                 modal = new ModalChoiceBuilder()
                         .setCallback(this) // Sets callback of all the below options to this
                         .setColor(CardColor.BLUE) // Sets color of any following cards to red
-                        .addOption("Bumblebee Commander: Promotes a Bumblebee. When you play a Hive card, gain 1 block next turn.", CardTarget.NONE)
+                        .addOption("Bumblebee Commander: Promotes a Bumblebee.", CardTarget.NONE)
                         .setColor(CardColor.GREEN)
-                        .addOption("Honeybee Commander: Promotes a Honeybee to apply 2 Pollinate.", CardTarget.NONE)
+                        .addOption("Honeybee Commander: Promotes a Honeybee.", CardTarget.NONE)
                         .setColor(CardColor.COLORLESS) // Sets color of any following cards to red
-                        .addOption("Drone Commander: Promotes a Drone to upgrade all Drones in your draw pile.", CardTarget.NONE)
+                        .addOption("Drone Commander: Promotes a Drone.", CardTarget.NONE)
                         .create();
                 modal.open();
                 return;
@@ -159,9 +165,9 @@ public class Promotion extends AbstractDynamicCard implements ModalChoice.Callba
                 modal = new ModalChoiceBuilder()
                         .setCallback(this) // Sets callback of all the below options to this
                         .setColor(CardColor.RED) // Sets color of any following cards to colorless
-                        .addOption("Hornet Commander: Promotes a Hornet. When you play a Hive card, deal 4 damage to a random enemy.", CardTarget.NONE)
+                        .addOption("Hornet Commander: Promotes a Hornet.", CardTarget.NONE)
                         .setColor(CardColor.BLUE) // Sets color of any following cards to red
-                        .addOption("Bumblebee Commander: Promotes a Bumblebee. When you play a Hive card, gain 1 block next turn.", CardTarget.NONE)
+                        .addOption("Bumblebee Commander: Promotes a Bumblebee.", CardTarget.NONE)
                         .create();
                 modal.open();
                 return;
@@ -171,9 +177,9 @@ public class Promotion extends AbstractDynamicCard implements ModalChoice.Callba
                 modal = new ModalChoiceBuilder()
                         .setCallback(this) // Sets callback of all the below options to this
                         .setColor(CardColor.RED) // Sets color of any following cards to colorless
-                        .addOption("Hornet Commander: Promotes a Hornet. When you play a Hive card, deal 4 damage to a random enemy.", CardTarget.NONE)
+                        .addOption("Hornet Commander: Promotes a Hornet.", CardTarget.NONE)
                         .setColor(CardColor.GREEN)
-                        .addOption("Honeybee Commander: Promotes a Honeybee to apply 2 Pollinate.", CardTarget.NONE)
+                        .addOption("Honeybee Commander: Promotes a Honeybee.", CardTarget.NONE)
                         .create();
                 modal.open();
                 return;
@@ -183,9 +189,9 @@ public class Promotion extends AbstractDynamicCard implements ModalChoice.Callba
                 modal = new ModalChoiceBuilder()
                         .setCallback(this) // Sets callback of all the below options to this
                         .setColor(CardColor.RED) // Sets color of any following cards to colorless
-                        .addOption("Hornet Commander: Promotes a Hornet. When you play a Hive card, deal 4 damage to a random enemy.", CardTarget.NONE)
+                        .addOption("Hornet Commander: Promotes a Hornet.", CardTarget.NONE)
                         .setColor(CardColor.COLORLESS) // Sets color of any following cards to red
-                        .addOption("Drone Commander: Promotes a Drone to upgrade all Drones in your draw pile.", CardTarget.NONE)
+                        .addOption("Drone Commander: Promotes a Drone.", CardTarget.NONE)
                         .create();
                 modal.open();
                 return;
@@ -195,9 +201,9 @@ public class Promotion extends AbstractDynamicCard implements ModalChoice.Callba
                 modal = new ModalChoiceBuilder()
                         .setCallback(this) // Sets callback of all the below options to this
                         .setColor(CardColor.BLUE) // Sets color of any following cards to red
-                        .addOption("Bumblebee Commander: Promotes a Bumblebee. When you play a Hive card, gain 1 block next turn.", CardTarget.NONE)
+                        .addOption("Bumblebee Commander: Promotes a Bumblebee.", CardTarget.NONE)
                         .setColor(CardColor.GREEN)
-                        .addOption("Honeybee Commander: Promotes a Honeybee to apply 2 Pollinate.", CardTarget.NONE)
+                        .addOption("Honeybee Commander: Promotes a Honeybee.", CardTarget.NONE)
                         .create();
                 modal.open();
                 return;
@@ -207,9 +213,9 @@ public class Promotion extends AbstractDynamicCard implements ModalChoice.Callba
                 modal = new ModalChoiceBuilder()
                         .setCallback(this) // Sets callback of all the below options to this
                         .setColor(CardColor.BLUE) // Sets color of any following cards to red
-                        .addOption("Bumblebee Commander: Promotes a Bumblebee. When you play a Hive card, gain 1 block next turn.", CardTarget.NONE)
+                        .addOption("Bumblebee Commander: Promotes a Bumblebee.", CardTarget.NONE)
                         .setColor(CardColor.COLORLESS) // Sets color of any following cards to red
-                        .addOption("Drone Commander: Promotes a Drone to upgrade all Drones in your draw pile.", CardTarget.NONE)
+                        .addOption("Drone Commander: Promotes a Drone.", CardTarget.NONE)
                         .create();
                 modal.open();
                 return;
@@ -219,9 +225,9 @@ public class Promotion extends AbstractDynamicCard implements ModalChoice.Callba
                 modal = new ModalChoiceBuilder()
                         .setCallback(this) // Sets callback of all the below options to this
                         .setColor(CardColor.GREEN)
-                        .addOption("Honeybee Commander: Promotes a Honeybee to apply 2 Pollinate.", CardTarget.NONE)
+                        .addOption("Honeybee Commander: Promotes a Honeybee.", CardTarget.NONE)
                         .setColor(CardColor.COLORLESS) // Sets color of any following cards to red
-                        .addOption("Drone Commander: Promotes a Drone to upgrade all Drones in your draw pile.", CardTarget.NONE)
+                        .addOption("Drone Commander: Promotes a Drone.", CardTarget.NONE)
                         .create();
                 modal.open();
                 return;
@@ -234,179 +240,6 @@ public class Promotion extends AbstractDynamicCard implements ModalChoice.Callba
             } else if (d) {
                 AbstractDungeon.actionManager.addToBottom(new PromotionAction(AbstractDungeon.player, Drone.ID, false));
             }
-        }
-        else {
-            if (h && b && hb && d) {
-                seriousUpgrade = true;
-                modalID[0] = Hornet.ID;
-                modalID[1] = BumbleBee.ID;
-                modalID[2] = WorkerBee.ID;
-                modalID[3] = Drone.ID;
-                modal = new ModalChoiceBuilder()
-                        .setCallback(this) // Sets callback of all the below options to this
-                        .setColor(CardColor.RED) // Sets color of any following cards to colorless
-                        .addOption("Hornet Commander: Promotes a Hornet. When you play a Hive card, deal 5 damage to a random enemy.", CardTarget.NONE)
-                        .setColor(CardColor.BLUE) // Sets color of any following cards to red
-                        .addOption("Bumblebee Commander: Promotes a Bumblebee. When you play a Hive card, gain 2 block next turn.", CardTarget.NONE)
-                        .setColor(CardColor.GREEN)
-                        .addOption("Honeybee Commander: Promotes a Honeybee to apply 3 Pollinate.", CardTarget.NONE)
-                        .setColor(CardColor.COLORLESS) // Sets color of any following cards to red
-                        .addOption("Drone Commander: Promotes a Drone to upgrade all Drones in your draw pile.", CardTarget.NONE)
-                        .create();
-                modal.open();
-                return;
-            } else if (h && b && hb) {
-                seriousUpgrade = true;
-                modalID[0] = Hornet.ID;
-                modalID[1] = BumbleBee.ID;
-                modalID[2] = WorkerBee.ID;
-                modal = new ModalChoiceBuilder()
-                        .setCallback(this) // Sets callback of all the below options to this
-                        .setColor(CardColor.RED) // Sets color of any following cards to colorless
-                        .addOption("Hornet Commander: Promotes a Hornet. When you play a Hive card, deal 5 damage to a random enemy.", CardTarget.NONE)
-                        .setColor(CardColor.BLUE) // Sets color of any following cards to red
-                        .addOption("Bumblebee Commander: Promotes a Bumblebee. When you play a Hive card, gain 2 block next turn.", CardTarget.NONE)
-                        .setColor(CardColor.GREEN)
-                        .addOption("Honeybee Commander: Promotes a Honeybee to apply 3 Pollinate.", CardTarget.NONE)
-                        .create();
-                modal.open();
-                return;
-            } else if (h && b && d) {
-                seriousUpgrade = true;
-                modalID[0] = Hornet.ID;
-                modalID[1] = BumbleBee.ID;
-                modalID[2] = Drone.ID;
-                modal = new ModalChoiceBuilder()
-                        .setCallback(this) // Sets callback of all the below options to this
-                        .setColor(CardColor.RED) // Sets color of any following cards to colorless
-                        .addOption("Hornet Commander: Promotes a Hornet. When you play a Hive card, deal 5 damage to a random enemy.", CardTarget.NONE)
-                        .setColor(CardColor.BLUE) // Sets color of any following cards to red
-                        .addOption("Bumblebee Commander: Promotes a Bumblebee. When you play a Hive card, gain 2 block next turn.", CardTarget.NONE)
-                        .setColor(CardColor.COLORLESS) // Sets color of any following cards to red
-                        .addOption("Drone Commander: Promotes a Drone to upgrade all Drones in your draw pile.", CardTarget.NONE)
-                        .create();
-                modal.open();
-                return;
-            } else if (h && hb && d) {
-                seriousUpgrade = true;
-                modalID[0] = Hornet.ID;
-                modalID[1] = WorkerBee.ID;
-                modalID[2] = Drone.ID;
-                modal = new ModalChoiceBuilder()
-                        .setCallback(this) // Sets callback of all the below options to this
-                        .setColor(CardColor.RED) // Sets color of any following cards to colorless
-                        .addOption("Hornet Commander: Promotes a Hornet. When you play a Hive card, deal 5 damage to a random enemy.", CardTarget.NONE)
-                        .setColor(CardColor.GREEN)
-                        .addOption("Honeybee Commander: Promotes a Honeybee to apply 3 Pollinate.", CardTarget.ENEMY)
-                        .setColor(CardColor.COLORLESS) // Sets color of any following cards to red
-                        .addOption("Drone Commander: Promotes a Drone to upgrade all Drones in your draw pile.", CardTarget.NONE)
-                        .create();
-                modal.open();
-                return;
-            } else if (b && hb && d) {
-                seriousUpgrade = true;
-                modalID[0] = BumbleBee.ID;
-                modalID[1] = WorkerBee.ID;
-                modalID[2] = Drone.ID;
-                modal = new ModalChoiceBuilder()
-                        .setCallback(this) // Sets callback of all the below options to this
-                        .setColor(CardColor.BLUE) // Sets color of any following cards to red
-                        .addOption("Bumblebee Commander: Promotes a Bumblebee. When you play a Hive card, gain 2 block next turn.", CardTarget.NONE)
-                        .setColor(CardColor.GREEN)
-                        .addOption("Honeybee Commander: Promotes a Honeybee to apply 3 Pollinate.", CardTarget.ENEMY)
-                        .setColor(CardColor.COLORLESS) // Sets color of any following cards to red
-                        .addOption("Drone Commander: Promotes a Drone to upgrade all Drones in your draw pile.", CardTarget.NONE)
-                        .create();
-                modal.open();
-                return;
-            } else if (h && b) {
-                seriousUpgrade = true;
-                modalID[0] = Hornet.ID;
-                modalID[1] = BumbleBee.ID;
-                modal = new ModalChoiceBuilder()
-                        .setCallback(this) // Sets callback of all the below options to this
-                        .setColor(CardColor.RED) // Sets color of any following cards to colorless
-                        .addOption("Hornet Commander: Promotes a Hornet. When you play a Hive card, deal 5 damage to a random enemy.", CardTarget.NONE)
-                        .setColor(CardColor.BLUE) // Sets color of any following cards to red
-                        .addOption("Bumblebee Commander: Promotes a Bumblebee. When you play a Hive card, gain 2 block next turn.", CardTarget.NONE)
-                        .create();
-                modal.open();
-                return;
-            } else if (h && hb) {
-                seriousUpgrade = true;
-                modalID[0] = Hornet.ID;
-                modalID[1] = WorkerBee.ID;
-                modal = new ModalChoiceBuilder()
-                        .setCallback(this) // Sets callback of all the below options to this
-                        .setColor(CardColor.RED) // Sets color of any following cards to colorless
-                        .addOption("Hornet Commander: Promotes a Hornet. When you play a Hive card, deal 5 damage to a random enemy.", CardTarget.NONE)
-                        .setColor(CardColor.GREEN)
-                        .addOption("Honeybee Commander: Promotes a Honeybee to apply 3 Pollinate.", CardTarget.NONE)
-                        .create();
-                modal.open();
-                return;
-            } else if (h && d) {
-                seriousUpgrade = true;
-                modalID[0] = Hornet.ID;
-                modalID[1] = Drone.ID;
-                modal = new ModalChoiceBuilder()
-                        .setCallback(this) // Sets callback of all the below options to this
-                        .setColor(CardColor.RED) // Sets color of any following cards to colorless
-                        .addOption("Hornet Commander: Promotes a Hornet. When you play a Hive card, deal 5 damage to a random enemy.", CardTarget.NONE)
-                        .setColor(CardColor.COLORLESS) // Sets color of any following cards to red
-                        .addOption("Drone Commander: Promotes a Drone to upgrade all Drones in your draw pile.", CardTarget.NONE)
-                        .create();
-                modal.open();
-                return;
-            } else if (b && hb) {
-                seriousUpgrade = true;
-                modalID[0] = BumbleBee.ID;
-                modalID[1] = WorkerBee.ID;
-                modal = new ModalChoiceBuilder()
-                        .setCallback(this) // Sets callback of all the below options to this
-                        .setColor(CardColor.BLUE) // Sets color of any following cards to red
-                        .addOption("Bumblebee Commander: Promotes a Bumblebee. When you play a Hive card, gain 2 block next turn.", CardTarget.NONE)
-                        .setColor(CardColor.GREEN)
-                        .addOption("Honeybee Commander: Promotes a Honeybee to apply 3 Pollinate.", CardTarget.NONE)
-                        .create();
-                modal.open();
-                return;
-            } else if (b && d) {
-                seriousUpgrade = true;
-                modalID[0] = BumbleBee.ID;
-                modalID[1] = Drone.ID;
-                modal = new ModalChoiceBuilder()
-                        .setCallback(this) // Sets callback of all the below options to this
-                        .setColor(CardColor.BLUE) // Sets color of any following cards to red
-                        .addOption("Bumblebee Commander: Promotes a Bumblebee. When you play a Hive card, gain 2 block next turn.", CardTarget.NONE)
-                        .setColor(CardColor.COLORLESS) // Sets color of any following cards to red
-                        .addOption("Drone Commander: Promotes a Drone to upgrade all Drones in your draw pile.", CardTarget.NONE)
-                        .create();
-                modal.open();
-                return;
-            } else if (hb && d) {
-                seriousUpgrade = true;
-                modalID[0] = WorkerBee.ID;
-                modalID[1] = Drone.ID;
-                modal = new ModalChoiceBuilder()
-                        .setCallback(this) // Sets callback of all the below options to this
-                        .setColor(CardColor.GREEN)
-                        .addOption("Honeybee Commander: Promotes a Honeybee to apply 3 Pollinate.", CardTarget.NONE)
-                        .setColor(CardColor.COLORLESS) // Sets color of any following cards to red
-                        .addOption("Drone Commander: Promotes a Drone to upgrade all Drones in your draw pile.", CardTarget.NONE)
-                        .create();
-                modal.open();
-                return;
-            } else if (h) {
-                AbstractDungeon.actionManager.addToBottom(new PromotionAction(AbstractDungeon.player, Hornet.ID, true));
-            } else if (b) {
-                AbstractDungeon.actionManager.addToBottom(new PromotionAction(AbstractDungeon.player, BumbleBee.ID, true));
-            } else if (hb) {
-                AbstractDungeon.actionManager.addToBottom(new PromotionAction(AbstractDungeon.player, WorkerBee.ID, true));
-            } else if (d) {
-                AbstractDungeon.actionManager.addToBottom(new PromotionAction(AbstractDungeon.player, Drone.ID, true));
-            }
-        }
     }
 
         @Override
@@ -431,7 +264,7 @@ public class Promotion extends AbstractDynamicCard implements ModalChoice.Callba
                 default:
                     return;
             }
-            AbstractDungeon.actionManager.addToBottom(new PromotionAction(AbstractDungeon.player, id, seriousUpgrade));
+            AbstractDungeon.actionManager.addToBottom(new PromotionAction(AbstractDungeon.player, id, false));
         }
 
         @Override
@@ -489,6 +322,7 @@ public class Promotion extends AbstractDynamicCard implements ModalChoice.Callba
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            upgradeBaseCost(UPGRADED_COST);
             initializeDescription();
         }
     }

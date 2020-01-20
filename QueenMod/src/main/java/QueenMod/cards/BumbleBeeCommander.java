@@ -1,6 +1,7 @@
 package QueenMod.cards;
 
 import QueenMod.QueenMod;
+import QueenMod.actions.UpgradeSpecificCardInDrawPileAction;
 import QueenMod.characters.TheQueen;
 import QueenMod.powers.BumbleBeeCommanderPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -49,9 +50,8 @@ public class BumbleBeeCommander extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToBottom(new UpgradeSpecificCardInDrawPileAction(p,new BumbleBee(),true));
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new BumbleBeeCommanderPower(p,p,this.magicNumber), this.magicNumber));
-
     }
 
 

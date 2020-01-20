@@ -2,7 +2,7 @@ package QueenMod.cards;
 
 import QueenMod.QueenMod;
 import QueenMod.characters.TheQueen;
-import QueenMod.powers.GeneralUpkeep;
+import QueenMod.powers.GeneralPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -40,21 +40,20 @@ public class GeneralForm extends AbstractDynamicCard {
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 3;
-    private static final int MAGIC = 5;
+    private static final int MAGIC = 1;
 
     // /STAT DECLARATION/
 
     public GeneralForm() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = MAGIC;
+        this.isEthereal = true;
     }
 
     // Actions the card should do.
     @Override
     public void use(final AbstractPlayer p, final AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber),magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber),magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new GeneralUpkeep(p,p,5),5));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new GeneralPower(p, p, magicNumber),magicNumber));
     }
 
     //Upgraded stats.
@@ -62,7 +61,8 @@ public class GeneralForm extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
+            this.isEthereal = false;
+            this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

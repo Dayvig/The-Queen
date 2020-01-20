@@ -88,7 +88,7 @@
     "NAMES": [
       "commander"
     ],
-    "DESCRIPTION": "A Commander is an upgraded version of a Hive card that costs 1 more and has bonus effects. NL Drone Commander: Upgrade all Drones in your draw pile. Draw a card. NL Hornet Commander: Deal 11 damage. When you play a Hive card this turn, deal 4 damage to a random enemy NL Bumblebee Commander: Gain 10 Block. When you play a Hive card this turn, gain 2 Block next turn. NL Honeybee Commander: Gain 5 Nectar. Apply 1 Pollinate."
+    "DESCRIPTION": "A commander is a Hive card that upgrades all Hive cards of the same type in your draw pile."
   },
   {
     "NAMES": [
@@ -101,19 +101,6 @@
     "drone+"
   ],
   "DESCRIPTION": "A Drone+ is a 0-cost skill that draw 2 cards and Exhausts."
-},
-  {
-  "NAMES": [
-    "scry"
-  ],
-  "DESCRIPTION": "Look at the top X cards of your deck, and choose any number to send to your discard pile."
-},
-  {
-  "NAMES": [
-    "commondebuff",
-    "commondebuffs"
-  ],
-  "DESCRIPTION": "Weak, Vulnerable and Frail are Common Debuffs."
 },
   {
   "NAMES": [

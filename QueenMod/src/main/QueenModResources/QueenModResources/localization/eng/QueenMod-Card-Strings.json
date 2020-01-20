@@ -181,7 +181,7 @@
       "queenmod:Recruit a queenmod:Bumblebee and add it to your hand.",
       "queenmod:Recruit a queenmod:Hornet and add it to your hand.",
       "queenmod:Recruit a queenmod:Workerbee and add it to your hand.",
-,      "Gain !B! block. Add a Drone to your hand."
+      "Gain !B! block. Add a Drone to your hand."
     ]
   },
   "QueenMod:HoneyCorps": {
@@ -210,7 +210,8 @@
   },
   "QueenMod:GeneralForm": {
     "NAME": "General Form",
-    "DESCRIPTION": "Gain !M! Strength and Dexterity. NL Spend 5 queenmod:Nectar at the end of each turn or lose 2 Strength and Dexterity."
+    "DESCRIPTION": "When you play a card, spend 5 queenmod:Nectar to gain [E] . NL Ethereal.",
+    "UPGRADE_DESCRIPTION": "When you play a card, spend 5 queenmod:Nectar to gain [E] ."
   },
   "QueenMod:InspiringStrike": {
     "NAME": "Inspiring Strike",
@@ -219,11 +220,11 @@
   },
   "QueenMod:HornetCommander": {
     "NAME": "Hornet Commander",
-    "DESCRIPTION": "Deal !D! damage. NL When you play a queenmod:Hive card this turn, deal !M! damage to a random enemy."
+    "DESCRIPTION": "Deal !D! damage. NL Upgrade all queenmod:Hornets in your draw pile."
   },
   "QueenMod:BumbleBeeCommander": {
     "NAME": "Bumblebee Commander",
-    "DESCRIPTION": "Gain !B! Block. NL When you play a queenmod:Hive card this turn, gain !M! Block next turn. Recall your queenmod:Swarm."
+    "DESCRIPTION": "Gain !B! Block. NL Upgrade all queenmod:Bumblebees in your draw pile."
   },
   "QueenMod:DroneCommander": {
     "NAME": "Drone Commander",
@@ -232,13 +233,11 @@
   },
   "QueenMod:WorkerBeeCommander": {
     "NAME": "Worker Bee Commander",
-    "DESCRIPTION": "Gain !M! queenmod:Industry. NL Apply 1 queenmod:Pollinate.",
-    "UPGRADE_DESCRIPTION": "Gain !M! queenmod:Industry. NL Apply 1 queenmod:Pollinate."
+    "DESCRIPTION": "Deal !D! damage. Inflict !M! queenmod:Pollinate. NL Upgrade all queenmod:Workerbees in your draw pile."
   },
   "QueenMod:Promotion": {
     "NAME": "Promotion",
-    "DESCRIPTION": "Promote a queenmod:Hive card in your draw pile to a queenmod:Commander. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Promote a queenmod:Hive card in your draw pile to a queenmod:Commander+. NL Exhaust."
+    "DESCRIPTION": "Promote a queenmod:Hive card in your draw pile to a queenmod:Commander and add it to your hand. NL Exhaust."
   },
     "QueenMod:Knighting":{
       "NAME": "Knighting",
@@ -376,7 +375,7 @@
   },
   "QueenMod:MatingDance": {
     "NAME": "Mating Dance",
-    "DESCRIPTION": "Unplayable. While in your hand, complete a queenmod:Dance to gain !M! queenmod:Swarm, Add !QueenMod:M2! queenmod:Drones to your draw pile and upgrade !QueenMod:M2! cards in your draw pile.",
+    "DESCRIPTION": "Unplayable. NL While in your hand, complete a queenmod:Dance to gain !M! queenmod:Swarm.",
     "EXTENDED_DESCRIPTION": [
       "Gain !M! Swarm.",
       "I can't play this."

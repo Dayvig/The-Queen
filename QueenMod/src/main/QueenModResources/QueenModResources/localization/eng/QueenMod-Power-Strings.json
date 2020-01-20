@@ -215,10 +215,18 @@
                         ""
                 ]
         },
-        "QueenMod:IndustryPower": {
-                "NAME": "Industry",
+        "QueenMod:ProductionPower": {
+                "NAME": "Production",
                 "DESCRIPTIONS": [
-                        "At the start of your turn, gain #b Nectar. For every 5 Industry, also draw a card.",
+                        "At the start of your turn, gain #b Nectar.",
+                        "",
+                        ""
+                ]
+        },
+        "QueenMod:GeneralPower": {
+                "NAME": "General Form",
+                "DESCRIPTIONS": [
+                        "When you play a card, spend 5 queenmod:Nectar to gain [E]",
                         "",
                         ""
                 ]

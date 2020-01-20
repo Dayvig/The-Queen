@@ -12,7 +12,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import static QueenMod.QueenMod.makePowerPath;
@@ -59,7 +58,7 @@ public class GeneralUpkeep extends AbstractPower implements CloneablePowerInterf
         else {
             AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, AbstractDungeon.player.getPower(StrengthPower.POWER_ID), 5));
             AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, AbstractDungeon.player.getPower(DrawPlusPower.POWER_ID), 2));
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new GeneralDisabledPower(this.owner, this.owner, 1), 1));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new GeneralPower(this.owner, this.owner, 1), 1));
         }
     }
 

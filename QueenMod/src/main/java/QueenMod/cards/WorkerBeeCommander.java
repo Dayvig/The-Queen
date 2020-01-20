@@ -1,10 +1,14 @@
 package QueenMod.cards;
 
 import QueenMod.QueenMod;
+import QueenMod.actions.UpgradeSpecificCardInDrawPileAction;
 import QueenMod.characters.TheQueen;
 import QueenMod.powers.*;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -31,11 +35,14 @@ public class WorkerBeeCommander extends AbstractDynamicCard {
     // STAT DECLARATION
 
     private static final CardRarity RARITY = CardRarity.SPECIAL; //  Up to you, I like auto-complete on these
-    private static final CardTarget TARGET = CardTarget.NONE;  //   since they don't change much.
-    private static final CardType TYPE = CardType.SKILL;       //
+    private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
+    private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
-    private static final int COST = 1;  // COST = ${COST}
+    private static final int COST = 0;  // COST = ${COST}
+    private static final int DAMAGE = 2;
+    private static final int MAGIC = 1;
+
 
 
     // /STAT DECLARATION/
@@ -43,20 +50,17 @@ public class WorkerBeeCommander extends AbstractDynamicCard {
 
     public WorkerBeeCommander() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = 4;
+        baseDamage = damage = DAMAGE;
+        baseMagicNumber = magicNumber = MAGIC;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new Nectar(p,p,this.magicNumber),this.magicNumber));
-        for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new PollinatePower(m, p, this.magicNumber / 2), this.magicNumber / 2));
-        }
-        if (p.hasPower(HoneyPower.POWER_ID)){
-            AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(p.getPower(HoneyPower.POWER_ID).amount));
-        }
+        AbstractDungeon.actionManager.addToBottom(new UpgradeSpecificCardInDrawPileAction(p,new WorkerBee(),true));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new PollinatePower(m, p, magicNumber), magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
     }
 
 
@@ -65,8 +69,8 @@ public class WorkerBeeCommander extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(2);
-            this.rawDescription = UPGRADE_DESCRIPTION;
+            upgradeMagicNumber(1);
+            upgradeDamage(2);
             initializeDescription();
         }
     }
