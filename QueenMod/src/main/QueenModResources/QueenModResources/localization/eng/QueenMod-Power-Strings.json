@@ -18,7 +18,7 @@
         "QueenMod:Nectar": {
                 "NAME": "Nectar",
                 "DESCRIPTIONS": [
-                        "Spend to use more potent effects",
+                        "Spend to improve your cards.",
                         "",
                         ""
                 ]
@@ -26,17 +26,15 @@
         "QueenMod:Swarm": {
                 "NAME": "Swarm",
                 "DESCRIPTIONS": [
-                        "At the end of your turn, gain #b Block",
-                        "",
-                        ""
+                        "At the end of your turn, gain #b",
+                        " #yBlock. Then reduce #ySwarm by #b1."
                 ]
         },
         "QueenMod:SwarmE": {
                 "NAME": "Swarmed Enemy",
                 "DESCRIPTIONS": [
-                        "At the end of your turn, lose #b HP",
-                        "",
-                        ""
+                        "At the end of your turn, lose #b",
+                        " HP. Then reduce #ySwarm by #b1."
                 ]
         },
         "QueenMod:HoneyPower": {
@@ -58,41 +56,34 @@
         "QueenMod:StingerPower": {
                 "NAME": "Sharpened Stingers",
                 "DESCRIPTIONS": [
-                        "Hornets deal #b more damage.",
-                        "",
-                        ""
+                        "Hornets deal #b",
+                        " more damage."
                 ]
         },
         "QueenMod:PollinatePower": {
                 "NAME": "Pollinated",
                 "DESCRIPTIONS": [
-                        "When taking attack damage, the Queen gains #b*2 Nectar.",
-                        "",
-                        ""
+                        "When taking attack damage, the Queen gains 2 Nectar. At the start of the turn, reduce #yPollinate by #b1."
                 ]
         },
         "QueenMod:SwarmTacticsPower": {
                 "NAME": "Swarm Tactics",
                 "DESCRIPTIONS": [
-                        "When you play a card, gain #b Swarm.",
-                        "",
-                        ""
+                        "When you play a card, gain #b",
+                        " #ySwarm."
                 ]
         },
         "QueenMod:StrategicGeniusPower": {
                 "NAME": "Strategic Genius",
                 "DESCRIPTIONS": [
-                        "When you draw a card, gain #b Strength this turn only.",
-                        "",
-                        ""
+                        "When you draw a card, gain #b",
+                        " #yStrength this turn only."
                 ]
         },
         "QueenMod:HeartOfTheSwarm": {
                 "NAME": "Heart of the Swarm",
                 "DESCRIPTIONS": [
-                        "Command a powerful swarm. It follows the targets of your cards, granting you block and damaging enemies at the end of the turn.",
-                        "",
-                        ""
+                        "Command a powerful #ySwarm. When attacking enemies, it is applied to them, dealing damage. When you #yBlock it returns to you, granting #yBlock. #ySwarm is reduced by #b1 each turn on all targets."
                 ]
         },
         "QueenMod:GrowingSwarmPower": {
@@ -107,8 +98,9 @@
                 "NAME": "Organized Work Force",
                 "DESCRIPTIONS": [
                         "At the end of your turn, add ",
-                        "a Drone to your Draw Pile.",
-                        "#b Drones to your Draw Pile."
+                        "a #yDrone to your Draw Pile.",
+                        "#b",
+                        " #yDrones to your Draw Pile."
                 ]
         },
         "QueenMod:QueenFlightPower": {
@@ -122,17 +114,15 @@
         "QueenMod:FocusedSwarm": {
                 "NAME": "Focused Swarm",
                 "DESCRIPTIONS": [
-                        "At the end of your turn, gain #b Block. Will not move this turn.",
-                        "",
-                        ""
+                        "At the end of your turn, gain #b",
+                        " #yBlock and reduce this by #b1. Will not move this turn."
                 ]
         },
         "QueenMod:FocusedSwarmE": {
                 "NAME": "Focused Swarm",
                 "DESCRIPTIONS": [
-                        "At the end of your turn, lose #b HP. Will not move this turn.",
-                        "",
-                        ""
+                        "At the end of your turn, lose #b",
+                        "  HP and reduce this by #b1. Will not move this turn."
                 ]
         },
         "QueenMod:FlightDrain": {
@@ -186,7 +176,7 @@
         "QueenMod:ReinforcementsPower": {
                 "NAME": "Reinforcements",
                 "DESCRIPTIONS": [
-                        "At the start of your turn, play a Hornet, Bumblebee or Honeybee from your draw pile.",
+                        "At the start of your turn, play a Hornet, Bumblebee or Honeybee from your draw pile at random.",
                         "",
                         ""
                 ]
