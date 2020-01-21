@@ -396,8 +396,8 @@
   },
   "QueenMod:Blitz": {
     "NAME": "Blitz",
-    "DESCRIPTION": "Deal !D! damage. Damages increases by 1 for each card played this turn and lasts for this combat when played.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage twice. Damages increases by 1 for each card played this turn and lasts for this combat when played."
+    "DESCRIPTION": "Deal !D! damage. Add !M! Attacks from your Draw Pile to your hand.",
+    "UPGRADE_DESCRIPTION": " Innate. NL Deal !D! damage. Add !M! Attacks from your Draw Pile to your hand."
   },
   "QueenMod:SupplyLines": {
     "NAME": "Supply Lines",

@@ -34,14 +34,14 @@ public class Fortify extends AbstractDynamicCard {
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 3;
-    private static final int MAGIC = 4;
+    private static final int BLOCK = 4;
 
     // /STAT DECLARATION/
 
 
     public Fortify() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = MAGIC;
+        baseBlock = block = BLOCK;
     }
 
     // Actions the card should do.
@@ -60,6 +60,26 @@ public class Fortify extends AbstractDynamicCard {
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, magicNumber));
             }
         }
+    }
+
+    @Override
+    public void applyPowers(){
+        super.applyPowers();
+        int n = 0;
+        for (AbstractCard c : AbstractDungeon.player.drawPile.group){
+            if (c.cardID.equals(Hornet.ID) ||
+                    c.cardID.equals(BumbleBee.ID) ||
+                    c.cardID.equals(Drone.ID) ||
+                    c.cardID.equals(WorkerBee.ID) ||
+                    c.cardID.equals(HornetCommander.ID) ||
+                    c.cardID.equals(BumbleBeeCommander.ID) ||
+                    c.cardID.equals(DroneCommander.ID) ||
+                    c.cardID.equals(WorkerBeeCommander.ID) ||
+                    c.cardID.equals(WASP.ID)){
+                n++;
+            }
+        }
+        this.rawDescription = "Gain "+ block +" Block "+n+" times. (Equal to number of queenmod:Hive cards in your Draw Pile)";
     }
 
     //Upgraded stats.

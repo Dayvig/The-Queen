@@ -4,6 +4,7 @@ import QueenMod.QueenMod;
 import QueenMod.characters.TheQueen;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.utility.DrawPileToHandAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -39,10 +40,8 @@ public class Blitz extends AbstractDynamicCard {
     private static final int COST = 1;  // COST = ${COST}
     private static final int UPGRADED_COST = 1; // UPGRADED_COST = ${UPGRADED_COST}
 
-    private static final int DAMAGE = 6;    // DAMAGE = ${DAMAGE}
-    private static final int MAGIC = 1;
-    public int cardCounter;
-    public int damageAtStartOfTurn;
+    private static final int DAMAGE = 5;    // DAMAGE = ${DAMAGE}
+    private static final int MAGIC = 2;
     // /STAT DECLARATION/
 
 
@@ -50,37 +49,14 @@ public class Blitz extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC;
-        cardCounter = 0;
-        damageAtStartOfTurn = baseDamage;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (int i=0;i<magicNumber;i++) {
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        }
-        damageAtStartOfTurn = baseDamage;
-        this.initializeDescription();
-    }
-
-    public void applyPowers(){
-        super.applyPowers();
-        if (cardCounter > AbstractDungeon.player.cardsPlayedThisTurn){cardCounter = 0;}
-        if (cardCounter < AbstractDungeon.player.cardsPlayedThisTurn) {
-            baseDamage++;
-            cardCounter++;
-            initializeDescription();
-        }
-    }
-
-    public void triggerWhenDrawn(){
-        damageAtStartOfTurn = this.baseDamage;
-    }
-
-    public void onMoveToDiscard(){
-        baseDamage = damageAtStartOfTurn;
+       AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+       AbstractDungeon.actionManager.addToBottom(new DrawPileToHandAction(magicNumber, CardType.ATTACK));
     }
 
     // Upgraded stats.
@@ -88,7 +64,6 @@ public class Blitz extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.upgradeMagicNumber(1);
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
