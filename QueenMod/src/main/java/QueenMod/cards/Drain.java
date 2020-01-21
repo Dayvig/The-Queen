@@ -39,10 +39,8 @@ public class Drain extends AbstractDynamicCard {
 
     private static final int COST = 1;  // COST = ${COST}
 
-    private static final int DAMAGE = 8;    // DAMAGE = ${DAMAGE}
-    private static final int MAGIC = 8;
+    private static final int DAMAGE = 4;    // DAMAGE = ${DAMAGE}
     private static final int UPGRADE_PLUS_DAMAGE = 2;
-    private static final int UPGRADE_MAGIC = 2;
 
     // /STAT DECLARATION/
 
@@ -50,15 +48,17 @@ public class Drain extends AbstractDynamicCard {
     public Drain() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
-        this.baseMagicNumber = this.magicNumber = MAGIC;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new Nectar(p, p, magicNumber), magicNumber));
+        for (int i=0;i<2;i++) {
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
+                    new Nectar(p, p, damage), damage));
+        }
     }
 
     // Upgraded stats.
@@ -67,7 +67,6 @@ public class Drain extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DAMAGE);
-            this.upgradeMagicNumber(UPGRADE_MAGIC);
             initializeDescription();
         }
     }

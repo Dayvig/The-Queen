@@ -56,7 +56,7 @@ public class MosquitoPlatoon extends AbstractDynamicCard {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
                     new Nectar(p, p, damage), damage));
         }
-        };
+    }
 
 
     // Upgraded stats.

@@ -434,6 +434,6 @@
   },
   "QueenMod:Drain": {
     "NAME": "Drain",
-    "DESCRIPTION": "Deal !D! damage. NL Gain !M! queenmod:Nectar."
+    "DESCRIPTION": "Deal !D! damage twice. NL Gain queenmod:Nectar equal to the damage dealt."
   }
 }
