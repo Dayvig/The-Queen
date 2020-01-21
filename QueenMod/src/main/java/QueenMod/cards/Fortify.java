@@ -57,9 +57,29 @@ public class Fortify extends AbstractDynamicCard {
                     c.cardID.equals(DroneCommander.ID) ||
                     c.cardID.equals(WorkerBeeCommander.ID) ||
                     c.cardID.equals(WASP.ID)){
-                AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, magicNumber));
+                AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
             }
         }
+    }
+
+    @Override
+    public void triggerWhenDrawn(){
+        int n = 0;
+        for (AbstractCard c : AbstractDungeon.player.drawPile.group){
+            if (c.cardID.equals(Hornet.ID) ||
+                    c.cardID.equals(BumbleBee.ID) ||
+                    c.cardID.equals(Drone.ID) ||
+                    c.cardID.equals(WorkerBee.ID) ||
+                    c.cardID.equals(HornetCommander.ID) ||
+                    c.cardID.equals(BumbleBeeCommander.ID) ||
+                    c.cardID.equals(DroneCommander.ID) ||
+                    c.cardID.equals(WorkerBeeCommander.ID) ||
+                    c.cardID.equals(WASP.ID)){
+                n++;
+            }
+        }
+        this.rawDescription = "Gain "+ block +" Block "+n+" times. (Equal to number of queenmod:Hive cards in your Draw Pile)";
+        initializeDescription();
     }
 
     @Override

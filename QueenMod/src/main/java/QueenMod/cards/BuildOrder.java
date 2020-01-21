@@ -38,7 +38,7 @@ public class BuildOrder extends AbstractDynamicCard {
     private static final int COST = 1;  // COST = ${COST}
     private static final int UPGRADED_COST = 1; // UPGRADED_COST = ${UPGRADED_COST}
     private static final int MAGIC = 1;
-    private static final int MAGIC2 = 2;
+    private static final int MAGIC2 = 3;
     // /STAT DECLARATION/
 
 
@@ -52,7 +52,7 @@ public class BuildOrder extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ProductionPower(p, p, magicNumber), magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ProductionPower(p, p, defaultSecondMagicNumber), defaultSecondMagicNumber));
         AbstractDungeon.actionManager.addToBottom(new RecruitAction(new WorkerBee(), magicNumber));
     }
 

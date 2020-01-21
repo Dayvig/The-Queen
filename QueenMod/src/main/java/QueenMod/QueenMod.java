@@ -339,6 +339,7 @@ public class QueenMod implements
         // Don't comment out/delete these cards (yet). You need 1 of e0ach type and rarity (technically) for your game not to crash
         // when generating card rewards/shop screen items.
 
+        BaseMod.addCard(new Feint());
         BaseMod.addCard(new HoldPosition());
         BaseMod.addCard(new Fortify());
         BaseMod.addCard(new Drain());
@@ -438,6 +439,7 @@ public class QueenMod implements
         // This is so that they are all "seen" in the library, for people who like to look at the card list
         // before playing your mod.
 
+        UnlockTracker.unlockCard(Feint.ID);
         UnlockTracker.unlockCard(HoldPosition.ID);
         UnlockTracker.unlockCard(Fortify.ID);
         UnlockTracker.unlockCard(Drain.ID);

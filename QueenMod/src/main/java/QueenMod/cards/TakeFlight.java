@@ -14,13 +14,6 @@ import static QueenMod.QueenMod.makeCardPath;
 
 public class TakeFlight extends AbstractDynamicCard {
 
-    /*
-     * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
-     *
-     * For Each Loop x2" "Apply 1 Vulnerable to all enemies, 2(3) times.
-     */
-
-    // TEXT DECLARATION
 
     public static final String ID = QueenMod.makeID(TakeFlight.class.getSimpleName());
     public static final String IMG = makeCardPath("Skill.png");

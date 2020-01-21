@@ -6,10 +6,12 @@ package QueenMod.cards;
         import QueenMod.powers.SwarmPower;
         import QueenMod.powers.SwarmPowerEnemy;
         import basemod.helpers.ModalChoice;
+        import com.badlogic.gdx.graphics.Color;
         import com.megacrit.cardcrawl.actions.animations.VFXAction;
         import com.megacrit.cardcrawl.cards.DamageInfo;
         import com.megacrit.cardcrawl.characters.AbstractPlayer;
         import com.megacrit.cardcrawl.core.CardCrawlGame;
+        import com.megacrit.cardcrawl.core.Settings;
         import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
         import com.megacrit.cardcrawl.localization.CardStrings;
         import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -62,8 +64,9 @@ public class Feast extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new FeastAction(m, new DamageInfo(p, damage, damageTypeForTurn), this.magicNumber));
-        AbstractDungeon.actionManager.addToTop(new VFXAction(new BiteEffect(m.hb_x, m.hb_y)));
+        if (m != null) {
+            AbstractDungeon.actionManager.addToBottom(new VFXAction(new BiteEffect(m.hb.cX, m.hb.cY - 40.0F * Settings.scale, Color.SCARLET.cpy()), 0.3F));
+        }
     }
 
     @Override
