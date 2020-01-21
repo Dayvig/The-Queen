@@ -413,7 +413,8 @@
   },
   "QueenMod:SecretService": {
     "NAME": "Secret Service",
-    "DESCRIPTION": "Exhaust one of each type of queenmod:Hive card in your draw pile. Combine them into a W.A.S.P. and add it to your hand. NL Exhaust."
+    "DESCRIPTION": "Exhaust one of each type of queenmod:Hive card in your draw pile. Combine them into a W.A.S.P. and add it to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Exhaust one of each type of queenmod:Hive card in your draw pile. Combine them into a W.A.S.P. upgrade it and add it to your hand. NL Exhaust."
   },
   "QueenMod:WASP": {
     "NAME": "W.A.S.P.",

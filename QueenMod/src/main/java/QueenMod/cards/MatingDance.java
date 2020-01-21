@@ -31,12 +31,12 @@ public class MatingDance extends AbstractDynamicCard {
     // STAT DECLARATION
 
     private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
-    private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
+    private static final CardTarget TARGET = CardTarget.NONE;  //   since they don't change much.
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = -2;  // COST = ${COST}
-    private static final int MAGIC = 10;
+    private static final int MAGIC = 5;
 
 
     private int combo;
@@ -110,9 +110,7 @@ public class MatingDance extends AbstractDynamicCard {
             initializeDescription();
         }
         if (combo == 4){
-            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Drone(), defaultSecondMagicNumber, true, false));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, magicNumber),magicNumber));
-            AbstractDungeon.actionManager.addToBottom(new UpgradeCardInDeckAction(defaultSecondMagicNumber));
             combo = 0;
             desc = "";
             for (int i=0;i<dance.length;i++) {
@@ -248,7 +246,7 @@ public class MatingDance extends AbstractDynamicCard {
                 }
             }
         }
-        this.rawDescription = danceDescriptions[0]+danceDescriptions[1]+danceDescriptions[2]+danceDescriptions[3]+" NL "+
+        this.rawDescription = "Play these card types in sequence: " + danceDescriptions[0]+danceDescriptions[1]+danceDescriptions[2]+danceDescriptions[3]+" NL "+
                 EXTENDED_DESCRIPTION[0];
         combo = 0;
         initializeDescription();
@@ -259,7 +257,7 @@ public class MatingDance extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.upgradeMagicNumber(5);
+            this.upgradeMagicNumber(3);
             initializeDescription();
         }
     }

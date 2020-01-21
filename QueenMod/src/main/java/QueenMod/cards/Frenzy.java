@@ -34,9 +34,9 @@ public class Frenzy extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
-    private static final int COST = 1;  // COST = ${COST}
-    private static final int DAMAGE = 5;
-    private static final int BLOCK = 5;
+    private static final int COST = 2;  // COST = ${COST}
+    private static final int DAMAGE = 9;
+    private static final int BLOCK = 9;
     // /STAT DECLARATION/
 
 

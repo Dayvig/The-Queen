@@ -67,7 +67,6 @@ public class Repurpose extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeBaseCost(UPGRADED_COST);
-            this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

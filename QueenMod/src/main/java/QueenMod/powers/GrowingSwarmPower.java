@@ -50,7 +50,7 @@ public class GrowingSwarmPower extends AbstractPower implements CloneablePowerIn
 
     @Override
     public void atEndOfTurn(final boolean isPlayer) {
-        if (this.owner.hasPower(Nectar.POWER_ID) && this.owner.getPower(Nectar.POWER_ID).amount >= 2){
+        if (this.owner.hasPower(Nectar.POWER_ID) && this.owner.getPower(Nectar.POWER_ID).amount >= this.amount){
             AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, Nectar.POWER_ID, this.amount));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner,this.source,new SwarmPower(this.owner, this.source, this.amount),this.amount));
         }

@@ -14,11 +14,6 @@ import static QueenMod.QueenMod.makeCardPath;
 
 public class Fortify extends AbstractDynamicCard {
 
-    /*
-     * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
-     *
-     * Defend Gain 5 (8) block.
-     */
 
 
     // TEXT DECLARATION
