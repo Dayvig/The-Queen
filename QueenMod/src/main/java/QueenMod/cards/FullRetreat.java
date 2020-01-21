@@ -57,9 +57,6 @@ public class FullRetreat extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
         for (AbstractCard c : p.hand.group) {
-            if (c.cardID.equals(Blitz.ID)){
-                ((Blitz) c).baseDamage = ((Blitz) c).damageAtStartOfTurn;
-            }
             if (!c.cardID.equals(FullRetreat.ID)) {
                 AbstractDungeon.actionManager.addToBottom(new FlybyAction(c));
             }

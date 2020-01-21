@@ -351,7 +351,7 @@
   },
   "QueenMod:Fortify":{
     "NAME": "Fortify",
-    "DESCRIPTION": "Gain !M! block for each queenmod:Hive card in your draw pile."
+    "DESCRIPTION": "Gain !B! block for each queenmod:Hive card in your draw pile."
   },
   "QueenMod:HoldPosition":{
     "NAME": "Hold Position",

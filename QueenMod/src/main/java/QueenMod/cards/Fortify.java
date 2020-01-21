@@ -80,6 +80,7 @@ public class Fortify extends AbstractDynamicCard {
             }
         }
         this.rawDescription = "Gain "+ block +" Block "+n+" times. (Equal to number of queenmod:Hive cards in your Draw Pile)";
+        initializeDescription();
     }
 
     //Upgraded stats.
@@ -87,7 +88,7 @@ public class Fortify extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
+            upgradeBlock(1);
             initializeDescription();
         }
     }
