@@ -274,9 +274,9 @@
     "NAME": "Plan Ahead",
     "DESCRIPTION": "Scry 10."
   },
-  "QueenMod:RelentlessAssault":{
-  "NAME": "Relentless Assault",
-  "DESCRIPTION": "Deal !D! damage !M! times. NL Attacks once more this combat."
+  "QueenMod:Spearhead":{
+  "NAME": "Spearhead",
+  "DESCRIPTION": "Deal !M! damage. NL Spend 10 queenmod:Nectar: Deal !D! damage to all enemies."
 },
   "QueenMod:Conscripts":{
     "NAME": "Conscripts",
@@ -440,5 +440,9 @@
   "QueenMod:Feint": {
     "NAME": "Feint",
     "DESCRIPTION": "If the last card played this combat was an Attack, Inflict 1 Weak and draw !M! cards."
+  },
+  "QueenMod:IAmTheSwarm": {
+    "NAME": "I Am The Swarm",
+    "DESCRIPTION": "Exhaust your Deck, and gain !M! queenmod:Swarm for each card. Split your Swarm among all targets. At the start of your turn, add a random card to your hand."
   }
 }

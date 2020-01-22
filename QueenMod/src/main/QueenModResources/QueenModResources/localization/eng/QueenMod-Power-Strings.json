@@ -235,5 +235,13 @@
                         "",
                         ""
                 ]
+        },
+        "QueenMod:FromScratch": {
+                "NAME": "From Nothing",
+                "DESCRIPTIONS": [
+                        "At the start of your turn, add #b",
+                        " random card to your hand.",
+                        " random cards to your hand."
+                ]
         }
 }

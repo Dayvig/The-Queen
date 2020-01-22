@@ -89,11 +89,17 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
         if (AbstractDungeon.player.hasPower(SwarmPower.POWER_ID)) {
             totalSwarm += AbstractDungeon.player.getPower(SwarmPower.POWER_ID).amount;
         }
-        if (c.cardID.equals(Mark.ID) && totalSwarm != 0){
+        if (totalSwarm == 0){return;}
+        if (c.cardID.equals(Mark.ID)){
             AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, true, totalSwarm, a));
             AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(a.target, AbstractDungeon.player, SwarmPowerEnemy.POWER_ID));
         }
-        else if (c.cardID.equals(Frenzy.ID) && totalSwarm != 0){
+        else if (c.cardID.equals(Anticipate.ID) || c.cardID.equals(Parry.ID) || c.cardID.equals(Feint.ID)){
+            AbstractCard tmp = c;
+            tmp.target = AbstractCard.CardTarget.SELF;
+            AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, false, totalSwarm, a));
+        }
+        else if (c.cardID.equals(Frenzy.ID)){
             AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, true, totalSwarm, a));
         }
         else if (c.cardID.equals(SplitStrike.ID) && totalSwarm > 1){
@@ -105,12 +111,12 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
                 AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, false, totalSwarm, a));
             }
         }
-        else if (c.cardID.equals(BlindingSwarm.ID) && totalSwarm != 0){
+        else if (c.cardID.equals(BlindingSwarm.ID)){
             AbstractCard tmp = c;
             tmp.target = ALL_ENEMY;
             AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(tmp, true, totalSwarm, a));
         }
-        else if (c.cardID.equals(SwarmEconomics.ID) && totalSwarm != 0){
+        else if (c.cardID.equals(SwarmEconomics.ID)){
             int temp = totalSwarm;
             totalSwarm = 0;
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player,AbstractDungeon.player,
@@ -118,7 +124,7 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
             AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, false, totalSwarm, a));
             AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, SwarmPower.POWER_ID));
         }
-        else if (totalSwarm != 0) {
+        else {
             AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, false, totalSwarm, a));
         }
     }

@@ -174,7 +174,8 @@ public class TheQueen extends CustomPlayer {
         retVal.add(HonorGuard.ID);
         retVal.add(ProtectQueen.ID);
         retVal.add(Fortify.ID);
-        retVal.add(Feast.ID);
+        retVal.add(IAmTheSwarm.ID);
+        retVal.add(MatingDance.ID);
 
         return retVal;
     }
