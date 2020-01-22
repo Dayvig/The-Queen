@@ -445,5 +445,9 @@
   "QueenMod:IAmTheSwarm": {
     "NAME": "I Am The Swarm",
     "DESCRIPTION": "Exhaust your Deck, and gain !M! queenmod:Swarm for each card. Split your Swarm among all targets. At the start of your turn, add a random card to your hand."
+  },
+  "QueenMod:WarMachine": {
+    "NAME": "War Machine",
+    "DESCRIPTION": "Deal !D! damage, if Fatal increase this card's queenmod:Production by 1. NL Gain !M! queenmod:Production."
   }
 }
