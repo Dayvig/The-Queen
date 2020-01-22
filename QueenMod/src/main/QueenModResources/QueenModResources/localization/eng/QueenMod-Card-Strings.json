@@ -117,7 +117,7 @@
   },
   "QueenMod:EnergyReserves": {
     "NAME": "Stockpile",
-    "DESCRIPTION": "Gain [E] at the start of your turn for every 10 queenmod:Nectar. NL queenmod:Recruit two queenmod:Worker bees."
+    "DESCRIPTION": "Gain [E] at the start of your turn for every 10 queenmod:Nectar. NL queenmod:Recruit 2 queenmod:Workerbees."
   },
   "QueenMod:Repurpose": {
     "NAME": "Repurpose",
@@ -194,7 +194,8 @@
   },
   "QueenMod:PollenBlast": {
     "NAME": "Pollen Blast",
-    "DESCRIPTION": "Deal !D! damage and inflict !M! queenmod:Pollinate to all enemies."
+    "DESCRIPTION": "Deal !D! damage and inflict !M! queenmod:Pollinate to all enemies. NL queenmod:Recruit !M! queenmod:Workerbee.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage and inflict !M! queenmod:Pollinate to all enemies. NL queenmod:Recruit !M! queenmod:Workerbees."
   },
   "QueenMod:BlindingSwarm": {
     "NAME": "Blinding Swarm",

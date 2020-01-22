@@ -1,8 +1,10 @@
 package QueenMod.cards;
 
 import QueenMod.QueenMod;
+import QueenMod.actions.RecruitAction;
 import QueenMod.characters.TheQueen;
 import QueenMod.powers.PollinatePower;
+import basemod.patches.com.megacrit.cardcrawl.screens.mainMenu.MainMenuScreen.SwapCharacterSelectScreen;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -60,6 +62,8 @@ public class PollenBlast extends AbstractDynamicCard {
             for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters){
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new PollinatePower(mo, p, magicNumber),magicNumber));
             }
+        AbstractDungeon.actionManager.addToBottom(new RecruitAction(new WorkerBee(),magicNumber));
+
     }
 
     // Upgraded stats.
