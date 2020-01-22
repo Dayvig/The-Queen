@@ -171,11 +171,10 @@ public class TheQueen extends CustomPlayer {
         retVal.add(Defend.ID);
         retVal.add(Recruit.ID);
         retVal.add(Drain.ID);
-        retVal.add(HonorGuard.ID);
-        retVal.add(ProtectQueen.ID);
-        retVal.add(Fortify.ID);
-        retVal.add(IAmTheSwarm.ID);
-        retVal.add(MatingDance.ID);
+
+        retVal.add(Spearhead.ID);
+        retVal.add(PollenBlast.ID);
+        retVal.add(WarMachine.ID);
 
         return retVal;
     }

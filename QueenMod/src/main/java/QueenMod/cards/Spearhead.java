@@ -31,7 +31,7 @@ public class Spearhead extends AbstractDynamicCard {
     // STAT DECLARATION
 
     private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
-    private CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
+    private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
@@ -46,9 +46,10 @@ public class Spearhead extends AbstractDynamicCard {
 
 
     public Spearhead() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, CardTarget.ENEMY);
+        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC;
+        isMultiDamage = true;
     }
 
 

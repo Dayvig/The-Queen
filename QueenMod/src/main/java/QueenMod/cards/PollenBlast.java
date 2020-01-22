@@ -42,7 +42,7 @@ public class PollenBlast extends AbstractDynamicCard {
 
     private static final int DAMAGE = 5;    // DAMAGE = ${DAMAGE}
     private static final int UPGRADE_PLUS_DAMAGE = 4;
-    private static final int MAGIC = 2;
+    private static final int MAGIC = 1;
     private int numLeft;
 
     // /STAT DECLARATION/
@@ -50,7 +50,7 @@ public class PollenBlast extends AbstractDynamicCard {
 
     public PollenBlast() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = DAMAGE;
+        baseDamage = damage = DAMAGE;
         this.baseMagicNumber = this.magicNumber = MAGIC;
     }
 
