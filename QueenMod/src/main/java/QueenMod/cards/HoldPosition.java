@@ -56,7 +56,8 @@ public class HoldPosition extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.upgradeMagicNumber(1);
+            upgradeBlock(UPGRADE_PLUS_BLOCK);
+            upgradeMagicNumber(1);
             initializeDescription();
         }
     }

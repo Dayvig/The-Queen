@@ -204,10 +204,10 @@
   },
   "QueenMod:SecretWeapon": {
     "NAME": "Secret Weapon",
-    "DESCRIPTION": "Spend all queenmod:Nectar: Deal triple that amount to an enemy. NL Ethereal.",
+    "DESCRIPTION": "Spend all queenmod:Nectar: Deal triple that amount to an enemy. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Spend all queenmod:Nectar: Deal triple that amount to an enemy.",
     "EXTENDED_DESCRIPTION": [
-      "Spend all Nectar: Deal !D! damage. (Triple the Nectar spent) NL Ethereal.",
+      "Spend all Nectar: Deal !D! damage. (Triple the Nectar spent) NL Exhaust.",
       "Spend all Nectar: Deal !D! damage. (Triple the Nectar spent)"
       ]
   },
@@ -433,7 +433,8 @@
   },
   "QueenMod:PlanOfAction": {
     "NAME": "Plan of Action",
-    "DESCRIPTION": "Innate. NL Choose to gain Strength, Dexterity, queenmod:Production or a mixture of all three. NL queenmod:Recruit a queenmod:Hive card based on your choice."
+    "DESCRIPTION": "Choose to gain Strength, Dexterity, queenmod:Production or a mixture of all three. NL queenmod:Recruit a queenmod:Hive card based on your choice.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Choose to gain Strength, Dexterity, queenmod:Production or a mixture of all three. NL queenmod:Recruit a queenmod:Hive card based on your choice."
   },
   "QueenMod:Drain": {
     "NAME": "Drain",

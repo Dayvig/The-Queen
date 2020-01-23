@@ -172,10 +172,6 @@ public class TheQueen extends CustomPlayer {
         retVal.add(Recruit.ID);
         retVal.add(Drain.ID);
 
-        retVal.add(Spearhead.ID);
-        retVal.add(PollenBlast.ID);
-        retVal.add(WarMachine.ID);
-
         return retVal;
     }
 

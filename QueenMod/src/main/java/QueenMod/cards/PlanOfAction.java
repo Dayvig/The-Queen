@@ -28,6 +28,7 @@ public class PlanOfAction extends AbstractDynamicCard implements ModalChoice.Cal
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    private static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 
     // /TEXT DECLARATION/
 
@@ -40,14 +41,13 @@ public class PlanOfAction extends AbstractDynamicCard implements ModalChoice.Cal
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 1;  // COST = ${COST}
-    private static final int UPGRADED_COST = 0;
     private ModalChoice modal;
     // /STAT DECLARATION/
 
 
     public PlanOfAction() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.isInnate = true;
+        this.isInnate = false;
         modal = new ModalChoiceBuilder()
                 .setCallback(this) // Sets callback of all the below options to this
                 .setColor(CardColor.COLORLESS) // Sets color of any following cards to colorless
@@ -78,7 +78,8 @@ public class PlanOfAction extends AbstractDynamicCard implements ModalChoice.Cal
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
+            this.isInnate = true;
+            this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }
@@ -91,15 +92,19 @@ public class PlanOfAction extends AbstractDynamicCard implements ModalChoice.Cal
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(abstractPlayer, abstractPlayer, new DexterityPower(abstractPlayer, 1), 1));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(abstractPlayer, abstractPlayer, new ProductionPower(abstractPlayer, abstractPlayer, 1), 1));
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Drone(), 3, true, false));
+                break;
             case 1:
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(abstractPlayer, abstractPlayer, new StrengthPower(abstractPlayer, 3), 3));
                 AbstractDungeon.actionManager.addToBottom(new RecruitAction(new Hornet(), 1));
+                break;
             case 2:
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(abstractPlayer, abstractPlayer, new DexterityPower(abstractPlayer, 3), 3));
                 AbstractDungeon.actionManager.addToBottom(new RecruitAction(new BumbleBee(), 1));
+                break;
             case 3:
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(abstractPlayer, abstractPlayer, new ProductionPower(abstractPlayer, abstractPlayer, 3), 3));
                 AbstractDungeon.actionManager.addToBottom(new RecruitAction(new WorkerBee(), 1));
+                break;
             default:
         }
     }
