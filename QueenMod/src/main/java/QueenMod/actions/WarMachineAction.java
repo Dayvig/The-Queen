@@ -5,9 +5,11 @@
 
 package QueenMod.actions;
 
+import QueenMod.powers.ProductionPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.ActionType;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -39,6 +41,8 @@ public class WarMachineAction extends AbstractGameAction {
                 for (AbstractCard c : AbstractDungeon.player.masterDeck.group){
                     if (c.uuid.equals(this.uuid)) {
                         c.misc += this.increaseAmount;
+                        System.out.println("misc: "+c.misc);
+                        c.baseMagicNumber = c.misc;
                         c.applyPowers();
                     }
                 }
