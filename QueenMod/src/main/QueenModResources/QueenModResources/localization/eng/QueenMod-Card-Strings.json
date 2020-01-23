@@ -156,10 +156,11 @@
 },
   "QueenMod:Feast": {
   "NAME": "Feast",
-  "DESCRIPTION": "Deal damage equal to your Swarm. If this kills an enemy, gain !M! Swarm.",
-    "UPGRADE_DESCRIPTION": "Deal damage equal to your Swarm + 4. If this kills an enemy, gain !M! Swarm.",
+  "DESCRIPTION": "Deal damage equal to your queenmod:Swarm. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to your queenmod:Swarm.",
     "EXTENDED_DESCRIPTION": [
-      "Deal !D! damage. If this kills an enemy, gain !M! queenmod:Swarm."
+      "Deal !D! damage. (Equal to your queenmod:Swarm.) NL Exhaust.",
+      "Deal !D! damage. (Equal to your queenmod:Swarm.)"
     ]
 },
   "QueenMod:DroneSpawner": {
