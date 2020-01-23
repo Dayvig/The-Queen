@@ -64,8 +64,8 @@
   },
   "QueenMod:BuildOrder": {
     "NAME": "Build Order",
-    "DESCRIPTION": "Gain !queenmod:M2! queenmod:Production. NL Recruit a queenmod:Workerbee.",
-    "UPGRADE_DESCRIPTION": "Gain !queenmod:M2! queenmod:Production. NL Recruit !M! queenmod:Workerbees."
+    "DESCRIPTION": "Gain !QueenMod:second! queenmod:Production. NL Recruit a queenmod:Workerbee.",
+    "UPGRADE_DESCRIPTION": "Gain !QueenMod:second! queenmod:Production. NL Recruit !M! queenmod:Workerbees."
   },
   "QueenMod:KillerQueen": {
     "NAME": "Killer Queen",
@@ -261,7 +261,7 @@
   },
   "QueenMod:FinishingBlow":{
     "NAME": "Finishing Blow",
-    "DESCRIPTION": "queenmod:Finisher. NL If you've played 6 or more cards this turn, deal !D! damage."
+    "DESCRIPTION": "queenmod:Finisher. NL If you've played 10 or more cards this turn, deal !D! damage."
   },
   "QueenMod:Ambush":{
     "NAME": "Ambush",
@@ -319,8 +319,8 @@
   },
   "QueenMod:Gather": {
     "NAME": "Gather",
-    "DESCRIPTION": "Gain !M! queenmod:Nectar. NL queenmod:Recruit !queenmod:M2! queenmod:Workerbee.",
-    "UPGRADE_DESCRIPTION": "Gain !M! queenmod:Nectar. NL queenmod:Recruit !queenmod:M2! queenmod:Workerbees."
+    "DESCRIPTION": "Gain !M! queenmod:Nectar. NL queenmod:Recruit !QueenMod:second! queenmod:Workerbee.",
+    "UPGRADE_DESCRIPTION": "Gain !M! queenmod:Nectar. NL queenmod:Recruit !QueenMod:second! queenmod:Workerbees."
   },
   "QueenMod:HonorGuard":{
     "NAME": "Honor Guards",
@@ -441,7 +441,7 @@
   "QueenMod:Feint": {
     "NAME": "Feint",
     "DESCRIPTION": "If the last card played this combat was an Attack, Inflict 1 Weak and draw !M! card",
-    "UPGRADE_DESCRIPTION": "If the last card played this combat was an Attack, Inflict 1 Weak and draw !M! cards";
+    "UPGRADE_DESCRIPTION": "If the last card played this combat was an Attack, Inflict 1 Weak and draw !M! cards"
   },
   "QueenMod:IAmTheSwarm": {
     "NAME": "I Am The Swarm",
