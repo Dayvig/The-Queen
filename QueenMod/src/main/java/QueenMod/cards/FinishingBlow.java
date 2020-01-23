@@ -34,9 +34,9 @@ public class FinishingBlow extends AbstractDynamicCard {
 
     private static final int COST = 1;  // COST = ${COST}
 
-    private static final int DAMAGE = 44;    // DAMAGE = ${DAMAGE}
-    private static final int UPGRADE_PLUS_DMG = 12;  // UPGRADE_PLUS_DMG = ${UPGRADED_DAMAGE_INCREASE}
-
+    private static final int DAMAGE = 50;    // DAMAGE = ${DAMAGE}
+    private static final int UPGRADE_PLUS_DMG = 30;  // UPGRADE_PLUS_DMG = ${UPGRADED_DAMAGE_INCREASE}
+    private static final int count = 10;
     // /STAT DECLARATION/
 
 
@@ -57,20 +57,20 @@ public class FinishingBlow extends AbstractDynamicCard {
 
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        int count = AbstractDungeon.actionManager.cardsPlayedThisTurn.size();
+        int cards = AbstractDungeon.actionManager.cardsPlayedThisTurn.size();
         boolean canUse = super.canUse(p, m);
         if (!canUse) {
             return false;
         }
-        if (count >= 8){
+        if (cards >= count){
             return true;
         }
         else {
-            if (count == 7){
-                this.cantUseMessage = "I need to play "+(8-count)+" more card this turn!";
+            if (cards == count-1){
+                this.cantUseMessage = "I need to play "+(count-cards)+" more card this turn!";
             }
             else {
-                this.cantUseMessage = "I need to play " + (8 - count) + " more cards this turn!";
+                this.cantUseMessage = "I need to play " + (count-cards) + " more cards this turn!";
             }
             return false;
         }

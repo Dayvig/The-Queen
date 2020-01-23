@@ -38,25 +38,25 @@ public class WarMachineAction extends AbstractGameAction {
             AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, AttackEffect.SLASH_HORIZONTAL));
             this.target.damage(this.info);
             if ((this.target.isDying || this.target.currentHealth <= 0) && !this.target.halfDead && !this.target.hasPower("Minion")) {
-                for (AbstractCard c : AbstractDungeon.player.masterDeck.group){
+                for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
                     if (c.uuid.equals(this.uuid)) {
                         c.misc += this.increaseAmount;
-                        System.out.println("misc: "+c.misc);
                         c.baseMagicNumber = c.misc;
                         c.applyPowers();
                     }
                 }
-                for (AbstractCard c : GetAllInBattleInstances.get(this.uuid)){
+                AbstractCard c;
+                for (Iterator var1 = GetAllInBattleInstances.get(this.uuid).iterator(); var1.hasNext(); c.baseMagicNumber = c.misc) {
+                    c = (AbstractCard) var1.next();
                     c.misc += this.increaseAmount;
                     c.applyPowers();
                 }
-            }
+                if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
+                    AbstractDungeon.actionManager.clearPostCombatActions();
+                }
 
-            if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
-                AbstractDungeon.actionManager.clearPostCombatActions();
             }
         }
-
         this.tickDuration();
     }
 }

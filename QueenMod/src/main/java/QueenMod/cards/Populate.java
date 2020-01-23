@@ -29,8 +29,7 @@ public class Populate extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
-    private static final int COST = 1;  // COST = ${COST}
-    private static final int UPGRADED_COST = 0; // UPGRADED_COST = ${UPGRADED_COST}
+    private static final int COST = 0;  // COST = ${COST}
 
     // /STAT DECLARATION/
 
@@ -54,7 +53,7 @@ public class Populate extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
+            upgradeMagicNumber(2);
             initializeDescription();
         }
     }

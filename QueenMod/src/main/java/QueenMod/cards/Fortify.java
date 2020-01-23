@@ -35,6 +35,7 @@ public class Fortify extends AbstractDynamicCard {
 
     private static final int COST = 3;
     private static final int BLOCK = 4;
+    public int numCards = 0;
 
     // /STAT DECLARATION/
 
@@ -47,60 +48,37 @@ public class Fortify extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (AbstractCard c : p.drawPile.group){
-            if (c.cardID.equals(Hornet.ID) ||
-                    c.cardID.equals(BumbleBee.ID) ||
-                    c.cardID.equals(Drone.ID) ||
-                    c.cardID.equals(WorkerBee.ID) ||
-                    c.cardID.equals(HornetCommander.ID) ||
-                    c.cardID.equals(BumbleBeeCommander.ID) ||
-                    c.cardID.equals(DroneCommander.ID) ||
-                    c.cardID.equals(WorkerBeeCommander.ID) ||
-                    c.cardID.equals(WASP.ID)){
-                AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
-            }
+        for (int k = 0; k<numCards; k++) {
+            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
         }
     }
 
     @Override
-    public void triggerWhenDrawn(){
-        int n = 0;
-        for (AbstractCard c : AbstractDungeon.player.drawPile.group){
-            if (c.cardID.equals(Hornet.ID) ||
-                    c.cardID.equals(BumbleBee.ID) ||
-                    c.cardID.equals(Drone.ID) ||
-                    c.cardID.equals(WorkerBee.ID) ||
-                    c.cardID.equals(HornetCommander.ID) ||
-                    c.cardID.equals(BumbleBeeCommander.ID) ||
-                    c.cardID.equals(DroneCommander.ID) ||
-                    c.cardID.equals(WorkerBeeCommander.ID) ||
-                    c.cardID.equals(WASP.ID)){
-                n++;
+    public void update() {
+        super.update();
+        try {
+            int n = 0;
+            for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
+                if (c.cardID.equals(Hornet.ID) ||
+                        c.cardID.equals(BumbleBee.ID) ||
+                        c.cardID.equals(Drone.ID) ||
+                        c.cardID.equals(WorkerBee.ID) ||
+                        c.cardID.equals(HornetCommander.ID) ||
+                        c.cardID.equals(BumbleBeeCommander.ID) ||
+                        c.cardID.equals(DroneCommander.ID) ||
+                        c.cardID.equals(WorkerBeeCommander.ID) ||
+                        c.cardID.equals(WASP.ID)) {
+                    n++;
+                }
             }
+            numCards = n;
+            this.rawDescription = "Gain " + block + " #yBlock " + numCards + " times. NL (Equal to number of queenmod:Hive cards in your Draw Pile)";
+            initializeDescription();
         }
-        this.rawDescription = "Gain "+ block +" Block "+n+" times. (Equal to number of queenmod:Hive cards in your Draw Pile)";
-        initializeDescription();
-    }
+        catch (NullPointerException e){
+            this.rawDescription = "Gain "+ block + "#yBlock once for each queenmod:Hive card in your Draw Pile.";
 
-    @Override
-    public void applyPowers(){
-        super.applyPowers();
-        int n = 0;
-        for (AbstractCard c : AbstractDungeon.player.drawPile.group){
-            if (c.cardID.equals(Hornet.ID) ||
-                    c.cardID.equals(BumbleBee.ID) ||
-                    c.cardID.equals(Drone.ID) ||
-                    c.cardID.equals(WorkerBee.ID) ||
-                    c.cardID.equals(HornetCommander.ID) ||
-                    c.cardID.equals(BumbleBeeCommander.ID) ||
-                    c.cardID.equals(DroneCommander.ID) ||
-                    c.cardID.equals(WorkerBeeCommander.ID) ||
-                    c.cardID.equals(WASP.ID)){
-                n++;
-            }
         }
-        this.rawDescription = "Gain "+ block +" Block "+n+" times. (Equal to number of queenmod:Hive cards in your Draw Pile)";
-        initializeDescription();
     }
 
     //Upgraded stats.

@@ -348,7 +348,6 @@ public class QueenMod implements
         BaseMod.addCard(new PlanOfAction());
         BaseMod.addCard(new TeaTime());
         BaseMod.addCard(new CallToArms());
-        BaseMod.addCard(new WASP());
         BaseMod.addCard(new Frenzy());
         BaseMod.addCard(new Recruit());
         BaseMod.addCard(new SupplyLines());
@@ -362,9 +361,8 @@ public class QueenMod implements
         BaseMod.addCard(new Reposition());
         BaseMod.addCard(new HoneyShield());
         BaseMod.addCard(new SwarmEconomics());
-        BaseMod.addCard(new HoneyFactory());
         BaseMod.addCard(new HonorGuard());
-        BaseMod.addCard(new SpaDay());
+        BaseMod.addCard(new Gather());
         BaseMod.addCard(new WarTrumpet());
         BaseMod.addCard(new Regroup());
         BaseMod.addCard(new Reinforcements());
@@ -374,7 +372,6 @@ public class QueenMod implements
         BaseMod.addCard(new Defend());
         BaseMod.addCard(new Incubate());
         BaseMod.addCard(new Conscripts());
-        BaseMod.addCard(new PlanAhead());
         BaseMod.addCard(new Spearhead());
         BaseMod.addCard(new Charge());
         BaseMod.addCard(new FinishingBlow());
@@ -396,7 +393,6 @@ public class QueenMod implements
         BaseMod.addCard(new MilitaryHandbook());
         BaseMod.addCard(new HoneyCorps());
         BaseMod.addCard(new Anticipate());
-        BaseMod.addCard(new TakeFlight());
         BaseMod.addCard(new CrossGuard());
         BaseMod.addCard(new DroneSpawner());
         BaseMod.addCard(new Feast());
@@ -428,7 +424,6 @@ public class QueenMod implements
         BaseMod.addCard(new HoneycombSmash());
         BaseMod.addCard(new HexGuard());
         BaseMod.addCard(new GatheringSwarm());
-        BaseMod.addCard(new MosquitoPlatoon());
         BaseMod.addCard(new BumbleBee());
         BaseMod.addCard(new DefendOrder());
         BaseMod.addCard(new Hornet());
@@ -462,9 +457,8 @@ public class QueenMod implements
         UnlockTracker.unlockCard(FullRetreat.ID);
         UnlockTracker.unlockCard(Reposition.ID);
         UnlockTracker.unlockCard(SwarmEconomics.ID);
-        UnlockTracker.unlockCard(HoneyFactory.ID);
         UnlockTracker.unlockCard(HonorGuard.ID);
-        UnlockTracker.unlockCard(SpaDay.ID);
+        UnlockTracker.unlockCard(Gather.ID);
         UnlockTracker.unlockCard(WarTrumpet.ID);
         UnlockTracker.unlockCard(Regroup.ID);
         UnlockTracker.unlockCard(Reinforcements.ID);
@@ -487,7 +481,6 @@ public class QueenMod implements
         UnlockTracker.unlockCard(Feast.ID);
         UnlockTracker.unlockCard(DroneSpawner.ID);
         UnlockTracker.unlockCard(CrossGuard.ID);
-        UnlockTracker.unlockCard(TakeFlight.ID);
         UnlockTracker.unlockCard(Anticipate.ID);
         UnlockTracker.unlockCard(HoneyCorps.ID);
         UnlockTracker.unlockCard(MilitaryHandbook.ID);
@@ -509,7 +502,6 @@ public class QueenMod implements
         UnlockTracker.unlockCard(FinishingBlow.ID);
         UnlockTracker.unlockCard(Charge.ID);
         UnlockTracker.unlockCard(Spearhead.ID);
-        UnlockTracker.unlockCard(PlanAhead.ID);
         UnlockTracker.unlockCard(Populate.ID);
         UnlockTracker.unlockCard(Drone.ID);
         UnlockTracker.unlockCard(BuildOrder.ID);

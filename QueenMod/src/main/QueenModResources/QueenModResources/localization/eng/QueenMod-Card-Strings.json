@@ -18,12 +18,12 @@
   },
   "QueenMod:DefendOrder": {
     "NAME": "Defend Order",
-    "DESCRIPTION": "Gain !B! block. NL queenmod:Recruit a queenmod:Bumblebee. Recall your queenmod:Swarm.",
-    "UPGRADE_DESCRIPTION": "Gain !B! block. NL queenmod:Recruit !M! queenmod:Bumblebees. Recall your queenmod:Swarm."
+    "DESCRIPTION": "Gain !B! block. NL queenmod:Recruit a queenmod:Bumblebee.",
+    "UPGRADE_DESCRIPTION": "Gain !B! block. NL queenmod:Recruit !M! queenmod:Bumblebees."
   },
   "QueenMod:BumbleBee": {
     "NAME": "BumbleBee",
-    "DESCRIPTION": "Gain !B! Block. NL Recall your queenmod:Swarm."
+    "DESCRIPTION": "Gain !B! Block."
   },
   "QueenMod:MosquitoPlatoon": {
     "NAME": "Mosquito Platoon",
@@ -60,7 +60,7 @@
   },
   "QueenMod:WorkerBee": {
     "NAME": "Worker Bee",
-    "DESCRIPTION": "Apply 1 queenmod:Pollinate. NL Deal 2 damage."
+    "DESCRIPTION": "Apply !M! queenmod:Pollinate. NL Deal !D! damage."
   },
   "QueenMod:BuildOrder": {
     "NAME": "Build Order",
@@ -91,7 +91,7 @@
   },
   "QueenMod:Nourish": {
     "NAME": "Nourish",
-    "DESCRIPTION": "Spend queenmod:Nectar to recover Health. NL Exhaust."
+    "DESCRIPTION": "Spend 10 queenmod:Nectar: Recover !M! Health. NL Exhaust."
   },
   "QueenMod:HornetSwarm": {
   "NAME": "Hornet Swarm",
@@ -190,7 +190,7 @@
   },
   "QueenMod:MilitaryHandbook": {
     "NAME": "Military Handbook",
-    "DESCRIPTION": "Draw !M! cards. NL Spend 10 queenmod:Nectar: Attacks in your hand cost 1 less this turn."
+    "DESCRIPTION": "Draw !M! cards. NL Spend 10 queenmod:Nectar: Attacks in your hand cost 1 less this turn. NL Exhaust."
   },
   "QueenMod:PollenBlast": {
     "NAME": "Pollen Blast",
@@ -203,10 +203,11 @@
   },
   "QueenMod:SecretWeapon": {
     "NAME": "Secret Weapon",
-    "DESCRIPTION": "Spend all queenmod:Nectar. NL Deal double that amount to an enemy ( !D! damage.)",
-    "UPGRADE_DESCRIPTION": "Spend all Nectar. NL Deal triple that amount to an enemy ( !D! damage.)",
+    "DESCRIPTION": "Spend all queenmod:Nectar: Deal triple that amount to an enemy. NL Ethereal.",
+    "UPGRADE_DESCRIPTION": "Spend all queenmod:Nectar: Deal triple that amount to an enemy.",
     "EXTENDED_DESCRIPTION": [
-      "Spend all Nectar. NL Deal !D! damage."
+      "Spend all Nectar: Deal !D! damage. (Triple the Nectar spent) NL Ethereal.",
+      "Spend all Nectar: Deal !D! damage. (Triple the Nectar spent)"
       ]
   },
   "QueenMod:GeneralForm": {
@@ -234,7 +235,7 @@
   },
   "QueenMod:WorkerBeeCommander": {
     "NAME": "Worker Bee Commander",
-    "DESCRIPTION": "Deal !D! damage. Inflict !M! queenmod:Pollinate. NL Upgrade all queenmod:Workerbees in your draw pile."
+    "DESCRIPTION": "Deal !D! damage. NL Inflict !M! queenmod:Pollinate. NL Upgrade all queenmod:Workerbees in your draw pile."
   },
   "QueenMod:Promotion": {
     "NAME": "Promotion",
@@ -297,7 +298,7 @@
   },
   "QueenMod:KillerBee":{
     "NAME": "Killer Bee",
-    "DESCRIPTION": "Deal !D! damage. NL While this is in your draw pile, its damage is doubled each turn until played."
+    "DESCRIPTION": "Deal !D! damage. NL While this is in your draw pile, at the start of your turn, double this card's damage until played."
   },
   "QueenMod:FlankingStrike":{
     "NAME": "Flanking Strike",
@@ -314,13 +315,12 @@
   },
   "QueenMod:WarTrumpet":{
     "NAME": "War Trumpet",
-    "DESCRIPTION": "Add a queenmod:Drone to your deck for each Attack played this turn.",
-    "UPGRADE_DESCRIPTION": "Add a queenmod:Drone+ to your deck for each Attack played this turn."
+    "DESCRIPTION": "When you play an Attack this turn, gain 1 Block and add a queenmod:Drone to your Draw Pile."
   },
-  "QueenMod:SpaDay": {
-    "NAME": "Spa Day",
-    "DESCRIPTION": "Remove all queenmod:CommonDebuffs and gain double the amount removed as queenmod:Nectar ( !queenmod:M2! ). NL queenmod:Recruit a queenmod:Workerbee.",
-    "UPGRADE_DESCRIPTION": "Remove all queenmod:CommonDebuffs and gain double the amount removed as queenmod:Nectar ( !queenmod:M2! ). NL queenmod:Recruit a queenmod:Workerbee."
+  "QueenMod:Gather": {
+    "NAME": "Gather",
+    "DESCRIPTION": "Gain !M! queenmod:Nectar. NL queenmod:Recruit !queenmod:M2! queenmod:Workerbee.",
+    "UPGRADE_DESCRIPTION": "Gain !M! queenmod:Nectar. NL queenmod:Recruit !queenmod:M2! queenmod:Workerbees."
   },
   "QueenMod:HonorGuard":{
     "NAME": "Honor Guards",
@@ -440,7 +440,8 @@
   },
   "QueenMod:Feint": {
     "NAME": "Feint",
-    "DESCRIPTION": "If the last card played this combat was an Attack, Inflict 1 Weak and draw !M! cards."
+    "DESCRIPTION": "If the last card played this combat was an Attack, Inflict 1 Weak and draw !M! card",
+    "UPGRADE_DESCRIPTION": "If the last card played this combat was an Attack, Inflict 1 Weak and draw !M! cards";
   },
   "QueenMod:IAmTheSwarm": {
     "NAME": "I Am The Swarm",

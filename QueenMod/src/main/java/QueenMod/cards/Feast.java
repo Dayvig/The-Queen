@@ -67,6 +67,7 @@ public class Feast extends AbstractDynamicCard {
         if (m != null) {
             AbstractDungeon.actionManager.addToBottom(new VFXAction(new BiteEffect(m.hb.cX, m.hb.cY - 40.0F * Settings.scale, Color.SCARLET.cpy()), 0.3F));
         }
+
     }
 
     @Override

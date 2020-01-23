@@ -3,6 +3,7 @@ package QueenMod.cards;
 import QueenMod.QueenMod;
 import QueenMod.actions.DrawToHandAction;
 import QueenMod.actions.PromotionAction;
+import QueenMod.actions.SwapCardAction;
 import QueenMod.characters.TheQueen;
 import basemod.helpers.ModalChoice;
 import basemod.helpers.ModalChoiceBuilder;
@@ -39,7 +40,7 @@ public class Promotion extends AbstractDynamicCard implements ModalChoice.Callba
     private static final int UPGRADED_COST = 0;
     private ModalChoice modal;
     private String [] modalID = new String[4];
-
+    AbstractCard chosen;
 
     // /STAT DECLARATION/
 
@@ -69,12 +70,6 @@ public class Promotion extends AbstractDynamicCard implements ModalChoice.Callba
             }
             if (c.cardID.equals(Drone.ID)){
                 containsDrone=true;
-            }
-        }
-        for (AbstractCard c : AbstractDungeon.player.drawPile.group){
-            if (c.cardID.equals(Drone.ID)) {
-                AbstractDungeon.actionManager.addToTop(new DrawToHandAction(c));
-                break;
             }
         }
         buildMassivePromotionChoice(containsHornet,containsBumblebee,containsHoneybee,containsDrone);

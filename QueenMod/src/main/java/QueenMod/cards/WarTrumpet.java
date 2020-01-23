@@ -2,6 +2,7 @@ package QueenMod.cards;
 
 import QueenMod.QueenMod;
 import QueenMod.characters.TheQueen;
+import QueenMod.powers.WarTrumpetPower;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -35,7 +36,8 @@ public class WarTrumpet extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
-    private static final int COST = 0;  // COST = ${COST}
+    private static final int COST = 1;  // COST = ${COST}
+    private static final int UPGRADED_COST = 0;
 
     // /STAT DECLARATION/
 
@@ -49,11 +51,7 @@ public class WarTrumpet extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (AbstractCard c: AbstractDungeon.actionManager.cardsPlayedThisTurn){
-            if (c.type.equals(CardType.ATTACK)){
-                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(d, 1, true, false));
-            }
-        }
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WarTrumpetPower(p, p, 1)));
     }
 
 
@@ -62,8 +60,7 @@ public class WarTrumpet extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            d.upgrade();
-            this.rawDescription = UPGRADE_DESCRIPTION;
+            upgradeBaseCost(UPGRADED_COST);
             initializeDescription();
         }
     }

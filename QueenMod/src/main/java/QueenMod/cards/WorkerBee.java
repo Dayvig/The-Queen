@@ -31,7 +31,6 @@ public class WorkerBee extends AbstractDynamicCard {
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 0;  // COST = ${COST}
-    private static final int UPGRADED_COST = 0; // UPGRADED_COST = ${UPGRADED_COST}
     private static final int DAMAGE = 2;
 
     // /STAT DECLARATION/

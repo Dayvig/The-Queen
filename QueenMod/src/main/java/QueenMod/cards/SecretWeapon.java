@@ -27,6 +27,7 @@ public class SecretWeapon extends AbstractDynamicCard {
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    private static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 
 
     // /TEXT DECLARATION/
@@ -42,7 +43,7 @@ public class SecretWeapon extends AbstractDynamicCard {
     private static final int COST = 3;  // COST = ${COST}
 
     private static final int DAMAGE = 0;    // DAMAGE = ${DAMAGE}
-    private static final int MAGIC = 2;
+    private static final int MAGIC = 3;
     // /STAT DECLARATION/
 
 
@@ -50,6 +51,7 @@ public class SecretWeapon extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC;
+        this.isEthereal = true;
     }
 
 
@@ -64,6 +66,12 @@ public class SecretWeapon extends AbstractDynamicCard {
     public void applyPowers(){
         if (AbstractDungeon.player.hasPower(Nectar.POWER_ID)){
             this.baseDamage = AbstractDungeon.player.getPower(Nectar.POWER_ID).amount * magicNumber;
+            if (upgraded){
+                this.rawDescription = EXTENDED_DESCRIPTION[1];
+            }
+            else {
+                this.rawDescription = EXTENDED_DESCRIPTION[0];
+            }
             initializeDescription();
         }
     }
@@ -73,7 +81,6 @@ public class SecretWeapon extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
             rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }

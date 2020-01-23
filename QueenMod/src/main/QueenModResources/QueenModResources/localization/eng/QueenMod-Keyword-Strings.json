@@ -18,7 +18,7 @@
         "workerbee",
         "workerbees"
       ],
-    "DESCRIPTION": "Worker Bees are 0-cost skills that gain 1 queenmod:Industry."
+    "DESCRIPTION": "Worker Bees are 0-cost skills that inflict 1 Pollinate. (When a Pollinated enemy is attacked, gain 2 Nectar)"
     },
   {
       "NAMES": [

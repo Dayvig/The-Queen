@@ -46,6 +46,7 @@ public class BuildOrder extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = magicNumber = MAGIC;
         this.defaultBaseSecondMagicNumber = defaultSecondMagicNumber = MAGIC2;
+        isDefaultSecondMagicNumberModified = true;
     }
 
 

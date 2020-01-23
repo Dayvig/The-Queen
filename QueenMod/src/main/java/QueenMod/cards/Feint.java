@@ -80,6 +80,7 @@ public class Feint extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(1);
+            this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }
