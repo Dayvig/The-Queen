@@ -58,7 +58,8 @@ public class PromotionAction extends AbstractGameAction {
     public void update() {
         for (AbstractCard c : p.drawPile.group){
             if (c.cardID.equals(id)){
-                AbstractDungeon.actionManager.addToBottom(new SwapCardAction(c, promoted, p.drawPile));
+                AbstractDungeon.actionManager.addToBottom(new DrawToHandAction(c));
+                AbstractDungeon.actionManager.addToBottom(new SwapCardAction(c, promoted, p.hand));
                 isDone = true;
                 return;
             }
