@@ -67,7 +67,8 @@
                 "NAME": "Sharpened Stingers",
                 "DESCRIPTIONS": [
                         "Hornets deal #b",
-                        " more damage."
+                        " more damage.",
+                        ""
                 ]
         },
         "QueenMod:PollinatePower": {
@@ -82,14 +83,16 @@
                 "NAME": "Swarm Tactics",
                 "DESCRIPTIONS": [
                         "When you play a card, gain #b",
-                        " #ySwarm."
+                        " #ySwarm.",
+                        ""
                 ]
         },
         "QueenMod:StrategicGeniusPower": {
                 "NAME": "Strategic Genius",
                 "DESCRIPTIONS": [
                         "When you draw a card, gain #b",
-                        " #yStrength this turn only."
+                        " #yStrength this turn only.",
+                        ""
                 ]
         },
         "QueenMod:HeartOfTheSwarm": {
