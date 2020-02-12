@@ -50,9 +50,9 @@ public class TheQueen extends CustomPlayer {
     public static class Enums {
         @SpireEnum
         public static PlayerClass THE_QUEEN;
-        @SpireEnum(name = "DEFAULT_GRAY_COLOR") // These two HAVE to have the same absolutely identical name.
+        @SpireEnum(name = "QUEEN_YELLOW") // These two HAVE to have the same absolutely identical name.
         public static AbstractCard.CardColor COLOR_YELLOW;
-        @SpireEnum(name = "DEFAULT_GRAY_COLOR") @SuppressWarnings("unused")
+        @SpireEnum(name = "QUEEN_YELLOW") @SuppressWarnings("unused")
         public static CardLibrary.LibraryType LIBRARY_COLOR;
     }
 
@@ -114,9 +114,9 @@ public class TheQueen extends CustomPlayer {
 
         initializeClass(null, // required call to load textures and setup energy/loadout.
                 // I left these in QueenMod.java (Ctrl+click them to see where they are, Ctrl+hover to see what they read.)
-                THE_DEFAULT_SHOULDER_1, // campfire pose
-                THE_DEFAULT_SHOULDER_2, // another campfire pose
-                THE_DEFAULT_CORPSE, // dead corpse
+               QUEEN_SHOULDER_1, // campfire pose
+                QUEEN_SHOULDER_2, // another campfire pose
+                QUEEN_CORPSE, // dead corpse
                 getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN)); // energy manager
 
         // =============== /TEXTURES, ENERGY, LOADOUT/ =================
@@ -127,8 +127,8 @@ public class TheQueen extends CustomPlayer {
         // =============== ANIMATIONS =================
 
         loadAnimation(
-                THE_DEFAULT_SKELETON_ATLAS,
-                THE_DEFAULT_SKELETON_JSON,
+                QUEEN_SKELETON_ATLAS,
+                QUEEN_SKELETON_JSON,
                 1.0f);
         AnimationState.TrackEntry e = state.setAnimation(0, "animation", true);
         e.setTime(e.getEndTime() * MathUtils.random());
@@ -171,6 +171,11 @@ public class TheQueen extends CustomPlayer {
         retVal.add(Defend.ID);
         retVal.add(Recruit.ID);
         retVal.add(Drain.ID);
+
+        retVal.add(Hornet.ID);
+        retVal.add(Hornet.ID);
+        retVal.add(Hornet.ID);
+        retVal.add(Hornet.ID);
 
         return retVal;
     }

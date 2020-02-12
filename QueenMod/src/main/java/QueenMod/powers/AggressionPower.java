@@ -5,8 +5,10 @@ import QueenMod.actions.DrawToDiscardAction;
 import QueenMod.cards.BumbleBee;
 import QueenMod.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -23,6 +25,8 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
+import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
+import com.megacrit.cardcrawl.vfx.stance.WrathParticleEffect;
 
 import static QueenMod.QueenMod.makePowerPath;
 
@@ -38,10 +42,13 @@ public class AggressionPower extends AbstractPower implements CloneablePowerInte
 
     // We create 2 new textures *Using This Specific Texture Loader* - an 84x84 image and a 32x32 one.
     // There's a fallback "missing texture" image, so the game shouldn't crash if you accidentally put a non-existent file.
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("placeholder_power84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("placeholder_power32.png"));
-    private int numTimes;
-    private boolean isUpgraded;
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("aggressionpower84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("aggressionpower32.png"));
+    private boolean isActive;
+    int numAttacks;
+    int numOther;
+    float particleTimer;
+    float particleTimer2;
 
     public AggressionPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = NAME;
@@ -58,26 +65,14 @@ public class AggressionPower extends AbstractPower implements CloneablePowerInte
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
+        isActive = false;
+
         updateDescription();
     }
 
 
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        int numAttacks = 0;
-        int numOther = 0;
-        for (AbstractCard c : AbstractDungeon.player.hand.group){
-            if (c.type.equals(AbstractCard.CardType.ATTACK)){numAttacks++;}
-            else if (c.type.equals(AbstractCard.CardType.SKILL) || c.type.equals(AbstractCard.CardType.POWER)){numOther++;}
-        }
-        for (AbstractCard c : AbstractDungeon.player.drawPile.group){
-            if (c.type.equals(AbstractCard.CardType.ATTACK)){numAttacks++;}
-            else if (c.type.equals(AbstractCard.CardType.SKILL) || c.type.equals(AbstractCard.CardType.POWER)){numOther++;}
-        }
-        for (AbstractCard c : AbstractDungeon.player.discardPile.group){
-            if (c.type.equals(AbstractCard.CardType.ATTACK)){numAttacks++;}
-            else if (c.type.equals(AbstractCard.CardType.SKILL) || c.type.equals(AbstractCard.CardType.POWER)){numOther++;}
-        }
-        if (!card.purgeOnUse && card.type == AbstractCard.CardType.ATTACK && this.amount > 0 && numAttacks > numOther) {
+        if (!card.purgeOnUse && card.type == AbstractCard.CardType.ATTACK && this.amount > 0 && isActive) {
             this.flash();
             AbstractMonster m = null;
             if (action.target != null) {
@@ -99,6 +94,41 @@ public class AggressionPower extends AbstractPower implements CloneablePowerInte
             }
         }
     }
+
+    @Override
+    public void update(int z){
+    z = 0;
+    numAttacks = 0;
+    numOther = 0;
+        for (AbstractCard c : AbstractDungeon.player.hand.group){
+            if (c.type.equals(AbstractCard.CardType.ATTACK)){numAttacks++;}
+            else if (c.type.equals(AbstractCard.CardType.SKILL) || c.type.equals(AbstractCard.CardType.POWER)){numOther++;}
+        }
+        for (AbstractCard c : AbstractDungeon.player.drawPile.group){
+            if (c.type.equals(AbstractCard.CardType.ATTACK)){numAttacks++;}
+            else if (c.type.equals(AbstractCard.CardType.SKILL) || c.type.equals(AbstractCard.CardType.POWER)){numOther++;}
+        }
+        for (AbstractCard c : AbstractDungeon.player.discardPile.group){
+            if (c.type.equals(AbstractCard.CardType.ATTACK)){numAttacks++;}
+            else if (c.type.equals(AbstractCard.CardType.SKILL) || c.type.equals(AbstractCard.CardType.POWER)){numOther++;}
+        }
+        isActive = (numAttacks > numOther);
+        if (!Settings.DISABLE_EFFECTS && isActive) {
+            this.particleTimer -= Gdx.graphics.getDeltaTime();
+            if (this.particleTimer < 0.0F) {
+                this.particleTimer = 0.05F;
+                AbstractDungeon.effectsQueue.add(new WrathParticleEffect());
+            }
+        }
+
+        this.particleTimer2 -= Gdx.graphics.getDeltaTime();
+        if (this.particleTimer2 < 0.0F) {
+            this.particleTimer2 = MathUtils.random(0.3F, 0.4F);
+            AbstractDungeon.effectsQueue.add(new StanceAuraEffect("Wrath"));
+        }
+    }
+
+
 
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
     @Override

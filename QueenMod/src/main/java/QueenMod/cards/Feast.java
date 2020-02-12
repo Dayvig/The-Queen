@@ -75,13 +75,18 @@ public class Feast extends AbstractDynamicCard {
     public void applyPowers(){
         totalSwarm = 0;
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            if ((mo.hasPower(SwarmPowerEnemy.POWER_ID) || mo.hasPower(FocusedSwarmE.POWER_ID)) && !mo.isDying) {
+            if ((mo.hasPower(SwarmPowerEnemy.POWER_ID)) && !mo.isDying) {
                 totalSwarm += mo.getPower(SwarmPowerEnemy.POWER_ID).amount;
+            }
+            if ((mo.hasPower(FocusedSwarmE.POWER_ID)) && !mo.isDying) {
                 totalSwarm += mo.getPower(FocusedSwarmE.POWER_ID).amount;
             }
+
         }
-        if (AbstractDungeon.player.hasPower(SwarmPower.POWER_ID) || AbstractDungeon.player.hasPower(FocusedSwarm.POWER_ID)) {
+        if (AbstractDungeon.player.hasPower(SwarmPower.POWER_ID)) {
             totalSwarm += AbstractDungeon.player.getPower(SwarmPower.POWER_ID).amount;
+        }
+        if (AbstractDungeon.player.hasPower(FocusedSwarm.POWER_ID)){
             totalSwarm += AbstractDungeon.player.getPower(FocusedSwarm.POWER_ID).amount;
         }
         this.baseDamage = totalSwarm;

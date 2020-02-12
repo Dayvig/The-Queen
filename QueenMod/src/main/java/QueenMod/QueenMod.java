@@ -61,7 +61,9 @@ public class QueenMod implements
         EditStringsSubscriber,
         EditKeywordsSubscriber,
         EditCharactersSubscriber,
-        PostInitializeSubscriber {
+        PostInitializeSubscriber,
+        AddAudioSubscriber
+{
     // Make sure to implement the subscribers *you* are using (read basemod wiki). Editing cards? EditCardsSubscriber.
     // Making relics? EditRelicsSubscriber. etc., etc., for a full list and how to make your own, visit the basemod wiki.
     public static final Logger logger = LogManager.getLogger(QueenMod.class.getName());
@@ -90,31 +92,31 @@ public class QueenMod implements
     // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
     // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
     // Card backgrounds - The actual rectangular card.
-    private static final String ATTACK_DEFAULT_GRAY = "QueenModResources/images/512/bg_attack_default_gray.png";
-    private static final String SKILL_DEFAULT_GRAY = "QueenModResources/images/512/bg_skill_default_gray.png";
-    private static final String POWER_DEFAULT_GRAY = "QueenModResources/images/512/bg_power_default_gray.png";
+    private static final String ATTACK_QUEEN = "QueenModResources/images/512/bg_attack_default_gray.png";
+    private static final String SKILL_QUEEN = "QueenModResources/images/512/bg_skill_default_gray.png";
+    private static final String POWER_QUEEN = "QueenModResources/images/512/bg_power_default_gray.png";
 
     private static final String ENERGY_ORB_QUEEN = "QueenModResources/images/512/card_queen_orb.png";
     private static final String ENERGY_ORB_QUEEN_SMALL = "QueenModResources/images/512/card_queen_small_orb.png";
 
-    private static final String ATTACK_DEFAULT_GRAY_PORTRAIT = "QueenModResources/images/1024/bg_attack_default_gray.png";
-    private static final String SKILL_DEFAULT_GRAY_PORTRAIT = "QueenModResources/images/1024/bg_skill_default_gray.png";
-    private static final String POWER_DEFAULT_GRAY_PORTRAIT = "QueenModResources/images/1024/bg_power_default_gray.png";
-    private static final String ENERGY_ORB_DEFAULT_GRAY_PORTRAIT = "QueenModResources/images/1024/card_default_gray_orb.png";
+    private static final String ATTACK_QUEEN_PORTRAIT = "QueenModResources/images/1024/bg_attack_default_gray.png";
+    private static final String SKILL_QUEEN_PORTRAIT = "QueenModResources/images/1024/bg_skill_default_gray.png";
+    private static final String POWER_QUEEN_PORTRAIT = "QueenModResources/images/1024/bg_power_default_gray.png";
+    private static final String ENERGY_ORB_QUEEN_PORTRAIT = "QueenModResources/images/1024/card_default_gray_orb.png";
 
     // Character assets
-    private static final String THE_DEFAULT_BUTTON = "QueenModResources/images/charSelect/DefaultCharacterButton.png";
-    private static final String THE_DEFAULT_PORTRAIT = "QueenModResources/images/charSelect/DefaultCharacterPortraitBG.png";
-    public static final String THE_DEFAULT_SHOULDER_1 = "QueenModResources/images/char/defaultCharacter/shoulder.png";
-    public static final String THE_DEFAULT_SHOULDER_2 = "QueenModResources/images/char/defaultCharacter/shoulder2.png";
-    public static final String THE_DEFAULT_CORPSE = "QueenModResources/images/char/defaultCharacter/corpse.png";
+    private static final String QUEEN_BUTTON = "QueenModResources/images/charSelect/DefaultCharacterButton.png";
+    private static final String QUEEN_PORTRAIT = "QueenModResources/images/charSelect/DefaultCharacterPortraitBG.png";
+    public static final String QUEEN_SHOULDER_1 = "QueenModResources/images/char/defaultCharacter/shoulder.png";
+    public static final String QUEEN_SHOULDER_2 = "QueenModResources/images/char/defaultCharacter/shoulder2.png";
+    public static final String QUEEN_CORPSE = "QueenModResources/images/char/defaultCharacter/corpse.png";
 
     //Mod Badge - A small icon that appears in the mod settings menu next to your mod.
     public static final String BADGE_IMAGE = "QueenModResources/images/Badge.png";
 
     // Atlas and JSON files for the Animations
-    public static final String THE_DEFAULT_SKELETON_ATLAS = "QueenModResources/images/char/defaultCharacter/skeleton.atlas";
-    public static final String THE_DEFAULT_SKELETON_JSON = "QueenModResources/images/char/defaultCharacter/skeleton.json";
+    public static final String QUEEN_SKELETON_ATLAS = "QueenModResources/images/char/defaultCharacter/skeleton.atlas";
+    public static final String QUEEN_SKELETON_JSON = "QueenModResources/images/char/defaultCharacter/skeleton.json";
 
     // =============== MAKE IMAGE PATHS =================
 
@@ -175,9 +177,9 @@ public class QueenMod implements
 
         BaseMod.addColor(TheQueen.Enums.COLOR_YELLOW, QUEEN_YELLOW, QUEEN_YELLOW, QUEEN_YELLOW,
                 QUEEN_YELLOW, QUEEN_YELLOW, QUEEN_YELLOW, QUEEN_YELLOW,
-                ATTACK_DEFAULT_GRAY, SKILL_DEFAULT_GRAY, POWER_DEFAULT_GRAY, ENERGY_ORB_QUEEN,
-                ATTACK_DEFAULT_GRAY_PORTRAIT, SKILL_DEFAULT_GRAY_PORTRAIT, POWER_DEFAULT_GRAY_PORTRAIT,
-                ENERGY_ORB_DEFAULT_GRAY_PORTRAIT, ENERGY_ORB_QUEEN_SMALL);
+                ATTACK_QUEEN, SKILL_QUEEN, POWER_QUEEN, ENERGY_ORB_QUEEN,
+                ATTACK_QUEEN_PORTRAIT, SKILL_QUEEN_PORTRAIT, POWER_QUEEN_PORTRAIT,
+                ENERGY_ORB_QUEEN_PORTRAIT, ENERGY_ORB_QUEEN_SMALL);
 
         logger.info("Done creating the color");
     }
@@ -241,8 +243,7 @@ public class QueenMod implements
     public void receiveEditCharacters() {
         logger.info("Beginning to edit characters. " + "Add " + TheQueen.Enums.THE_QUEEN.toString());
         BaseMod.addCharacter(new TheQueen("The Queen", TheQueen.Enums.THE_QUEEN),
-                THE_DEFAULT_BUTTON, THE_DEFAULT_PORTRAIT, TheQueen.Enums.THE_QUEEN);
-
+                QUEEN_BUTTON, QUEEN_PORTRAIT, TheQueen.Enums.THE_QUEEN);
         receiveEditPotions();
         logger.info("Added " + TheQueen.Enums.THE_QUEEN.toString());
     }
@@ -320,6 +321,18 @@ public class QueenMod implements
 
     // ================ /ADD RELICS/ ===================
 
+    // ================ ADD AUDIO ====================
+
+
+    @Override
+    public void receiveAddAudio(){
+        BaseMod.addAudio("BEE_SLOW", "QueenModResources/sound/bee_slow.ogg");
+        BaseMod.addAudio("BEE_ATTACK1", "QueenModResources/sound/bee_attack1.ogg");
+        BaseMod.addAudio("BEE_ATTACK2", "QueenModResources/sound/bee_attack2.ogg");
+    }
+
+
+    // ================ /ADD AUDIO/ ====================
 
     // ================ ADD CARDS ===================
 

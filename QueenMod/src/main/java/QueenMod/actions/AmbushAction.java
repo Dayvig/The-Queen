@@ -1,6 +1,8 @@
 package QueenMod.actions;
 
+import QueenMod.effects.AmbushEffect;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.utility.ShowCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -8,6 +10,13 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDrawPileEffect;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
+
+import java.util.ArrayList;
+
+import static com.megacrit.cardcrawl.cards.CardGroup.DRAW_PILE_X;
+import static com.megacrit.cardcrawl.cards.CardGroup.DRAW_PILE_Y;
 
 public class AmbushAction extends AbstractGameAction {
     AbstractMonster monster;
@@ -16,18 +25,22 @@ public class AmbushAction extends AbstractGameAction {
     int energyOnUse;
     boolean upgr;
     boolean freeToPlayOnce;
-    AbstractCard upgradeMatrix[];
     String Text2 = "I should recruit more soldiers.";
     String Text = "My Ambush is set.";
+
 
     public AmbushAction(AbstractPlayer source, int energyUse, boolean isUpgraded, boolean free) {
         p = source;
         energyOnUse = energyUse;
         upgr = isUpgraded;
         freeToPlayOnce = free;
+        startDuration = 0.5F;
+        duration = startDuration;
+
     }
 
     public void update() {
+        ArrayList<AbstractCard> upgradeMatrix = new ArrayList<>();
         numCards = EnergyPanel.totalCount;
         CardGroup p = AbstractDungeon.player.drawPile;
         if (this.energyOnUse != -1) {
@@ -48,13 +61,12 @@ public class AmbushAction extends AbstractGameAction {
             isDone = true;
             return;
         }
-        upgradeMatrix = new AbstractCard[p.size()];
         int k = 0;
         for (int i=0;i<numCards;i++){
             k = 0;
             for (AbstractCard c : p.group) {
                 if (!c.freeToPlayOnce && c.cost != 0) {
-                    upgradeMatrix[k] = c;
+                    upgradeMatrix.add(c);
                     k++;
                 }
             }
@@ -64,15 +76,18 @@ public class AmbushAction extends AbstractGameAction {
                     this.p.energy.use(EnergyPanel.totalCount);
                 }
                 isDone = true;
-                isDone = true;
                 return;
             }
-                AbstractCard c1 = upgradeMatrix[AbstractDungeon.cardRandomRng.random(k - 1)];
+                AbstractCard c1 = upgradeMatrix.get(AbstractDungeon.cardRandomRng.random(upgradeMatrix.size()));
                 c1.freeToPlayOnce = true;
+                AbstractDungeon.effectsQueue.add(new AmbushEffect(c1));
+                upgradeMatrix.remove(c1);
+                if (upgradeMatrix.isEmpty()){
+                    this.p.energy.use(EnergyPanel.totalCount);
+                    this.isDone = true;
+                }
         }
-        if (!this.freeToPlayOnce) {
-                this.p.energy.use(EnergyPanel.totalCount);
-        }
+        this.p.energy.use(EnergyPanel.totalCount);
         isDone = true;
     }
 }

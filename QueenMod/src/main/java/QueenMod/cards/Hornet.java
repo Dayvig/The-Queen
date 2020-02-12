@@ -1,13 +1,17 @@
 package QueenMod.cards;
 
 import QueenMod.QueenMod;
+import QueenMod.actions.HornetEffect;
 import QueenMod.characters.TheQueen;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.combat.BloodShotEffect;
 
 import static QueenMod.QueenMod.makeCardPath;
 
@@ -53,7 +57,14 @@ public class Hornet extends AbstractDynamicCard {
         if (playedBySwarm && m.isDeadOrEscaped()){
             m =  AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng);
         }
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn)));
+        AbstractDungeon.actionManager.addToTop(new VFXAction(new HornetEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, m.hb.cX, m.hb.cY, 1), 0.01F));
+        if ((Math.floor(Math.random()*2)) == 1) {
+            CardCrawlGame.sound.playA("BEE_ATTACK1", (float)Math.random()*0.5F);
+        }
+        else {
+            CardCrawlGame.sound.playA("BEE_ATTACK2", (float)Math.random()*0.5F);
+        }
         playedBySwarm = false;
     }
 

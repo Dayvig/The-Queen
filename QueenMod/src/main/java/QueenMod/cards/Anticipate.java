@@ -4,12 +4,14 @@ import QueenMod.QueenMod;
 import QueenMod.actions.DrawToHandAction;
 import QueenMod.actions.RecruitAction;
 import QueenMod.characters.TheQueen;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.combat.ThirdEyeEffect;
 
 import static QueenMod.QueenMod.makeCardPath;
 
@@ -71,6 +73,7 @@ public class Anticipate extends AbstractDynamicCard {
         else {
             AbstractDungeon.actionManager.addToBottom(new RecruitAction(new WorkerBee(), 1));
         }
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new ThirdEyeEffect(p.hb.cX, p.hb.cY)));
     }
 
     @Override
@@ -84,24 +87,20 @@ public class Anticipate extends AbstractDynamicCard {
                     intentions.equals(AbstractMonster.Intent.ATTACK_DEFEND)) {
                 this.rawDescription = EXTENDED_DESCRIPTION[0];
                 initializeDescription();
-                System.out.println("bumblebee");
             } else if (intentions.equals(AbstractMonster.Intent.BUFF) ||
                     intentions.equals(AbstractMonster.Intent.DEFEND_BUFF) ||
                     intentions.equals(AbstractMonster.Intent.DEBUFF) ||
                     intentions.equals(AbstractMonster.Intent.DEFEND_DEBUFF)) {
                 this.rawDescription = EXTENDED_DESCRIPTION[1];
                 initializeDescription();
-                System.out.println("hornet");
             } else {
                 this.rawDescription = EXTENDED_DESCRIPTION[2];
                 initializeDescription();
-                System.out.println("honeybee");
             }
         }
         catch (NullPointerException e){
                 this.rawDescription = DESCRIPTION;
                 initializeDescription();
-                System.out.println("To normal");
             }
         }
 
