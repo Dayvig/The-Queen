@@ -424,8 +424,8 @@
   },
   "QueenMod:CallToArms": {
     "NAME": "Call to Arms",
-    "DESCRIPTION": "Fill your hand with queenmod:Drones from your draw pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Fill your hand with queenmod:Drones from your draw pile."
+    "DESCRIPTION": "Fill your hand with queenmod:Drones. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Fill your hand with queenmod:Drones. NL queenmod:Recruit a queenmod:Bumblebee, queenmod:Hornet, and queenmod:Workerbee. NL Exhaust."
   },
   "QueenMod:TeaTime": {
     "NAME": "Tea Time",

@@ -2,10 +2,12 @@ package QueenMod.cards;
 
 import QueenMod.QueenMod;
 import QueenMod.actions.DrawToHandAction;
+import QueenMod.actions.RecruitAction;
 import QueenMod.actions.SpecificCardToHandAction;
 import QueenMod.characters.TheQueen;
 import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.utility.DrawPileToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -59,15 +61,27 @@ public class CallToArms extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int handsize = p.hand.size();
+        /*int handsize = p.hand.size();
         for (AbstractCard c : p.drawPile.group){
             if (c.cardID.equals(Drone.ID)){
                 droneMatrix.add(c);
             }
         }
         while (!droneMatrix.isEmpty() && handsize < BaseMod.MAX_HAND_SIZE){
-            AbstractDungeon.actionManager.addToBottom(new DrawToHandAction(droneMatrix.remove(AbstractDungeon.cardRandomRng.random(droneMatrix.size()))));
+            AbstractDungeon.actionManager.addToBottom(new DrawToHandAction(droneMatrix.remove(AbstractDungeon.cardRandomRng.random(droneMatrix.size()-1))));
             handsize++;
+        }
+        */
+
+        int handsize = p.hand.size();
+        while (handsize < BaseMod.MAX_HAND_SIZE){
+            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Drone(), 1));
+            handsize++;
+        }
+        if (upgraded) {
+            AbstractDungeon.actionManager.addToBottom(new RecruitAction(new BumbleBee(), 1));
+            AbstractDungeon.actionManager.addToBottom(new RecruitAction(new Hornet(), 1));
+            AbstractDungeon.actionManager.addToBottom(new RecruitAction(new WorkerBee(), 1));
         }
     }
 
@@ -76,7 +90,6 @@ public class CallToArms extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.exhaust = false;
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }

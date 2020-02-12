@@ -21,7 +21,7 @@ public class Anticipate extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = QueenMod.makeID(Anticipate.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
-    public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("${NAME}.png");
+    public static final String IMG = makeCardPath("anticipate.png");// "public static final String IMG = makeCardPath("${NAME}.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
 
