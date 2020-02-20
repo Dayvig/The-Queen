@@ -165,7 +165,7 @@
 },
   "QueenMod:DroneSpawner": {
     "NAME": "Drone Spawner",
-    "DESCRIPTION": "At the end of your turn, add a queenmod:Drone to your draw pile."
+    "DESCRIPTION": "At the start of your turn, add a queenmod:Drone to your draw pile."
   },
   "QueenMod:CrossGuard": {
     "NAME": "Cross-guard",

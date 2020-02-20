@@ -1,6 +1,7 @@
 package QueenMod.powers;
 
 import QueenMod.QueenMod;
+import QueenMod.actions.MakeTempCardInDrawPileActionFast;
 import QueenMod.cards.Drone;
 import QueenMod.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
@@ -49,10 +50,9 @@ public class OrganizedWorkForcePower extends AbstractPower implements CloneableP
     }
 
     @Override
-    public void atEndOfTurn(final boolean isPlayer) {
-        if (isPlayer) {
-            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Drone(), 1, true, false, false));
-        }
+    public void atStartOfTurn(){
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new Drone(), 1, true, false));
+        flash();
     }
 
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))

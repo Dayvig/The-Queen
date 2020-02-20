@@ -65,13 +65,14 @@ public class SwarmPowerEnemy extends AbstractPower {
         AbstractDungeon.actionManager.addToBottom(new LoseHPAction(this.owner, this.owner, this.amount));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new SwarmPowerEnemy(this.owner, this.owner, this.amount-1), -1));
     }
-
+    /*
     @Override
     public void onDeath() {
             int am = this.amount;
         AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, am), am));
         AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner,this.source, SwarmPowerEnemy.POWER_ID));
-    }
+    }*/
+
     @SpirePatch(
             clz=AbstractMonster.class,
             method="die",
@@ -82,6 +83,10 @@ public class SwarmPowerEnemy extends AbstractPower {
         public static void die (AbstractMonster target, boolean t) {
             if (!target.isDying && !t && target.hasPower(SwarmPowerEnemy.POWER_ID)) {
                 int am = target.getPower(SwarmPowerEnemy.POWER_ID).amount;
+                AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, am), am));
+            }
+            if (!target.isDying && !t && target.hasPower(FocusedSwarmE.POWER_ID)) {
+                int am = target.getPower(FocusedSwarmE.POWER_ID).amount;
                 AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, am), am));
             }
         }
@@ -96,6 +101,10 @@ public class SwarmPowerEnemy extends AbstractPower {
         public static void escape (AbstractMonster target) {
             if (!target.isEscaping && target.hasPower(SwarmPowerEnemy.POWER_ID)) {
                 int am = target.getPower(SwarmPowerEnemy.POWER_ID).amount;
+                AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, am), am));
+            }
+            if (!target.isEscaping && target.hasPower(FocusedSwarmE.POWER_ID)) {
+                int am = target.getPower(FocusedSwarmE.POWER_ID).amount;
                 AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, am), am));
             }
         }
