@@ -359,7 +359,7 @@ public class QueenMod implements
         BaseMod.addCard(new HoldPosition());
         BaseMod.addCard(new Fortify());
         BaseMod.addCard(new Drain());
-        BaseMod.addCard(new PlanOfAction());
+        BaseMod.addCard(new Leadership());
         BaseMod.addCard(new TeaTime());
         BaseMod.addCard(new CallToArms());
         BaseMod.addCard(new Frenzy());
@@ -374,7 +374,7 @@ public class QueenMod implements
         BaseMod.addCard(new FullRetreat());
         BaseMod.addCard(new Reposition());
         BaseMod.addCard(new HoneyShield());
-        BaseMod.addCard(new SwarmEconomics());
+        BaseMod.addCard(new Synthesize());
         BaseMod.addCard(new HonorGuard());
         BaseMod.addCard(new Gather());
         BaseMod.addCard(new WarTrumpet());
@@ -398,7 +398,7 @@ public class QueenMod implements
         BaseMod.addCard(new BumbleBeeCommander());
         BaseMod.addCard(new WorkerBeeCommander());
         BaseMod.addCard(new DroneCommander());
-        BaseMod.addCard(new Promotion());
+        BaseMod.addCard(new EliteSoliders());
         BaseMod.addCard(new InspiringStrike());
         BaseMod.addCard(new GeneralForm());
         BaseMod.addCard(new SecretWeapon());
@@ -457,7 +457,7 @@ public class QueenMod implements
         UnlockTracker.unlockCard(HoldPosition.ID);
         UnlockTracker.unlockCard(Fortify.ID);
         UnlockTracker.unlockCard(Drain.ID);
-        UnlockTracker.unlockCard(PlanOfAction.ID);
+        UnlockTracker.unlockCard(Leadership.ID);
         UnlockTracker.unlockCard(TeaTime.ID);
         UnlockTracker.unlockCard(Frenzy.ID);
         UnlockTracker.unlockCard(Recruit.ID);
@@ -471,7 +471,7 @@ public class QueenMod implements
         UnlockTracker.unlockCard(HoneyShield.ID);
         UnlockTracker.unlockCard(FullRetreat.ID);
         UnlockTracker.unlockCard(Reposition.ID);
-        UnlockTracker.unlockCard(SwarmEconomics.ID);
+        UnlockTracker.unlockCard(Synthesize.ID);
         UnlockTracker.unlockCard(HonorGuard.ID);
         UnlockTracker.unlockCard(Gather.ID);
         UnlockTracker.unlockCard(WarTrumpet.ID);
@@ -504,7 +504,7 @@ public class QueenMod implements
         UnlockTracker.unlockCard(SecretWeapon.ID);
         UnlockTracker.unlockCard(GeneralForm.ID);
         UnlockTracker.unlockCard(InspiringStrike.ID);
-        UnlockTracker.unlockCard(Promotion.ID);
+        UnlockTracker.unlockCard(EliteSoliders.ID);
         UnlockTracker.unlockCard(DroneCommander.ID);
         UnlockTracker.unlockCard(WorkerBeeCommander.ID);
         UnlockTracker.unlockCard(BumbleBeeCommander.ID);

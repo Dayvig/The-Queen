@@ -5,6 +5,7 @@ import QueenMod.actions.EndTurnNowAction;
 import QueenMod.characters.TheQueen;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -36,7 +37,7 @@ public class FinishingBlow extends AbstractDynamicCard {
 
     private static final int DAMAGE = 50;    // DAMAGE = ${DAMAGE}
     private static final int UPGRADE_PLUS_DMG = 30;  // UPGRADE_PLUS_DMG = ${UPGRADED_DAMAGE_INCREASE}
-    private static final int count = 10;
+    private static final int count = 8;
     // /STAT DECLARATION/
 
 
@@ -75,6 +76,15 @@ public class FinishingBlow extends AbstractDynamicCard {
             return false;
         }
     }
+
+    public void triggerOnGlowCheck() {
+        if (!AbstractDungeon.actionManager.cardsPlayedThisTurn.isEmpty() && AbstractDungeon.actionManager.cardsPlayedThisTurn.size() >= count){
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        } else {
+            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        }
+    }
+
 
     // Upgraded stats.
     @Override

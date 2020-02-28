@@ -22,15 +22,8 @@ public class BecomeSwarmAction extends AbstractGameAction {
        for (AbstractCard c : AbstractDungeon.player.drawPile.group){
            AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(c, AbstractDungeon.player.drawPile, true));
            total++;
-       }
-        for (AbstractCard c : AbstractDungeon.player.hand.group){
-            AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(c, AbstractDungeon.player.hand, true));
-            total++;
         }
-        for (AbstractCard c : AbstractDungeon.player.discardPile.group){
-            AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(c, AbstractDungeon.player.discardPile, true));
-            total++;
-        }
+
         AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, total*m),total*m));
         this.isDone = true;
     }

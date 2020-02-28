@@ -72,11 +72,11 @@ public class Fortify extends AbstractDynamicCard {
                 }
             }
             numCards = n;
-            this.rawDescription = "Gain " + block + " #yBlock " + numCards + " times. NL (Equal to number of queenmod:Hive cards in your Draw Pile)";
+            this.rawDescription = "Gain " + block + " Block " + numCards + " times. NL (Equal to number of queenmod:Hive cards in your Draw Pile)";
             initializeDescription();
         }
         catch (NullPointerException e){
-            this.rawDescription = "Gain "+ block + "#yBlock once for each queenmod:Hive card in your Draw Pile.";
+            this.rawDescription = "Gain "+ block + " Block once for each queenmod:Hive card in your Draw Pile.";
 
         }
     }

@@ -24,6 +24,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.vfx.SpeechBubble;
+import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
 import com.megacrit.cardcrawl.vfx.stance.WrathParticleEffect;
@@ -49,6 +51,7 @@ public class AggressionPower extends AbstractPower implements CloneablePowerInte
     int numOther;
     float particleTimer;
     float particleTimer2;
+    String [] text = {"Double time!", "Forward march!"};
 
     public AggressionPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = NAME;
@@ -112,6 +115,14 @@ public class AggressionPower extends AbstractPower implements CloneablePowerInte
             if (c.type.equals(AbstractCard.CardType.ATTACK)){numAttacks++;}
             else if (c.type.equals(AbstractCard.CardType.SKILL) || c.type.equals(AbstractCard.CardType.POWER)){numOther++;}
         }
+        if (!isActive && (numAttacks > numOther)){
+            if (Math.ceil(Math.random()*2) == 1) {
+                AbstractDungeon.effectList.add(new SpeechBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 1.0F, text[0], true));
+            }
+            else {
+                AbstractDungeon.effectList.add(new SpeechBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 1.0F, text[1], true));
+            }
+        }
         isActive = (numAttacks > numOther);
         if (!Settings.DISABLE_EFFECTS && isActive) {
             this.particleTimer -= Gdx.graphics.getDeltaTime();
@@ -122,7 +133,7 @@ public class AggressionPower extends AbstractPower implements CloneablePowerInte
         }
 
         this.particleTimer2 -= Gdx.graphics.getDeltaTime();
-        if (this.particleTimer2 < 0.0F) {
+        if (this.particleTimer2 < 0.0F && isActive) {
             this.particleTimer2 = MathUtils.random(0.3F, 0.4F);
             AbstractDungeon.effectsQueue.add(new StanceAuraEffect("Wrath"));
         }

@@ -36,9 +36,9 @@ public class Conscripts extends AbstractDynamicCard implements CardAddedToDeck {
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
-    private static final int COST = 0;  // COST = ${COST}
+    private static final int COST = 1;  // COST = ${COST}
 
-    private static final int DAMAGE = 4;    // DAMAGE = ${DAMAGE}
+    private static final int DAMAGE = 6;    // DAMAGE = ${DAMAGE}
     private static final int UPGRADE_PLUS_DAMAGE = 2;
     private int numLeft;
 
@@ -55,6 +55,7 @@ public class Conscripts extends AbstractDynamicCard implements CardAddedToDeck {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(1));
     }
 
     @Override

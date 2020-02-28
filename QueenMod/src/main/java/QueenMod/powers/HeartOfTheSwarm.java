@@ -18,8 +18,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.powers.WeakPower;
 
 import static QueenMod.QueenMod.makePowerPath;
 import static com.megacrit.cardcrawl.cards.AbstractCard.CardTarget.ALL_ENEMY;
@@ -121,7 +119,7 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
             tmp.target = ALL_ENEMY;
             AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(tmp, true, totalSwarm, a));
         }
-        else if (c.cardID.equals(SwarmEconomics.ID)){
+        else if (c.cardID.equals(Synthesize.ID)){
             int temp = totalSwarm;
             totalSwarm = 0;
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player,AbstractDungeon.player,

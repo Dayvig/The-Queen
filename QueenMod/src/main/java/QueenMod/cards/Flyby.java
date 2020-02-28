@@ -50,8 +50,8 @@ public class Flyby extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        AbstractDungeon.actionManager.addToBottom(new FlybyAction(this));
-    };
+            AbstractDungeon.actionManager.addToBottom(new FlybyAction(this));
+        }
 
     // Upgraded stats.
     @Override

@@ -36,18 +36,19 @@ public class KillerQueen extends AbstractDynamicCard {
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 2;  // COST = ${COST}
-    private static final int UPGRADED_COST = 2; // UPGRADED_COST = ${UPGRADED_COST}
-    private static final int DAMAGE = 24;    // DAMAGE = ${DAMAGE}
-    private static final int UPGRADE_PLUS_DMG = 6;  // UPGRADE_PLUS_DMG = ${UPGRADED_DAMAGE_INCREASE}
+    private static final int DAMAGE = 12;    // DAMAGE = ${DAMAGE}
+    private static final int UPGRADE_PLUS_DMG = 3;  // UPGRADE_PLUS_DMG = ${UPGRADED_DAMAGE_INCREASE}
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public int originalDamage;
 
     // /STAT DECLARATION/
 
 
     public KillerQueen() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = DAMAGE;
+        baseDamage = damage = DAMAGE;
+        originalDamage = DAMAGE;
     }
 
 
@@ -58,33 +59,62 @@ public class KillerQueen extends AbstractDynamicCard {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn)));
     }
 
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        boolean canUse = super.canUse(p, m);
-        if (!canUse) {
-            return false;
+    public void applyPowers() {
+        int numAttacks = 0;
+        int numOther = 0;
+        AbstractPlayer p = AbstractDungeon.player;
+        for (AbstractCard c : p.hand.group) {
+            if (c.type.equals(CardType.ATTACK)) {
+                numAttacks++;
+            } else if (c.type.equals(CardType.SKILL) || c.type.equals(CardType.POWER)) {
+                numOther++;
+            }
+        }
+        for (AbstractCard c : p.drawPile.group) {
+            if (c.type.equals(CardType.ATTACK)) {
+                numAttacks++;
+            } else if (c.type.equals(CardType.SKILL) || c.type.equals(CardType.POWER)) {
+                numOther++;
+            }
+        }
+        for (AbstractCard c : p.discardPile.group) {
+            if (c.type.equals(CardType.ATTACK)) {
+                numAttacks++;
+            } else if (c.type.equals(CardType.SKILL) || c.type.equals(CardType.POWER)) {
+                numOther++;
+            }
+        }
+        if (numAttacks > numOther) {
+            baseDamage = originalDamage * 2;
         } else {
-            this.rawDescription = DESCRIPTION;
-            initializeDescription();
-            int numAttacks = 0;
-            int numOther = 0;
-            for (AbstractCard c : p.hand.group){
-                if (c.type.equals(CardType.ATTACK)){numAttacks++;}
-                else if (c.type.equals(CardType.SKILL) || c.type.equals(CardType.POWER)){numOther++;}
-            }
-            for (AbstractCard c : p.drawPile.group){
-                if (c.type.equals(CardType.ATTACK)){numAttacks++;}
-                else if (c.type.equals(CardType.SKILL) || c.type.equals(CardType.POWER)){numOther++;}
-            }
-            for (AbstractCard c : p.discardPile.group){
-                if (c.type.equals(CardType.ATTACK)){numAttacks++;}
-                else if (c.type.equals(CardType.SKILL) || c.type.equals(CardType.POWER)){numOther++;}
-            }
-            if (numAttacks >= numOther){return true;}
-            else {
-                this.cantUseMessage = "My skills and powers outnumber my attacks by "+(numOther-numAttacks)+"!";
-                return false;}
+            baseDamage = originalDamage;
+        }
+        initializeDescription();
+    }
+
+    public void triggerOnGlowCheck() {
+        int numAttacks = 0;
+        int numOther = 0;
+        for (AbstractCard c : AbstractDungeon.player.hand.group){
+            if (c.type.equals(AbstractCard.CardType.ATTACK)){numAttacks++;}
+            else if (c.type.equals(AbstractCard.CardType.SKILL) || c.type.equals(AbstractCard.CardType.POWER)){numOther++;}
+        }
+        for (AbstractCard c : AbstractDungeon.player.drawPile.group){
+            if (c.type.equals(AbstractCard.CardType.ATTACK)){numAttacks++;}
+            else if (c.type.equals(AbstractCard.CardType.SKILL) || c.type.equals(AbstractCard.CardType.POWER)){numOther++;}
+        }
+        for (AbstractCard c : AbstractDungeon.player.discardPile.group){
+            if (c.type.equals(AbstractCard.CardType.ATTACK)){numAttacks++;}
+            else if (c.type.equals(AbstractCard.CardType.SKILL) || c.type.equals(AbstractCard.CardType.POWER)){numOther++;}
+        }
+        if (numAttacks > numOther){
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        } else {
+            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
         }
     }
+
+
 
     // Upgraded stats.
     @Override

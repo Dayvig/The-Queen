@@ -34,7 +34,7 @@ public class MilitaryHandbook extends AbstractDynamicCard {
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 0;  // COST = ${COST}
-    private static final int MAGIC = 4;
+    private static final int MAGIC = 3;
     private static final int UPGRADE_MAGIC = 1;
     // /STAT DECLARATION/
 
@@ -53,12 +53,21 @@ public class MilitaryHandbook extends AbstractDynamicCard {
         if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) &&
                 AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10) {
             for (AbstractCard c : AbstractDungeon.player.hand.group) {
-                if (c.type.equals(CardType.ATTACK)) {
+                if (c.type.equals(CardType.ATTACK) && c.cost > 0) {
                     c.costForTurn--;
                 }
             }
         }
     }
+
+    public void triggerOnGlowCheck() {
+        if (!AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10){
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        } else {
+            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        }
+    }
+
 
     @Override
     public void upgrade() {

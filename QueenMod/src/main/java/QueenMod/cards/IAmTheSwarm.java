@@ -37,12 +37,12 @@ public class IAmTheSwarm extends AbstractDynamicCard {
     // STAT DECLARATION
 
     private static final CardRarity RARITY = CardRarity.RARE;
-    private static final CardTarget TARGET = CardTarget.ALL;
-    private static final CardType TYPE = CardType.POWER;
+    private static final CardTarget TARGET = CardTarget.SELF;
+    private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 3;
-    private static final int MAGIC = 2;
+    private static final int MAGIC = 1;
 
     // /STAT DECLARATION/
 
@@ -55,7 +55,6 @@ public class IAmTheSwarm extends AbstractDynamicCard {
     @Override
     public void use(final AbstractPlayer p, final AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new BecomeSwarmAction(magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FromScratch(p, p, 1),1));
     }
 
     //Upgraded stats.

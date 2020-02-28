@@ -4,6 +4,7 @@ import QueenMod.QueenMod;
 import QueenMod.characters.TheQueen;
 import QueenMod.powers.AggressionPower;
 import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -49,6 +50,29 @@ public class AggressionPolicy extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new AggressionPower(p, p, 1),1));
     }
+
+    public void triggerOnGlowCheck() {
+        int numAttacks = 0;
+        int numOther = 0;
+        for (AbstractCard c : AbstractDungeon.player.hand.group){
+            if (c.type.equals(AbstractCard.CardType.ATTACK)){numAttacks++;}
+            else if (c.type.equals(AbstractCard.CardType.SKILL) || c.type.equals(AbstractCard.CardType.POWER)){numOther++;}
+        }
+        for (AbstractCard c : AbstractDungeon.player.drawPile.group){
+            if (c.type.equals(AbstractCard.CardType.ATTACK)){numAttacks++;}
+            else if (c.type.equals(AbstractCard.CardType.SKILL) || c.type.equals(AbstractCard.CardType.POWER)){numOther++;}
+        }
+        for (AbstractCard c : AbstractDungeon.player.discardPile.group){
+            if (c.type.equals(AbstractCard.CardType.ATTACK)){numAttacks++;}
+            else if (c.type.equals(AbstractCard.CardType.SKILL) || c.type.equals(AbstractCard.CardType.POWER)){numOther++;}
+        }
+        if (numAttacks > numOther){
+        this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        } else {
+            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        }
+    }
+
 
     // Upgraded stats.
     @Override

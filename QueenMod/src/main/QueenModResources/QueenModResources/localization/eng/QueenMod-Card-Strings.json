@@ -69,7 +69,7 @@
   },
   "QueenMod:KillerQueen": {
     "NAME": "Killer Queen",
-    "DESCRIPTION": "If you have more Attacks than Skills and Powers, deal !D! damage."
+    "DESCRIPTION": "Deal !D! damage. Doubles if you have more Attacks than other card types in your Deck."
   },
   "QueenMod:HiveNetwork": {
     "NAME": "Hive Network",
@@ -238,9 +238,10 @@
     "NAME": "Worker Bee Commander",
     "DESCRIPTION": "Deal !D! damage. NL Inflict !M! queenmod:Pollinate. NL Upgrade all queenmod:Workerbees in your draw pile."
   },
-  "QueenMod:Promotion": {
-    "NAME": "Promotion",
-    "DESCRIPTION": "Promote a queenmod:Hive card in your draw pile to a queenmod:Commander and add it to your hand. NL Exhaust."
+  "QueenMod:EliteSoldiers": {
+    "NAME": "Elite Soldiers",
+    "DESCRIPTION": "Add a Hornet, Bumblebee and Workerbee to your draw pile. NL Upgrade all queenmod:Hive cards in your draw pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Add a Hornet, Bumblebee and Workerbee to your draw pile. NL Upgrade all queenmod:Hive cards in your draw pile."
   },
     "QueenMod:Knighting":{
       "NAME": "Knighting",
@@ -271,7 +272,8 @@
   },
   "QueenMod:Charge":{
     "NAME": "Charge!",
-    "DESCRIPTION": "Deal !D! damage. NL Draw 2 cards."
+    "DESCRIPTION": "Deal !D! damage. NL Draw 2 cards.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Deal !D! damage. NL Draw 2 cards."
   },
   "QueenMod:PlanAhead":{
     "NAME": "Plan Ahead",
@@ -283,7 +285,7 @@
 },
   "QueenMod:Conscripts":{
     "NAME": "Conscripts",
-    "DESCRIPTION": "Deal !D! damage. NL When you add this to your deck, add two additional copies."
+    "DESCRIPTION": "Deal !D! damage. NL Draw a card. NL When you add this to your deck, add two additional copies."
   },
   "QueenMod:Strike":{
     "NAME": "Strike",
@@ -335,9 +337,10 @@
       "I can't play this."
     ]
   },
-  "QueenMod:SwarmEconomics":{
-    "NAME": "Swarm Economics",
-    "DESCRIPTION": "Recall your queenmod:Swarm for the turn. NL Gain [E] for every !M! queenmod:Swarm."
+  "QueenMod:Synthesize":{
+    "NAME": "Synthesize",
+    "DESCRIPTION": "Spend 10 queenmod:Nectar: gain [E] [E]",
+    "UPGRADE_DESCRIPTION": "Spend 10 queenmod:Nectar: gain [E] [E] [E]"
   },
   "QueenMod:HoneyShield":{
     "NAME": "Honey Shield",
@@ -345,7 +348,7 @@
   },
   "QueenMod:Reposition":{
     "NAME": "Reposition",
-    "DESCRIPTION": "Gain 1 Strength. NL queenmod:Recruit a queenmod:Hornet. NL Recall your queenmod:Swarm."
+    "DESCRIPTION": "Gain 1 Strength this turn only. NL queenmod:Recruit a queenmod:Hornet."
   },
   "QueenMod:FullRetreat":{
     "NAME": "Full Retreat",
@@ -431,10 +434,10 @@
     "NAME": "Tea Time",
     "DESCRIPTION": "Gain !B! Block and !M! Nectar. NL Costs 1 more for each Attack in your hand."
   },
-  "QueenMod:PlanOfAction": {
-    "NAME": "Plan of Action",
-    "DESCRIPTION": "Choose to gain Strength, Dexterity, queenmod:Production or a mixture of all three. NL queenmod:Recruit a queenmod:Hive card based on your choice.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Choose to gain Strength, Dexterity, queenmod:Production or a mixture of all three. NL queenmod:Recruit a queenmod:Hive card based on your choice."
+  "QueenMod:Leadership": {
+    "NAME": "Leadership",
+    "DESCRIPTION": "Gain 1 Strength and Dexterity. NL queenmod:Recruit a queenmod:Hornet and queenmod:Bumblebee.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Gain 1 Strength and Dexterity. NL queenmod:Recruit a queenmod:Hornet and queenmod:Bumblebee."
   },
   "QueenMod:Drain": {
     "NAME": "Drain",
@@ -447,7 +450,7 @@
   },
   "QueenMod:IAmTheSwarm": {
     "NAME": "I Am The Swarm",
-    "DESCRIPTION": "Exhaust your Deck, and gain !M! queenmod:Swarm for each card. Split your Swarm among all targets. At the start of your turn, add a random card to your hand."
+    "DESCRIPTION": "Exhaust your draw pile, and gain !M! queenmod:Swarm for each card exhausted."
   },
   "QueenMod:WarMachine": {
     "NAME": "War Machine",

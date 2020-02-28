@@ -61,31 +61,23 @@ public class AmbushAction extends AbstractGameAction {
             isDone = true;
             return;
         }
-        int k = 0;
+        for (AbstractCard c : p.group) {
+            if (!c.freeToPlayOnce && c.cost != 0) {
+                upgradeMatrix.add(c);
+            }
+        }
         for (int i=0;i<numCards;i++){
-            k = 0;
-            for (AbstractCard c : p.group) {
-                if (!c.freeToPlayOnce && c.cost != 0) {
-                    upgradeMatrix.add(c);
-                    k++;
-                }
-            }
-            if (k == 0) {
+            if (upgradeMatrix.isEmpty()){
                 AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, Text, true));
-                if (!this.freeToPlayOnce) {
-                    this.p.energy.use(EnergyPanel.totalCount);
-                }
-                isDone = true;
-                return;
+                this.p.energy.use(EnergyPanel.totalCount);
+                this.isDone = true;
             }
+            else {
                 AbstractCard c1 = upgradeMatrix.get(AbstractDungeon.cardRandomRng.random(upgradeMatrix.size()));
                 c1.freeToPlayOnce = true;
                 AbstractDungeon.effectsQueue.add(new AmbushEffect(c1));
                 upgradeMatrix.remove(c1);
-                if (upgradeMatrix.isEmpty()){
-                    this.p.energy.use(EnergyPanel.totalCount);
-                    this.isDone = true;
-                }
+            }
         }
         this.p.energy.use(EnergyPanel.totalCount);
         isDone = true;

@@ -55,7 +55,7 @@ public class Incubate extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
+            upgradeMagicNumber(2);
             initializeDescription();
         }
     }

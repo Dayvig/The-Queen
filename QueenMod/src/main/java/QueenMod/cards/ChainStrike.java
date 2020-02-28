@@ -5,6 +5,7 @@ import QueenMod.actions.ChainStrikeAction;
 import QueenMod.characters.TheQueen;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -36,10 +37,9 @@ public class ChainStrike extends AbstractDynamicCard {
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 1;  // COST = ${COST}
-    private static final int UPGRADED_COST = 1; // UPGRADED_COST = ${UPGRADED_COST}
 
     private static final int DAMAGE = 7;    // DAMAGE = ${DAMAGE}
-    private int numLeft;
+    private static final int UPGRADE_PLUS_DAMAGE = 2;
 
     // /STAT DECLARATION/
 
@@ -47,7 +47,7 @@ public class ChainStrike extends AbstractDynamicCard {
     public ChainStrike() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
-        this.baseMagicNumber = this.magicNumber = 6;
+        this.baseMagicNumber = this.magicNumber = 5;
         this.tags.add(CardTags.STRIKE);
     }
 
@@ -59,21 +59,12 @@ public class ChainStrike extends AbstractDynamicCard {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
     }
 
-    public void applyPowers() {
-        super.applyPowers();
-        int count = AbstractDungeon.actionManager.cardsPlayedThisTurn.size();
-        this.rawDescription = DESCRIPTION;
-        this.rawDescription = this.rawDescription + " ("+(this.magicNumber-count)+" left!)";
-        if (this.magicNumber-count <= 0) {
-            this.rawDescription = DESCRIPTION;
-            this.rawDescription = this.rawDescription + " (None left!)";
+    public void triggerOnGlowCheck() {
+        if (!AbstractDungeon.actionManager.cardsPlayedThisTurn.isEmpty() && AbstractDungeon.actionManager.cardsPlayedThisTurn.size() >= magicNumber){
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        } else {
+            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
         }
-        this.initializeDescription();
-    }
-
-    public void onMoveToDiscard() {
-        this.rawDescription = DESCRIPTION;
-        this.initializeDescription();
     }
 
 
@@ -82,7 +73,7 @@ public class ChainStrike extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.upgradeMagicNumber(-2);
+            this.upgradeDamage(UPGRADE_PLUS_DAMAGE);
             initializeDescription();
         }
     }
