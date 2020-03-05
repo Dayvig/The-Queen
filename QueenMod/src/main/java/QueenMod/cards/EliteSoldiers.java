@@ -4,7 +4,6 @@ import QueenMod.QueenMod;
 import QueenMod.actions.MakeTempCardInDrawPileActionFast;
 import QueenMod.characters.TheQueen;
 import QueenMod.interfaces.IsHive;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -15,9 +14,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static QueenMod.QueenMod.makeCardPath;
 
 // public class ${NAME} extends AbstractDynamicCard
-public class EliteSoliders extends AbstractDynamicCard {
+public class EliteSoldiers extends AbstractDynamicCard {
 
-    public static final String ID = QueenMod.makeID(EliteSoliders.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
+    public static final String ID = QueenMod.makeID(EliteSoldiers.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
     public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("${NAME}.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -40,7 +39,7 @@ public class EliteSoliders extends AbstractDynamicCard {
     // /STAT DECLARATION/
 
 
-    public EliteSoliders() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
+    public EliteSoldiers() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.exhaust = true;
     }

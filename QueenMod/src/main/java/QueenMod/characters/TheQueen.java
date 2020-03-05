@@ -24,7 +24,6 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
-import org.apache.commons.codec.binary.Hex;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -173,7 +172,11 @@ public class TheQueen extends CustomPlayer {
         retVal.add(Drain.ID);
 
         retVal.add(AggressionPolicy.ID);
-        retVal.add(IAmTheSwarm.ID);
+        retVal.add(EliteSoldiers.ID);
+        retVal.add(KillerQueen.ID);
+        retVal.add(Synthesize.ID);
+        retVal.add(Leadership.ID);
+        retVal.add(HexGuard.ID);
 
         return retVal;
     }

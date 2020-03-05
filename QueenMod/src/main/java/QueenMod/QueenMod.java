@@ -398,7 +398,7 @@ public class QueenMod implements
         BaseMod.addCard(new BumbleBeeCommander());
         BaseMod.addCard(new WorkerBeeCommander());
         BaseMod.addCard(new DroneCommander());
-        BaseMod.addCard(new EliteSoliders());
+        BaseMod.addCard(new EliteSoldiers());
         BaseMod.addCard(new InspiringStrike());
         BaseMod.addCard(new GeneralForm());
         BaseMod.addCard(new SecretWeapon());
@@ -504,7 +504,7 @@ public class QueenMod implements
         UnlockTracker.unlockCard(SecretWeapon.ID);
         UnlockTracker.unlockCard(GeneralForm.ID);
         UnlockTracker.unlockCard(InspiringStrike.ID);
-        UnlockTracker.unlockCard(EliteSoliders.ID);
+        UnlockTracker.unlockCard(EliteSoldiers.ID);
         UnlockTracker.unlockCard(DroneCommander.ID);
         UnlockTracker.unlockCard(WorkerBeeCommander.ID);
         UnlockTracker.unlockCard(BumbleBeeCommander.ID);
