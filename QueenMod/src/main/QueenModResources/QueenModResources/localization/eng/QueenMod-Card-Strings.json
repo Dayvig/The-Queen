@@ -117,7 +117,7 @@
   },
   "QueenMod:EnergyReserves": {
     "NAME": "Stockpile",
-    "DESCRIPTION": "Gain [E] at the start of your turn for every 10 queenmod:Nectar. NL queenmod:Recruit 2 queenmod:Workerbees."
+    "DESCRIPTION": "At the start of the turn, spend 10 queenmod:Nectar to gain [E]. NL queenmod:Recruit 2 queenmod:Workerbees."
   },
   "QueenMod:Repurpose": {
     "NAME": "Repurpose",
@@ -156,7 +156,7 @@
 },
   "QueenMod:Feast": {
   "NAME": "Feast",
-  "DESCRIPTION": "Deal damage equal to your queenmod:Swarm. NL Exhaust.",
+  "DESCRIPTION": "Deal !D! damage to all enemies. If Fatal, gain !M! queenmod:Swarm.",
     "UPGRADE_DESCRIPTION": "Deal damage equal to your queenmod:Swarm.",
     "EXTENDED_DESCRIPTION": [
       "Deal !D! damage. (Equal to your queenmod:Swarm.) NL Exhaust.",
@@ -204,10 +204,10 @@
   },
   "QueenMod:SecretWeapon": {
     "NAME": "Secret Weapon",
-    "DESCRIPTION": "Spend all queenmod:Nectar: Deal triple that amount to an enemy. NL Exhaust.",
+    "DESCRIPTION": "Spend all queenmod:Nectar: Deal triple that amount to an enemy. NL Ethereal.",
     "UPGRADE_DESCRIPTION": "Spend all queenmod:Nectar: Deal triple that amount to an enemy.",
     "EXTENDED_DESCRIPTION": [
-      "Spend all Nectar: Deal !D! damage. (Triple the Nectar spent) NL Exhaust.",
+      "Spend all Nectar: Deal !D! damage. (Triple the Nectar spent) NL Ethereal.",
       "Spend all Nectar: Deal !D! damage. (Triple the Nectar spent)"
       ]
   },
@@ -245,8 +245,8 @@
   },
     "QueenMod:Knighting":{
       "NAME": "Knighting",
-      "DESCRIPTION": "Add a queenmod:Hive card in your hand to your deck permanently.",
-      "UPGRADE_DESCRIPTION": "Add a queenmod:Hive card in your hand to your deck permanently. NL Gain 5 Block."
+      "DESCRIPTION": "Add a queenmod:Hive card in your hand to your deck permanently. NL Exhaust.",
+      "UPGRADE_DESCRIPTION": "Add a queenmod:Hive card in your hand to your deck permanently. NL Gain 5 Block. NL Exhaust."
     },
   "QueenMod:Lunge":{
     "NAME": "Lunge",

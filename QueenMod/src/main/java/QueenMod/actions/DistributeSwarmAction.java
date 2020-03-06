@@ -19,16 +19,27 @@ public class DistributeSwarmAction extends AbstractGameAction {
     UseCardAction a;
     boolean f;
 
-    public DistributeSwarmAction(AbstractCard cardPlayed, boolean isFocused, int swarmAmount, UseCardAction act) {
+    public DistributeSwarmAction(AbstractCard cardPlayed, boolean isFocused, int swarmamount, UseCardAction act) {
         c = cardPlayed;
-        s = swarmAmount;
         a = act;
         f = isFocused;
+        s = swarmamount;
     }
 
     public void update() {
-        if (s == 0){
-            isDone = true;
+        if (s == -1){
+            s = 0;
+            for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                if (m.hasPower(SwarmPowerEnemy.POWER_ID) && !m.isDying) {
+                    s += m.getPower(SwarmPowerEnemy.POWER_ID).amount;
+                }
+            }
+            if (AbstractDungeon.player.hasPower(SwarmPower.POWER_ID)) {
+                s += AbstractDungeon.player.getPower(SwarmPower.POWER_ID).amount;
+            }
+            if (s == 0){
+                isDone = true;
+            }
         }
         System.out.println(s);
         int i = 0;

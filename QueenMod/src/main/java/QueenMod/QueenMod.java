@@ -353,7 +353,6 @@ public class QueenMod implements
         // when generating card rewards/shop screen items.
 
         BaseMod.addCard(new Rally());
-        BaseMod.addCard(new WarMachine());
         BaseMod.addCard(new IAmTheSwarm());
         BaseMod.addCard(new Feint());
         BaseMod.addCard(new HoldPosition());
@@ -394,10 +393,6 @@ public class QueenMod implements
         BaseMod.addCard(new Parry());
         BaseMod.addCard(new Lunge());
         BaseMod.addCard(new Knighting());
-        BaseMod.addCard(new HornetCommander());
-        BaseMod.addCard(new BumbleBeeCommander());
-        BaseMod.addCard(new WorkerBeeCommander());
-        BaseMod.addCard(new DroneCommander());
         BaseMod.addCard(new EliteSoldiers());
         BaseMod.addCard(new InspiringStrike());
         BaseMod.addCard(new GeneralForm());

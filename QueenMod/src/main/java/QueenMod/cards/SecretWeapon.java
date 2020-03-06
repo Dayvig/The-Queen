@@ -51,7 +51,7 @@ public class SecretWeapon extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC;
-        this.exhaust = true;
+        this.isEthereal = true;
     }
 
 
@@ -81,7 +81,7 @@ public class SecretWeapon extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.exhaust = false;
+            this.isEthereal = false;
             rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }

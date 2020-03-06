@@ -6,6 +6,7 @@ import QueenMod.powers.HeartOfTheSwarm;
 import QueenMod.relics.QueensBanner;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpriterAnimation;
+import basemod.devcommands.energy.Energy;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
@@ -171,12 +172,9 @@ public class TheQueen extends CustomPlayer {
         retVal.add(Recruit.ID);
         retVal.add(Drain.ID);
 
-        retVal.add(AggressionPolicy.ID);
+        retVal.add(EnergyReserves.ID);
         retVal.add(EliteSoldiers.ID);
-        retVal.add(KillerQueen.ID);
-        retVal.add(Synthesize.ID);
-        retVal.add(Leadership.ID);
-        retVal.add(HexGuard.ID);
+        retVal.add(Feast.ID);
 
         return retVal;
     }

@@ -2,6 +2,7 @@ package QueenMod.cards;
 
 import QueenMod.QueenMod;
 import QueenMod.actions.MakeTempCardInDrawPileActionFast;
+import QueenMod.actions.UpgradeAllHive;
 import QueenMod.characters.TheQueen;
 import QueenMod.interfaces.IsHive;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -17,7 +18,7 @@ import static QueenMod.QueenMod.makeCardPath;
 public class EliteSoldiers extends AbstractDynamicCard {
 
     public static final String ID = QueenMod.makeID(EliteSoldiers.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
-    public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("${NAME}.png");
+    public static final String IMG = makeCardPath("elites.png");// "public static final String IMG = makeCardPath("${NAME}.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
@@ -52,13 +53,7 @@ public class EliteSoldiers extends AbstractDynamicCard {
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new Hornet(), 1, true, false));
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new BumbleBee(), 1, true, false));
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new WorkerBee(), 1, true, false));
-
-        for (AbstractCard c : AbstractDungeon.player.drawPile.group){
-            if (c instanceof IsHive){
-                c.upgrade();
-            }
-        }
-
+        AbstractDungeon.actionManager.addToBottom(new UpgradeAllHive());
     }
 
     // Upgraded stats.

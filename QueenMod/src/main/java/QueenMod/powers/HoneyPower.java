@@ -5,7 +5,9 @@ import QueenMod.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -48,9 +50,16 @@ public class HoneyPower extends AbstractPower implements CloneablePowerInterface
 
     @Override
     public void atStartOfTurn(){
-        if (AbstractDungeon.player.hasPower(Nectar.POWER_ID)) {
+        if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10) {
             int n = AbstractDungeon.player.getPower(Nectar.POWER_ID).amount / 10;
-            AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(n*this.amount));
+            if (n>=this.amount){
+                AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(AbstractDungeon.player, AbstractDungeon.player, Nectar.POWER_ID, this.amount*10));
+                AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(this.amount));
+            }
+            else {
+                AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(AbstractDungeon.player, AbstractDungeon.player, Nectar.POWER_ID, n*10));
+                AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(n));
+            }
         }
     }
 

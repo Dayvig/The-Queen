@@ -61,10 +61,10 @@ public class Hornet extends AbstractDynamicCard implements IsHive {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn)));
         AbstractDungeon.actionManager.addToTop(new VFXAction(new HornetEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, m.hb.cX, m.hb.cY, 1), 0.01F));
         if ((Math.floor(Math.random()*2)) == 1) {
-            CardCrawlGame.sound.playA("BEE_ATTACK1", (float)Math.random()*0.5F);
+            CardCrawlGame.sound.playA("BEE_ATTACK1", 0.0F);
         }
         else {
-            CardCrawlGame.sound.playA("BEE_ATTACK2", (float)Math.random()*0.5F);
+            CardCrawlGame.sound.playA("BEE_ATTACK2", 0.0F);
         }
         playedBySwarm = false;
     }

@@ -54,11 +54,7 @@ public class WarMachine extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new WarMachineAction(m, new DamageInfo(p, damage, damageTypeForTurn), MAGIC, this.uuid));
-        if ((m.isDying || m.currentHealth <= 0) && !m.halfDead && !m.hasPower("Minion")) {
-            baseMagicNumber++;
-            magicNumber = baseMagicNumber;
-        }
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ProductionPower(p, p, magicNumber), magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ProductionPower(p, p, magicNumber), magicNumber));
     }
 
     // Upgraded stats.

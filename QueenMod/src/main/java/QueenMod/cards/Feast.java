@@ -1,6 +1,7 @@
 package QueenMod.cards;
 
         import QueenMod.QueenMod;
+        import QueenMod.actions.DistributeSwarmAction;
         import QueenMod.actions.FeastAction;
         import QueenMod.characters.TheQueen;
         import QueenMod.powers.FocusedSwarm;
@@ -11,6 +12,7 @@ package QueenMod.cards;
         import com.badlogic.gdx.graphics.Color;
         import com.megacrit.cardcrawl.actions.AbstractGameAction;
         import com.megacrit.cardcrawl.actions.animations.VFXAction;
+        import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
         import com.megacrit.cardcrawl.actions.common.DamageAction;
         import com.megacrit.cardcrawl.cards.DamageInfo;
         import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -19,6 +21,7 @@ package QueenMod.cards;
         import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
         import com.megacrit.cardcrawl.localization.CardStrings;
         import com.megacrit.cardcrawl.monsters.AbstractMonster;
+        import com.megacrit.cardcrawl.powers.WeakPower;
         import com.megacrit.cardcrawl.vfx.combat.BiteEffect;
 
         import static QueenMod.QueenMod.makeCardPath;
@@ -35,7 +38,7 @@ public class Feast extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = QueenMod.makeID(Feast.class.getSimpleName());
-    public static final String IMG = makeCardPath("Skill.png");
+    public static final String IMG = makeCardPath("feast.png");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     private static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
@@ -45,13 +48,13 @@ public class Feast extends AbstractDynamicCard {
     // STAT DECLARATION
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
-    private static final CardTarget TARGET = CardTarget.ENEMY;
+    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 0;
-    private int totalSwarm;
+    private static final int DAMAGE = 7;
+    private static final int MAGIC = 3;
 
     // /STAT DECLARATION/
 
@@ -59,44 +62,16 @@ public class Feast extends AbstractDynamicCard {
     public Feast() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
-        this.exhaust = true;
+        baseMagicNumber = magicNumber = MAGIC;
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (m != null) {
-            AbstractDungeon.actionManager.addToBottom(new VFXAction(new BiteEffect(m.hb.cX, m.hb.cY - 40.0F * Settings.scale, Color.SCARLET.cpy()), 0.3F));
-        }
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-    }
-
-    @Override
-    public void applyPowers(){
-        totalSwarm = 0;
-        for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            if ((mo.hasPower(SwarmPowerEnemy.POWER_ID)) && !mo.isDying) {
-                totalSwarm += mo.getPower(SwarmPowerEnemy.POWER_ID).amount;
+            for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                AbstractDungeon.actionManager.addToBottom(new VFXAction(new BiteEffect(mo.hb.cX, mo.hb.cY - 40.0F * Settings.scale, Color.SCARLET.cpy()), 0.3F));
+                AbstractDungeon.actionManager.addToBottom(new FeastAction(mo, new DamageInfo(p, damage, damageTypeForTurn), damage, this.uuid, magicNumber));
             }
-            if ((mo.hasPower(FocusedSwarmE.POWER_ID)) && !mo.isDying) {
-                totalSwarm += mo.getPower(FocusedSwarmE.POWER_ID).amount;
-            }
-
-        }
-        if (AbstractDungeon.player.hasPower(SwarmPower.POWER_ID)) {
-            totalSwarm += AbstractDungeon.player.getPower(SwarmPower.POWER_ID).amount;
-        }
-        if (AbstractDungeon.player.hasPower(FocusedSwarm.POWER_ID)){
-            totalSwarm += AbstractDungeon.player.getPower(FocusedSwarm.POWER_ID).amount;
-        }
-        this.baseDamage = totalSwarm;
-        if (upgraded) {
-            this.rawDescription = EXTENDED_DESCRIPTION[0];
-        }
-        else {
-            this.rawDescription = EXTENDED_DESCRIPTION[0];
-            }
-        this.initializeDescription();
     }
 
     //Upgraded stats.
@@ -104,8 +79,8 @@ public class Feast extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.exhaust = false;
-            this.rawDescription = UPGRADE_DESCRIPTION;
+            upgradeDamage(3);
+            upgradeMagicNumber(1);
             initializeDescription();
         }
     }
