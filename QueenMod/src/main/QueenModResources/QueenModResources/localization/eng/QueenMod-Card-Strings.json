@@ -414,7 +414,8 @@
   },
   "QueenMod:Frenzy": {
     "NAME": "Frenzy",
-    "DESCRIPTION": "Deal !D! damage to all enemies. NL Gain !B! Block. NL Split your queenmod:Swarm among all enemies and yourself for the turn."
+    "DESCRIPTION": "Gain Block and deal damage to all enemies equal to your queenmod:Swarm and split it among all targets for the turn.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block and Deal !D! damage to all enemies (equal to your Swarm) NL Split your queenmod:Swarm among all targets for the turn."
   },
   "QueenMod:SecretService": {
     "NAME": "Secret Service",

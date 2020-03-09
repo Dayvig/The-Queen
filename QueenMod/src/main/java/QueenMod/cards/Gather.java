@@ -29,7 +29,7 @@ public class Gather extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = QueenMod.makeID(Gather.class.getSimpleName());
-    public static final String IMG = makeCardPath("Skill.png");
+    public static final String IMG = makeCardPath("Honeybee.png");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String DESCRIPTION = cardStrings.DESCRIPTION;
     private static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;

@@ -3,6 +3,7 @@ package QueenMod.powers;
 import QueenMod.QueenMod;
 import QueenMod.actions.DrawToDiscardAction;
 import QueenMod.cards.BumbleBee;
+import QueenMod.cards.Flyby;
 import QueenMod.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.Gdx;
@@ -52,6 +53,7 @@ public class AggressionPower extends AbstractPower implements CloneablePowerInte
     float particleTimer;
     float particleTimer2;
     String [] text = {"Double time!", "Forward march!"};
+    int ctr = 0;
 
     public AggressionPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = NAME;
@@ -79,10 +81,10 @@ public class AggressionPower extends AbstractPower implements CloneablePowerInte
             this.flash();
             AbstractMonster m = null;
             if (action.target != null) {
-                m = (AbstractMonster)action.target;
+                m = (AbstractMonster) action.target;
             }
             AbstractCard tmp = card.makeSameInstanceOf();
-            for (int i=0;i<this.amount;i++) {
+            for (int i = 0; i < this.amount; i++) {
                 AbstractDungeon.player.limbo.addToBottom(tmp);
                 tmp.current_x = card.current_x;
                 tmp.current_y = card.current_y;
@@ -98,6 +100,9 @@ public class AggressionPower extends AbstractPower implements CloneablePowerInte
         }
     }
 
+    public void applyPowers(){
+        ctr = 0;
+    }
     @Override
     public void update(int z){
     z = 0;

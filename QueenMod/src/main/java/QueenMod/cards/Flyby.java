@@ -35,23 +35,20 @@ public class Flyby extends AbstractDynamicCard {
 
     private static final int DAMAGE = 3;    // DAMAGE = ${DAMAGE}
     private static final int UPGRADE_PLUS_DMG = 2;  // UPGRADE_PLUS_DMG = ${UPGRADED_DAMAGE_INCREASE}
-
     // /STAT DECLARATION/
 
 
     public Flyby() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
-        this.purgeOnUse = true;
+        this.shuffleBackIntoDrawPile = true;
     }
-
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-            AbstractDungeon.actionManager.addToBottom(new FlybyAction(this));
-        }
+    }
 
     // Upgraded stats.
     @Override

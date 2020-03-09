@@ -25,7 +25,7 @@ public class FullRetreat extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = QueenMod.makeID(FullRetreat.class.getSimpleName());
-    public static final String IMG = makeCardPath("Skill.png");
+    public static final String IMG = makeCardPath("retreat.png");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String DESCRIPTION = cardStrings.DESCRIPTION;
     private static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
@@ -57,7 +57,7 @@ public class FullRetreat extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
         for (AbstractCard c : p.hand.group) {
-            if (!c.cardID.equals(FullRetreat.ID)) {
+            if (!c.equals(this)) {
                 AbstractDungeon.actionManager.addToBottom(new FlybyAction(c));
             }
         }
