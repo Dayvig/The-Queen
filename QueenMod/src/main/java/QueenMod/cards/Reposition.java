@@ -46,9 +46,10 @@ public class Reposition extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p, new StrengthPower(p, 1),1));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LoseStrengthPower(p, 1), 1));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p, new StrengthPower(p, 2),2));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LoseStrengthPower(p, 2), 2));
         AbstractDungeon.actionManager.addToBottom(new RecruitAction(new Hornet(),1));
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, 3));
     }
 
 

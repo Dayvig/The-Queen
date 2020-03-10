@@ -49,8 +49,7 @@ public class Nectar extends AbstractPower implements CloneablePowerInterface {
 
     @Override
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        super.onApplyPower(power, target, source);
-        if (AbstractDungeon.player.hasPower(HoneyShieldPower.POWER_ID) && target.equals(AbstractDungeon.player)){
+        if (AbstractDungeon.player.hasPower(HoneyShieldPower.POWER_ID) && target.equals(AbstractDungeon.player) && power.ID.equals(Nectar.POWER_ID)){
             AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this.owner, this.source, AbstractDungeon.player.getPower(HoneyShieldPower.POWER_ID).amount));
         }
     }

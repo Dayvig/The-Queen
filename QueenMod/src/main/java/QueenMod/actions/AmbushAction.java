@@ -73,7 +73,7 @@ public class AmbushAction extends AbstractGameAction {
                 this.isDone = true;
             }
             else {
-                AbstractCard c1 = upgradeMatrix.get(AbstractDungeon.cardRandomRng.random(upgradeMatrix.size()));
+                AbstractCard c1 = upgradeMatrix.get(AbstractDungeon.cardRandomRng.random(upgradeMatrix.size()-1));
                 c1.freeToPlayOnce = true;
                 AbstractDungeon.effectsQueue.add(new AmbushEffect(c1));
                 upgradeMatrix.remove(c1);

@@ -16,7 +16,7 @@ import static QueenMod.QueenMod.makeCardPath;
 public class HexGuard extends AbstractDynamicCard
 {
     public static final String ID = QueenMod.makeID(HexGuard.class.getSimpleName());
-    public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("${NAME}.png");
+    public static final String IMG = makeCardPath("hexguard.png");// "public static final String IMG = makeCardPath("${NAME}.png");
     private static final int COST = 2;
     private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.NONE;  //   since they don't change much.

@@ -348,7 +348,7 @@
   },
   "QueenMod:Reposition":{
     "NAME": "Reposition",
-    "DESCRIPTION": "Gain 1 Strength this turn only. NL queenmod:Recruit a queenmod:Hornet."
+    "DESCRIPTION": "Gain 2 Strength this turn only. NL queenmod:Recruit a queenmod:Hornet. NL Gain 3 Block."
   },
   "QueenMod:FullRetreat":{
     "NAME": "Full Retreat",
