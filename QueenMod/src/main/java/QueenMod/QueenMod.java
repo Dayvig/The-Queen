@@ -429,7 +429,7 @@ public class QueenMod implements
         BaseMod.addCard(new WorkerBee());
         BaseMod.addCard(new BuildOrder());
         BaseMod.addCard(new Drone());
-        BaseMod.addCard(new Populate());
+        BaseMod.addCard(new Draft());
         BaseMod.addCard(new HoneycombSmash());
         BaseMod.addCard(new HexGuard());
         BaseMod.addCard(new GatheringSwarm());
@@ -512,7 +512,7 @@ public class QueenMod implements
         UnlockTracker.unlockCard(FinishingBlow.ID);
         UnlockTracker.unlockCard(Charge.ID);
         UnlockTracker.unlockCard(Spearhead.ID);
-        UnlockTracker.unlockCard(Populate.ID);
+        UnlockTracker.unlockCard(Draft.ID);
         UnlockTracker.unlockCard(Drone.ID);
         UnlockTracker.unlockCard(BuildOrder.ID);
         UnlockTracker.unlockCard(WorkerBee.ID);

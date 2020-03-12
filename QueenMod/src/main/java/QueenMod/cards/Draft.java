@@ -10,11 +10,11 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static QueenMod.QueenMod.makeCardPath;
 
 // public class ${NAME} extends AbstractDynamicCard
-public class Populate extends AbstractDynamicCard {
+public class Draft extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = QueenMod.makeID(Populate.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
+    public static final String ID = QueenMod.makeID(Draft.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
     public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("${NAME}.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
@@ -34,7 +34,7 @@ public class Populate extends AbstractDynamicCard {
     // /STAT DECLARATION/
 
 
-    public Populate() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
+    public Draft() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = 3;
         this.magicNumber = this.baseMagicNumber;

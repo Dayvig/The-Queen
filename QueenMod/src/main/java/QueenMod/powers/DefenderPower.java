@@ -20,6 +20,8 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 
+import java.util.ArrayList;
+
 import static QueenMod.QueenMod.makePowerPath;
 
 //Gain 1 dex for the turn for each card played.
@@ -38,15 +40,18 @@ public class DefenderPower extends AbstractPower implements CloneablePowerInterf
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("placeholder_power32.png"));
     private int numTimes;
     private boolean isUpgraded;
+    public int powerAmount;
+    private ArrayList<AbstractCard> blockingCard = new ArrayList<>();
 
-    public DefenderPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
+    public DefenderPower(final AbstractCreature owner, final AbstractCreature source, final int amount, int p) {
         name = NAME;
         ID = POWER_ID;
 
         this.owner = owner;
         this.amount = amount;
         this.source = source;
-        numTimes = this.amount;
+        numTimes = p;
+        powerAmount = p;
 
         type = PowerType.BUFF;
         isTurnBased = false;
@@ -61,61 +66,66 @@ public class DefenderPower extends AbstractPower implements CloneablePowerInterf
     @Override
     public int onAttacked(DamageInfo info, int damageAmount) {
         if (numTimes > 0 && info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != this.owner && this.owner.currentBlock < damageAmount) {
-            for (AbstractCard c : AbstractDungeon.player.drawPile.group){
-                if (c.cardID.equals(BumbleBee.ID) && c.upgraded){
-                    c.applyPowers();
-                    damageAmount -= c.block;
-                    AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.owner.hb.cX, this.owner.hb.cY, AbstractGameAction.AttackEffect.SHIELD));
-                        AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(c, AbstractDungeon.player.drawPile, true));
-                    numTimes--;
-                    if (numTimes<=0){
-                        break;
-                    }
+            for (int i = 0; i < numTimes; i++) {
+                if (blockingCard.isEmpty()) {
+                    break;
                 }
-            }
-            for (AbstractCard c : AbstractDungeon.player.drawPile.group){
-                if (c.cardID.equals(BumbleBee.ID) && !c.upgraded){
-                    c.applyPowers();
-                    damageAmount -= c.block;
-                    AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.owner.hb.cX, this.owner.hb.cY, AbstractGameAction.AttackEffect.SHIELD));
-                        AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(c, AbstractDungeon.player.drawPile, true));
-                    numTimes--;
-                    if (numTimes<=0){
-                        break;
-                    }
-                }
-            }
-            for (AbstractCard c : AbstractDungeon.player.drawPile.group){
-                if (c.cardID.equals(WASP.ID)){
-                    c.applyPowers();
-                    damageAmount -= c.block;
-                    AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.owner.hb.cX, this.owner.hb.cY, AbstractGameAction.AttackEffect.SHIELD));
-                        AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(c, AbstractDungeon.player.drawPile, true));
-                    numTimes--;
-                    if (numTimes<=0){
-                        break;
-                    }
-                }
+                AbstractCard c = blockingCard.remove(AbstractDungeon.cardRandomRng.random(blockingCard.size() - 1));
+                damageAmount -= c.block;
+                AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.owner.hb.cX, this.owner.hb.cY, AbstractGameAction.AttackEffect.SHIELD));
+                AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(c, AbstractDungeon.player.drawPile, true));
             }
         }
-        if (numTimes > 0){numTimes--;}
-        if (damageAmount == 0){
+        if (damageAmount == 0) {
             return damageAmount;
-        }
-        else if (damageAmount < 0){
-            AbstractDungeon.actionManager.addToTop(new GainBlockAction(this.owner,this.owner,Math.abs(damageAmount)));
+        } else if (damageAmount < 0) {
+            AbstractDungeon.actionManager.addToTop(new GainBlockAction(this.owner, this.owner, Math.abs(damageAmount)));
             return 0;
-        }
-        else {
+        }else {
             return damageAmount;
+        }
+    }
+
+    public void update(){
+        numTimes = powerAmount;
+        this.amount = 0;
+        blockingCard.clear();
+        for (AbstractCard c : AbstractDungeon.player.drawPile.group){
+            if (c.cardID.equals(BumbleBee.ID) && c.upgraded){
+                c.applyPowers();
+                this.amount += c.block;
+                blockingCard.add(c);
+                numTimes--;
+                if (numTimes<=0){
+                    break;
+                }
+            }
+        }
+        for (AbstractCard c : AbstractDungeon.player.drawPile.group){
+            if (c.cardID.equals(BumbleBee.ID) && !c.upgraded){
+                c.applyPowers();
+                this.amount += c.block;
+                blockingCard.add(c);
+                numTimes--;
+                if (numTimes<=0){
+                    break;
+                }
+            }
         }
     }
 
     // At the end of the turn, remove gained Dexterity.
     @Override
     public void atEndOfTurn(final boolean isPlayer) {
-        numTimes = this.amount;
+        numTimes = powerAmount;
             }
+
+    public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
+        if (AbstractDungeon.player.hasPower(DefenderPower.POWER_ID) && target.equals(AbstractDungeon.player) && power.ID.equals(DefenderPower.POWER_ID)) {
+            DefenderPower tmp = (DefenderPower) power;
+            this.powerAmount += ((DefenderPower) power).powerAmount;
+        }
+    }
 
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
     @Override
@@ -129,6 +139,6 @@ public class DefenderPower extends AbstractPower implements CloneablePowerInterf
 
     @Override
     public AbstractPower makeCopy() {
-        return new DefenderPower(owner, source, amount);
+        return new DefenderPower(owner, source, amount, powerAmount);
     }
 }

@@ -22,7 +22,7 @@ public class PollenBlast extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = QueenMod.makeID(PollenBlast.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
-    public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("${NAME}.png");
+    public static final String IMG = makeCardPath("Draft.png");// "public static final String IMG = makeCardPath("${NAME}.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String DESCRIPTION = cardStrings.DESCRIPTION;
@@ -42,7 +42,7 @@ public class PollenBlast extends AbstractDynamicCard {
 
     private static final int DAMAGE = 5;    // DAMAGE = ${DAMAGE}
     private static final int UPGRADE_PLUS_DAMAGE = 4;
-    private static final int MAGIC = 1;
+    private static final int MAGIC = 2;
     private int numLeft;
 
     // /STAT DECLARATION/
@@ -62,7 +62,7 @@ public class PollenBlast extends AbstractDynamicCard {
             for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters){
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new PollinatePower(mo, p, magicNumber),magicNumber));
             }
-        AbstractDungeon.actionManager.addToBottom(new RecruitAction(new WorkerBee(),magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new RecruitAction(new WorkerBee(),1));
 
     }
 

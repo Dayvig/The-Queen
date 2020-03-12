@@ -45,8 +45,8 @@
     "NAME": "Honeycomb Smash",
     "DESCRIPTION": "Deal !D! Damage. NL Spend 10 queenmod:Nectar: Apply !M! Weak. "
   },
-  "QueenMod:Populate": {
-    "NAME": "Populate",
+  "QueenMod:Draft": {
+    "NAME": "Draft",
     "DESCRIPTION": "Add !M! queenmod:Drones to your Draw Pile."
   },
   "QueenMod:Drone": {
@@ -195,8 +195,8 @@
   },
   "QueenMod:PollenBlast": {
     "NAME": "Pollen Blast",
-    "DESCRIPTION": "Deal !D! damage and inflict !M! queenmod:Pollinate to all enemies. NL queenmod:Recruit !M! queenmod:Workerbee.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage and inflict !M! queenmod:Pollinate to all enemies. NL queenmod:Recruit !M! queenmod:Workerbees."
+    "DESCRIPTION": "Deal !D! damage and inflict !M! queenmod:Pollinate to all enemies. NL queenmod:Recruit a queenmod:Workerbee.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage and inflict !M! queenmod:Pollinate to all enemies. NL queenmod:Recruit a queenmod:Workerbee."
   },
   "QueenMod:BlindingSwarm": {
     "NAME": "Blinding Swarm",
