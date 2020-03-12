@@ -20,7 +20,7 @@ public class Metamorphosis extends AbstractDynamicCard implements ModalChoice.Ca
     // TEXT DECLARATION
 
     public static final String ID = QueenMod.makeID(Metamorphosis.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
-    public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("${NAME}.png");
+    public static final String IMG = makeCardPath("metamorphosis.png");// "public static final String IMG = makeCardPath("${NAME}.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
     private ModalChoice modal;
 
@@ -66,11 +66,6 @@ public class Metamorphosis extends AbstractDynamicCard implements ModalChoice.Ca
         for (AbstractCard c : p.hand.group){
             if (c.cardID.equals(Drone.ID)){
                 AbstractDungeon.actionManager.addToBottom(new SwapCardAction(c, r, p.hand));
-            }
-        }
-        for (AbstractCard c : p.discardPile.group){
-            if (c.cardID.equals(Drone.ID)){
-                AbstractDungeon.actionManager.addToBottom(new SwapCardAction(c, r, p.discardPile));
             }
         }
     }
