@@ -15,6 +15,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.purple.Protect;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
@@ -173,6 +174,9 @@ public class TheQueen extends CustomPlayer {
         retVal.add(Drain.ID);
 
         retVal.add(Ambush.ID);
+        retVal.add(ProtectQueen.ID);
+        retVal.add(Garrison.ID);
+
 
         return retVal;
     }

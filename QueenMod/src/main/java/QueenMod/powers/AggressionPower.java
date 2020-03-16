@@ -103,6 +103,7 @@ public class AggressionPower extends AbstractPower implements CloneablePowerInte
     public void applyPowers(){
         ctr = 0;
     }
+
     @Override
     public void update(int z){
     z = 0;

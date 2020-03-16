@@ -362,9 +362,9 @@
     "NAME": "Hold Position",
     "DESCRIPTION": "Gain !B! block. Add 2 queenmod:Drones to your draw pile."
   },
-  "QueenMod:Rally":{
-    "NAME": "Rally",
-    "DESCRIPTION": "Deal !D! damage. NL Add queenmod:Drones to your draw pile equal to your Strength."
+  "QueenMod:Garrison":{
+    "NAME": "Garrison",
+    "DESCRIPTION": "Add !M! queenmod:Drones to your draw pile. NL queenmod:Recruit !QueenMod:second! queenmod:Bumblebees."
   },
   "QueenMod:Multiply":{
     "NAME": "Multiply",

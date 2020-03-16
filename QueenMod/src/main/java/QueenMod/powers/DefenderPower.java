@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -20,6 +21,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 
+import javax.jws.soap.SOAPBinding;
 import java.util.ArrayList;
 
 import static QueenMod.QueenMod.makePowerPath;
@@ -65,15 +67,17 @@ public class DefenderPower extends AbstractPower implements CloneablePowerInterf
 
     @Override
     public int onAttacked(DamageInfo info, int damageAmount) {
+        System.out.println(blockingCard.isEmpty());
+        numTimes = powerAmount;
         if (numTimes > 0 && info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != this.owner && this.owner.currentBlock < damageAmount) {
             for (int i = 0; i < numTimes; i++) {
-                if (blockingCard.isEmpty()) {
+                if (blockingCard.isEmpty() || damageAmount <= 0) {
                     break;
                 }
                 AbstractCard c = blockingCard.remove(AbstractDungeon.cardRandomRng.random(blockingCard.size() - 1));
                 damageAmount -= c.block;
                 AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.owner.hb.cX, this.owner.hb.cY, AbstractGameAction.AttackEffect.SHIELD));
-                AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(c, AbstractDungeon.player.drawPile, true));
+                AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(c, AbstractDungeon.player.drawPile, true));
             }
         }
         if (damageAmount == 0) {
@@ -86,39 +90,47 @@ public class DefenderPower extends AbstractPower implements CloneablePowerInterf
         }
     }
 
-    public void update(){
+    public void checkNum() {
         numTimes = powerAmount;
         this.amount = 0;
         blockingCard.clear();
-        for (AbstractCard c : AbstractDungeon.player.drawPile.group){
-            if (c.cardID.equals(BumbleBee.ID) && c.upgraded){
-                c.applyPowers();
-                this.amount += c.block;
-                blockingCard.add(c);
+        for (AbstractCard card : AbstractDungeon.player.drawPile.group) {
+            if (card.cardID.equals(BumbleBee.ID) && card.upgraded) {
+                card.applyPowers();
+                this.amount += card.block;
+                blockingCard.add(card);
                 numTimes--;
-                if (numTimes<=0){
+                if (numTimes <= 0) {
                     break;
                 }
             }
         }
-        for (AbstractCard c : AbstractDungeon.player.drawPile.group){
-            if (c.cardID.equals(BumbleBee.ID) && !c.upgraded){
-                c.applyPowers();
-                this.amount += c.block;
-                blockingCard.add(c);
+        for (AbstractCard card : AbstractDungeon.player.drawPile.group) {
+            if (card.cardID.equals(BumbleBee.ID) && !card.upgraded) {
+                card.applyPowers();
+                this.amount += card.block;
+                blockingCard.add(card);
                 numTimes--;
-                if (numTimes<=0){
+                if (numTimes <= 0) {
                     break;
                 }
             }
         }
     }
 
-    // At the end of the turn, remove gained Dexterity.
     @Override
-    public void atEndOfTurn(final boolean isPlayer) {
-        numTimes = powerAmount;
-            }
+    public void atStartOfTurnPostDraw () {
+        checkNum();
+    }
+
+    @Override
+    public void onDrawOrDiscard () {
+        checkNum();
+    }
+    @Override
+    public void onAfterUseCard(AbstractCard c, UseCardAction a){
+        checkNum();
+    }
 
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
         if (AbstractDungeon.player.hasPower(DefenderPower.POWER_ID) && target.equals(AbstractDungeon.player) && power.ID.equals(DefenderPower.POWER_ID)) {

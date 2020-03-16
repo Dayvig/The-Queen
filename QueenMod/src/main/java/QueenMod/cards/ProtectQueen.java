@@ -25,7 +25,7 @@ public class ProtectQueen extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = QueenMod.makeID(ProtectQueen.class.getSimpleName());
-    public static final String IMG = makeCardPath("Power.png");
+    public static final String IMG = makeCardPath("protectq.png");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
@@ -56,10 +56,10 @@ public class ProtectQueen extends AbstractDynamicCard {
     public void use(final AbstractPlayer p, final AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new RecruitAction(new BumbleBee(),2));
         if (upgraded){
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p, new DefenderUpgradePower(p,p,1),1));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p, new DefenderUpgradePower(p,p,1,1),1));
         }
         else {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p, new DefenderPower(p,p,1),1));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p, new DefenderPower(p,p,1, 1),1));
         }
     }
 
