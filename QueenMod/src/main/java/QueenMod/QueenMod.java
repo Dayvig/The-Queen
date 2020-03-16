@@ -364,7 +364,6 @@ public class QueenMod implements
         BaseMod.addCard(new Frenzy());
         BaseMod.addCard(new Recruit());
         BaseMod.addCard(new SupplyLines());
-        BaseMod.addCard(new Blitz());
         BaseMod.addCard(new OverwhelmingPower());
         BaseMod.addCard(new MatingDance());
         BaseMod.addCard(new AggressionPolicy());
@@ -446,7 +445,6 @@ public class QueenMod implements
         // before playing your mod.
 
         UnlockTracker.unlockCard(Garrison.ID);
-        UnlockTracker.unlockCard(WarMachine.ID);
         UnlockTracker.unlockCard(IAmTheSwarm.ID);
         UnlockTracker.unlockCard(Feint.ID);
         UnlockTracker.unlockCard(HoldPosition.ID);
@@ -457,7 +455,6 @@ public class QueenMod implements
         UnlockTracker.unlockCard(Frenzy.ID);
         UnlockTracker.unlockCard(Recruit.ID);
         UnlockTracker.unlockCard(SupplyLines.ID);
-        UnlockTracker.unlockCard(Blitz.ID);
         UnlockTracker.unlockCard(MatingDance.ID);
         UnlockTracker.unlockCard(OverwhelmingPower.ID);
         UnlockTracker.unlockCard(AggressionPolicy.ID);
