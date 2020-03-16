@@ -173,11 +173,6 @@ public class TheQueen extends CustomPlayer {
         retVal.add(Recruit.ID);
         retVal.add(Drain.ID);
 
-        retVal.add(Ambush.ID);
-        retVal.add(ProtectQueen.ID);
-        retVal.add(Garrison.ID);
-
-
         return retVal;
     }
 
@@ -191,7 +186,7 @@ public class TheQueen extends CustomPlayer {
     // character Select screen effect
     @Override
     public void doCharSelectScreenSelectEffect() {
-        CardCrawlGame.sound.playA("ATTACK_DAGGER_1", 1.25f); // Sound Effect
+        CardCrawlGame.sound.playA("BEE_SLOW", 1.25f); // Sound Effect
         CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.LOW, ScreenShake.ShakeDur.SHORT,
                 false); // Screen Effect
     }

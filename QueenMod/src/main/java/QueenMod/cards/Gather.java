@@ -53,7 +53,6 @@ public class Gather extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
         defaultBaseSecondMagicNumber = defaultSecondMagicNumber = 1;
-        isDefaultSecondMagicNumberModified = true;
     }
 
     // Actions the card should do.
