@@ -1,6 +1,9 @@
 package QueenMod.powers;
 
 import QueenMod.QueenMod;
+import QueenMod.util.TextureLoader;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.megacrit.cardcrawl.actions.common.*;
@@ -11,12 +14,16 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
+import static QueenMod.QueenMod.makePowerPath;
+
 public class SwarmPowerEnemy extends AbstractPower {
     public AbstractCreature source;
     public static final String POWER_ID = QueenMod.makeID("SwarmE");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("swarmpower84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("swarmpower32.png"));
 
     public SwarmPowerEnemy (AbstractCreature owner, AbstractCreature source, int newAmount) {
         this.name = NAME;
@@ -26,7 +33,8 @@ public class SwarmPowerEnemy extends AbstractPower {
         this.amount = newAmount;
         this.type = PowerType.DEBUFF;
         this.updateDescription();
-        this.loadRegion("panache");
+        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
         if (this.amount >= 999) {
             this.amount = 999;
         }
