@@ -3,6 +3,7 @@ package QueenMod.cards;
 import QueenMod.QueenMod;
 import QueenMod.characters.TheQueen;
 import QueenMod.interfaces.IsHive;
+import QueenMod.relics.Medal;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -50,7 +51,6 @@ public class BumbleBee extends AbstractDynamicCard implements IsHive {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
     }
-
 
     // Upgraded stats.
     @Override

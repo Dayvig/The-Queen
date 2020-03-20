@@ -3,7 +3,7 @@
     <groupId>QueenMod</groupId>
     <artifactId>QueenMod</artifactId>
     <!--<version>1.4.0</version>-->
-    <version>0.4</version>
+    <version>0.5</version>
     <name>QueenMod</name>
 
     <properties>

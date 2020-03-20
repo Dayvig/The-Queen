@@ -16,11 +16,11 @@ public class QueensBanner extends CustomRelic {
     // ID, images, text.
     public static final String ID = QueenMod.makeID("QueensBanner");
 
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("placeholder_relic.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("placeholder_relic.png"));
+    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("banner.png"));
+    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("banner.png"));
 
     public QueensBanner() {
-        super(ID, IMG, OUTLINE, RelicTier.STARTER, LandingSound.MAGICAL);
+        super(ID, IMG, OUTLINE, RelicTier.STARTER, LandingSound.FLAT);
     }
 
 

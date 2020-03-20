@@ -3,7 +3,7 @@ package QueenMod.characters;
 import QueenMod.QueenMod;
 import QueenMod.cards.*;
 import QueenMod.powers.HeartOfTheSwarm;
-import QueenMod.relics.QueensBanner;
+import QueenMod.relics.*;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpriterAnimation;
 import basemod.devcommands.energy.Energy;
@@ -180,13 +180,14 @@ public class TheQueen extends CustomPlayer {
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
         retVal.add(QueensBanner.ID);
+
         return retVal;
     }
 
     // character Select screen effect
     @Override
     public void doCharSelectScreenSelectEffect() {
-        CardCrawlGame.sound.playA("BEE_SLOW", 1.25f); // Sound Effect
+        CardCrawlGame.sound.playA("BEE_SLOW", 0.0F); // Sound Effect
         CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.LOW, ScreenShake.ShakeDur.SHORT,
                 false); // Screen Effect
     }

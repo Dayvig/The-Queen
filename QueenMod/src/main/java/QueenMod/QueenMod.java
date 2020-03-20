@@ -4,10 +4,7 @@ import QueenMod.cards.*;
 import QueenMod.characters.TheQueen;
 import QueenMod.events.IdentityCrisisEvent;
 import QueenMod.potions.PlaceholderPotion;
-import QueenMod.relics.BottledPlaceholderRelic;
-import QueenMod.relics.DefaultClickableRelic;
-import QueenMod.relics.QueensBanner;
-import QueenMod.relics.PlaceholderRelic2;
+import QueenMod.relics.*;
 import QueenMod.util.IDCheckDontTouchPls;
 import QueenMod.util.TextureLoader;
 import QueenMod.variables.DefaultCustomVariable;
@@ -21,6 +18,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
@@ -308,14 +306,15 @@ public class QueenMod implements
 
         // This adds a character specific relic. Only when you play with the mentioned color, will you get this relic.
         BaseMod.addRelicToCustomPool(new QueensBanner(), TheQueen.Enums.COLOR_YELLOW);
-        BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), TheQueen.Enums.COLOR_YELLOW);
-        BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), TheQueen.Enums.COLOR_YELLOW);
+        BaseMod.addRelicToCustomPool(new HoneyJar(), TheQueen.Enums.COLOR_YELLOW);
+        BaseMod.addRelicToCustomPool(new Medal(), TheQueen.Enums.COLOR_YELLOW);
+        BaseMod.addRelicToCustomPool(new DraftNotice(), TheQueen.Enums.COLOR_YELLOW);
+        BaseMod.addRelicToCustomPool(new BloatedManual(), TheQueen.Enums.COLOR_YELLOW);
 
         // This adds a relic to the Shared pool. Every character can find this relic.
-        BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);
 
         // Mark relics as seen (the others are all starters so they're marked as seen in the character file
-        UnlockTracker.markRelicAsSeen(BottledPlaceholderRelic.ID);
+        UnlockTracker.markRelicAsSeen(HoneyJar.ID);
         logger.info("Done adding relics!");
     }
 

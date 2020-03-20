@@ -4,6 +4,7 @@ import QueenMod.QueenMod;
 import QueenMod.actions.HornetEffect;
 import QueenMod.characters.TheQueen;
 import QueenMod.interfaces.IsHive;
+import QueenMod.relics.Medal;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -61,10 +62,10 @@ public class Hornet extends AbstractDynamicCard implements IsHive {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn)));
         AbstractDungeon.actionManager.addToTop(new VFXAction(new HornetEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, m.hb.cX, m.hb.cY, 1), 0.01F));
         if ((Math.floor(Math.random()*2)) == 1) {
-            CardCrawlGame.sound.playA("BEE_ATTACK1", 0.0F);
+            CardCrawlGame.sound.playA("BEE_ATTACK1", 0.2F);
         }
         else {
-            CardCrawlGame.sound.playA("BEE_ATTACK2", 0.0F);
+            CardCrawlGame.sound.playA("BEE_ATTACK2", 0.2F);
         }
         playedBySwarm = false;
     }
