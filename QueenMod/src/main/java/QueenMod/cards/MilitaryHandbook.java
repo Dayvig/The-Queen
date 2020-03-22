@@ -1,6 +1,7 @@
 package QueenMod.cards;
 
 import QueenMod.QueenMod;
+import QueenMod.actions.ArtOfWarAction;
 import QueenMod.characters.TheQueen;
 import QueenMod.powers.Nectar;
 import basemod.helpers.ModalChoice;
@@ -50,14 +51,7 @@ public class MilitaryHandbook extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, magicNumber));
-        if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) &&
-                AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10) {
-            for (AbstractCard c : AbstractDungeon.player.hand.group) {
-                if (c.type.equals(CardType.ATTACK) && c.cost > 0) {
-                    c.costForTurn--;
-                }
-            }
-        }
+        AbstractDungeon.actionManager.addToBottom(new ArtOfWarAction());
     }
 
     public void triggerOnGlowCheck() {

@@ -78,7 +78,8 @@ public class KnightingAction extends AbstractGameAction {
 
         if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
             for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
-                AbstractDungeon.player.masterDeck.addToHand(c);
+                AbstractCard tmp = c.makeCopy();
+                AbstractDungeon.player.masterDeck.addToHand(tmp);
                 this.p.hand.addToTop(c);
                 this.returnCards();
                 this.isDone = true;
