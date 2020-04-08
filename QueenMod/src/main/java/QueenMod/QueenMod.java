@@ -97,7 +97,7 @@ public class QueenMod implements
     private static final String ENERGY_ORB_QUEEN = "QueenModResources/images/512/card_queen_orb.png";
     private static final String ENERGY_ORB_QUEEN_SMALL = "QueenModResources/images/512/card_queen_small_orb.png";
 
-    private static final String ATTACK_QUEEN_PORTRAIT = "QueenModResources/images/1024/beeAttackPortait.png";
+    private static final String ATTACK_QUEEN_PORTRAIT = "QueenModResources/images/1024/beeAttackPortrait.png";
     private static final String SKILL_QUEEN_PORTRAIT = "QueenModResources/images/1024/beeSkillPortrait.png";
     private static final String POWER_QUEEN_PORTRAIT = "QueenModResources/images/1024/beepowerPortrait.png";
     private static final String ENERGY_ORB_QUEEN_PORTRAIT = "QueenModResources/images/1024/card_queen_orb.png";
