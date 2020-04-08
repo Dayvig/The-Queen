@@ -48,6 +48,7 @@ public class DefendOrder extends AbstractDynamicCard {
         baseBlock = BLOCK;
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
+        this.cardsToPreview = new BumbleBee();
     }
 
 

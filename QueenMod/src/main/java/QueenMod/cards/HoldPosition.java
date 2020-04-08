@@ -40,6 +40,7 @@ public class HoldPosition extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = magicNumber = 2;
         baseBlock = block = BLOCK;
+        this.cardsToPreview = new Drone();
     }
 
 

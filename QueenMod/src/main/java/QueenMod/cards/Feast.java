@@ -54,7 +54,7 @@ public class Feast extends AbstractDynamicCard {
 
     private static final int COST = 1;
     private static final int DAMAGE = 7;
-    private static final int MAGIC = 3;
+    private static final int MAGIC = 4;
 
     // /STAT DECLARATION/
 
@@ -69,8 +69,10 @@ public class Feast extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
             for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                AbstractDungeon.actionManager.addToBottom(new VFXAction(new BiteEffect(mo.hb.cX, mo.hb.cY - 40.0F * Settings.scale, Color.SCARLET.cpy()), 0.3F));
-                AbstractDungeon.actionManager.addToBottom(new FeastAction(mo, new DamageInfo(p, damage, damageTypeForTurn), damage, this.uuid, magicNumber));
+                if (!mo.isDead && mo.currentHealth >= 0) {
+                    AbstractDungeon.actionManager.addToBottom(new VFXAction(new BiteEffect(mo.hb.cX, mo.hb.cY - 40.0F * Settings.scale, Color.SCARLET.cpy()), 0.3F));
+                    AbstractDungeon.actionManager.addToBottom(new FeastAction(mo, new DamageInfo(p, damage, damageTypeForTurn), damage, this.uuid, magicNumber));
+                }
             }
     }
 

@@ -86,20 +86,24 @@ public class Anticipate extends AbstractDynamicCard {
                     intentions.equals(AbstractMonster.Intent.ATTACK_DEBUFF) ||
                     intentions.equals(AbstractMonster.Intent.ATTACK_DEFEND)) {
                 this.rawDescription = EXTENDED_DESCRIPTION[0];
+                this.cardsToPreview = new BumbleBee();
                 initializeDescription();
             } else if (intentions.equals(AbstractMonster.Intent.BUFF) ||
                     intentions.equals(AbstractMonster.Intent.DEFEND_BUFF) ||
                     intentions.equals(AbstractMonster.Intent.DEBUFF) ||
                     intentions.equals(AbstractMonster.Intent.DEFEND_DEBUFF)) {
                 this.rawDescription = EXTENDED_DESCRIPTION[1];
+                this.cardsToPreview = new Hornet();
                 initializeDescription();
             } else {
                 this.rawDescription = EXTENDED_DESCRIPTION[2];
+                this.cardsToPreview = new WorkerBee();
                 initializeDescription();
             }
         }
         catch (NullPointerException e){
                 this.rawDescription = DESCRIPTION;
+                this.cardsToPreview = null;
                 initializeDescription();
             }
         }

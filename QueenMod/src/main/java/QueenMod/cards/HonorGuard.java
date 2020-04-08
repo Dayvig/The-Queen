@@ -40,6 +40,7 @@ public class HonorGuard extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.isInnate = false;
         this.exhaust = true;
+        this.cardsToPreview = new BumbleBee();
     }
 
 

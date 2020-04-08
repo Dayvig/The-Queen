@@ -1,6 +1,8 @@
 package QueenMod.characters;
 
 import QueenMod.QueenMod;
+import QueenMod.UIElements.HiveCounterPanel;
+import QueenMod.UIElements.QueenOrb;
 import QueenMod.cards.*;
 import QueenMod.powers.HeartOfTheSwarm;
 import QueenMod.relics.*;
@@ -27,6 +29,8 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.relics.SneckoEye;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
+import com.megacrit.cardcrawl.ui.panels.energyorb.EnergyOrbInterface;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -67,7 +71,7 @@ public class TheQueen extends CustomPlayer {
     public static final int STARTING_HP = 75;
     public static final int MAX_HP = 75;
     public static final int STARTING_GOLD = 99;
-    public static final int CARD_DRAW = 6;
+    public static final int CARD_DRAW = 5;
     public static final int ORB_SLOTS = 0;
 
     // =============== /BASE STATS/ =================
@@ -85,20 +89,8 @@ public class TheQueen extends CustomPlayer {
 
     // =============== TEXTURES OF BIG ENERGY ORB ===============
 
-    public static final String[] orbTextures = {
-            "QueenModResources/images/char/defaultCharacter/orb/layer1.png",
-            "QueenModResources/images/char/defaultCharacter/orb/layer2.png",
-            "QueenModResources/images/char/defaultCharacter/orb/layer3.png",
-            "QueenModResources/images/char/defaultCharacter/orb/layer4.png",
-            "QueenModResources/images/char/defaultCharacter/orb/layer5.png",
-            "QueenModResources/images/char/defaultCharacter/orb/layer6.png",
-            "QueenModResources/images/char/defaultCharacter/orb/layer1d.png",
-            "QueenModResources/images/char/defaultCharacter/orb/layer2d.png",
-            "QueenModResources/images/char/defaultCharacter/orb/layer3d.png",
-            "QueenModResources/images/char/defaultCharacter/orb/layer4d.png",
-            "QueenModResources/images/char/defaultCharacter/orb/layer5d.png",};
+    private static EnergyOrbInterface e = new QueenOrb();
 
-    //public static HornetCounter hornetctr;
 
     // =============== /TEXTURES OF BIG ENERGY ORB/ ===============
 
@@ -106,10 +98,8 @@ public class TheQueen extends CustomPlayer {
     // =============== CHARACTER CLASS START =================
 
     public TheQueen(String name, PlayerClass setClass) {
-        super(name, setClass, orbTextures,
-                "QueenModResources/images/char/defaultCharacter/orb/vfx.png", null,
-                new SpriterAnimation(
-                        "QueenModResources/images/char/defaultCharacter/Spriter/theDefaultAnimation.scml"));
+        super(name, setClass, e, new SpriterAnimation(
+                "QueenModResources/images/char/queen/Spriter/theDefaultAnimation.scml"));
 
 
         // =============== TEXTURES, ENERGY, LOADOUT =================
@@ -174,8 +164,6 @@ public class TheQueen extends CustomPlayer {
         retVal.add(Recruit.ID);
         retVal.add(Drain.ID);
 
-        retVal.add(MilitaryHandbook.ID);
-
         return retVal;
     }
 
@@ -190,7 +178,7 @@ public class TheQueen extends CustomPlayer {
     // character Select screen effect
     @Override
     public void doCharSelectScreenSelectEffect() {
-        CardCrawlGame.sound.playA("BEE_SLOW", 0.0F); // Sound Effect
+        CardCrawlGame.sound.playA("BEE_ATTACK1", 0.0F); // Sound Effect
         CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.LOW, ScreenShake.ShakeDur.SHORT,
                 false); // Screen Effect
     }

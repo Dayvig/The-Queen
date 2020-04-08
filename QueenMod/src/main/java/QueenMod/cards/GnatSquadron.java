@@ -35,7 +35,7 @@ public class GnatSquadron extends AbstractDynamicCard {
     private static final int UPGRADED_COST = 1; // UPGRADED_COST = ${UPGRADED_COST}
 
     private static final int DAMAGE = 1;    // DAMAGE = ${DAMAGE}
-    private static final int UPGRADE_PLUS_DMG = 1;  // UPGRADE_PLUS_DMG = ${UPGRADED_DAMAGE_INCREASE}
+    private static final int UPGRADE_MAGIC = 1;
 
     // /STAT DECLARATION/
 
@@ -64,7 +64,7 @@ public class GnatSquadron extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_PLUS_DMG);
+            upgradeMagicNumber(UPGRADE_MAGIC);
             initializeDescription();
         }
     }

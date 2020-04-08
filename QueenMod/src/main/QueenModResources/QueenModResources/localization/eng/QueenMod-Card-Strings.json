@@ -200,7 +200,7 @@
   },
   "QueenMod:BlindingSwarm": {
     "NAME": "Blinding Swarm",
-    "DESCRIPTION": "Apply !M! Weak to all enemies. NL Split your queenmod:Swarm among all enemies for the turn."
+    "DESCRIPTION": "If you have queenmod:Swarm, Apply !M! Weak to all enemies. NL Split your queenmod:Swarm among all enemies for the turn."
   },
   "QueenMod:SecretWeapon": {
     "NAME": "Secret Weapon",

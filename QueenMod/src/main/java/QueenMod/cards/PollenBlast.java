@@ -52,6 +52,7 @@ public class PollenBlast extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
         this.baseMagicNumber = this.magicNumber = MAGIC;
+        this.cardsToPreview = new WorkerBee();
     }
 
 

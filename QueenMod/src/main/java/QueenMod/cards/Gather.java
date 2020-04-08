@@ -53,6 +53,7 @@ public class Gather extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
         defaultBaseSecondMagicNumber = defaultSecondMagicNumber = 1;
+        this.cardsToPreview = new WorkerBee();
     }
 
     // Actions the card should do.

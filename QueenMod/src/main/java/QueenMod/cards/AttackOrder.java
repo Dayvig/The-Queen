@@ -49,6 +49,7 @@ public class AttackOrder extends AbstractDynamicCard {
         baseDamage = DAMAGE;
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
+        this.cardsToPreview = new Hornet();
     }
 
 

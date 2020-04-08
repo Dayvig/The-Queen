@@ -52,6 +52,7 @@ public class DroneSpawner extends AbstractDynamicCard {
 
     public DroneSpawner() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        this.cardsToPreview = new Drone();
     }
 
 

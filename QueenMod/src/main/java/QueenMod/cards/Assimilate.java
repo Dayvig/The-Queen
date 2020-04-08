@@ -58,6 +58,7 @@ public class Assimilate extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ExhaustAllBeesAction(magicNumber));
+        CardCrawlGame.sound.playA("BEE_SLOW", 1.0F);
     }
 
     //Upgraded stats.

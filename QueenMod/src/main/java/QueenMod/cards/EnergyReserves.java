@@ -45,6 +45,8 @@ public class EnergyReserves extends AbstractDynamicCard {
 
     public EnergyReserves() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        this.cardsToPreview = new WorkerBee();
+
     }
 
     // Actions the card should do.

@@ -48,6 +48,7 @@ public class SharpStingers extends AbstractDynamicCard {
 
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = MAGIC;
+        this.cardsToPreview = new Hornet();
 
     }
 

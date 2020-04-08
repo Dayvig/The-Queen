@@ -38,6 +38,7 @@ public class Draft extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = 3;
         this.magicNumber = this.baseMagicNumber;
+        this.cardsToPreview = new Drone();
     }
 
 

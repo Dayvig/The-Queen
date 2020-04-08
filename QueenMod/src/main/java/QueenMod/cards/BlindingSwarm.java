@@ -2,6 +2,10 @@ package QueenMod.cards;
 
 import QueenMod.QueenMod;
 import QueenMod.characters.TheQueen;
+import QueenMod.powers.FocusedSwarm;
+import QueenMod.powers.FocusedSwarmE;
+import QueenMod.powers.SwarmPower;
+import QueenMod.powers.SwarmPowerEnemy;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -53,6 +57,19 @@ public class BlindingSwarm extends AbstractDynamicCard {
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, AbstractDungeon.player, new WeakPower(mo, magicNumber, false), magicNumber));
         }
+    }
+
+    @Override
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters){
+            if (mo.hasPower(SwarmPowerEnemy.POWER_ID) || mo.hasPower(FocusedSwarmE.POWER_ID)){
+                return true;
+            }
+        }
+        if (p.hasPower(SwarmPower.POWER_ID) || p.hasPower(FocusedSwarm.POWER_ID)){
+            return true;
+        }
+        else { return false; }
     }
 
     //Upgraded stats.

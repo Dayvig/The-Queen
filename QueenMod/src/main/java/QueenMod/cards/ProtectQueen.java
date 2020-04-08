@@ -48,6 +48,7 @@ public class ProtectQueen extends AbstractDynamicCard {
 
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = MAGIC;
+        this.cardsToPreview = new BumbleBee();
 
     }
 

@@ -47,6 +47,7 @@ public class Garrison extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
         defaultBaseSecondMagicNumber = defaultSecondMagicNumber = SECOND_MAGIC;
+        this.cardsToPreview = new BumbleBee();
     }
 
 

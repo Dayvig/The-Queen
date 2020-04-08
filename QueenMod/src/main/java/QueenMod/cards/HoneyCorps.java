@@ -38,6 +38,7 @@ import static QueenMod.QueenMod.makeCardPath;
         public HoneyCorps() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
             super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
             this.baseMagicNumber = this.magicNumber = MAGIC;
+            this.cardsToPreview = new WorkerBee();
         }
 
 

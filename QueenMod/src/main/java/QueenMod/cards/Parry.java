@@ -3,6 +3,7 @@ package QueenMod.cards;
 import QueenMod.QueenMod;
 import QueenMod.characters.TheQueen;
 import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.tempCards.Insight;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -39,14 +40,14 @@ public class Parry extends AbstractDynamicCard {
 
     private static final int BLOCK = 5;    // DAMAGE = ${DAMAGE}
     private static final int UPGRADE_PLUS_BLOCK = 2;  // UPGRADE_PLUS_DMG = ${UPGRADED_DAMAGE_INCREASE}
-
+    AbstractCard ripPreview = new Riposte();
     // /STAT DECLARATION/
 
 
     public Parry() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = BLOCK;
-        this.cardsToPreview = new Riposte();
+        this.cardsToPreview = ripPreview;
     }
 
 
@@ -63,6 +64,7 @@ public class Parry extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            ripPreview.upgrade();
             upgradeBlock(UPGRADE_PLUS_BLOCK);
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();

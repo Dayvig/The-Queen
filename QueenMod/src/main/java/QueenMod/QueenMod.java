@@ -90,31 +90,31 @@ public class QueenMod implements
     // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
     // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
     // Card backgrounds - The actual rectangular card.
-    private static final String ATTACK_QUEEN = "QueenModResources/images/512/bg_attack_default_gray.png";
-    private static final String SKILL_QUEEN = "QueenModResources/images/512/bg_skill_default_gray.png";
-    private static final String POWER_QUEEN = "QueenModResources/images/512/bg_power_default_gray.png";
+    private static final String ATTACK_QUEEN = "QueenModResources/images/512/beeAttacksmall.png";
+    private static final String SKILL_QUEEN = "QueenModResources/images/512/beeSkillsmall.png";
+    private static final String POWER_QUEEN = "QueenModResources/images/512/beepowersmall.png";
 
     private static final String ENERGY_ORB_QUEEN = "QueenModResources/images/512/card_queen_orb.png";
     private static final String ENERGY_ORB_QUEEN_SMALL = "QueenModResources/images/512/card_queen_small_orb.png";
 
-    private static final String ATTACK_QUEEN_PORTRAIT = "QueenModResources/images/1024/bg_attack_default_gray.png";
-    private static final String SKILL_QUEEN_PORTRAIT = "QueenModResources/images/1024/bg_skill_default_gray.png";
-    private static final String POWER_QUEEN_PORTRAIT = "QueenModResources/images/1024/bg_power_default_gray.png";
-    private static final String ENERGY_ORB_QUEEN_PORTRAIT = "QueenModResources/images/1024/card_default_gray_orb.png";
+    private static final String ATTACK_QUEEN_PORTRAIT = "QueenModResources/images/1024/beeAttackPortait.png";
+    private static final String SKILL_QUEEN_PORTRAIT = "QueenModResources/images/1024/beeSkillPortrait.png";
+    private static final String POWER_QUEEN_PORTRAIT = "QueenModResources/images/1024/beepowerPortrait.png";
+    private static final String ENERGY_ORB_QUEEN_PORTRAIT = "QueenModResources/images/1024/card_queen_orb.png";
 
     // Character assets
     private static final String QUEEN_BUTTON = "QueenModResources/images/charSelect/DefaultCharacterButton.png";
     private static final String QUEEN_PORTRAIT = "QueenModResources/images/charSelect/DefaultCharacterPortraitBG.png";
-    public static final String QUEEN_SHOULDER_1 = "QueenModResources/images/char/defaultCharacter/shoulder.png";
-    public static final String QUEEN_SHOULDER_2 = "QueenModResources/images/char/defaultCharacter/shoulder2.png";
-    public static final String QUEEN_CORPSE = "QueenModResources/images/char/defaultCharacter/corpse.png";
+    public static final String QUEEN_SHOULDER_1 = "QueenModResources/images/char/queen/shoulder.png";
+    public static final String QUEEN_SHOULDER_2 = "QueenModResources/images/char/queen/shoulder2.png";
+    public static final String QUEEN_CORPSE = "QueenModResources/images/char/queen/corpse.png";
 
     //Mod Badge - A small icon that appears in the mod settings menu next to your mod.
     public static final String BADGE_IMAGE = "QueenModResources/images/Badge.png";
 
     // Atlas and JSON files for the Animations
-    public static final String QUEEN_SKELETON_ATLAS = "QueenModResources/images/char/defaultCharacter/skeleton.atlas";
-    public static final String QUEEN_SKELETON_JSON = "QueenModResources/images/char/defaultCharacter/skeleton.json";
+    public static final String QUEEN_SKELETON_ATLAS = "QueenModResources/images/char/queen/skeleton.atlas";
+    public static final String QUEEN_SKELETON_JSON = "QueenModResources/images/char/queen/skeleton.json";
 
     // =============== MAKE IMAGE PATHS =================
 
@@ -271,7 +271,6 @@ public class QueenMod implements
         // part of the game, simply don't include the dungeon ID
         // If you want to have a character-specific event, look at slimebound (CityRemoveEventPatch).
         // Essentially, you need to patch the game and say "if a player is not playing my character class, remove the event from the pool"
-        BaseMod.addEvent(IdentityCrisisEvent.ID, IdentityCrisisEvent.class, TheCity.ID);
 
         // =============== /EVENTS/ =================
         logger.info("Done loading badge Image and mod options");
@@ -330,8 +329,6 @@ public class QueenMod implements
         BaseMod.addAudio("BEE_ATTACK2", "QueenModResources/sound/bee_attack2.ogg");
     }
 
-
-    // ================ /ADD AUDIO/ ====================
 
     // ================ ADD CARDS ===================
 
