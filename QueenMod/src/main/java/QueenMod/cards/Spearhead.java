@@ -3,6 +3,7 @@ package QueenMod.cards;
 import QueenMod.QueenMod;
 import QueenMod.characters.TheQueen;
 import QueenMod.powers.Nectar;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -12,6 +13,13 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
+
+import javax.smartcardio.Card;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import static QueenMod.QueenMod.makeCardPath;
 
@@ -38,11 +46,10 @@ public class Spearhead extends AbstractDynamicCard {
 
     private static final int COST = 2;  // COST = ${COST}
 
-    private static final int DAMAGE = 8;    // DAMAGE = ${DAMAGE}
+    private static final int DAMAGE = 15;    // DAMAGE = ${DAMAGE}
     private static final int UPGRADE_PLUS_DAMAGE = 3;
-    private static final int MAGIC = 15;
+    private static final int MAGIC = 8;
     private static final int UPGRADE_MAGIC = 3;
-
     // /STAT DECLARATION/
 
 
@@ -53,18 +60,38 @@ public class Spearhead extends AbstractDynamicCard {
         isMultiDamage = true;
     }
 
-
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, magicNumber, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) &&
                 AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10){
             AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(p, p, p.getPower(Nectar.POWER_ID), 10));
-            AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+            AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, magicNumber, this.damageTypeForTurn, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         }
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
     }
 
+    public void applyPowers()
+    {
+        int origBase = this.baseDamage;
+        int origMagic = this.baseMagicNumber;
+
+        this.baseDamage = this.baseMagicNumber;
+        this.isMultiDamage = true;
+
+        super.applyPowers();
+
+        this.baseMagicNumber = this.damage;
+        this.isMagicNumberModified = this.isDamageModified;
+
+        this.baseDamage = origBase;
+        this.baseMagicNumber = origMagic;
+        this.isMultiDamage = false;
+
+        super.applyPowers();
+    }
+
+    @Override
     public void triggerOnGlowCheck() {
         if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10){
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();

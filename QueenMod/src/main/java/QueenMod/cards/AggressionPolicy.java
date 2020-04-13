@@ -56,15 +56,15 @@ public class AggressionPolicy extends AbstractDynamicCard {
         int numOther = 0;
         for (AbstractCard c : AbstractDungeon.player.hand.group){
             if (c.type.equals(AbstractCard.CardType.ATTACK)){numAttacks++;}
-            else if (c.type.equals(AbstractCard.CardType.SKILL) || c.type.equals(AbstractCard.CardType.POWER)){numOther++;}
+            else if (c.type.equals(AbstractCard.CardType.SKILL)){numOther++;}
         }
         for (AbstractCard c : AbstractDungeon.player.drawPile.group){
             if (c.type.equals(AbstractCard.CardType.ATTACK)){numAttacks++;}
-            else if (c.type.equals(AbstractCard.CardType.SKILL) || c.type.equals(AbstractCard.CardType.POWER)){numOther++;}
+            else if (c.type.equals(AbstractCard.CardType.SKILL)){numOther++;}
         }
         for (AbstractCard c : AbstractDungeon.player.discardPile.group){
             if (c.type.equals(AbstractCard.CardType.ATTACK)){numAttacks++;}
-            else if (c.type.equals(AbstractCard.CardType.SKILL) || c.type.equals(AbstractCard.CardType.POWER)){numOther++;}
+            else if (c.type.equals(AbstractCard.CardType.SKILL)){numOther++;}
         }
         if (numAttacks > numOther){
         this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();

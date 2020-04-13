@@ -21,6 +21,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static QueenMod.QueenMod.makePowerPath;
 import static com.megacrit.cardcrawl.cards.AbstractCard.CardTarget.ALL_ENEMY;
+import static com.megacrit.cardcrawl.cards.AbstractCard.CardTarget.ENEMY;
 
 //Gain 1 dex for the turn for each card played.
 
@@ -96,7 +97,12 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
         }
         else if (c.cardID.equals(Spearhead.ID)){
             AbstractCard tmp = c;
-            tmp.target = ALL_ENEMY;
+            if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10) {
+                tmp.target = ALL_ENEMY;
+            }
+            else {
+                tmp.target = ENEMY;
+            }
             AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(tmp, false, totalSwarm, a));
         }
         else if (c.cardID.equals(Anticipate.ID) || c.cardID.equals(Parry.ID) || c.cardID.equals(Feint.ID)){

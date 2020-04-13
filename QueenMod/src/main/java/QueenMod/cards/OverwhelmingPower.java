@@ -60,7 +60,7 @@ public class OverwhelmingPower extends AbstractDynamicCard {
 
     @Override
     public void applyPowers(){
-        magicNumber = AbstractDungeon.player.drawPile.size() + AbstractDungeon.player.hand.size() + AbstractDungeon.player.discardPile.size();
+        magicNumber = AbstractDungeon.player.drawPile.size();
         magicNumber /= 10;
         if (magicNumber<6) {
             this.rawDescription = EXTENDED_DESCRIPTION[magicNumber];

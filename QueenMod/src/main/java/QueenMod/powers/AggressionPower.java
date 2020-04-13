@@ -111,15 +111,15 @@ public class AggressionPower extends AbstractPower implements CloneablePowerInte
     numOther = 0;
         for (AbstractCard c : AbstractDungeon.player.hand.group){
             if (c.type.equals(AbstractCard.CardType.ATTACK)){numAttacks++;}
-            else if (c.type.equals(AbstractCard.CardType.SKILL) || c.type.equals(AbstractCard.CardType.POWER)){numOther++;}
+            else if (c.type.equals(AbstractCard.CardType.SKILL)){numOther++;}
         }
         for (AbstractCard c : AbstractDungeon.player.drawPile.group){
             if (c.type.equals(AbstractCard.CardType.ATTACK)){numAttacks++;}
-            else if (c.type.equals(AbstractCard.CardType.SKILL) || c.type.equals(AbstractCard.CardType.POWER)){numOther++;}
+            else if (c.type.equals(AbstractCard.CardType.SKILL)){numOther++;}
         }
         for (AbstractCard c : AbstractDungeon.player.discardPile.group){
             if (c.type.equals(AbstractCard.CardType.ATTACK)){numAttacks++;}
-            else if (c.type.equals(AbstractCard.CardType.SKILL) || c.type.equals(AbstractCard.CardType.POWER)){numOther++;}
+            else if (c.type.equals(AbstractCard.CardType.SKILL) ){numOther++;}
         }
         if (!isActive && (numAttacks > numOther)){
             if (Math.ceil(Math.random()*2) == 1) {

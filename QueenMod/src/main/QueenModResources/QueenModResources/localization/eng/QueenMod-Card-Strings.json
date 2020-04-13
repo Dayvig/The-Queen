@@ -69,7 +69,8 @@
   },
   "QueenMod:KillerQueen": {
     "NAME": "Killer Queen",
-    "DESCRIPTION": "Deal !D! damage. Doubles if you have more Attacks than other card types in your Deck."
+    "DESCRIPTION": "Deal !D! damage. Doubles if you have more Attacks than Skills in your Deck.",
+    "EXTENDED_DESCRIPTION": ["Deal !D! damage."]
   },
   "QueenMod:HiveNetwork": {
     "NAME": "Hive Network",
@@ -100,7 +101,7 @@
   },
   "QueenMod:WarBuzz": {
   "NAME": "War Buzz",
-  "DESCRIPTION": "Exhaust all non-attacks in your hand, replace them with queenmod:Hornets."
+  "DESCRIPTION": "Exhaust all Skills in your hand, replace them with queenmod:Hornets."
 },
   "QueenMod:ChainStrike": {
   "NAME": "Chain strike",
@@ -137,7 +138,7 @@
 },
   "QueenMod:OverwhelmingForce": {
   "NAME": "Overwhelming Force",
-  "DESCRIPTION": "Deal damage to all enemies equal to the number of cards in your deck.",
+  "DESCRIPTION": "Deal damage to all enemies equal to the number of cards in your draw pile.",
     "EXTENDED_DESCRIPTION": [
       "Deal !D! damage to all enemies (Equal to the number of cards in your deck)."
     ]
@@ -156,12 +157,7 @@
 },
   "QueenMod:Feast": {
   "NAME": "Feast",
-  "DESCRIPTION": "Deal !D! damage to all enemies. If Fatal, gain !M! queenmod:Swarm.",
-    "UPGRADE_DESCRIPTION": "Deal damage equal to your queenmod:Swarm.",
-    "EXTENDED_DESCRIPTION": [
-      "Deal !D! damage. (Equal to your queenmod:Swarm.) NL Exhaust.",
-      "Deal !D! damage. (Equal to your queenmod:Swarm.)"
-    ]
+  "DESCRIPTION": "Deal !D! damage to all enemies. If this kills an enemy, gain !M! queenmod:Swarm."
 },
   "QueenMod:DroneSpawner": {
     "NAME": "Drone Spawner",
@@ -281,7 +277,7 @@
   },
   "QueenMod:Spearhead":{
   "NAME": "Spearhead",
-  "DESCRIPTION": "Deal !M! damage. NL Spend 10 queenmod:Nectar: Deal !D! damage to all enemies."
+  "DESCRIPTION": "Deal !D! damage. NL Spend 10 queenmod:Nectar: Deal !M! damage to all enemies."
 },
   "QueenMod:Conscripts":{
     "NAME": "Conscripts",
@@ -376,7 +372,7 @@
   },
   "QueenMod:AggressionPolicy":{
     "NAME": "Aggression Policy",
-    "DESCRIPTION": "If you have more Attacks than skills and powers, Attacks are played once more."
+    "DESCRIPTION": "If you have more Attacks than Skills, Attacks are played once more."
   },
   "QueenMod:MatingDance": {
     "NAME": "Mating Dance",
@@ -388,14 +384,14 @@
   },
   "QueenMod:OverwhelmingPower": {
     "NAME": "Overwhelming Power",
-    "DESCRIPTION": "Deal !D! damage. NL Gain [E] for every 10 cards in your deck.",
+    "DESCRIPTION": "Deal !D! damage. NL Gain [E] for every 10 cards in your draw pile.",
     "EXTENDED_DESCRIPTION": [
       "Deal !D! damage.",
       "Deal !D! damage. NL Gain [E]",
       "Deal !D! damage. NL Gain [E] [E]",
-      "Deal !D! damage. NL Gain [E] [E] [E}",
+      "Deal !D! damage. NL Gain [E] [E] [E]f",
       "Deal !D! damage. NL Gain [E] [E] [E] [E]",
-      "Deal !D! damage. NL Gain [E] [E] [E] [E] [E}",
+      "Deal !D! damage. NL Gain [E] [E] [E] [E] [E]",
       "Deal !D! damage. NL Gain !M! [E]"
     ]
   },

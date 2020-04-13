@@ -46,9 +46,11 @@ public class WarBuzz extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (AbstractCard c : p.hand.group){
-            if (c.type.equals(CardType.SKILL) || c.type.equals(CardType.POWER)){
-                AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(c,p.hand,true));
-                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Hornet()));
+            if (c.type.equals(CardType.SKILL)) {
+                if (c != this) {
+                    AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(c, p.hand, true));
+                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Hornet()));
+                }
             }
         }
     }

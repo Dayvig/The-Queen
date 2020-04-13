@@ -57,10 +57,7 @@ public class OverwhelmingForce extends AbstractDynamicCard {
 
     public void applyPowers() {
         super.applyPowers();
-        int i = AbstractDungeon.player.drawPile.size()+
-                AbstractDungeon.player.hand.size()+
-                AbstractDungeon.player.discardPile.size();
-        this.baseDamage = i;
+        this.baseDamage = AbstractDungeon.player.drawPile.size();
         this.rawDescription = EXTENDED_DESCRIPTION[0];
         initializeDescription();
     }
