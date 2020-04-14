@@ -4,20 +4,30 @@ import QueenMod.QueenMod;
 import QueenMod.actions.DistributeSwarmAction;
 import QueenMod.cards.*;
 import QueenMod.cards.BlindingSwarm;
+import QueenMod.effects.SwarmEffect;
+import QueenMod.effects.SwarmParticle;
 import QueenMod.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.vfx.SpeechBubble;
+import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
+import com.megacrit.cardcrawl.vfx.stance.WrathParticleEffect;
+
+import java.util.ArrayList;
 
 import static QueenMod.QueenMod.makePowerPath;
 import static com.megacrit.cardcrawl.cards.AbstractCard.CardTarget.ALL_ENEMY;
@@ -37,6 +47,12 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
     // There's a fallback "missing texture" image, so the game shouldn't crash if you accidentally put a non-existent file.
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("beat"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("beat"));
+
+    private float particleTimer;
+    private float particleTimer2;
+    private ArrayList<AbstractMonster> targets = new ArrayList<>();
+    private boolean playerHasSwarm = false;
+    private int totalSwarm;
 
     public HeartOfTheSwarm(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = NAME;
@@ -78,7 +94,7 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
 
     @Override
     public void onAfterUseCard(AbstractCard c, UseCardAction a) {
-        int totalSwarm = 0;
+        totalSwarm = 0;
         for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (m.hasPower(SwarmPowerEnemy.POWER_ID) && !m.isDying) {
                 totalSwarm += m.getPower(SwarmPowerEnemy.POWER_ID).amount;
@@ -139,6 +155,28 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
             AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, false, totalSwarm, a));
         }
     }
+
+    @Override
+    public void update(int z) {
+        if (!Settings.DISABLE_EFFECTS) {
+            this.particleTimer -= Gdx.graphics.getDeltaTime();
+            if (particleTimer < 0.0F) {
+                playerHasSwarm = AbstractDungeon.player.hasPower(SwarmPower.POWER_ID) || AbstractDungeon.player.hasPower(FocusedSwarm.POWER_ID);
+                targets.clear();
+                for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                    if (mo.hasPower(SwarmPowerEnemy.POWER_ID) || mo.hasPower(FocusedSwarmE.POWER_ID)) {
+                        targets.add(mo);
+                    }
+                }
+                this.particleTimer = 1.0F;
+                System.out.println(totalSwarm);
+                if (totalSwarm != 0) {
+                    AbstractDungeon.effectsQueue.add(new SwarmEffect(totalSwarm, playerHasSwarm, targets));
+                }
+            }
+        }
+    }
+
 
     @Override
     public void onRemove() {

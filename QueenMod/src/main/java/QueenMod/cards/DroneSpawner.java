@@ -34,7 +34,7 @@ public class DroneSpawner extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.NONE;
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;

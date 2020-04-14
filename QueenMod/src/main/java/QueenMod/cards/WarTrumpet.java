@@ -3,13 +3,17 @@ package QueenMod.cards;
 import QueenMod.QueenMod;
 import QueenMod.characters.TheQueen;
 import QueenMod.powers.WarTrumpetPower;
+import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.combat.ShockWaveEffect;
 
 import static QueenMod.QueenMod.makeCardPath;
 
@@ -53,6 +57,8 @@ public class WarTrumpet extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        CardCrawlGame.sound.playA("TRUMPET", (float)Math.random()*1);
+        this.addToBot(new VFXAction(p, new ShockWaveEffect(p.hb.cX, p.hb.cY, Settings.RED_TEXT_COLOR, ShockWaveEffect.ShockWaveType.ADDITIVE), 0.5F));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WarTrumpetPower(p, p, 1)));
     }
 

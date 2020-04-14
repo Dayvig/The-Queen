@@ -327,6 +327,7 @@ public class QueenMod implements
         BaseMod.addAudio("BEE_SLOW", "QueenModResources/sound/bee_slow.ogg");
         BaseMod.addAudio("BEE_ATTACK1", "QueenModResources/sound/bee_attack1.ogg");
         BaseMod.addAudio("BEE_ATTACK2", "QueenModResources/sound/bee_attack2.ogg");
+        BaseMod.addAudio("TRUMPET", "QueenModResources/sound/trumpet.ogg");
     }
 
 

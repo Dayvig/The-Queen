@@ -246,5 +246,13 @@
                         " random card to your hand.",
                         " random cards to your hand."
                 ]
+        },
+        "QueenMod:WarTrumpetPower": {
+                "NAME": "War Trumpet",
+                "DESCRIPTIONS": [
+                        "When you play an attack, add #b",
+                        "Drones to your draw pile and gain #b",
+                        "Block."
+                ]
         }
 }
