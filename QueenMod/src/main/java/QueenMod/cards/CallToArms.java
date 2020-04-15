@@ -73,6 +73,8 @@ public class CallToArms extends AbstractDynamicCard {
         }
         */
 
+        CardCrawlGame.sound.playA("TRUMPET", (float)Math.random()*0.2F);
+
         int handsize = p.hand.size();
         while (handsize < BaseMod.MAX_HAND_SIZE){
             AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Drone(), 1));

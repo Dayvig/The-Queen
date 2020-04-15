@@ -218,8 +218,8 @@
         "QueenMod:AggressionPower": {
                 "NAME": "Aggression Policy",
                 "DESCRIPTIONS": [
-                        "If you have more attacks than skills and powers, attacks are played #b+1 times.",
-                        "",
+                        "If you have more attacks than skills and powers, attacks are played #b",
+                        "additional times.",
                         ""
                 ]
         },

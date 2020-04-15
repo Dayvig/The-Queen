@@ -152,7 +152,6 @@ public class TheQueen extends CustomPlayer {
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
         logger.info("Begin loading starter Deck Strings");
-        retVal.add(Incubate.ID);
         retVal.add(Strike.ID);
         retVal.add(Strike.ID);
         retVal.add(Strike.ID);
@@ -162,7 +161,7 @@ public class TheQueen extends CustomPlayer {
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
         retVal.add(Recruit.ID);
-        retVal.add(Drain.ID);
+        retVal.add(QuickJabs.ID);
 
         return retVal;
     }

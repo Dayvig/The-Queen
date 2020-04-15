@@ -17,11 +17,11 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static QueenMod.QueenMod.makeCardPath;
 
 // public class ${NAME} extends AbstractDynamicCard
-public class Drain extends AbstractDynamicCard {
+public class QuickJabs extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = QueenMod.makeID(Drain.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
+    public static final String ID = QueenMod.makeID(QuickJabs.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
     public static final String IMG = makeCardPath("drain.png");// "public static final String IMG = makeCardPath("${NAME}.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -40,24 +40,24 @@ public class Drain extends AbstractDynamicCard {
     private static final int COST = 1;  // COST = ${COST}
 
     private static final int DAMAGE = 4;    // DAMAGE = ${DAMAGE}
-    private static final int UPGRADE_PLUS_DAMAGE = 2;
+    private static final int MAGIC = 2;
+    private static final int UPGRADE_PLUS_MAGIC = 1;
 
     // /STAT DECLARATION/
 
 
-    public Drain() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
+    public QuickJabs() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
+        baseMagicNumber = magicNumber = MAGIC;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (int i=0;i<2;i++) {
+        for (int i = 0; i < magicNumber; i++) {
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
-                    new Nectar(p, p, damage), damage));
         }
     }
 
@@ -66,7 +66,7 @@ public class Drain extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_PLUS_DAMAGE);
+            upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             initializeDescription();
         }
     }

@@ -107,5 +107,17 @@
     "production"
   ],
   "DESCRIPTION": "At the start of your turn, gain 1 Nectar for each Production."
-}
+},
+  {
+    "NAMES": [
+      "aggressive"
+    ],
+    "DESCRIPTION": "Activated if your current deck contains more Attacks than Skills."
+  },
+  {
+    "NAMES": [
+      "defensive"
+    ],
+    "DESCRIPTION": "Activated if your current deck contains more Skills than Attacks."
+  }
 ]

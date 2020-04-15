@@ -34,13 +34,13 @@ public class TeaTime extends AbstractDynamicCard{
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 0;  // COST = ${COST}
-    private static final int BLOCK = 8;
-    private static final int UPGRADE_BLOCK = 2;
+    private static final int BLOCK = 6;
+    private static final int UPGRADE_BLOCK = 3;
     // /STAT DECLARATION/
 
     public TeaTime() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = magicNumber = 8;
+        this.baseMagicNumber = magicNumber = 2;
         this.baseBlock = block = BLOCK;
     }
 
@@ -49,8 +49,21 @@ public class TeaTime extends AbstractDynamicCard{
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new Nectar (p, p, magicNumber), magicNumber));
+        if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) &&
+                AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10) {
+            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(magicNumber));
+            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(p, p, AbstractDungeon.player.getPower(Nectar.POWER_ID), 10));
+        }
     }
+
+    public void triggerOnGlowCheck() {
+        if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10){
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        } else {
+            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        }
+    }
+
 
     @Override
     public void applyPowers(){
@@ -58,6 +71,9 @@ public class TeaTime extends AbstractDynamicCard{
         for (AbstractCard c : AbstractDungeon.player.hand.group){
             if (c.type.equals(CardType.ATTACK)){
                 costForTurn++;
+                if (costForTurn != COST){
+                    isCostModifiedForTurn = true;
+                }
             }
         }
     }
@@ -68,7 +84,6 @@ public class TeaTime extends AbstractDynamicCard{
         if (!upgraded) {
             upgradeName();
             upgradeBlock(UPGRADE_BLOCK);
-            upgradeMagicNumber(2);
             initializeDescription();
         }
     }

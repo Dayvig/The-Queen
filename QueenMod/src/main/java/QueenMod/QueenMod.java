@@ -328,6 +328,11 @@ public class QueenMod implements
         BaseMod.addAudio("BEE_ATTACK1", "QueenModResources/sound/bee_attack1.ogg");
         BaseMod.addAudio("BEE_ATTACK2", "QueenModResources/sound/bee_attack2.ogg");
         BaseMod.addAudio("TRUMPET", "QueenModResources/sound/trumpet.ogg");
+        BaseMod.addAudio("BEE_FADE", "QueenModResources/sound/bee_fade.ogg");
+        BaseMod.addAudio("BEE_SWARM", "QueenModResources/sound/bee_swarm_attack.ogg");
+        BaseMod.addAudio("SLAP", "QueenModResources/sound/slap.ogg");
+
+
     }
 
 
@@ -348,13 +353,15 @@ public class QueenMod implements
         // Add the cards
         // Don't comment out/delete these cards (yet). You need 1 of e0ach type and rarity (technically) for your game not to crash
         // when generating card rewards/shop screen items.
-
+        BaseMod.addCard(new ForcedMarch());
+        BaseMod.addCard(new SwordsToPlowshares());
+        BaseMod.addCard(new Ruthless());
         BaseMod.addCard(new Garrison());
         BaseMod.addCard(new IAmTheSwarm());
         BaseMod.addCard(new Feint());
         BaseMod.addCard(new HoldPosition());
         BaseMod.addCard(new Fortify());
-        BaseMod.addCard(new Drain());
+        BaseMod.addCard(new QuickJabs());
         BaseMod.addCard(new Leadership());
         BaseMod.addCard(new TeaTime());
         BaseMod.addCard(new CallToArms());
@@ -440,12 +447,14 @@ public class QueenMod implements
         // This is so that they are all "seen" in the library, for people who like to look at the card list
         // before playing your mod.
 
+        UnlockTracker.unlockCard(SwordsToPlowshares.ID);
+        UnlockTracker.unlockCard(Ruthless.ID);
         UnlockTracker.unlockCard(Garrison.ID);
         UnlockTracker.unlockCard(IAmTheSwarm.ID);
         UnlockTracker.unlockCard(Feint.ID);
         UnlockTracker.unlockCard(HoldPosition.ID);
         UnlockTracker.unlockCard(Fortify.ID);
-        UnlockTracker.unlockCard(Drain.ID);
+        UnlockTracker.unlockCard(QuickJabs.ID);
         UnlockTracker.unlockCard(Leadership.ID);
         UnlockTracker.unlockCard(TeaTime.ID);
         UnlockTracker.unlockCard(Frenzy.ID);

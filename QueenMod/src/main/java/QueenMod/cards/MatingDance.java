@@ -30,7 +30,7 @@ public class MatingDance extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
+    private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.NONE;  //   since they don't change much.
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
@@ -125,11 +125,11 @@ public class MatingDance extends AbstractDynamicCard {
 
     public void atTurnStart() {
         danceMoves = AbstractDungeon.cardRandomRng.random(100);
-        if (danceMoves <= 40) {
+        if (danceMoves <= 45) {
             dance[0] = CardType.SKILL;
             danceDescriptions[0] = "Skill";
             danceDescriptions[0] += ", ";
-        } else if (danceMoves > 40 && danceMoves <= 80) {
+        } else if (danceMoves > 45 && danceMoves <= 90) {
             dance[0] = CardType.ATTACK;
             danceDescriptions[0] = "Attack";
             danceDescriptions[0] += ", ";
@@ -149,17 +149,9 @@ public class MatingDance extends AbstractDynamicCard {
                     } else {
                         danceDescriptions[i] += ", ";
                     }
-                } else if (danceMoves > 40 && danceMoves <= 90) {
+                } else {
                     dance[i] = CardType.SKILL;
                     danceDescriptions[i] = "Skill";
-                    if (i == 3) {
-                        danceDescriptions[i] += ".";
-                    } else {
-                        danceDescriptions[i] += ", ";
-                    }
-                } else {
-                    dance[i] = CardType.POWER;
-                    danceDescriptions[i] = "Power";
                     if (i == 3) {
                         danceDescriptions[i] += ".";
                     } else {
@@ -175,17 +167,9 @@ public class MatingDance extends AbstractDynamicCard {
                     } else {
                         danceDescriptions[i] += ", ";
                     }
-                } else if (danceMoves > 40 && danceMoves <= 90) {
+                } else {
                     dance[i] = CardType.ATTACK;
                     danceDescriptions[i] = "Attack";
-                    if (i == 3) {
-                        danceDescriptions[i] += ".";
-                    } else {
-                        danceDescriptions[i] += ", ";
-                    }
-                } else {
-                    dance[i] = CardType.POWER;
-                    danceDescriptions[i] = "Power";
                     if (i == 3) {
                         danceDescriptions[i] += ".";
                     } else {
@@ -193,7 +177,7 @@ public class MatingDance extends AbstractDynamicCard {
                     }
                 }
             } else if (dance[i - 1].equals(CardType.POWER)) {
-                if (danceMoves <= 48) {
+                if (danceMoves <= 50) {
                     dance[i] = CardType.SKILL;
                     danceDescriptions[i] = "Skill";
                     if (i == 3) {
@@ -201,17 +185,9 @@ public class MatingDance extends AbstractDynamicCard {
                     } else {
                         danceDescriptions[i] += ", ";
                     }
-                } else if (danceMoves > 48 && danceMoves <= 96) {
+                } else {
                     dance[i] = CardType.ATTACK;
                     danceDescriptions[i] = "Attack";
-                    if (i == 3) {
-                        danceDescriptions[i] += ".";
-                    } else {
-                        danceDescriptions[i] += ", ";
-                    }
-                } else {
-                    dance[i] = CardType.POWER;
-                    danceDescriptions[i] = "Power";
                     if (i == 3) {
                         danceDescriptions[i] += ".";
                     } else {
@@ -227,7 +203,7 @@ public class MatingDance extends AbstractDynamicCard {
                     } else {
                         danceDescriptions[i] += ", ";
                     }
-                } else if (danceMoves > 40 && danceMoves <= 80) {
+                } else if (danceMoves <= 80) {
                     dance[i] = CardType.ATTACK;
                     danceDescriptions[i] = "Attack";
                     if (i == 3) {

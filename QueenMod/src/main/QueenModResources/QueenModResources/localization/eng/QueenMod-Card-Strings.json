@@ -64,13 +64,13 @@
   },
   "QueenMod:BuildOrder": {
     "NAME": "Build Order",
-    "DESCRIPTION": "Gain !QueenMod:second! queenmod:Production. NL Recruit a queenmod:Workerbee.",
-    "UPGRADE_DESCRIPTION": "Gain !QueenMod:second! queenmod:Production. NL Recruit !M! queenmod:Workerbees."
+    "DESCRIPTION": "Gain !QueenMod:second! queenmod:Nectar each turn. NL Recruit a queenmod:Workerbee.",
+    "UPGRADE_DESCRIPTION": "Gain !QueenMod:second! queenmod:Nectar each turn. NL Recruit !M! queenmod:Workerbees."
   },
   "QueenMod:KillerQueen": {
     "NAME": "Killer Queen",
-    "DESCRIPTION": "Deal !D! damage. Doubles if you have more Attacks than Skills in your Deck.",
-    "EXTENDED_DESCRIPTION": ["Deal !D! damage."]
+    "DESCRIPTION": "Deal !D! damage. queenmod:Aggressive: Deals double damage.",
+    "EXTENDED_DESCRIPTION": ["Deal !D! damage. queenmod:Aggressive: Deals double damage."]
   },
   "QueenMod:HiveNetwork": {
     "NAME": "Hive Network",
@@ -306,7 +306,7 @@
   },
   "QueenMod:Reinforcements":{
     "NAME": "Reinforcements",
-    "DESCRIPTION": "At the start of your turn, play a non queenmod:Drone queenmod:Hive card from your draw pile."
+    "DESCRIPTION": "At the start of your turn, play a queenmod:Hornet or queenmod:Bumblebee from your draw pile."
   },
   "QueenMod:Regroup":{
     "NAME": "Regroup",
@@ -372,7 +372,7 @@
   },
   "QueenMod:AggressionPolicy":{
     "NAME": "Aggression Policy",
-    "DESCRIPTION": "If you have more Attacks than Skills, Attacks are played once more."
+    "DESCRIPTION": "queenmod:Aggressive: Attacks are played once more."
   },
   "QueenMod:MatingDance": {
     "NAME": "Mating Dance",
@@ -429,16 +429,16 @@
   },
   "QueenMod:TeaTime": {
     "NAME": "Tea Time",
-    "DESCRIPTION": "Gain !B! Block and !M! Nectar. NL Costs 1 more for each Attack in your hand."
+    "DESCRIPTION": "Gain !B! Block. NL Spend 10 queenmod:Nectar: Draw 2 cards. NL Costs 1 more for each Attack in your hand."
   },
   "QueenMod:Leadership": {
     "NAME": "Leadership",
     "DESCRIPTION": "Gain 1 Strength and Dexterity. NL queenmod:Recruit a queenmod:Hornet and queenmod:Bumblebee.",
     "UPGRADE_DESCRIPTION": "Innate. NL Gain 1 Strength and Dexterity. NL queenmod:Recruit a queenmod:Hornet and queenmod:Bumblebee."
   },
-  "QueenMod:Drain": {
-    "NAME": "Drain",
-    "DESCRIPTION": "Deal !D! damage twice. NL Gain queenmod:Nectar equal to the damage dealt."
+  "QueenMod:QuickJabs": {
+    "NAME": "Quick Jabs",
+    "DESCRIPTION": "Deal !D! damage !M! times."
   },
   "QueenMod:Feint": {
     "NAME": "Feint",
@@ -452,5 +452,17 @@
   "QueenMod:WarMachine": {
     "NAME": "War Machine",
     "DESCRIPTION": "Deal !D! damage, if Fatal increase this card's queenmod:Production by 1. NL Gain !M! queenmod:Production."
+  },
+  "QueenMod:Ruthless": {
+    "NAME": "Ruthless",
+    "DESCRIPTION": "Gain !M! queenmod:Swarm. Split it among all enemies for the turn."
+  },
+  "QueenMod:SwordsToPlowshares": {
+    "NAME": "Swords to Plowshares",
+    "DESCRIPTION": "Gain !M! queenmod:Nectar. NL queenmod:Defensive: queenmod:Recruit a Workerbee and gain !B! Block."
+  },
+  "QueenMod:ForcedMarch": {
+    "NAME": "Forced March",
+    "DESCRIPTION": "Deal !D! damage. NL When you play a card this turn, shuffle it into your draw pile instead of your discard pile."
   }
 }

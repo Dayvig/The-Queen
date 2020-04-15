@@ -31,7 +31,7 @@ public class Beekeeping extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
+    private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.NONE;  //   since they don't change much.
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
@@ -52,6 +52,7 @@ public class Beekeeping extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ExhaustAction(p,p,magicNumber,false));
+        CardCrawlGame.sound.playA("BEE_ATTACK1", -0.5F);
         AbstractCard d = new BumbleBee();
         if (upgraded){ d.upgrade(); }
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(d, magicNumber));

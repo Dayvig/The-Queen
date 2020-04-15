@@ -12,6 +12,10 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.BeatOfDeathPower;
+import com.megacrit.cardcrawl.powers.SharpHidePower;
+import com.megacrit.cardcrawl.powers.ThornsPower;
+import com.megacrit.cardcrawl.powers.TimeWarpPower;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 
 import java.util.ArrayList;
@@ -25,6 +29,7 @@ public class ReinforcementAction extends AbstractGameAction {
     AbstractCreature th;
     String Text = "My draw pile is empty!";
     String Text2 = "I have no soldiers in my draw pile!";
+    String Text3 = "Wait! Hold your fire!";
 
     public ReinforcementAction(AbstractCreature t, int n){
         numTimes = n;
@@ -46,10 +51,7 @@ public class ReinforcementAction extends AbstractGameAction {
         }
             for (AbstractCard c : p.group) {
                 if (c.cardID.equals(Hornet.ID) ||
-                        c.cardID.equals(BumbleBee.ID) ||
-                        c.cardID.equals(HornetCommander.ID) ||
-                        c.cardID.equals(BumbleBeeCommander.ID) ||
-                        c.cardID.equals(WASP.ID)) {
+                        c.cardID.equals(BumbleBee.ID)){
                     upgradeMatrix.add(c);
                 }
             }
@@ -66,23 +68,27 @@ public class ReinforcementAction extends AbstractGameAction {
             AbstractDungeon.player.hand.removeCard(c1);
             AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, 1));
         }
-            if (c1.cardID.equals(Hornet.ID)){
+
+        AbstractMonster mo = AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng);
+        if (c1.cardID.equals(Hornet.ID)){
                 Hornet tmp = (Hornet) c1;
                 tmp.playedBySwarm = true;
-                AbstractDungeon.actionManager.addToTop(new QueueCardAction(c1, AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng)));
-            }
-            else if (c1.cardID.equals(HornetCommander.ID)){
-                HornetCommander tmp = (HornetCommander) c1;
-                tmp.playedBySwarm = true;
-                AbstractDungeon.actionManager.addToTop(new QueueCardAction(c1, AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng)));
-            }
-            else if (c1.cardID.equals(WASP.ID)){
-                WASP tmp = (WASP) c1;
-                tmp.playedBySwarm = true;
-                AbstractDungeon.actionManager.addToTop(new QueueCardAction(c1, AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng)));
+                if ((mo.hasPower(TimeWarpPower.POWER_ID) && mo.getPower(TimeWarpPower.POWER_ID).amount == 11) || mo.hasPower(ThornsPower.POWER_ID) || mo.hasPower(SharpHidePower.POWER_ID) || mo.hasPower(BeatOfDeathPower.POWER_ID)){
+                    AbstractDungeon.actionManager.addToTop(new DrawToHandAction(c1));
+                    AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, Text3, true));
+                }
+                else {
+                    AbstractDungeon.actionManager.addToTop(new QueueCardAction(c1, mo));
+                }
             }
             else {
-                AbstractDungeon.actionManager.addToTop(new QueueCardAction(c1, null));
+                if (mo.hasPower(TimeWarpPower.POWER_ID) && mo.getPower(TimeWarpPower.POWER_ID).amount == 11){
+                    AbstractDungeon.actionManager.addToTop(new DrawToHandAction(c1));
+                    AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, Text3, true));
+                }
+                else {
+                    AbstractDungeon.actionManager.addToTop(new QueueCardAction(c1, mo));
+                }
             }
         for (AbstractCard c : AbstractDungeon.player.limbo.group){
             AbstractDungeon.actionManager.addToBottom(new UnlimboAction(c));

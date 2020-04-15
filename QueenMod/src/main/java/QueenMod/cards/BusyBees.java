@@ -49,6 +49,8 @@ public class BusyBees extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        CardCrawlGame.sound.playA("BEE_FADE", (float)Math.random()*1.0F);
+
         if (upgraded) {
             for (AbstractCard c : p.hand.group) {
                 if (!c.cardID.equals(BusyBees.ID) && !c.type.equals(CardType.STATUS) &&  !c.type.equals(CardType.CURSE)) {

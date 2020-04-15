@@ -135,29 +135,25 @@ public class DistributeSwarmAction extends AbstractGameAction {
                 }
                 else {
                     swarmdivide1 = (int) Math.floor(s / n);
-                    swarmdivide2 = (int) Math.floor(s / n);
-                    if (s % n == 1){
+                    while (swarmdivide1*n < s){
                         swarmdivide1++;
                     }
-                    boolean firstMonsterApplied = false;
                     int toApply;
                     for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
                         if (!m.isDying) {
                             if (f) {
-                                if (!firstMonsterApplied) {
-                                    toApply = swarmdivide1;
-                                    firstMonsterApplied = true;
+                                toApply = swarmdivide1;
+                                while (toApply > s){
+                                    toApply--;
                                 }
-                                else {toApply = swarmdivide2;}
                                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, AbstractDungeon.player, new FocusedSwarmE(m, AbstractDungeon.player, toApply), toApply));
                                 s -= toApply;
                                 if (s <= 0){ isDone = true; }
                             } else {
-                                if (!firstMonsterApplied) {
-                                    toApply = swarmdivide1;
-                                    firstMonsterApplied = true;
+                                toApply = swarmdivide1;
+                                while (toApply > s){
+                                    toApply--;
                                 }
-                                else {toApply = swarmdivide2;}
                                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, AbstractDungeon.player, new SwarmPowerEnemy(m, AbstractDungeon.player, toApply), toApply));
                                 s -= toApply;
                                 if (s <= 0){ isDone = true; }

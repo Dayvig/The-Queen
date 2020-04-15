@@ -34,6 +34,9 @@ public class FlybyAction extends AbstractGameAction {
             AbstractDungeon.player.hand.moveToDeck(ret, true);
         }
         AbstractDungeon.player.hand.refreshHandLayout();
+        if (AbstractDungeon.player.discardPile.group.contains(ret2)){
+            AbstractDungeon.player.discardPile.removeCard(ret2);
+        }
         this.isDone = true;
     }
 }
