@@ -53,7 +53,7 @@ public class MarchPower extends AbstractPower implements CloneablePowerInterface
     }
 
     public void onAfterUseCard(AbstractCard c, UseCardAction a){
-        if (!c.exhaust && !c.purgeOnUse && !c.type.equals(AbstractCard.CardType.CURSE) && !c.type.equals(AbstractCard.CardType.STATUS)){
+        if (!c.exhaust && !c.purgeOnUse && !c.type.equals(AbstractCard.CardType.CURSE) && !c.type.equals(AbstractCard.CardType.STATUS) && !c.shuffleBackIntoDrawPile){
             AbstractDungeon.actionManager.addToBottom(new FlybyAction(c));
         }
     }

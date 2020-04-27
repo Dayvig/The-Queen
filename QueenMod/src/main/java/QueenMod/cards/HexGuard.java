@@ -38,14 +38,14 @@ public class HexGuard extends AbstractDynamicCard
     {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
         if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) &&
-                AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10){
-            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(p, p, p.getPower(Nectar.POWER_ID), 10));
+                AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 5){
+            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(p, p, p.getPower(Nectar.POWER_ID), 5));
             AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
         }
     }
 
     public void triggerOnGlowCheck() {
-        if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10){
+        if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 5){
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         } else {
             this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();

@@ -2,8 +2,6 @@ package QueenMod;
 
 import QueenMod.cards.*;
 import QueenMod.characters.TheQueen;
-import QueenMod.events.IdentityCrisisEvent;
-import QueenMod.potions.PlaceholderPotion;
 import QueenMod.relics.*;
 import QueenMod.util.IDCheckDontTouchPls;
 import QueenMod.util.TextureLoader;
@@ -12,17 +10,14 @@ import QueenMod.variables.DefaultSecondMagicNumber;
 import basemod.BaseMod;
 import basemod.ModLabel;
 import basemod.ModPanel;
-import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
-import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
@@ -289,7 +284,6 @@ public class QueenMod implements
         // Class Specific Potion. If you want your potion to not be class-specific,
         // just remove the player class at the end (in this case the "Enum.THE_DEFAULT".
         // Remember, you can press ctrl+P inside parentheses like addPotions)
-        BaseMod.addPotion(PlaceholderPotion.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, PlaceholderPotion.POTION_ID, TheQueen.Enums.THE_QUEEN);
 
         logger.info("Done editing potions");
     }
@@ -331,8 +325,6 @@ public class QueenMod implements
         BaseMod.addAudio("BEE_FADE", "QueenModResources/sound/bee_fade.ogg");
         BaseMod.addAudio("BEE_SWARM", "QueenModResources/sound/bee_swarm_attack.ogg");
         BaseMod.addAudio("SLAP", "QueenModResources/sound/slap.ogg");
-
-
     }
 
 
@@ -353,33 +345,35 @@ public class QueenMod implements
         // Add the cards
         // Don't comment out/delete these cards (yet). You need 1 of e0ach type and rarity (technically) for your game not to crash
         // when generating card rewards/shop screen items.
+
+        BaseMod.addCard(new Collect());
+        BaseMod.addCard(new Blitz());
         BaseMod.addCard(new ForcedMarch());
-        BaseMod.addCard(new SwordsToPlowshares());
-        BaseMod.addCard(new Ruthless());
+        //BaseMod.addCard(new SwordsToPlowshares());
+        //BaseMod.addCard(new Ruthless());
         BaseMod.addCard(new Garrison());
         BaseMod.addCard(new IAmTheSwarm());
         BaseMod.addCard(new Feint());
         BaseMod.addCard(new HoldPosition());
         BaseMod.addCard(new Fortify());
-        BaseMod.addCard(new QuickJabs());
-        BaseMod.addCard(new Leadership());
-        BaseMod.addCard(new TeaTime());
+        //BaseMod.addCard(new Drain());
+        //BaseMod.addCard(new Leadership());
+        //BaseMod.addCard(new TeaTime());
         BaseMod.addCard(new CallToArms());
-        BaseMod.addCard(new Frenzy());
+        //BaseMod.addCard(new Frenzy());
         BaseMod.addCard(new Recruit());
-        BaseMod.addCard(new SupplyLines());
+        //BaseMod.addCard(new SupplyLines());
         BaseMod.addCard(new OverwhelmingPower());
         BaseMod.addCard(new MatingDance());
         BaseMod.addCard(new AggressionPolicy());
-        BaseMod.addCard(new Multiply());
+        //BaseMod.addCard(new Multiply());
         BaseMod.addCard(new Fleche());
         BaseMod.addCard(new FullRetreat());
-        BaseMod.addCard(new Reposition());
         BaseMod.addCard(new HoneyShield());
-        BaseMod.addCard(new Synthesize());
+        //BaseMod.addCard(new Synthesize());
         BaseMod.addCard(new HonorGuard());
         BaseMod.addCard(new Gather());
-        BaseMod.addCard(new WarTrumpet());
+        //BaseMod.addCard(new WarTrumpet());
         BaseMod.addCard(new Regroup());
         BaseMod.addCard(new Reinforcements());
         BaseMod.addCard(new FlankingStrike());
@@ -387,27 +381,27 @@ public class QueenMod implements
         BaseMod.addCard(new Strike());
         BaseMod.addCard(new Defend());
         BaseMod.addCard(new Incubate());
-        BaseMod.addCard(new Conscripts());
-        BaseMod.addCard(new Spearhead());
-        BaseMod.addCard(new Charge());
+        //BaseMod.addCard(new Conscripts());
+        //BaseMod.addCard(new Spearhead());
+        //BaseMod.addCard(new Charge());
         BaseMod.addCard(new FinishingBlow());
         BaseMod.addCard(new Ambush());
         BaseMod.addCard(new Riposte());
         BaseMod.addCard(new Parry());
         BaseMod.addCard(new Lunge());
         BaseMod.addCard(new Knighting());
-        BaseMod.addCard(new EliteSoldiers());
+        //BaseMod.addCard(new EliteSoldiers());
         BaseMod.addCard(new InspiringStrike());
-        BaseMod.addCard(new GeneralForm());
+        //BaseMod.addCard(new GeneralForm());
         BaseMod.addCard(new SecretWeapon());
-        BaseMod.addCard(new BlindingSwarm());
+        //BaseMod.addCard(new BlindingSwarm());
         BaseMod.addCard(new PollenBlast());
         BaseMod.addCard(new MilitaryHandbook());
         BaseMod.addCard(new HoneyCorps());
-        BaseMod.addCard(new Anticipate());
+        //BaseMod.addCard(new Anticipate());
         BaseMod.addCard(new CrossGuard());
-        BaseMod.addCard(new DroneSpawner());
-        BaseMod.addCard(new Feast());
+        //BaseMod.addCard(new DroneSpawner());
+        //BaseMod.addCard(new Feast());
         BaseMod.addCard(new SplitStrike());
         BaseMod.addCard(new PerfectLanding());
         BaseMod.addCard(new Flyby());
@@ -415,21 +409,21 @@ public class QueenMod implements
         BaseMod.addCard(new StrategicGenius());
         BaseMod.addCard(new SwarmTactics());
         BaseMod.addCard(new Mark());
-        BaseMod.addCard(new EnergyReserves());
+        //BaseMod.addCard(new EnergyReserves());
         BaseMod.addCard(new SharpStingers());
         BaseMod.addCard(new ProtectQueen());
         BaseMod.addCard(new ChainStrike());
         BaseMod.addCard(new WarBuzz());
         BaseMod.addCard(new HornetSwarm());
         BaseMod.addCard(new Nourish());
-        BaseMod.addCard(new Metamorphosis());
+        //BaseMod.addCard(new Metamorphosis());
         BaseMod.addCard(new Beekeeping());
-        BaseMod.addCard(new BusyBees());
+        //BaseMod.addCard(new BusyBees());
         BaseMod.addCard(new HiveNetwork());
         BaseMod.addCard(new KillerQueen());
         BaseMod.addCard(new Assimilate());
         BaseMod.addCard(new WorkerBee());
-        BaseMod.addCard(new BuildOrder());
+        //BaseMod.addCard(new BuildOrder());
         BaseMod.addCard(new Drone());
         BaseMod.addCard(new Draft());
         BaseMod.addCard(new HoneycombSmash());
@@ -447,6 +441,8 @@ public class QueenMod implements
         // This is so that they are all "seen" in the library, for people who like to look at the card list
         // before playing your mod.
 
+        UnlockTracker.unlockCard(Collect.ID);
+        UnlockTracker.unlockCard(Blitz.ID);
         UnlockTracker.unlockCard(SwordsToPlowshares.ID);
         UnlockTracker.unlockCard(Ruthless.ID);
         UnlockTracker.unlockCard(Garrison.ID);
@@ -454,7 +450,7 @@ public class QueenMod implements
         UnlockTracker.unlockCard(Feint.ID);
         UnlockTracker.unlockCard(HoldPosition.ID);
         UnlockTracker.unlockCard(Fortify.ID);
-        UnlockTracker.unlockCard(QuickJabs.ID);
+        UnlockTracker.unlockCard(Drain.ID);
         UnlockTracker.unlockCard(Leadership.ID);
         UnlockTracker.unlockCard(TeaTime.ID);
         UnlockTracker.unlockCard(Frenzy.ID);

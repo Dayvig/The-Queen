@@ -9,8 +9,8 @@
   },
   "QueenMod:AttackOrder": {
     "NAME": "Attack Order",
-    "DESCRIPTION": "Deal !D! damage. NL queenmod:Recruit a queenmod:Hornet.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL queenmod:Recruit !M! queenmod:Hornets."
+    "DESCRIPTION": "Deal !D! damage. NL queenmod:Recruit a Hornet.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL queenmod:Recruit !M! Hornets."
   },
   "QueenMod:Hornet": {
     "NAME": "Hornet",
@@ -39,7 +39,7 @@
   },
   "QueenMod:HexGuard": {
     "NAME": "Hex Guard",
-    "DESCRIPTION": "Gain !B! Block. NL Spend 10 queenmod:Nectar: Gain !B! Block."
+    "DESCRIPTION": "Gain !B! Block. NL Spend 5 queenmod:Nectar: Gain !B! Block."
   },
   "QueenMod:HoneycombSmash": {
     "NAME": "Honeycomb Smash",
@@ -96,12 +96,12 @@
   },
   "QueenMod:HornetSwarm": {
   "NAME": "Hornet Swarm",
-  "DESCRIPTION": "Play all queenmod:Hornets in your Hand and Draw Pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Play all queenmod:Hornets in your Hand and Draw Pile."
+  "DESCRIPTION": "Play all Hornets in your Hand and Draw Pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Play all Hornets in your Hand and Draw Pile."
   },
   "QueenMod:WarBuzz": {
   "NAME": "War Buzz",
-  "DESCRIPTION": "Exhaust all Skills in your hand, replace them with queenmod:Hornets."
+  "DESCRIPTION": "Exhaust all Skills in your hand, replace them with Hornets."
 },
   "QueenMod:ChainStrike": {
   "NAME": "Chain strike",
@@ -114,7 +114,7 @@
 },
   "QueenMod:SharpStingers": {
     "NAME": "Sharper Stingers",
-    "DESCRIPTION": "queenmod:Hornets do !M! more damage. NL queenmod:Recruit 2 Hornets."
+    "DESCRIPTION": "Hornets do !M! more damage. NL queenmod:Recruit 2 Hornets."
   },
   "QueenMod:EnergyReserves": {
     "NAME": "Stockpile",
@@ -173,7 +173,8 @@
   },
   "QueenMod:Anticipate": {
     "NAME": "Anticipate",
-    "DESCRIPTION": "queenmod:Recruit a queenmod:Hive card based on enemy intent, and add it to your hand.",
+    "DESCRIPTION": "If the enemy intends to attack, add a queenmod:Bumblebee to your hand. Otherwise add a queenmod:Hornet to your hand.",
+    "UPGRADE_DESCRIPTION": "If the enemy intends to attack, add an Upgraded queenmod:Bumblebee to your hand. Otherwise add an Upgraded queenmod:Hornet to your hand.",
     "EXTENDED_DESCRIPTION": [
       "queenmod:Recruit a queenmod:Bumblebee and add it to your hand.",
       "queenmod:Recruit a queenmod:Hornet and add it to your hand.",
@@ -191,8 +192,8 @@
   },
   "QueenMod:PollenBlast": {
     "NAME": "Pollen Blast",
-    "DESCRIPTION": "Deal !D! damage and inflict !M! queenmod:Pollinate to all enemies. NL queenmod:Recruit a queenmod:Workerbee.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage and inflict !M! queenmod:Pollinate to all enemies. NL queenmod:Recruit a queenmod:Workerbee."
+    "DESCRIPTION": "Deal !D! damage and inflict !M! queenmod:Pollinate to all enemies.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage and inflict !M! queenmod:Pollinate to all enemies."
   },
   "QueenMod:BlindingSwarm": {
     "NAME": "Blinding Swarm",
@@ -277,7 +278,7 @@
   },
   "QueenMod:Spearhead":{
   "NAME": "Spearhead",
-  "DESCRIPTION": "Deal !D! damage. NL Spend 10 queenmod:Nectar: Deal !M! damage to all enemies."
+  "DESCRIPTION": "Deal !D! damage. NL Spend 5 queenmod:Nectar: Deal !M! damage to all enemies."
 },
   "QueenMod:Conscripts":{
     "NAME": "Conscripts",
@@ -297,12 +298,12 @@
   },
   "QueenMod:KillerBee":{
     "NAME": "Killer Bee",
-    "DESCRIPTION": "Deal !D! damage. NL While this is in your draw pile, at the start of your turn, double this card's damage until played."
+    "DESCRIPTION": "Deal !D! damage. NL While this is in your draw pile, at the start of your turn, increase this card's damage by #b8.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL While this is in your draw pile, at the start of your turn, increase this card's damage by #b10."
   },
   "QueenMod:FlankingStrike":{
     "NAME": "Flanking Strike",
-    "DESCRIPTION": "Deal !D! damage and apply !M! Vulnerable to all enemies. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Deal !D! damage and apply !M! Vulnerable to all enemies. NL Exhaust."
+    "DESCRIPTION": "Innate. NL Deal !D! damage and apply !M! Vulnerable to all enemies. NL Exhaust."
   },
   "QueenMod:Reinforcements":{
     "NAME": "Reinforcements",
@@ -344,7 +345,7 @@
   },
   "QueenMod:Reposition":{
     "NAME": "Reposition",
-    "DESCRIPTION": "Gain 2 Strength this turn only. NL queenmod:Recruit a queenmod:Hornet. NL Gain 3 Block."
+    "DESCRIPTION": "Gain 2 Strength this turn only. NL queenmod:Recruit a Hornet. NL Gain 3 Block."
   },
   "QueenMod:FullRetreat":{
     "NAME": "Full Retreat",
@@ -396,13 +397,12 @@
     ]
   },
   "QueenMod:Blitz": {
-    "NAME": "Blitz",
-    "DESCRIPTION": "Deal !D! damage. Add !M! Attacks from your Draw Pile to your hand.",
-    "UPGRADE_DESCRIPTION": " Innate. NL Deal !D! damage. Add !M! Attacks from your Draw Pile to your hand."
+    "NAME": "Blitzkreig",
+    "DESCRIPTION": "Innate. NL Deal !D! damage. NL Exhaust."
   },
   "QueenMod:SupplyLines": {
     "NAME": "Supply Lines",
-    "DESCRIPTION": "Spend 10 queenmod:Nectar: Gain !M! queenmod:Swarm."
+    "DESCRIPTION": "Spend 5 queenmod:Nectar: Gain !M! queenmod:Swarm."
   },
   "QueenMod:Incubate": {
     "NAME": "Incubate",
@@ -436,9 +436,9 @@
     "DESCRIPTION": "Gain 1 Strength and Dexterity. NL queenmod:Recruit a queenmod:Hornet and queenmod:Bumblebee.",
     "UPGRADE_DESCRIPTION": "Innate. NL Gain 1 Strength and Dexterity. NL queenmod:Recruit a queenmod:Hornet and queenmod:Bumblebee."
   },
-  "QueenMod:QuickJabs": {
-    "NAME": "Quick Jabs",
-    "DESCRIPTION": "Deal !D! damage !M! times."
+  "QueenMod:Drain": {
+    "NAME": "Mosquito Platoon",
+    "DESCRIPTION": "Deal !D! damage !M! times. Gain queenmod:Nectar equal to damage dealt."
   },
   "QueenMod:Feint": {
     "NAME": "Feint",
@@ -464,5 +464,9 @@
   "QueenMod:ForcedMarch": {
     "NAME": "Forced March",
     "DESCRIPTION": "Deal !D! damage. NL When you play a card this turn, shuffle it into your draw pile instead of your discard pile."
+  },
+  "QueenMod:Collect": {
+    "NAME": "Collect",
+    "DESCRIPTION": "Gain !M! queenmod:Nectar. NL Gain !B! Block."
   }
 }

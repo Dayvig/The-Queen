@@ -18,7 +18,7 @@
         "workerbee",
         "workerbees"
       ],
-    "DESCRIPTION": "Worker Bees are 0-cost skills that inflict 1 Pollinate. (When a Pollinated enemy is attacked, gain 2 Nectar)"
+    "DESCRIPTION": "Worker Bees are 0-cost attacks that inflict 1 Pollinate and deal 2 damage. (When a Pollinated enemy is attacked, gain 2 Nectar)"
     },
   {
       "NAMES": [
@@ -32,13 +32,13 @@
         "nectar",
         "nectar"
       ],
-    "DESCRIPTION": "Nectar is used with certain cards to improve their effects."
+    "DESCRIPTION": "Nectar is used with certain cards to improve their effects. Pollinate your enemies, then attack them to gain Nectar."
     },
   {
       "NAMES": [
         "swarm"
       ],
-    "DESCRIPTION": "Swarm grants you block and damages enemies. It follows the targets of your cards."
+    "DESCRIPTION": "Swarm grants you block and damages enemies. It attacks enemies you attack, and returns to you when you block."
     },
   {
     "NAMES": [

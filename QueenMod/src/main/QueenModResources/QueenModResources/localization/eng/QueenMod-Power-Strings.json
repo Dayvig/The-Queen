@@ -106,8 +106,8 @@
         "QueenMod:GrowingSwarmPower": {
                 "NAME": "Gathering Swarm...",
                 "DESCRIPTIONS": [
-                                "At the end of your turn, gain #b Swarm.",
-                                "",
+                                "At the end of your turn, gain #b",
+                                " Swarm.",
                                 ""
                 ]
         },

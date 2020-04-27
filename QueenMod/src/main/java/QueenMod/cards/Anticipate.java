@@ -5,6 +5,7 @@ import QueenMod.actions.DrawToHandAction;
 import QueenMod.actions.RecruitAction;
 import QueenMod.characters.TheQueen;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -37,8 +38,7 @@ public class Anticipate extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
-    private static final int COST = 1;  // COST = ${COST}
-    private static final int UPGRADED_COST = 0;
+    private static final int COST = 0;  // COST = ${COST}
 
     private AbstractMonster.Intent intentions;
     // /STAT DECLARATION/
@@ -64,56 +64,23 @@ public class Anticipate extends AbstractDynamicCard {
                 m.intent.equals(AbstractMonster.Intent.ATTACK_DEFEND)
         )
         {
-            AbstractDungeon.actionManager.addToBottom(new RecruitAction(new BumbleBee(), 1));
-        }
-        else if (m.intent.equals(AbstractMonster.Intent.BUFF)|| m.intent.equals(AbstractMonster.Intent.DEFEND_BUFF) ||
-                 m.intent.equals(AbstractMonster.Intent.DEBUFF) || m.intent.equals(AbstractMonster.Intent.DEFEND_DEBUFF)){
-            AbstractDungeon.actionManager.addToBottom(new RecruitAction(new Hornet(), 1));
+            AbstractCard tmp = new BumbleBee();
+            if (upgraded){ tmp.upgrade(); }
+            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(tmp, 1));
         }
         else {
-            AbstractDungeon.actionManager.addToBottom(new RecruitAction(new WorkerBee(), 1));
+            AbstractCard tmp = new BumbleBee();
+            if (upgraded){ tmp.upgrade(); }
+            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(tmp, 1));
         }
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new ThirdEyeEffect(p.hb.cX, p.hb.cY)));
     }
-
-    @Override
-    public void update() {
-        super.update();
-        try {
-            intentions = AbstractDungeon.getCurrRoom().monsters.hoveredMonster.intent;
-            if (intentions.equals(AbstractMonster.Intent.ATTACK) ||
-                    intentions.equals(AbstractMonster.Intent.ATTACK_BUFF) ||
-                    intentions.equals(AbstractMonster.Intent.ATTACK_DEBUFF) ||
-                    intentions.equals(AbstractMonster.Intent.ATTACK_DEFEND)) {
-                this.rawDescription = EXTENDED_DESCRIPTION[0];
-                this.cardsToPreview = new BumbleBee();
-                initializeDescription();
-            } else if (intentions.equals(AbstractMonster.Intent.BUFF) ||
-                    intentions.equals(AbstractMonster.Intent.DEFEND_BUFF) ||
-                    intentions.equals(AbstractMonster.Intent.DEBUFF) ||
-                    intentions.equals(AbstractMonster.Intent.DEFEND_DEBUFF)) {
-                this.rawDescription = EXTENDED_DESCRIPTION[1];
-                this.cardsToPreview = new Hornet();
-                initializeDescription();
-            } else {
-                this.rawDescription = EXTENDED_DESCRIPTION[2];
-                this.cardsToPreview = new WorkerBee();
-                initializeDescription();
-            }
-        }
-        catch (NullPointerException e){
-                this.rawDescription = DESCRIPTION;
-                this.cardsToPreview = null;
-                initializeDescription();
-            }
-        }
 
     // Upgraded stats.
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
             initializeDescription();
         }
     }

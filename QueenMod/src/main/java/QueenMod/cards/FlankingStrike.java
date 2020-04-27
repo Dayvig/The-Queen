@@ -39,7 +39,7 @@ public class FlankingStrike extends AbstractDynamicCard {
     private static final int COST = 0;  // COST = ${COST}
     private static final int UPGRADED_COST = 0; // UPGRADED_COST = ${UPGRADED_COST}
 
-    private static final int DAMAGE = 6;    // DAMAGE = ${DAMAGE}
+    private static final int DAMAGE = 5;    // DAMAGE = ${DAMAGE}
     private int numLeft;
 
     // /STAT DECLARATION/
@@ -48,9 +48,9 @@ public class FlankingStrike extends AbstractDynamicCard {
     public FlankingStrike() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
-        this.baseMagicNumber = this.magicNumber = 2;
+        this.baseMagicNumber = this.magicNumber = 1;
         this.tags.add(CardTags.STRIKE);
-        this.isInnate = false;
+        this.isInnate = true;
         this.exhaust = true;
     }
 
@@ -70,7 +70,7 @@ public class FlankingStrike extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             this.rawDescription = UPGRADE_DESCRIPTION;
-            this.isInnate = true;
+            upgradeMagicNumber(1);
             initializeDescription();
         }
     }
