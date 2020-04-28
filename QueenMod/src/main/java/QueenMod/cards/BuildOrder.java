@@ -36,16 +36,14 @@ public class BuildOrder extends AbstractDynamicCard {
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 1;  // COST = ${COST}
-    private static final int UPGRADED_COST = 1; // UPGRADED_COST = ${UPGRADED_COST}
+    private static final int UPGRADED_COST = 0; // UPGRADED_COST = ${UPGRADED_COST}
     private static final int MAGIC = 1;
-    private static final int MAGIC2 = 3;
     // /STAT DECLARATION/
 
 
     public BuildOrder() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = magicNumber = MAGIC;
-        this.defaultBaseSecondMagicNumber = defaultSecondMagicNumber = MAGIC2;
         this.cardsToPreview = new WorkerBee();
     }
 
@@ -54,7 +52,7 @@ public class BuildOrder extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ProductionPower(p, p, defaultSecondMagicNumber), defaultSecondMagicNumber));
-        AbstractDungeon.actionManager.addToBottom(new RecruitAction(new WorkerBee(), magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new RecruitAction(new WorkerBee(), 2));
     }
 
 
@@ -64,7 +62,7 @@ public class BuildOrder extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             this.upgradeMagicNumber(1);
-            this.upgradeDefaultSecondMagicNumber(1);
+            this.upgradeBaseCost(UPGRADED_COST);
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }

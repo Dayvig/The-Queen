@@ -64,8 +64,7 @@
   },
   "QueenMod:BuildOrder": {
     "NAME": "Build Order",
-    "DESCRIPTION": "Gain !QueenMod:second! queenmod:Nectar each turn. NL Recruit a queenmod:Workerbee.",
-    "UPGRADE_DESCRIPTION": "Gain !QueenMod:second! queenmod:Nectar each turn. NL Recruit !M! queenmod:Workerbees."
+    "DESCRIPTION": "Recruit 2 queenmod:Workerbees. NL At the start of your turn, add a queenmod:Workerbee from your draw pile to your hand."
   },
   "QueenMod:KillerQueen": {
     "NAME": "Killer Queen",

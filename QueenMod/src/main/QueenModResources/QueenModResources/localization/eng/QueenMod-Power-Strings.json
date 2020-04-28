@@ -226,9 +226,9 @@
         "QueenMod:ProductionPower": {
                 "NAME": "Production",
                 "DESCRIPTIONS": [
-                        "At the start of your turn, gain #b Nectar.",
-                        "",
-                        ""
+                        "At the start of your turn, add #b",
+                        "Workerbee from your Draw Pile to your hand.",
+                        "Workerbees from your Draw Pile to your hand."
                 ]
         },
         "QueenMod:GeneralPower": {

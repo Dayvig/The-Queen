@@ -3,6 +3,7 @@ package QueenMod.cards;
 import QueenMod.QueenMod;
 import QueenMod.characters.TheQueen;
 import QueenMod.interfaces.IsHive;
+import QueenMod.powers.Nectar;
 import QueenMod.powers.PollinatePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -28,29 +29,25 @@ public class WorkerBee extends AbstractDynamicCard implements IsHive {
 
     private static final CardRarity RARITY = CardRarity.SPECIAL; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
-    private static final CardType TYPE = CardType.ATTACK;       //
+    private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 0;  // COST = ${COST}
-    private static final int DAMAGE = 2;
+    private static final int MAGIC = 1;
 
     // /STAT DECLARATION/
 
 
     public WorkerBee() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = 1;
-        this.magicNumber = this.baseMagicNumber;
-        baseDamage = damage = DAMAGE;
+        this.baseMagicNumber = magicNumber = MAGIC;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new PollinatePower(m, p, magicNumber), magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new Nectar(p, p, magicNumber), magicNumber));
     }
 
 
@@ -60,7 +57,6 @@ public class WorkerBee extends AbstractDynamicCard implements IsHive {
         if (!upgraded) {
             upgradeName();
             this.upgradeMagicNumber(1);
-            this.upgradeDamage(2);
             initializeDescription();
         }
     }

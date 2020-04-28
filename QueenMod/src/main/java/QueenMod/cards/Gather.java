@@ -5,6 +5,7 @@ import QueenMod.actions.RecruitAction;
 import QueenMod.characters.TheQueen;
 import QueenMod.powers.Nectar;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -39,12 +40,13 @@ public class Gather extends AbstractDynamicCard {
     // STAT DECLARATION
 
     private static final CardRarity RARITY = CardRarity.COMMON;
-    private static final CardTarget TARGET = CardTarget.NONE;
+    private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 0;
-    private static final int MAGIC = 4;
+    private static final int MAGIC = 1;
+    private static final int BLOCK = 3;
 
     // /STAT DECLARATION/
 
@@ -54,13 +56,14 @@ public class Gather extends AbstractDynamicCard {
         baseMagicNumber = magicNumber = MAGIC;
         defaultBaseSecondMagicNumber = defaultSecondMagicNumber = 1;
         this.cardsToPreview = new WorkerBee();
+        this.baseBlock = block = BLOCK;
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new Nectar(p, p, magicNumber), magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new RecruitAction(new WorkerBee(), defaultSecondMagicNumber));
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, block));
+        AbstractDungeon.actionManager.addToBottom(new RecruitAction(new WorkerBee(), magicNumber));
     }
 
     //Upgraded stats.
@@ -68,8 +71,7 @@ public class Gather extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(2);
-            upgradeDefaultSecondMagicNumber(1);
+            upgradeBlock(2);
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
