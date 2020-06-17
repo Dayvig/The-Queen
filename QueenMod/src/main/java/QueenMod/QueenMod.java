@@ -379,12 +379,55 @@ public class QueenMod implements
         BaseMod.addCard(new GatheringSwarm());
         BaseMod.addCard(new Mark());
         BaseMod.addCard(new Infest());
+        BaseMod.addCard(new MatingDance());
+        BaseMod.addCard(new QuickJabs());
+        BaseMod.addCard(new DignifiedSlap());
+        BaseMod.addCard(new OverwhelmingForce());
+        BaseMod.addCard(new KillerBee());
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
         // This is so that they are all "seen" in the library, for people who like to look at the card list
         // before playing your mod.
 
+        UnlockTracker.unlockCard(Fleche.ID);
+        UnlockTracker.unlockCard(CrossGuard.ID);
+        UnlockTracker.unlockCard(Hornet.ID);
+        UnlockTracker.unlockCard(BumbleBee.ID);
+        UnlockTracker.unlockCard(Fortify.ID);
+        UnlockTracker.unlockCard(HiveNetwork.ID);
+        UnlockTracker.unlockCard(SplitStrike.ID);
+        UnlockTracker.unlockCard(Incubate.ID);
+        UnlockTracker.unlockCard(Assimilate.ID);
+        UnlockTracker.unlockCard(Riposte.ID);
+        UnlockTracker.unlockCard(Flyby.ID);
+        UnlockTracker.unlockCard(GnatSquadron.ID);
+        UnlockTracker.unlockCard(InspiringStrike.ID);
+        UnlockTracker.unlockCard(Ambush.ID);
+        UnlockTracker.unlockCard(FullRetreat.ID);
+        UnlockTracker.unlockCard(Parry.ID);
+        UnlockTracker.unlockCard(AttackOrder.ID);
+        UnlockTracker.unlockCard(Strike.ID);
+        UnlockTracker.unlockCard(Defend.ID);
+        UnlockTracker.unlockCard(Reinforcements.ID);
+        UnlockTracker.unlockCard(SharpStingers.ID);
+        UnlockTracker.unlockCard(Recruit.ID);
+        UnlockTracker.unlockCard(WorkerBee.ID);
+        UnlockTracker.unlockCard(DefendOrder.ID);
+        UnlockTracker.unlockCard(Beekeeping.ID);
+        UnlockTracker.unlockCard(HonorGuard.ID);
+        UnlockTracker.unlockCard(WarBuzz.ID);
+        UnlockTracker.unlockCard(HoneycombSmash.ID);
+        UnlockTracker.unlockCard(PollenBlast.ID);
+        UnlockTracker.unlockCard(SecretWeapon.ID);
+        UnlockTracker.unlockCard(GatheringSwarm.ID);
+        UnlockTracker.unlockCard(Mark.ID);
+        UnlockTracker.unlockCard(Infest.ID);
+        UnlockTracker.unlockCard(MatingDance.ID);
+        UnlockTracker.unlockCard(QuickJabs.ID);
+        UnlockTracker.unlockCard(DignifiedSlap.ID);
+        UnlockTracker.unlockCard(OverwhelmingForce.ID);
+        UnlockTracker.unlockCard(KillerBee.ID);
 
         logger.info("Done adding cards!");
     }

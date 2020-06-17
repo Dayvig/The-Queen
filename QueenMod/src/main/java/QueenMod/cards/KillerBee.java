@@ -43,6 +43,7 @@ public class KillerBee extends AbstractDynamicCard {
     public KillerBee() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
+        this.exhaust = true;
     }
 
 
@@ -50,11 +51,6 @@ public class KillerBee extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-        if (!upgraded) {
-            this.baseDamage = DAMAGE;
-        } else {
-            this.baseDamage = DAMAGE + UPGRADE_PLUS_DMG;
-        }
     }
 
     // Upgraded stats.

@@ -289,8 +289,8 @@
   },
   "QueenMod:KillerBee":{
     "NAME": "Killer Bee",
-    "DESCRIPTION": "Deal !D! damage. NL While this is in your draw pile, at the start of your turn, increase this card's damage by #b8.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL While this is in your draw pile, at the start of your turn, increase this card's damage by #b10."
+    "DESCRIPTION": "Deal !D! damage. NL While in your draw pile, increase this card's damage by 8 at the start of your turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL While in your draw pile, increase this card's damage by 10 at the start of your turn. NL Exhaust."
   },
   "QueenMod:FlankingStrike":{
     "NAME": "Flanking Strike",
@@ -367,7 +367,7 @@
   },
   "QueenMod:MatingDance": {
     "NAME": "Mating Dance",
-    "DESCRIPTION": "Unplayable. NL While in your hand, complete a queenmod:Dance to gain !M! queenmod:Swarm.",
+    "DESCRIPTION": "Unplayable. NL While in your hand, play a series of card types in sequence to gain !M! queenmod:Swarm.",
     "EXTENDED_DESCRIPTION": [
       "Gain !M! Swarm.",
       "I can't play this."
@@ -426,9 +426,9 @@
     "DESCRIPTION": "Gain 1 Strength and Dexterity. NL queenmod:Recruit a queenmod:Hornet and queenmod:Bumblebee.",
     "UPGRADE_DESCRIPTION": "Innate. NL Gain 1 Strength and Dexterity. NL queenmod:Recruit a queenmod:Hornet and queenmod:Bumblebee."
   },
-  "QueenMod:Drain": {
-    "NAME": "Mosquito Platoon",
-    "DESCRIPTION": "Apply 1 queenmod:Pollinate. NL Deal !D! damage !M! times."
+  "QueenMod:QuickJabs": {
+    "NAME": "Rapid Jabs",
+    "DESCRIPTION": "Deal !D! damage !M! times."
   },
   "QueenMod:Feint": {
     "NAME": "Feint",

@@ -14,11 +14,11 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static QueenMod.QueenMod.makeCardPath;
 
 // public class ${NAME} extends AbstractDynamicCard
-public class MosquitoPlatoon extends AbstractDynamicCard {
+public class QuickJabs extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = QueenMod.makeID(MosquitoPlatoon.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
+    public static final String ID = QueenMod.makeID(QuickJabs.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
     public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("${NAME}.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
@@ -37,24 +37,24 @@ public class MosquitoPlatoon extends AbstractDynamicCard {
     private static final int UPGRADED_COST = 1; // UPGRADED_COST = ${UPGRADED_COST}
 
     private static final int DAMAGE = 4;    // DAMAGE = ${DAMAGE}
-    private static final int UPGRADE_PLUS_DMG = 1;  // UPGRADE_PLUS_DMG = ${UPGRADED_DAMAGE_INCREASE}
+    private static final int MAGIC = 2;
+    private static final int UPGRADE_MAGIC = 1;
 
     // /STAT DECLARATION/
 
 
-    public MosquitoPlatoon() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
+    public QuickJabs() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
+        baseMagicNumber = magicNumber = MAGIC;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (int i=0;i<2;i++) {
+        for (int i=0;i<magicNumber;i++) {
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
-                    new Nectar(p, p, damage), damage));
         }
     }
 
@@ -64,8 +64,7 @@ public class MosquitoPlatoon extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_PLUS_DMG);
-            this.upgradeMagicNumber(2);
+            this.upgradeMagicNumber(UPGRADE_MAGIC);
             initializeDescription();
         }
     }
