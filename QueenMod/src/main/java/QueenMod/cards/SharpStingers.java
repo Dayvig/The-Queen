@@ -1,11 +1,13 @@
 package QueenMod.cards;
 
 import QueenMod.QueenMod;
+import QueenMod.actions.MakeTempCardInDrawPileActionFast;
 import QueenMod.actions.RecruitAction;
 import QueenMod.actions.updateExistingHornetsAction;
 import QueenMod.characters.TheQueen;
 import QueenMod.powers.StingerPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -56,7 +58,7 @@ public class SharpStingers extends AbstractDynamicCard {
     @Override
     public void use(final AbstractPlayer p, final AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p, new StingerPower(p,p,this.magicNumber),this.magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new RecruitAction(new Hornet(),2));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new Hornet(),2, true, false));
         AbstractDungeon.actionManager.addToBottom(new updateExistingHornetsAction());
 
     }

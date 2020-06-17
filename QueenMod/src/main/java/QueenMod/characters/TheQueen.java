@@ -155,9 +155,6 @@ public class TheQueen extends CustomPlayer {
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
-        retVal.add(Recruit.ID);
-        retVal.add(Drain.ID);
-        retVal.add(Collect.ID);
 
         return retVal;
     }

@@ -41,8 +41,9 @@ public class PollenBlast extends AbstractDynamicCard {
     private static final int COST = 1;  // COST = ${COST}
 
     private static final int DAMAGE = 5;    // DAMAGE = ${DAMAGE}
-    private static final int UPGRADE_PLUS_DAMAGE = 4;
+    private static final int UPGRADE_PLUS_DAMAGE = 3;
     private static final int MAGIC = 2;
+    private static final int UPGRADE_PLUS_MAGIC = 1;
     private int numLeft;
 
     // /STAT DECLARATION/
@@ -69,7 +70,7 @@ public class PollenBlast extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
+            upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             upgradeDamage(UPGRADE_PLUS_DAMAGE);
             initializeDescription();
         }

@@ -3,6 +3,7 @@ package QueenMod.cards;
 import QueenMod.QueenMod;
 import QueenMod.characters.TheQueen;
 import QueenMod.powers.*;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -33,28 +34,33 @@ public class Synthesize extends AbstractDynamicCard{
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 0;  // COST = ${COST}
+    private static final int MAGIC = 2;
+    private static final int MAGIC2 = 6;
+    private static final int UPGRADE_MAGIC = 2;
 
     // /STAT DECLARATION/
     int totalSwarm;
 
     public Synthesize() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = 2;
+        baseMagicNumber = magicNumber = MAGIC;
+        defaultBaseSecondMagicNumber = defaultSecondMagicNumber = MAGIC2;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) &&
-                AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10) {
-            AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(magicNumber));
-            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(p, p, AbstractDungeon.player.getPower(Nectar.POWER_ID), 10));
-        }
+            if (p.hasPower(HoneyBoost.POWER_ID)) {
+                AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(p, p, new SwarmPower(p, p, defaultSecondMagicNumber), defaultSecondMagicNumber));
+            }
+            else {
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new Nectar(p, p, magicNumber), magicNumber));
+            }
     }
 
     public void triggerOnGlowCheck() {
-        if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10){
+        if (AbstractDungeon.player.hasPower(HoneyBoost.POWER_ID)){
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         } else {
             this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
@@ -66,8 +72,7 @@ public class Synthesize extends AbstractDynamicCard{
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
-            this.rawDescription = UPGRADE_DESCRIPTION;
+            upgradeMagicNumber(UPGRADE_MAGIC);
             initializeDescription();
         }
     }

@@ -46,7 +46,7 @@ public class Leadership extends AbstractDynamicCard {
 
     public Leadership() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.isInnate = true;
+        this.isInnate = false;
         this.baseMagicNumber = magicNumber = MAGIC;
     }
 
@@ -57,8 +57,6 @@ public class Leadership extends AbstractDynamicCard {
 
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber)));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber)));
-        AbstractDungeon.actionManager.addToBottom(new RecruitAction(new Hornet(), 1));
-        AbstractDungeon.actionManager.addToBottom(new RecruitAction(new BumbleBee(), 1));
 
     }
 

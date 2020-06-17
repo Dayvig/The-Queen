@@ -48,6 +48,7 @@ public class CallToArms extends AbstractDynamicCard {
 
     private static final int COST = 1;
     ArrayList<AbstractCard> droneMatrix = new ArrayList<>();
+    AbstractCard dronePreview = new Riposte();
 
 
     // /STAT DECLARATION/
@@ -56,6 +57,7 @@ public class CallToArms extends AbstractDynamicCard {
     public CallToArms() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.exhaust = true;
+        this.cardsToPreview = dronePreview;
     }
 
     // Actions the card should do.
@@ -77,14 +79,12 @@ public class CallToArms extends AbstractDynamicCard {
 
         int handsize = p.hand.size();
         while (handsize < BaseMod.MAX_HAND_SIZE){
-            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Drone(), 1));
+            AbstractCard d = new Drone();
+            if (upgraded){ d.upgrade();}
+            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(d, 1));
             handsize++;
         }
-        if (upgraded) {
-            AbstractDungeon.actionManager.addToBottom(new RecruitAction(new BumbleBee(), 1));
-            AbstractDungeon.actionManager.addToBottom(new RecruitAction(new Hornet(), 1));
-            AbstractDungeon.actionManager.addToBottom(new RecruitAction(new WorkerBee(), 1));
-        }
+
     }
 
     //Upgraded stats.
@@ -92,6 +92,7 @@ public class CallToArms extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            dronePreview.upgrade();
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }

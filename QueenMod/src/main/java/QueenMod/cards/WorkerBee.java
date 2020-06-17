@@ -28,12 +28,13 @@ public class WorkerBee extends AbstractDynamicCard implements IsHive {
     // STAT DECLARATION
 
     private static final CardRarity RARITY = CardRarity.SPECIAL; //  Up to you, I like auto-complete on these
-    private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
+    private static final CardTarget TARGET = CardTarget.NONE;  //   since they don't change much.
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 0;  // COST = ${COST}
-    private static final int MAGIC = 1;
+    private static final int MAGIC = 4;
+    private static final int UPGRADE_MAGIC = 2;
 
     // /STAT DECLARATION/
 
@@ -47,7 +48,7 @@ public class WorkerBee extends AbstractDynamicCard implements IsHive {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new Nectar(p, p, magicNumber), magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new Nectar(p, p, magicNumber), magicNumber));
     }
 
 
@@ -56,7 +57,7 @@ public class WorkerBee extends AbstractDynamicCard implements IsHive {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.upgradeMagicNumber(1);
+            this.upgradeMagicNumber(UPGRADE_MAGIC);
             initializeDescription();
         }
     }

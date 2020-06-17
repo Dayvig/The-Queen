@@ -46,7 +46,7 @@ public class Collect extends AbstractDynamicCard {
 
     private static final int COST = 1;
     private static final int MAGIC = 10;
-    private static final int BLOCK = 4;
+    private static final int BLOCK = 5;
     private static final int UPGRADE_PLUS_BLOCK = 4;
     // /STAT DECLARATION/
 

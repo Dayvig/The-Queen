@@ -5,14 +5,18 @@ import QueenMod.characters.TheQueen;
 import QueenMod.powers.Nectar;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.vfx.combat.MindblastEffect;
 
 import static QueenMod.QueenMod.makeCardPath;
@@ -36,53 +40,49 @@ public class SecretWeapon extends AbstractDynamicCard {
     // STAT DECLARATION
 
     private static final CardRarity RARITY = CardRarity.RARE; //  Up to you, I like auto-complete on these
-    private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
+    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;  //   since they don't change much.
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
-    private static final int COST = 3;  // COST = ${COST}
+    private static final int COST = 4;  // COST = ${COST}
+    private static final int UPGRADED_COST = 3;
 
-    private static final int DAMAGE = 0;    // DAMAGE = ${DAMAGE}
-    private static final int MAGIC = 3;
+    private static final int DAMAGE = 30;    // DAMAGE = ${DAMAGE}
     // /STAT DECLARATION/
 
 
     public SecretWeapon() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
-        baseMagicNumber = magicNumber = MAGIC;
-        this.isEthereal = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-        AbstractDungeon.actionManager.addToBottom(new VFXAction(new MindblastEffect(p.dialogX, p.dialogY, p.flipHorizontal)));
-        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, Nectar.POWER_ID));
-    }
-
-    public void applyPowers(){
-        if (AbstractDungeon.player.hasPower(Nectar.POWER_ID)){
-            this.baseDamage = AbstractDungeon.player.getPower(Nectar.POWER_ID).amount * magicNumber;
-            if (upgraded){
-                this.rawDescription = EXTENDED_DESCRIPTION[1];
+        if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10) {
+            int boost = (int) Math.floor(AbstractDungeon.player.getPower(Nectar.POWER_ID).amount / 10);
+            for (int i = 0; i < boost; i++) {
+                this.addToBot(new VFXAction(p, new MindblastEffect(p.dialogX, p.dialogY, p.flipHorizontal), 0.1F));
+                this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
             }
-            else {
-                this.rawDescription = EXTENDED_DESCRIPTION[0];
-            }
-            initializeDescription();
         }
     }
+        @Override
+        public void triggerOnGlowCheck() {
+            if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10){
+                this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+            } else {
+                this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+            }
+        }
 
     // Upgraded stats.
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.isEthereal = false;
-            rawDescription = UPGRADE_DESCRIPTION;
+            upgradeBaseCost(UPGRADED_COST);
             initializeDescription();
         }
     }

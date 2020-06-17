@@ -3,6 +3,7 @@ package QueenMod.cards;
 import QueenMod.QueenMod;
 import QueenMod.characters.TheQueen;
 import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -40,6 +41,7 @@ public class HonorGuard extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.isInnate = false;
         this.exhaust = true;
+        this.retain = true;
         this.cardsToPreview = new BumbleBee();
     }
 
@@ -47,7 +49,9 @@ public class HonorGuard extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new BumbleBee(),3));
+        AbstractCard b = new BumbleBee();
+        b.upgrade();
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(b,2));
     }
 
     // Upgraded stats.

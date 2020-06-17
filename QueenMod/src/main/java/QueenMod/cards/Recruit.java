@@ -54,8 +54,8 @@ public class Recruit extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new RecruitAction(new Hornet(), 1));
-        AbstractDungeon.actionManager.addToBottom(new RecruitAction(new BumbleBee(), 1));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new Hornet(), 1, true, false));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new BumbleBee(), 1, true, false));
     }
 
     // Upgraded stats.

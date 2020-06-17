@@ -51,7 +51,7 @@ public class BuildOrder extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ProductionPower(p, p, defaultSecondMagicNumber), defaultSecondMagicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ProductionPower(p, p, magicNumber), magicNumber));
         AbstractDungeon.actionManager.addToBottom(new RecruitAction(new WorkerBee(), 2));
     }
 

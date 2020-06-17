@@ -1,7 +1,10 @@
 package QueenMod.cards;
 
 import QueenMod.QueenMod;
+import QueenMod.actions.BusyBeesAction;
 import QueenMod.characters.TheQueen;
+import QueenMod.powers.HoneyBoost;
+import QueenMod.powers.Nectar;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -37,45 +40,29 @@ public class BusyBees extends AbstractDynamicCard {
 
     private static final int COST = 1;  // COST = ${COST}
     private static final int UPGRADED_COST = 1; // UPGRADED_COST = ${UPGRADED_COST}
+    private static final int MAGIC = 2;
 
     // /STAT DECLARATION/
 
 
     public BusyBees() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        baseMagicNumber = magicNumber = MAGIC;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        CardCrawlGame.sound.playA("BEE_FADE", (float)Math.random()*1.0F);
-
-        if (upgraded) {
-            for (AbstractCard c : p.hand.group) {
-                if (!c.cardID.equals(BusyBees.ID) && !c.type.equals(CardType.STATUS) &&  !c.type.equals(CardType.CURSE)) {
-                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(c.makeStatEquivalentCopy(), 1, true, false, false));
-                    c.upgrade();
-                }
-            }
-        } else {
-            for (AbstractCard c : p.hand.group) {
-                if (c.cardID.equals(Hornet.ID) ||
-                        c.cardID.equals(BumbleBee.ID) ||
-                        c.cardID.equals(Drone.ID) ||
-                        c.cardID.equals(WorkerBee.ID) ||
-                        c.cardID.equals(HornetCommander.ID) ||
-                        c.cardID.equals(BumbleBeeCommander.ID) ||
-                        c.cardID.equals(DroneCommander.ID) ||
-                        c.cardID.equals(WorkerBeeCommander.ID)) {
-                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(c.makeStatEquivalentCopy(), 1, true, false, false));
-                    c.upgrade();
-                }
-            }
+        CardCrawlGame.sound.playA("BEE_FADE", (float) Math.random() * 1.0F);
+        AbstractDungeon.actionManager.addToBottom(new BusyBeesAction());
+        if (AbstractDungeon.player.hasPower(HoneyBoost.POWER_ID)) {
+            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(magicNumber));
         }
     }
 
-    // Upgraded stats.
+
+        // Upgraded stats.
     @Override
     public void upgrade() {
         if (!upgraded) {

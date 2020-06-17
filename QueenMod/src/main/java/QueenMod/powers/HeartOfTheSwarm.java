@@ -87,15 +87,6 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
 
     @Override
     public void atStartOfTurn(){
-        if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10){
-
-            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(AbstractDungeon.player, AbstractDungeon.player, AbstractDungeon.player.getPower(Nectar.POWER_ID), 10));
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new HoneyBoost(AbstractDungeon.player, AbstractDungeon.player, 1), 1));
-            AbstractDungeon.actionManager.addToBottom(new DoubleEnergyAction());
-
-        }
-
-
 
         for (AbstractCard c : AbstractDungeon.player.drawPile.group){
             if (c.cardID.equals(KillerBee.ID)){
@@ -163,14 +154,6 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
             tmp.target = ALL_ENEMY;
             AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(tmp, true, totalSwarm, a));
         }
-        else if (c.cardID.equals(Synthesize.ID)){
-            int temp = totalSwarm;
-            totalSwarm = 0;
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player,AbstractDungeon.player,
-                    new FocusedSwarm(AbstractDungeon.player,AbstractDungeon.player,temp),temp));
-            AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, false, totalSwarm, a));
-            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, SwarmPower.POWER_ID));
-        }
         else {
             AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, false, totalSwarm, a));
         }
@@ -181,10 +164,10 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
         if (!Settings.DISABLE_EFFECTS) {
             this.particleTimer -= Gdx.graphics.getDeltaTime();
             if (particleTimer < 0.0F) {
-                playerHasSwarm = AbstractDungeon.player.hasPower(SwarmPower.POWER_ID) || AbstractDungeon.player.hasPower(FocusedSwarm.POWER_ID);
+                playerHasSwarm = (AbstractDungeon.player.hasPower(SwarmPower.POWER_ID) || AbstractDungeon.player.hasPower(FocusedSwarm.POWER_ID));
                 targets.clear();
                 for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                    if (mo.hasPower(SwarmPowerEnemy.POWER_ID) || mo.hasPower(FocusedSwarmE.POWER_ID)) {
+                    if ((mo.hasPower(SwarmPowerEnemy.POWER_ID) || mo.hasPower(FocusedSwarmE.POWER_ID))) {
                         targets.add(mo);
                     }
                 }

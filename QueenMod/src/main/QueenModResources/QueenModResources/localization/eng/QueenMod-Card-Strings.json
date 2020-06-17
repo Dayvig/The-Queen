@@ -9,8 +9,7 @@
   },
   "QueenMod:AttackOrder": {
     "NAME": "Attack Order",
-    "DESCRIPTION": "Deal !D! damage. NL queenmod:Recruit a Hornet.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL queenmod:Recruit !M! Hornets."
+    "DESCRIPTION": "Deal !D! damage. NL Add a Hornet to your draw pile."
   },
   "QueenMod:Hornet": {
     "NAME": "Hornet",
@@ -18,8 +17,7 @@
   },
   "QueenMod:DefendOrder": {
     "NAME": "Defend Order",
-    "DESCRIPTION": "Gain !B! block. NL queenmod:Recruit a queenmod:Bumblebee.",
-    "UPGRADE_DESCRIPTION": "Gain !B! block. NL queenmod:Recruit !M! queenmod:Bumblebees."
+    "DESCRIPTION": "Gain !B! block. NL Add a queenmod:Bumblebee to your draw pile."
   },
   "QueenMod:BumbleBee": {
     "NAME": "BumbleBee",
@@ -31,7 +29,7 @@
   },
   "QueenMod:GatheringSwarm": {
     "NAME": "Gathering Swarm",
-    "DESCRIPTION": "At the start of your turn, spend !M! queenmod:Nectar to gain !M! queenmod:Swarm."
+    "DESCRIPTION": "At the start of your turn, gain !M! queenmod:Swarm."
   },
   "QueenMod:Godcard": {
     "NAME": "God Card",
@@ -39,11 +37,11 @@
   },
   "QueenMod:HexGuard": {
     "NAME": "Hex Guard",
-    "DESCRIPTION": "Gain !B! Block. NL Spend 5 queenmod:Nectar: Gain !B! Block."
+    "DESCRIPTION": "Gain !B! Block. NL queenmod:Honey-boost: Gain !M! Block."
   },
   "QueenMod:HoneycombSmash": {
     "NAME": "Honeycomb Smash",
-    "DESCRIPTION": "Deal !D! Damage. NL Spend 10 queenmod:Nectar: Apply !M! Weak. "
+    "DESCRIPTION": "Deal !D! Damage. NL queenmod:Honey-boost: Apply !M! Weak. "
   },
   "QueenMod:Draft": {
     "NAME": "Draft",
@@ -60,7 +58,7 @@
   },
   "QueenMod:WorkerBee": {
     "NAME": "Worker Bee",
-    "DESCRIPTION": "Apply !M! queenmod:Pollinate. NL Deal !D! damage."
+    "DESCRIPTION": "Gain !M! queenmod:Nectar."
   },
   "QueenMod:BuildOrder": {
     "NAME": "Build Order",
@@ -77,8 +75,7 @@
   },
   "QueenMod:BusyBees": {
     "NAME": "Busy Bees",
-    "DESCRIPTION": "Add a copy of all queenmod:Hive cards in your hand to your draw pile, then upgrade the queenmod:Hive cards in your hand.",
-    "UPGRADE_DESCRIPTION": "Add a copy of your hand to your draw pile, then upgrade your hand."
+    "DESCRIPTION": "Add a copy of your hand to your draw pile. NL queenmod:Honey-boost: Draw !M! cards."
   },
   "QueenMod:Beekeeping": {
     "NAME": "Beekeeping",
@@ -91,12 +88,12 @@
   },
   "QueenMod:Nourish": {
     "NAME": "Nourish",
-    "DESCRIPTION": "Spend 10 queenmod:Nectar: Recover !M! Health. NL Exhaust."
+    "DESCRIPTION": "Heal 4. NL queenmod:Honey-boost: Heal 10 instead. NL Exhaust."
   },
   "QueenMod:HornetSwarm": {
   "NAME": "Hornet Swarm",
-  "DESCRIPTION": "Play all Hornets in your Hand and Draw Pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Play all Hornets in your Hand and Draw Pile."
+  "DESCRIPTION": "All Hornets in your hand and draw pile attack random targets. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "All Hornets in your hand and draw pile attack random targets."
   },
   "QueenMod:WarBuzz": {
   "NAME": "War Buzz",
@@ -113,7 +110,7 @@
 },
   "QueenMod:SharpStingers": {
     "NAME": "Sharper Stingers",
-    "DESCRIPTION": "Hornets do !M! more damage. NL queenmod:Recruit 2 Hornets."
+    "DESCRIPTION": "Hornets do !M! more damage. NL Add 2 Hornets to your draw pile."
   },
   "QueenMod:EnergyReserves": {
     "NAME": "Stockpile",
@@ -125,7 +122,7 @@
   },
   "QueenMod:Mark": {
     "NAME": "Mark",
-    "DESCRIPTION": "Apply !M! Vulnerable, !M! queenmod:Pollinate and your queenmod:Swarm for the turn."
+    "DESCRIPTION": "Apply !M! Vulnerable. NL Focus your queenmod:Swarm on the target for the turn."
   },
   "QueenMod:SwarmTactics": {
     "NAME": "Swarm Tactics",
@@ -152,7 +149,7 @@
   },
   "QueenMod:SplitStrike": {
   "NAME": "Split Strike",
-  "DESCRIPTION": "Deal !D! Damage. NL Recall half your queenmod:Swarm for the turn."
+  "DESCRIPTION": "Deal !D! Damage. NL Focus half your queenmod:Swarm on yourself this turn."
 },
   "QueenMod:Feast": {
   "NAME": "Feast",
@@ -187,7 +184,7 @@
   },
   "QueenMod:MilitaryHandbook": {
     "NAME": "Military Handbook",
-    "DESCRIPTION": "Draw !M! cards. NL Spend 10 queenmod:Nectar: Attacks in your hand cost 1 less this turn. NL Exhaust."
+    "DESCRIPTION": "Draw !M! cards. NL queenmod:Honey-boost: Attacks in your hand cost 1 less this turn. NL Exhaust."
   },
   "QueenMod:PollenBlast": {
     "NAME": "Pollen Blast",
@@ -200,12 +197,7 @@
   },
   "QueenMod:SecretWeapon": {
     "NAME": "Secret Weapon",
-    "DESCRIPTION": "Spend all queenmod:Nectar: Deal triple that amount to an enemy. NL Ethereal.",
-    "UPGRADE_DESCRIPTION": "Spend all queenmod:Nectar: Deal triple that amount to an enemy.",
-    "EXTENDED_DESCRIPTION": [
-      "Spend all Nectar: Deal !D! damage. (Triple the Nectar spent) NL Ethereal.",
-      "Spend all Nectar: Deal !D! damage. (Triple the Nectar spent)"
-      ]
+    "DESCRIPTION": "queenmod:Honey-boost: Deal !D! damage to all enemies."
   },
   "QueenMod:GeneralForm": {
     "NAME": "General Form",
@@ -293,7 +285,7 @@
   },
   "QueenMod:Recruit":{
     "NAME": "Recruit",
-    "DESCRIPTION": "queenmod:Recruit a queenmod:Hornet. NL queenmod:Recruit a queenmod:Bumblebee"
+    "DESCRIPTION": "Add a queenmod:Hornet to your draw pile. NL Add a queenmod:Bumblebee to your draw pile."
   },
   "QueenMod:KillerBee":{
     "NAME": "Killer Bee",
@@ -306,7 +298,7 @@
   },
   "QueenMod:Reinforcements":{
     "NAME": "Reinforcements",
-    "DESCRIPTION": "At the start of your turn, play a queenmod:Hornet or queenmod:Bumblebee from your draw pile."
+    "DESCRIPTION": "At the start of your turn, play a queenmod:Hornet or queenmod:Bumblebee from your draw pile at random."
   },
   "QueenMod:Regroup":{
     "NAME": "Regroup",
@@ -323,8 +315,8 @@
   },
   "QueenMod:HonorGuard":{
     "NAME": "Honor Guards",
-    "DESCRIPTION": "Add 3 queenmod:Bumblebees to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Add 3 queenmod:Bumblebees to your hand. NL Exhaust."
+    "DESCRIPTION": "Add 2 upgraded queenmod:Bumblebees to your hand. NL Retain. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Add 2 upgraded queenmod:Bumblebees to your hand. NL Retain. Exhaust."
   },
   "QueenMod:HoneyFactory":{
     "NAME": "Honey Factory",
@@ -335,8 +327,7 @@
   },
   "QueenMod:Synthesize":{
     "NAME": "Synthesize",
-    "DESCRIPTION": "Spend 10 queenmod:Nectar: gain [E] [E]",
-    "UPGRADE_DESCRIPTION": "Spend 10 queenmod:Nectar: gain [E] [E] [E]"
+    "DESCRIPTION": "Gain !M! queenmod:Nectar. NL queenmod:Honey-boost: Gain !QueenMod:second! queenmod:Swarm instead."
   },
   "QueenMod:HoneyShield":{
     "NAME": "Honey Shield",
@@ -424,7 +415,7 @@
   "QueenMod:CallToArms": {
     "NAME": "Call to Arms",
     "DESCRIPTION": "Fill your hand with queenmod:Drones. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Fill your hand with queenmod:Drones. NL queenmod:Recruit a queenmod:Bumblebee, queenmod:Hornet, and queenmod:Workerbee. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Fill your hand with upgraded queenmod:Drones. NL Exhaust."
   },
   "QueenMod:TeaTime": {
     "NAME": "Tea Time",
@@ -437,7 +428,7 @@
   },
   "QueenMod:Drain": {
     "NAME": "Mosquito Platoon",
-    "DESCRIPTION": "Deal !D! damage !M! times. Gain queenmod:Nectar equal to damage dealt."
+    "DESCRIPTION": "Apply 1 queenmod:Pollinate. NL Deal !D! damage !M! times."
   },
   "QueenMod:Feint": {
     "NAME": "Feint",
@@ -467,5 +458,9 @@
   "QueenMod:Collect": {
     "NAME": "Collect",
     "DESCRIPTION": "Gain !M! queenmod:Nectar. NL Gain !B! Block."
+  },
+  "QueenMod:Infest": {
+    "NAME": "Infest",
+    "DESCRIPTION": "Apply !M! queenmod:Swarm to all enemies and yourself. NL queenmod:Honey-boost: Apply !QueenMod:second! more."
   }
 }

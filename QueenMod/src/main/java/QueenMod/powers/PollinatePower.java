@@ -68,10 +68,11 @@ public class PollinatePower extends AbstractPower implements CloneablePowerInter
     @Override
     public int onAttacked (DamageInfo info, int damageAmount){
         if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != this.owner && this.owner.currentBlock < damageAmount) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.source, this.source, new Nectar(this.source, this.source, 2), 2));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.source, this.source, new Nectar(this.source, this.source, 1), 1));
         }
             return damageAmount;
         }
+
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new PollinatePower(this.owner, this.owner, this.amount - 1), -1));

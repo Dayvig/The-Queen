@@ -18,7 +18,7 @@
         "QueenMod:Nectar": {
                 "NAME": "Nectar",
                 "DESCRIPTIONS": [
-                        "Spend to improve your cards.",
+                        "At the start of your turn, gain 1 [E] for every 10 Nectar.",
                         "",
                         ""
                 ]
@@ -74,7 +74,7 @@
         "QueenMod:PollinatePower": {
                 "NAME": "Pollinated",
                 "DESCRIPTIONS": [
-                        "When taking attack damage, the Queen gains 2 Nectar. At the start of the turn, reduce #yPollinate by #b1.",
+                        "When taking attack damage, the Queen gains 1 Nectar. At the end of the turn, reduce #yPollinate by #b1.",
                         "",
                         ""
                 ]
@@ -106,8 +106,8 @@
         "QueenMod:GrowingSwarmPower": {
                 "NAME": "Gathering Swarm...",
                 "DESCRIPTIONS": [
-                                "At the end of your turn, gain #b",
-                                " Swarm.",
+                                "At the start of your turn, gain #b",
+                                " Swarm. Doubles while Honey-boosted.",
                                 ""
                 ]
         },
@@ -253,6 +253,14 @@
                         "When you play an attack, add #b",
                         "Drones to your draw pile and gain #b",
                         "Block."
+                ]
+        },
+        "QueenMod:HoneyBoost": {
+                "NAME": "Honey-boost",
+                "DESCRIPTIONS": [
+                        "Doubles your energy at the start of the turn and improves your cards.",
+                        "",
+                        ""
                 ]
         }
 }

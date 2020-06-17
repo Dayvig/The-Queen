@@ -1,6 +1,7 @@
 package QueenMod.cards;
 import QueenMod.QueenMod;
 import QueenMod.characters.TheQueen;
+import QueenMod.powers.HoneyBoost;
 import QueenMod.powers.Nectar;
 import basemod.helpers.ModalChoice;
 import basemod.helpers.ModalChoiceBuilder;
@@ -40,15 +41,16 @@ public class Nourish extends AbstractDynamicCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 
-        if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) &&
-                AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10) {
-            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(p, p, p.getPower(Nectar.POWER_ID), 10));
-            AbstractDungeon.actionManager.addToBottom(new HealAction(p, p, magicNumber));
+        if (AbstractDungeon.player.hasPower(HoneyBoost.POWER_ID)){
+            AbstractDungeon.actionManager.addToBottom(new HealAction(p, p, 4));
+        }
+        else {
+            AbstractDungeon.actionManager.addToBottom(new HealAction(p, p, 10));
         }
     }
 
     public void triggerOnGlowCheck() {
-        if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10){
+        if (AbstractDungeon.player.hasPower(HoneyBoost.POWER_ID)){
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         } else {
             this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();

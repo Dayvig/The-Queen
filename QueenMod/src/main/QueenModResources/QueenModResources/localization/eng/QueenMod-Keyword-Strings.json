@@ -32,7 +32,7 @@
         "nectar",
         "nectar"
       ],
-    "DESCRIPTION": "Nectar is used with certain cards to improve their effects. Pollinate your enemies, then attack them to gain Nectar."
+    "DESCRIPTION": "For every 10 Nectar, you gain 1 [E] at the start of your turn and also activate Honey-boost effects on cards once each."
     },
   {
       "NAMES": [
@@ -51,7 +51,7 @@
         "pollinate",
         "pollinate"
       ],
-    "DESCRIPTION": "When a Pollinated enemy is attacked, gain 2 Nectar."
+    "DESCRIPTION": "When a Pollinated enemy is attacked, gain 1 Nectar. Gain 1 [E] for every 10 Nectar at the start of your turn."
     },
   {
       "NAMES": [
@@ -119,5 +119,11 @@
       "defensive"
     ],
     "DESCRIPTION": "Activated if your current deck contains more Skills than Attacks."
+  },
+  {
+    "NAMES": [
+      "honey-boost"
+    ],
+    "DESCRIPTION": "Activates once for every 10 Nectar you have."
   }
 ]

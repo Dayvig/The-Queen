@@ -18,15 +18,12 @@ public class ArtOfWarAction extends AbstractGameAction {
     }
 
     public void update() {
-        if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) &&
-                AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10) {
             for (AbstractCard c : AbstractDungeon.player.hand.group) {
                 if (c.type.equals(AbstractCard.CardType.ATTACK) && c.cost > 0) {
                     c.costForTurn--;
                     c.isCostModifiedForTurn = true;
                 }
             }
-        }
         this.isDone = true;
     }
 }

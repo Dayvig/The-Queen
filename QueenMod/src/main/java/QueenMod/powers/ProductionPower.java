@@ -2,11 +2,13 @@ package QueenMod.powers;
 
 import QueenMod.QueenMod;
 import QueenMod.actions.DrawToHandAction;
+import QueenMod.actions.ProductionAction;
 import QueenMod.cards.WorkerBee;
 import QueenMod.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.BetterDrawPileToHandAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
@@ -57,13 +59,8 @@ public class ProductionPower extends AbstractPower implements CloneablePowerInte
     }
 
     public void atStartOfTurnPostDraw(){
-        for (AbstractCard c : AbstractDungeon.player.drawPile.group){
-            if (c.cardID.equals(WorkerBee.ID)){
-                upgradeMatrix.add(c);
-            }
-        }
-        AbstractDungeon.actionManager.addToBottom(new DrawToHandAction(upgradeMatrix.get((int)(Math.random()*upgradeMatrix.size()-1))));
-        upgradeMatrix.clear();
+        AbstractDungeon.actionManager.addToBottom(new ProductionAction(this.amount));
+        AbstractDungeon.player.hand.refreshHandLayout();
         }
 
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))

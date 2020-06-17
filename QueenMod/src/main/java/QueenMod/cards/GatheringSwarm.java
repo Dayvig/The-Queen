@@ -40,7 +40,7 @@ public class GatheringSwarm extends AbstractDynamicCard {
 
     public GatheringSwarm() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = 2;
+        magicNumber = baseMagicNumber = 1;
     }
 
 
