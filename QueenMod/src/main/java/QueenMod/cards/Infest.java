@@ -85,7 +85,6 @@ public class Infest extends AbstractDynamicCard {
             upgradeName();
             upgradeMagicNumber(UPGRADE_MAGIC);
             upgradeDefaultSecondMagicNumber(UPGRADE_MAGIC);
-            this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

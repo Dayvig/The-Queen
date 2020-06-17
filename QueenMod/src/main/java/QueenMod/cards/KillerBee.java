@@ -42,7 +42,7 @@ public class KillerBee extends AbstractDynamicCard {
 
     public KillerBee() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = DAMAGE;
+        baseDamage = damage = DAMAGE;
         this.exhaust = true;
     }
 

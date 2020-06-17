@@ -134,9 +134,9 @@
 },
   "QueenMod:OverwhelmingForce": {
   "NAME": "Overwhelming Force",
-  "DESCRIPTION": "Deal damage to all enemies equal to the number of cards in your draw pile.",
+  "DESCRIPTION": "Deal damage to an enemy equal to the number of cards in your draw pile.",
     "EXTENDED_DESCRIPTION": [
-      "Deal !D! damage to all enemies (Equal to the number of cards in your deck)."
+      "Deal !D! damage. (Equal to the number of cards in your draw pile)."
     ]
   },
   "QueenMod:Flyby": {
@@ -309,9 +309,8 @@
     "DESCRIPTION": "When you play an Attack this turn, gain 1 Block and add a queenmod:Drone to your Draw Pile."
   },
   "QueenMod:Gather": {
-    "NAME": "Gather",
-    "DESCRIPTION": "Gain !M! queenmod:Nectar. NL queenmod:Recruit !QueenMod:second! queenmod:Workerbee.",
-    "UPGRADE_DESCRIPTION": "Gain !M! queenmod:Nectar. NL queenmod:Recruit !QueenMod:second! queenmod:Workerbees."
+    "NAME": "Gather Order",
+    "DESCRIPTION": "Inflict !M! queenmod:Pollinate. NL Add a queenmod:Workerbee to your draw pile.",
   },
   "QueenMod:HonorGuard":{
     "NAME": "Honor Guards",
