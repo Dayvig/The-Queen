@@ -62,7 +62,7 @@
   },
   "QueenMod:BuildOrder": {
     "NAME": "Build Order",
-    "DESCRIPTION": "Recruit 2 queenmod:Workerbees. NL At the start of your turn, add a queenmod:Workerbee from your draw pile to your hand."
+    "DESCRIPTION": "Add 2 queenmod:Workerbees to your draw pile. NL At the start of your turn, gain !M! queenmod:Nectar."
   },
   "QueenMod:KillerQueen": {
     "NAME": "Killer Queen",
@@ -149,11 +149,15 @@
   },
   "QueenMod:SplitStrike": {
   "NAME": "Split Strike",
-  "DESCRIPTION": "Deal !D! Damage. NL Focus half your queenmod:Swarm on yourself this turn."
+  "DESCRIPTION": "Deal !D! Damage. NL Keep half your queenmod:Swarm on yourself this turn."
 },
   "QueenMod:Feast": {
   "NAME": "Feast",
-  "DESCRIPTION": "Deal !D! damage to all enemies. If this kills an enemy, gain !M! queenmod:Swarm."
+  "DESCRIPTION": "Apply !M! queenmod:Swarm to an enemy. Deal damage equal to your total queenmod:Swarm.",
+    "EXTENDED_DESCRIPTION": [
+      "Apply !M! queenmod:Swarm to an enemy. NL Deal !D! damage. (Equal to your total Swarm.)",
+      ""
+]
 },
   "QueenMod:DroneSpawner": {
     "NAME": "Drone Spawner",
@@ -310,7 +314,7 @@
   },
   "QueenMod:Gather": {
     "NAME": "Gather Order",
-    "DESCRIPTION": "Inflict !M! queenmod:Pollinate. NL Add a queenmod:Workerbee to your draw pile.",
+    "DESCRIPTION": "Inflict !M! queenmod:Pollinate. NL Add a queenmod:Workerbee to your draw pile."
   },
   "QueenMod:HonorGuard":{
     "NAME": "Honor Guards",

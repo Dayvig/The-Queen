@@ -59,8 +59,7 @@ public class ProductionPower extends AbstractPower implements CloneablePowerInte
     }
 
     public void atStartOfTurnPostDraw(){
-        AbstractDungeon.actionManager.addToBottom(new ProductionAction(this.amount));
-        AbstractDungeon.player.hand.refreshHandLayout();
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new Nectar(this.owner, this.owner, this.amount), this.amount));
         }
 
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))

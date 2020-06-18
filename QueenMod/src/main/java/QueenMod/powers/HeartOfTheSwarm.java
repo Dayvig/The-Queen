@@ -75,6 +75,7 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
         updateDescription();
     }
 
+
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
     @Override
     public void updateDescription() {

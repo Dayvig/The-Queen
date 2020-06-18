@@ -1,6 +1,7 @@
 package QueenMod.cards;
 
 import QueenMod.QueenMod;
+import QueenMod.actions.MakeTempCardInDrawPileActionFast;
 import QueenMod.actions.RecruitAction;
 import QueenMod.characters.TheQueen;
 import QueenMod.powers.Nectar;
@@ -52,7 +53,7 @@ public class BuildOrder extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ProductionPower(p, p, magicNumber), magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new RecruitAction(new WorkerBee(), 2));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new WorkerBee(), 2, true, false));
     }
 
 
@@ -63,7 +64,6 @@ public class BuildOrder extends AbstractDynamicCard {
             upgradeName();
             this.upgradeMagicNumber(1);
             this.upgradeBaseCost(UPGRADED_COST);
-            this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

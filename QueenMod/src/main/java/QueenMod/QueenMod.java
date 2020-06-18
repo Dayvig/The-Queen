@@ -384,6 +384,9 @@ public class QueenMod implements
         BaseMod.addCard(new DignifiedSlap());
         BaseMod.addCard(new OverwhelmingForce());
         BaseMod.addCard(new KillerBee());
+        BaseMod.addCard(new BuildOrder());
+        BaseMod.addCard(new Gather());
+        BaseMod.addCard(new Feast());
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -428,6 +431,9 @@ public class QueenMod implements
         UnlockTracker.unlockCard(DignifiedSlap.ID);
         UnlockTracker.unlockCard(OverwhelmingForce.ID);
         UnlockTracker.unlockCard(KillerBee.ID);
+        UnlockTracker.unlockCard(BuildOrder.ID);
+        UnlockTracker.unlockCard(Gather.ID);
+        UnlockTracker.unlockCard(Feast.ID);
 
         logger.info("Done adding cards!");
     }
