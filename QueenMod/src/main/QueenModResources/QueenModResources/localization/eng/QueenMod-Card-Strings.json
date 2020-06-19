@@ -149,7 +149,7 @@
   },
   "QueenMod:SplitStrike": {
   "NAME": "Split Strike",
-  "DESCRIPTION": "Deal !D! Damage. NL Keep half your queenmod:Swarm on yourself this turn."
+  "DESCRIPTION": "Deal !D! Damage. NL Recall half your queenmod:Swarm this turn."
 },
   "QueenMod:Feast": {
   "NAME": "Feast",
@@ -182,9 +182,9 @@
       "Gain !B! block. Add a Drone to your hand."
     ]
   },
-  "QueenMod:HoneyCorps": {
-    "NAME": "Honey Corps",
-    "DESCRIPTION": "Draw !M! cards. NL queenmod:Recruit 2 queenmod:Workerbees."
+  "QueenMod:ScoutingParty": {
+    "NAME": "Scouting Party",
+    "DESCRIPTION": "Add 2 Workerbees to your draw pile. NL Draw !M! cards next turn."
   },
   "QueenMod:MilitaryHandbook": {
     "NAME": "Military Handbook",
@@ -264,8 +264,7 @@
   },
   "QueenMod:Charge":{
     "NAME": "Charge!",
-    "DESCRIPTION": "Deal !D! damage. NL Draw 2 cards.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Deal !D! damage. NL Draw 2 cards."
+    "DESCRIPTION": "Innate. NL Deal !D! damage. NL Draw 3 cards. NL Exhaust."
   },
   "QueenMod:PlanAhead":{
     "NAME": "Plan Ahead",
@@ -336,9 +335,9 @@
     "NAME": "Honey Shield",
     "DESCRIPTION": "When you gain queenmod:Nectar, gain !M! block."
   },
-  "QueenMod:Reposition":{
-    "NAME": "Reposition",
-    "DESCRIPTION": "Gain 2 Strength this turn only. NL queenmod:Recruit a Hornet. NL Gain 3 Block."
+  "QueenMod:Rally":{
+    "NAME": "Rally",
+    "DESCRIPTION": "Gain !M! Strength this turn only. NL Draw a card."
   },
   "QueenMod:FullRetreat":{
     "NAME": "Full Retreat",
@@ -350,11 +349,11 @@
   },
   "QueenMod:HoldPosition":{
     "NAME": "Hold Position",
-    "DESCRIPTION": "Gain !B! block. Add 2 queenmod:Drones to your draw pile."
+    "DESCRIPTION": "Gain !B! block. NL Recall your queenmod:Swarm for the turn."
   },
   "QueenMod:Garrison":{
     "NAME": "Garrison",
-    "DESCRIPTION": "Add !M! queenmod:Drones to your draw pile. NL queenmod:Recruit !QueenMod:second! queenmod:Bumblebees."
+    "DESCRIPTION": "Gain !B! Block. NL Add 2 Bumblebees to your draw pile. NL Costs 1 more for each Attack in your hand."
   },
   "QueenMod:Multiply":{
     "NAME": "Multiply",
@@ -465,5 +464,10 @@
   "QueenMod:Infest": {
     "NAME": "Infest",
     "DESCRIPTION": "Apply !M! queenmod:Swarm to all enemies and yourself. NL queenmod:Honey-boost: Apply !QueenMod:second! more."
+  },
+  "QueenMod:Advisor": {
+    "NAME": "Royal Advisors",
+    "DESCRIPTION": "Innate. NL Add a queenmod:Workerbee to your hand. NL Add a queenmod:Bumblebee to your draw pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Add a queenmod:Workerbee to your hand. NL Add a queenmod:Bumblebee to your draw pile."
   }
 }

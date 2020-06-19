@@ -40,8 +40,8 @@ public class Charge extends AbstractDynamicCard {
 
     private static final int COST = 1;  // COST = ${COST}
 
-    private static final int DAMAGE = 6;    // DAMAGE = ${DAMAGE}
-    private static final int UPGRADE_PLUS_DAMAGE = 2;
+    private static final int DAMAGE = 10;    // DAMAGE = ${DAMAGE}
+    private static final int UPGRADE_PLUS_DAMAGE = 3;
 
     // /STAT DECLARATION/
 
@@ -49,6 +49,8 @@ public class Charge extends AbstractDynamicCard {
     public Charge() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
+        this.isInnate = true;
+        this.exhaust = true;
     }
 
 
@@ -57,7 +59,7 @@ public class Charge extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         CardCrawlGame.sound.playA("TRUMPET", (float)Math.random()*0.2F);
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p,2));
+        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p,3));
     }
 
 
@@ -67,7 +69,6 @@ public class Charge extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             this.upgradeDamage(UPGRADE_PLUS_DAMAGE);
-            this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

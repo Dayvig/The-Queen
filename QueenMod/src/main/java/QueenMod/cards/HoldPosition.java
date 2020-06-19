@@ -32,15 +32,14 @@ public class HoldPosition extends AbstractDynamicCard {
 
     private static final int COST = 1;  // COST = ${COST}
     private static final int BLOCK = 7;
-    private static final int UPGRADE_PLUS_BLOCK = 2;
+    private static final int UPGRADE_PLUS_BLOCK = 3;
     // /STAT DECLARATION/
 
 
     public HoldPosition() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = magicNumber = 2;
+        this.baseMagicNumber = magicNumber = 1;
         baseBlock = block = BLOCK;
-        this.cardsToPreview = new Drone();
     }
 
 
@@ -48,7 +47,6 @@ public class HoldPosition extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new Drone(), magicNumber, true, false));
     }
 
 
@@ -58,7 +56,6 @@ public class HoldPosition extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeBlock(UPGRADE_PLUS_BLOCK);
-            upgradeMagicNumber(1);
             initializeDescription();
         }
     }

@@ -387,6 +387,14 @@ public class QueenMod implements
         BaseMod.addCard(new BuildOrder());
         BaseMod.addCard(new Gather());
         BaseMod.addCard(new Feast());
+        BaseMod.addCard(new PerfectLanding());
+        BaseMod.addCard(new Advisor());
+        BaseMod.addCard(new ScoutingParty());
+        BaseMod.addCard(new Garrison());
+        BaseMod.addCard(new HoldPosition());
+        BaseMod.addCard(new Conscripts());
+        BaseMod.addCard(new Charge());
+        BaseMod.addCard(new Rally());
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -434,6 +442,14 @@ public class QueenMod implements
         UnlockTracker.unlockCard(BuildOrder.ID);
         UnlockTracker.unlockCard(Gather.ID);
         UnlockTracker.unlockCard(Feast.ID);
+        UnlockTracker.unlockCard(PerfectLanding.ID);
+        UnlockTracker.unlockCard(Advisor.ID);
+        UnlockTracker.unlockCard(ScoutingParty.ID);
+        UnlockTracker.unlockCard(Garrison.ID);
+        UnlockTracker.unlockCard(HoldPosition.ID);
+        UnlockTracker.unlockCard(Conscripts.ID);
+        UnlockTracker.unlockCard(Charge.ID);
+        UnlockTracker.unlockCard(Rally.ID);
 
         logger.info("Done adding cards!");
     }

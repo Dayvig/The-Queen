@@ -4,6 +4,8 @@ import QueenMod.QueenMod;
 import QueenMod.actions.MakeTempCardInDrawPileActionFast;
 import QueenMod.actions.RecruitAction;
 import QueenMod.characters.TheQueen;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -33,11 +35,11 @@ public class Garrison extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
-    private static final int COST = 1;  // COST = ${COST}
-    private static final int UPGRADED_COST = 1; // UPGRADED_COST = ${UPGRADED_COST}
+    private static final int COST = 0;  // COST = ${COST}
 
-    private static final int MAGIC = 4;
-    private static final int SECOND_MAGIC = 2;
+    private static final int MAGIC = 2;
+    private static final int BLOCK = 4;
+    private static final int UPGRADE_PLUS_BLOCK = 3;
     private int numLeft;
 
     // /STAT DECLARATION/
@@ -46,16 +48,29 @@ public class Garrison extends AbstractDynamicCard {
     public Garrison() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
-        defaultBaseSecondMagicNumber = defaultSecondMagicNumber = SECOND_MAGIC;
         this.cardsToPreview = new BumbleBee();
+        baseBlock = block = BLOCK;
+    }
+
+    @Override
+    public void applyPowers(){
+        this.costForTurn = cost;
+        for (AbstractCard c : AbstractDungeon.player.hand.group){
+            if (c.type.equals(CardType.ATTACK)){
+                costForTurn++;
+                if (costForTurn != COST){
+                    isCostModifiedForTurn = true;
+                }
+            }
+        }
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new Drone(), magicNumber, true, false));
-        AbstractDungeon.actionManager.addToBottom(new RecruitAction(new BumbleBee(), defaultSecondMagicNumber));
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, block));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new BumbleBee(), magicNumber, true, false));
     }
 
     // Upgraded stats.
@@ -63,8 +78,7 @@ public class Garrison extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
-            upgradeDefaultSecondMagicNumber(1);
+            upgradeBlock(UPGRADE_PLUS_BLOCK);
             initializeDescription();
         }
     }
