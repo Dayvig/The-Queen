@@ -164,7 +164,7 @@ public class TheQueen extends CustomPlayer {
     // Starting Relics
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add(QueensBanner.ID);
+
 
         return retVal;
     }

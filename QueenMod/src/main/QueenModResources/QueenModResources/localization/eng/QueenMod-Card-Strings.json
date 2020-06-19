@@ -43,14 +43,14 @@
     "NAME": "Honeycomb Smash",
     "DESCRIPTION": "Deal !D! Damage. NL queenmod:Honey-boost: Apply !M! Weak. "
   },
-  "QueenMod:Draft": {
-    "NAME": "Draft",
-    "DESCRIPTION": "Add !M! queenmod:Drones to your Draw Pile."
+  "QueenMod:PopulateOrder": {
+    "NAME": "Populate Order",
+    "DESCRIPTION": "Gain [E] next turn. NL Add a Drone to your draw pile.",
+    "UPGRADE_DESCRIPTION": "Gain [E] [E] next turn. NL Add a Drone to your draw pile."
   },
   "QueenMod:Drone": {
     "NAME": "Drone",
-    "DESCRIPTION": "Draw a card. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Draw 2 cards. NL Exhaust."
+    "DESCRIPTION": "Draw !M! cards. NL Exhaust."
   },
   "QueenMod:Assimilate": {
     "NAME": "Assimilate",
@@ -159,9 +159,9 @@
       ""
 ]
 },
-  "QueenMod:DroneSpawner": {
-    "NAME": "Drone Spawner",
-    "DESCRIPTION": "At the start of your turn, add a queenmod:Drone to your draw pile."
+  "QueenMod:BirthingCells": {
+    "NAME": "Birthing Cells",
+    "DESCRIPTION": "At the start of your turn, add a Drone to your draw pile."
   },
   "QueenMod:CrossGuard": {
     "NAME": "Cross-guard",
@@ -253,9 +253,9 @@
     "NAME": "Riposte",
     "DESCRIPTION": "Deal !D! damage. NL Ethereal. NL Exhaust."
   },
-  "QueenMod:FinishingBlow":{
-    "NAME": "Finishing Blow",
-    "DESCRIPTION": "queenmod:Finisher. NL If you've played 10 or more cards this turn, deal !D! damage."
+  "QueenMod:Overwhelm":{
+    "NAME": "Overwhelm",
+    "DESCRIPTION": "Deal !D! damage for each card played this turn ( x !M! )"
   },
   "QueenMod:Ambush":{
     "NAME": "Ambush",
@@ -333,7 +333,7 @@
   },
   "QueenMod:HoneyShield":{
     "NAME": "Honey Shield",
-    "DESCRIPTION": "When you gain queenmod:Nectar, gain !M! block."
+    "DESCRIPTION": "When you gain queenmod:Nectar, gain !M! Block."
   },
   "QueenMod:Rally":{
     "NAME": "Rally",
@@ -394,7 +394,8 @@
   },
   "QueenMod:SupplyLines": {
     "NAME": "Supply Lines",
-    "DESCRIPTION": "Spend 5 queenmod:Nectar: Gain !M! queenmod:Swarm."
+    "DESCRIPTION": "Draw a card. NL queenmod:Honey-boost: Draw a card.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL queenmod:Honey-boost: Draw a card."
   },
   "QueenMod:Incubate": {
     "NAME": "Incubate",
@@ -455,7 +456,7 @@
   },
   "QueenMod:ForcedMarch": {
     "NAME": "Forced March",
-    "DESCRIPTION": "Deal !D! damage. NL When you play a card this turn, shuffle it into your draw pile instead of your discard pile."
+    "DESCRIPTION": "At the start of your turn, shuffle your discard pile into your deck, then draw a card."
   },
   "QueenMod:Collect": {
     "NAME": "Collect",
@@ -469,5 +470,13 @@
     "NAME": "Royal Advisors",
     "DESCRIPTION": "Innate. NL Add a queenmod:Workerbee to your hand. NL Add a queenmod:Bumblebee to your draw pile. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Innate. NL Add a queenmod:Workerbee to your hand. NL Add a queenmod:Bumblebee to your draw pile."
+  },
+  "QueenMod:RoyalBanquet": {
+    "NAME": "Royal Banquet",
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! queenmod:Nectar. NL queenmod:Honey-boost: Add a Drone to your draw pile."
+  },
+  "QueenMod:RoyalOrder": {
+    "NAME": "Royal Orders",
+    "DESCRIPTION": "Play one of each queenmod:Hive card from your draw pile."
   }
 }

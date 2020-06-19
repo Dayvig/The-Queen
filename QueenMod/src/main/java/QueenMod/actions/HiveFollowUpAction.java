@@ -32,7 +32,7 @@ public class HiveFollowUpAction extends AbstractGameAction {
                         c.cardID.equals(BumbleBeeCommander.ID) ||
                         c.cardID.equals(DroneCommander.ID) ||
                         c.cardID.equals(WorkerBeeCommander.ID) ||
-                        c.cardID.equals(WASP.ID)) {
+                        c.cardID.equals(RoyalOrder.ID)) {
                     AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(1));
                 }
             }

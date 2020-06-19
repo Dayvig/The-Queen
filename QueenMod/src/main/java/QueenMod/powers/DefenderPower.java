@@ -1,9 +1,7 @@
 package QueenMod.powers;
 
 import QueenMod.QueenMod;
-import QueenMod.actions.DrawToDiscardAction;
 import QueenMod.cards.BumbleBee;
-import QueenMod.cards.WASP;
 import QueenMod.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
@@ -21,7 +19,6 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 
-import javax.jws.soap.SOAPBinding;
 import java.util.ArrayList;
 
 import static QueenMod.QueenMod.makePowerPath;

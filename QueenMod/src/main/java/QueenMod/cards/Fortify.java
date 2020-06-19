@@ -67,7 +67,7 @@ public class Fortify extends AbstractDynamicCard {
                         c.cardID.equals(BumbleBeeCommander.ID) ||
                         c.cardID.equals(DroneCommander.ID) ||
                         c.cardID.equals(WorkerBeeCommander.ID) ||
-                        c.cardID.equals(WASP.ID)) {
+                        c.cardID.equals(RoyalOrder.ID)) {
                     n++;
                 }
             }

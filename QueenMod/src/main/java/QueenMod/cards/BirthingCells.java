@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static QueenMod.QueenMod.makeCardPath;
 
-public class DroneSpawner extends AbstractDynamicCard {
+public class BirthingCells extends AbstractDynamicCard {
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
@@ -23,7 +23,7 @@ public class DroneSpawner extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = QueenMod.makeID(DroneSpawner.class.getSimpleName());
+    public static final String ID = QueenMod.makeID(BirthingCells.class.getSimpleName());
     public static final String IMG = makeCardPath("spawner.png");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -39,8 +39,8 @@ public class DroneSpawner extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
-    private static final int COST = 1;
-    private static final int UPGRADED_COST = 0;
+    private static final int COST = 2;
+    private static final int UPGRADED_COST = 1;
 
     // Hey want a second magic/damage/block/unique number??? Great!
     // Go check out DefaultAttackWithVariable and theDefault.variable.DefaultCustomVariable
@@ -50,7 +50,7 @@ public class DroneSpawner extends AbstractDynamicCard {
     // /STAT DECLARATION/
 
 
-    public DroneSpawner() {
+    public BirthingCells() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.cardsToPreview = new Drone();
     }

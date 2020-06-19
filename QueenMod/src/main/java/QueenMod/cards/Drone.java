@@ -40,7 +40,7 @@ public class Drone extends AbstractDynamicCard implements IsHive {
     public Drone() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.exhaust = true;
-        baseMagicNumber = this.magicNumber = 1;
+        baseMagicNumber = this.magicNumber = 2;
     }
 
 
@@ -57,7 +57,6 @@ public class Drone extends AbstractDynamicCard implements IsHive {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(1);
-            this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

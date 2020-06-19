@@ -64,6 +64,7 @@ public class Knighting extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             this.rawDescription = UPGRADE_DESCRIPTION;
+            this.target = CardTarget.SELF;
             initializeDescription();
         }
     }

@@ -18,14 +18,14 @@
         "workerbee",
         "workerbees"
       ],
-    "DESCRIPTION": "Worker Bees are 0-cost attacks that inflict 1 Pollinate and deal 2 damage. (When a Pollinated enemy is attacked, gain 2 Nectar)"
+    "DESCRIPTION": "Worker Bees are 0-cost skills that gain Nectar. At the start of your turn, gain [E] for every 10 Nectar."
     },
   {
       "NAMES": [
         "drone",
         "drones"
       ],
-      "DESCRIPTION": "Drones are 0-cost skills that draw a card and exhaust."
+      "DESCRIPTION": "Drones are 0-cost skills that draw 2 cards and exhaust."
     },
   {
     "NAMES": [
@@ -44,7 +44,7 @@
     "NAMES": [
         "hive"
       ],
-    "DESCRIPTION": "Hive cards are Hornets, Bumblebees, Honeybees and Drones."
+    "DESCRIPTION": "Hive cards are Hornets, Bumblebees, Workerbees and Drones."
     },
   {
       "NAMES": [

@@ -6,10 +6,7 @@ import QueenMod.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -52,15 +49,11 @@ public class MarchPower extends AbstractPower implements CloneablePowerInterface
         updateDescription();
     }
 
-    public void onAfterUseCard(AbstractCard c, UseCardAction a){
-        if (!c.exhaust && !c.purgeOnUse && !c.type.equals(AbstractCard.CardType.CURSE) && !c.type.equals(AbstractCard.CardType.STATUS) && !c.shuffleBackIntoDrawPile){
-            AbstractDungeon.actionManager.addToBottom(new FlybyAction(c));
-        }
-    }
 
     @Override
-    public void atEndOfTurn(boolean isPlayer) {
-        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, MarchPower.POWER_ID));
+    public void atStartOfTurn() {
+        AbstractDungeon.actionManager.addToBottom(new ShuffleAction(AbstractDungeon.player.drawPile, false));
+        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(this.amount));
     }
 
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
@@ -75,6 +68,6 @@ public class MarchPower extends AbstractPower implements CloneablePowerInterface
 
     @Override
     public AbstractPower makeCopy() {
-        return new ProductionPower(owner, source, amount);
+        return new MarchPower(owner, source, amount);
     }
 }

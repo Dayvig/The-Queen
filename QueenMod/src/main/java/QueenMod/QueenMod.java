@@ -395,6 +395,18 @@ public class QueenMod implements
         BaseMod.addCard(new Conscripts());
         BaseMod.addCard(new Charge());
         BaseMod.addCard(new Rally());
+        BaseMod.addCard(new Knighting());
+        BaseMod.addCard(new SupplyLines());
+        BaseMod.addCard(new ChainStrike());
+        BaseMod.addCard(new StrategicGenius());
+        BaseMod.addCard(new Overwhelm());
+        BaseMod.addCard(new ForcedMarch());
+        BaseMod.addCard(new HoneyShield());
+        BaseMod.addCard(new Drone());
+        BaseMod.addCard(new PopulateOrder());
+        BaseMod.addCard(new BirthingCells());
+        BaseMod.addCard(new RoyalBanquet());
+        BaseMod.addCard(new RoyalOrder());
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -450,6 +462,18 @@ public class QueenMod implements
         UnlockTracker.unlockCard(Conscripts.ID);
         UnlockTracker.unlockCard(Charge.ID);
         UnlockTracker.unlockCard(Rally.ID);
+        UnlockTracker.unlockCard(Knighting.ID);
+        UnlockTracker.unlockCard(SupplyLines.ID);
+        UnlockTracker.unlockCard(ChainStrike.ID);
+        UnlockTracker.unlockCard(StrategicGenius.ID);
+        UnlockTracker.unlockCard(Overwhelm.ID);
+        UnlockTracker.unlockCard(ForcedMarch.ID);
+        UnlockTracker.unlockCard(HoneyShield.ID);
+        UnlockTracker.unlockCard(Drone.ID);
+        UnlockTracker.unlockCard(PopulateOrder.ID);
+        UnlockTracker.unlockCard(BirthingCells.ID);
+        UnlockTracker.unlockCard(RoyalBanquet.ID);
+        UnlockTracker.unlockCard(RoyalOrder.ID);
 
         logger.info("Done adding cards!");
     }

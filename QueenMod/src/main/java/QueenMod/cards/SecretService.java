@@ -1,4 +1,4 @@
-package QueenMod.cards;
+/*package QueenMod.cards;
 
 import QueenMod.QueenMod;
 import QueenMod.actions.LoadCardImageAction;
@@ -44,7 +44,7 @@ public class SecretService extends AbstractDynamicCard {
     private static final int UPGRADED_COST = 0;
     String[] SSText = new String[7];
     // /STAT DECLARATION/
-    AbstractCard cardToPreview1 = new WASP();
+    AbstractCard cardToPreview1 = new RoyalOrder();
     boolean bullshit;
     int containsHornet;
     int containsBumblebee;
@@ -71,7 +71,6 @@ public class SecretService extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 
-        AbstractCard c = new WASP(containsHornet, containsBumblebee, containsHoneybee, containsDrone);
 
         if (!hornetMatrix.isEmpty()){
             toRemove = hornetMatrix.remove(AbstractDungeon.cardRandomRng.random(hornetMatrix.size()));
@@ -310,3 +309,4 @@ public class SecretService extends AbstractDynamicCard {
         }
     }
 }
+*/
