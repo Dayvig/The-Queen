@@ -55,6 +55,7 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
     private ArrayList<AbstractMonster> targets = new ArrayList<>();
     private boolean playerHasSwarm = false;
     private int totalSwarm;
+    private int realTotalSwarm;
 
     public HeartOfTheSwarm(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = NAME;
@@ -104,62 +105,63 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
     @Override
     public void onAfterUseCard(AbstractCard c, UseCardAction a) {
         totalSwarm = 0;
+        realTotalSwarm = 0;
         for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (m.hasPower(SwarmPowerEnemy.POWER_ID) && !m.isDying) {
                 totalSwarm += m.getPower(SwarmPowerEnemy.POWER_ID).amount;
+                realTotalSwarm += m.getPower(SwarmPowerEnemy.POWER_ID).amount;
+            }
+            if (m.hasPower(FocusedSwarmE.POWER_ID)){
+                realTotalSwarm += m.getPower(FocusedSwarmE.POWER_ID).amount;
             }
         }
         if (AbstractDungeon.player.hasPower(SwarmPower.POWER_ID)) {
             totalSwarm += AbstractDungeon.player.getPower(SwarmPower.POWER_ID).amount;
+            realTotalSwarm += AbstractDungeon.player.getPower(SwarmPower.POWER_ID).amount;
         }
-        if (totalSwarm == 0){return;}
-        if (c.type.equals(AbstractCard.CardType.STATUS) || c.type.equals(AbstractCard.CardType.CURSE)){
-            return;
+        if (AbstractDungeon.player.hasPower(FocusedSwarm.POWER_ID)) {
+            realTotalSwarm += AbstractDungeon.player.getPower(FocusedSwarm.POWER_ID).amount;
         }
-        if (c.cardID.equals(Mark.ID)){
-            AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, true, totalSwarm, a));
-            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(a.target, AbstractDungeon.player, SwarmPowerEnemy.POWER_ID));
-        }
-        else if (c.cardID.equals(HoldPosition.ID)){
-            AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, true, totalSwarm, a));
-        }
-        else if (c.cardID.equals(Spearhead.ID)){
-            AbstractCard tmp = c;
-            if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10) {
-                tmp.target = ALL_ENEMY;
+        if (!(totalSwarm == 0)) {
+            if (c.type.equals(AbstractCard.CardType.STATUS) || c.type.equals(AbstractCard.CardType.CURSE)) {
+                return;
             }
-            else {
-                tmp.target = ENEMY;
-            }
-            AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(tmp, false, totalSwarm, a));
-        }
-        else if (c.cardID.equals(Ruthless.ID)){
-            AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, true, totalSwarm, a));
-        }
-        else if (c.cardID.equals(Anticipate.ID) || c.cardID.equals(Parry.ID) || c.cardID.equals(Feint.ID)){
-            AbstractCard tmp = c;
-            tmp.target = AbstractCard.CardTarget.SELF;
-            AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, false, totalSwarm, a));
-        }
-        else if (c.cardID.equals(Frenzy.ID)){
-            AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, true, totalSwarm, a));
-        }
-        else if (c.cardID.equals(SplitStrike.ID) && totalSwarm > 1){
-            if (!a.target.isDying || !a.target.isDeadOrEscaped()) {
-                int temp = totalSwarm / 2;
-                totalSwarm -= temp;
+            if (c.cardID.equals(Mark.ID)) {
+                AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, true, totalSwarm, a));
+                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(a.target, AbstractDungeon.player, SwarmPowerEnemy.POWER_ID));
+            } else if (c.cardID.equals(HoldPosition.ID)) {
+                AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, true, totalSwarm, a));
+            } else if (c.cardID.equals(Spearhead.ID)) {
+                AbstractCard tmp = c;
+                if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10) {
+                    tmp.target = ALL_ENEMY;
+                } else {
+                    tmp.target = ENEMY;
+                }
+                AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(tmp, false, totalSwarm, a));
+            } else if (c.cardID.equals(Ruthless.ID)) {
+                AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, true, totalSwarm, a));
+            } else if (c.cardID.equals(Anticipate.ID) || c.cardID.equals(Parry.ID) || c.cardID.equals(Feint.ID)) {
+                AbstractCard tmp = c;
+                tmp.target = AbstractCard.CardTarget.SELF;
+                AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, false, totalSwarm, a));
+            } else if (c.cardID.equals(Frenzy.ID)) {
+                AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, true, totalSwarm, a));
+            } else if (c.cardID.equals(SplitStrike.ID) && totalSwarm > 1) {
+                if (!a.target.isDying || !a.target.isDeadOrEscaped()) {
+                    int temp = totalSwarm / 2;
+                    totalSwarm -= temp;
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
                             new FocusedSwarm(AbstractDungeon.player, AbstractDungeon.player, temp), temp));
+                    AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, false, totalSwarm, a));
+                }
+            } else if (c.cardID.equals(BlindingSwarm.ID)) {
+                AbstractCard tmp = c;
+                tmp.target = ALL_ENEMY;
+                AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(tmp, true, totalSwarm, a));
+            } else {
                 AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, false, totalSwarm, a));
             }
-        }
-        else if (c.cardID.equals(BlindingSwarm.ID)){
-            AbstractCard tmp = c;
-            tmp.target = ALL_ENEMY;
-            AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(tmp, true, totalSwarm, a));
-        }
-        else {
-            AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, false, totalSwarm, a));
         }
     }
 
@@ -170,15 +172,15 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
             if (particleTimer < 0.0F) {
                 playerHasSwarm = (AbstractDungeon.player.hasPower(SwarmPower.POWER_ID) || AbstractDungeon.player.hasPower(FocusedSwarm.POWER_ID));
                 targets.clear();
+                System.out.println("Swarm is on player: " + playerHasSwarm);
                 for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
                     if ((mo.hasPower(SwarmPowerEnemy.POWER_ID) || mo.hasPower(FocusedSwarmE.POWER_ID))) {
                         targets.add(mo);
                     }
                 }
                 this.particleTimer = 1.0F;
-                System.out.println(totalSwarm);
-                if (totalSwarm != 0) {
-                    AbstractDungeon.effectsQueue.add(new SwarmEffect(totalSwarm, playerHasSwarm, targets));
+                if (!(realTotalSwarm == 0)) {
+                    AbstractDungeon.effectsQueue.add(new SwarmEffect(realTotalSwarm, playerHasSwarm, targets));
                 }
             }
         }

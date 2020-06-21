@@ -50,15 +50,12 @@ public class SwarmEffect extends AbstractGameEffect {
             int numTargets = tar.size();
             if (p){numTargets++;}
             int index = (int) (Math.random() * numTargets);
-            System.out.println("Index number is: " + index);
             if (index == tar.size() || tar.isEmpty()) {
                 AbstractDungeon.effectsQueue.add(new SwarmParticle(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY));
-                System.out.println("Swarm on player");
             } else if (tar.get(index) != null) {
                 AbstractDungeon.effectsQueue.add(new SwarmParticle(
                         tar.get(index).hb.cX, tar.get(index).hb.cY,
                         tar.get(index).hb.cX, tar.get(index).hb.cY));
-                System.out.println("Swarm on enemy");
             }
         }
         if (this.duration < 0.0F) {

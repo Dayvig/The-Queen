@@ -58,6 +58,7 @@ public class RoyalOrderAction extends AbstractGameAction {
                 } else {
                     AbstractDungeon.actionManager.addToTop(new NewQueueCardAction(tmp, mo));
                 }
+                AbstractDungeon.actionManager.addToTop(new DiscardSpecificCardAction(tmp, AbstractDungeon.player.drawPile));
                 h = true;
             }
 
@@ -66,6 +67,7 @@ public class RoyalOrderAction extends AbstractGameAction {
                 tmp.applyPowers();
                 AbstractDungeon.player.limbo.group.add(tmp);
                     AbstractDungeon.actionManager.addToTop(new NewQueueCardAction(tmp, mo));
+                AbstractDungeon.actionManager.addToTop(new DiscardSpecificCardAction(tmp, AbstractDungeon.player.drawPile));
                 b = true;
             }
             if (tmp.cardID.equals(WorkerBee.ID) && !w) {
@@ -73,6 +75,7 @@ public class RoyalOrderAction extends AbstractGameAction {
                 tmp.applyPowers();
                 AbstractDungeon.player.limbo.group.add(tmp);
                 AbstractDungeon.actionManager.addToTop(new NewQueueCardAction(tmp, mo));
+                AbstractDungeon.actionManager.addToTop(new DiscardSpecificCardAction(tmp, AbstractDungeon.player.drawPile));
                 w = true;
             }
             if (tmp.cardID.equals(Drone.ID) && !d) {
@@ -86,9 +89,6 @@ public class RoyalOrderAction extends AbstractGameAction {
         for (AbstractCard c : AbstractDungeon.player.limbo.group){
             if (c.exhaust){
                 AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(c, AbstractDungeon.player.drawPile));
-            }
-            else {
-                AbstractDungeon.actionManager.addToBottom(new DiscardSpecificCardAction(c));
             }
             AbstractDungeon.actionManager.addToBottom(new UnlimboAction(c));
         }
