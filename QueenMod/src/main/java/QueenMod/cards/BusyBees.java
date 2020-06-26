@@ -3,6 +3,7 @@ package QueenMod.cards;
 import QueenMod.QueenMod;
 import QueenMod.actions.BusyBeesAction;
 import QueenMod.characters.TheQueen;
+import QueenMod.powers.BusyBeesPower;
 import QueenMod.powers.HoneyBoost;
 import QueenMod.powers.Nectar;
 import com.megacrit.cardcrawl.actions.common.*;
@@ -35,19 +36,18 @@ public class BusyBees extends AbstractDynamicCard {
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.NONE;  //   since they don't change much.
-    private static final CardType TYPE = CardType.SKILL;       //
+    private static final CardType TYPE = CardType.POWER;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 1;  // COST = ${COST}
-    private static final int UPGRADED_COST = 1; // UPGRADED_COST = ${UPGRADED_COST}
-    private static final int MAGIC = 2;
+    private static final int UPGRADED_COST = 0; // UPGRADED_COST = ${UPGRADED_COST}
 
     // /STAT DECLARATION/
 
 
     public BusyBees() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = MAGIC;
+        this.isInnate = false;
     }
 
 
@@ -55,10 +55,7 @@ public class BusyBees extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         CardCrawlGame.sound.playA("BEE_FADE", (float) Math.random() * 1.0F);
-        AbstractDungeon.actionManager.addToBottom(new BusyBeesAction());
-        if (AbstractDungeon.player.hasPower(HoneyBoost.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(magicNumber));
-        }
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p, new BusyBeesPower(p, p, 1),1));
     }
 
 
@@ -67,6 +64,7 @@ public class BusyBees extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            this.isInnate = true;
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }

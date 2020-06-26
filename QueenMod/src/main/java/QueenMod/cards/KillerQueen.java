@@ -38,16 +38,17 @@ public class KillerQueen extends AbstractDynamicCard {
     private static final int COST = 2;  // COST = ${COST}
     private static final int DAMAGE = 12;    // DAMAGE = ${DAMAGE}
     private static final int UPGRADE_PLUS_DMG = 3;  // UPGRADE_PLUS_DMG = ${UPGRADED_DAMAGE_INCREASE}
+    private static final int MAGIC = 2;
+    private static final int UPGRADE_MAGIC = 1;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-    private static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    private static final String EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION[0];
-    public int originalDamage;
+    private int originalDamage = 0;
 
     // /STAT DECLARATION/
 
 
     public KillerQueen() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        baseMagicNumber = magicNumber = MAGIC;
         baseDamage = damage = DAMAGE;
         originalDamage = DAMAGE;
     }
@@ -62,63 +63,16 @@ public class KillerQueen extends AbstractDynamicCard {
 
     public void applyPowers() {
         int numAttacks = 0;
-        int numOther = 0;
         AbstractPlayer p = AbstractDungeon.player;
-        for (AbstractCard c : p.hand.group) {
-            if (c.type.equals(CardType.ATTACK)) {
-                numAttacks++;
-            } else if (c.type.equals(CardType.SKILL)) {
-                numOther++;
-            }
-        }
         for (AbstractCard c : p.drawPile.group) {
             if (c.type.equals(CardType.ATTACK)) {
                 numAttacks++;
-            } else if (c.type.equals(CardType.SKILL)) {
-                numOther++;
             }
         }
-        for (AbstractCard c : p.discardPile.group) {
-            if (c.type.equals(CardType.ATTACK)) {
-                numAttacks++;
-            } else if (c.type.equals(CardType.SKILL)) {
-                numOther++;
-            }
-        }
-        if (numAttacks > numOther) {
-            baseDamage = originalDamage * 2;
-            this.rawDescription = EXTENDED_DESCRIPTION;
-        } else {
-            baseDamage = originalDamage;
-            this.rawDescription = DESCRIPTION;
-        }
+        baseDamage = originalDamage + (numAttacks*magicNumber);
         initializeDescription();
         super.applyPowers();
     }
-
-    public void triggerOnGlowCheck() {
-        int numAttacks = 0;
-        int numOther = 0;
-        for (AbstractCard c : AbstractDungeon.player.hand.group){
-            if (c.type.equals(AbstractCard.CardType.ATTACK)){numAttacks++;}
-            else if (c.type.equals(AbstractCard.CardType.SKILL)){numOther++;}
-        }
-        for (AbstractCard c : AbstractDungeon.player.drawPile.group){
-            if (c.type.equals(AbstractCard.CardType.ATTACK)){numAttacks++;}
-            else if (c.type.equals(AbstractCard.CardType.SKILL)){numOther++;}
-        }
-        for (AbstractCard c : AbstractDungeon.player.discardPile.group){
-            if (c.type.equals(AbstractCard.CardType.ATTACK)){numAttacks++;}
-            else if (c.type.equals(AbstractCard.CardType.SKILL)){numOther++;}
-        }
-        if (numAttacks > numOther){
-            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
-        } else {
-            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        }
-    }
-
-
 
     // Upgraded stats.
     @Override
@@ -126,7 +80,8 @@ public class KillerQueen extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             originalDamage += UPGRADE_PLUS_DMG;
-            this.upgradedDamage = true;
+            upgradeDamage(UPGRADE_PLUS_DMG);
+            upgradeMagicNumber(UPGRADE_MAGIC);
             initializeDescription();
         }
     }

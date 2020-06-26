@@ -58,7 +58,6 @@ public class BlindingSwarm extends AbstractDynamicCard {
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, AbstractDungeon.player, new WeakPower(mo, magicNumber, false), magicNumber));
             CardCrawlGame.sound.playA("BEE_ATTACK2", -1.0F);
-
         }
     }
 

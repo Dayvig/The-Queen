@@ -58,17 +58,25 @@ public class DistributeSwarmAction extends AbstractGameAction {
         System.out.println(i);
         switch (i) {
             case 1:
-                boolean monstersHavePower = false;
+                boolean moveSwarm = false;
                 for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
                     if (m.hasPower(SwarmPowerEnemy.POWER_ID)) {
+                        moveSwarm = true;
                         AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(m, m, SwarmPowerEnemy.POWER_ID));
-                        monstersHavePower = true;
                     }
                 }
-                if (monstersHavePower) {
+                if ((AbstractDungeon.player.hasPower(SwarmPower.POWER_ID) && f) || moveSwarm){
+                    moveSwarm = true;
                     AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, SwarmPower.POWER_ID));
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
-                            new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, s), s));
+                }
+                if (moveSwarm) {
+                    if (!f) {
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
+                                new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, s), s));
+                    } else {
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
+                                new FocusedSwarm(AbstractDungeon.player, AbstractDungeon.player, s), s));
+                    }
                 }
                 break;
             case 2:

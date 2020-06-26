@@ -5,6 +5,7 @@
 
 package QueenMod.actions;
 
+import QueenMod.powers.BusyBeesPower;
 import com.badlogic.gdx.Gdx;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -43,6 +44,9 @@ public class MakeTempCardInDrawPileActionFast extends AbstractGameAction {
 
     public void update() {
         if (this.duration == 0.0F) {
+            if (AbstractDungeon.player.hasPower(BusyBeesPower.POWER_ID)){
+                amount += AbstractDungeon.player.getPower(BusyBeesPower.POWER_ID).amount;
+            }
             AbstractCard c;
             int i;
             if (this.amount < 6) {

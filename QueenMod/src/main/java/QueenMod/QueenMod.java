@@ -407,6 +407,16 @@ public class QueenMod implements
         BaseMod.addCard(new BirthingCells());
         BaseMod.addCard(new RoyalBanquet());
         BaseMod.addCard(new RoyalOrder());
+        BaseMod.addCard(new ProtectQueen());
+        BaseMod.addCard(new SwarmTactics());
+        BaseMod.addCard(new KillerQueen());
+        BaseMod.addCard(new WarTrumpet());
+        BaseMod.addCard(new Honeyblaster());
+        BaseMod.addCard(new PheremoneSwap());
+        BaseMod.addCard(new HornetSwarm());
+        BaseMod.addCard(new IAmTheSwarm());
+        BaseMod.addCard(new BusyBees());
+        BaseMod.addCard(new Ravage());
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -474,6 +484,16 @@ public class QueenMod implements
         UnlockTracker.unlockCard(BirthingCells.ID);
         UnlockTracker.unlockCard(RoyalBanquet.ID);
         UnlockTracker.unlockCard(RoyalOrder.ID);
+        UnlockTracker.unlockCard(ProtectQueen.ID);
+        UnlockTracker.unlockCard(SwarmTactics.ID);
+        UnlockTracker.unlockCard(KillerQueen.ID);
+        UnlockTracker.unlockCard(WarTrumpet.ID);
+        UnlockTracker.unlockCard(Honeyblaster.ID);
+        UnlockTracker.unlockCard(PheremoneSwap.ID);
+        UnlockTracker.unlockCard(HornetSwarm.ID);
+        UnlockTracker.unlockCard(IAmTheSwarm.ID);
+        UnlockTracker.unlockCard(BusyBees.ID);
+        UnlockTracker.unlockCard(Ravage.ID);
 
         logger.info("Done adding cards!");
     }

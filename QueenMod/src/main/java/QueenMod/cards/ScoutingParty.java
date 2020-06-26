@@ -33,7 +33,7 @@ import static QueenMod.QueenMod.makeCardPath;
         public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
         private static final int COST = 1;  // COST = ${COST}
-        private static final int MAGIC = 3;
+        private static final int MAGIC = 2;
         // /STAT DECLARATION/
 
 
@@ -47,8 +47,8 @@ import static QueenMod.QueenMod.makeCardPath;
         // Actions the card should do.
         @Override
         public void use(AbstractPlayer p, AbstractMonster m) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p, magicNumber)));
             AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new WorkerBee(),2, true, false));
+            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, magicNumber));
         }
 
 

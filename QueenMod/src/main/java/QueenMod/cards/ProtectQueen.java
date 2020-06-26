@@ -39,7 +39,8 @@ public class ProtectQueen extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
-    private static final int COST = 1;
+    private static final int COST = 2;
+    private static final int UPGRADED_COST = 1;
     private static final int MAGIC = 1;
 
     // /STAT DECLARATION/
@@ -47,7 +48,6 @@ public class ProtectQueen extends AbstractDynamicCard {
     public ProtectQueen() {
 
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = MAGIC;
         this.cardsToPreview = new BumbleBee();
 
     }
@@ -56,12 +56,7 @@ public class ProtectQueen extends AbstractDynamicCard {
     @Override
     public void use(final AbstractPlayer p, final AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new RecruitAction(new BumbleBee(),2));
-        if (upgraded){
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p, new DefenderUpgradePower(p,p,1,1),1));
-        }
-        else {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p, new DefenderPower(p,p,1, 1),1));
-        }
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p, new DefenderPower(p,p,1, 1),1));
     }
 
     //Upgraded stats.
@@ -69,7 +64,7 @@ public class ProtectQueen extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            rawDescription = UPGRADE_DESCRIPTION;
+            upgradeBaseCost(UPGRADED_COST);
             initializeDescription();
         }
     }

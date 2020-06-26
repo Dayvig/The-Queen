@@ -30,24 +30,20 @@ public class RoyalBanquet extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
+    private static final CardRarity RARITY = CardRarity.RARE; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.NONE;  //   since they don't change much.
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 2;  // COST = ${COST}
-    private static final int MAGIC = 4;
-    private static final int BLOCK = 12;
-    private static final int UPGRADE_PLUS_BLOCK = 2;
-    private static final int UPGRADE_PLUS_MAGIC = 1;
+    private static final int BLOCK = 14;
+    private static final int UPGRADE_PLUS_BLOCK = 4;
     // /STAT DECLARATION/
 
 
     public RoyalBanquet() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = this.magicNumber = MAGIC;
         this.baseBlock = block = BLOCK;
-        this.cardsToPreview = new Drone();
     }
 
 
@@ -55,13 +51,31 @@ public class RoyalBanquet extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, block));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new Nectar(p, p, magicNumber), magicNumber));
+        int boost = 1;
         if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10){
-            int boost = (int)Math.floor(AbstractDungeon.player.getPower(Nectar.POWER_ID).amount/10);
-            for (int i = 0;i<boost;i++){
-                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new Drone(), 1, true, false));
-            }
+            boost += (int)Math.floor(AbstractDungeon.player.getPower(Nectar.POWER_ID).amount/10);
         }
+        for (int i = 0;i<boost;i++){
+            AbstractCard c;
+            switch ((int)(Math.random()*4)){
+                case 0:
+                    c = new Drone();
+                    break;
+                case 1:
+                    c = new WorkerBee();
+                    break;
+                case 2:
+                    c = new Hornet();
+                    break;
+                case 3:
+                    c = new BumbleBee();
+                    break;
+                default:
+                    c = new Drone();
+            }
+            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(c));
+        }
+
     }
 
     public void triggerOnGlowCheck() {
@@ -77,7 +91,6 @@ public class RoyalBanquet extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             upgradeBlock(UPGRADE_PLUS_BLOCK);
             initializeDescription();
         }

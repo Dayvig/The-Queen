@@ -38,8 +38,8 @@ public class ChainStrike extends AbstractDynamicCard {
 
     private static final int COST = 1;  // COST = ${COST}
 
-    private static final int DAMAGE = 7;    // DAMAGE = ${DAMAGE}
-    private static final int UPGRADE_PLUS_DAMAGE = 2;
+    private static final int DAMAGE = 14;    // DAMAGE = ${DAMAGE}
+    private static final int UPGRADE_PLUS_DAMAGE = 4;
 
     // /STAT DECLARATION/
 
@@ -55,18 +55,30 @@ public class ChainStrike extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ChainStrikeAction(this.magicNumber));
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
     }
 
-    public void triggerOnGlowCheck() {
-        if (!AbstractDungeon.actionManager.cardsPlayedThisTurn.isEmpty() && AbstractDungeon.actionManager.cardsPlayedThisTurn.size() >= magicNumber){
-            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
-        } else {
-            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+    @Override
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        int count = AbstractDungeon.actionManager.cardsPlayedThisTurn.size();
+        boolean canUse = super.canUse(p, m);
+        if (!canUse) {
+            return false;
+        }
+
+        if (count >= magicNumber){
+            return true;
+        }
+        else {
+            if (count == magicNumber-1){
+                this.cantUseMessage = "I need to play "+(magicNumber-count)+" more card this turn!";
+            }
+            else {
+                this.cantUseMessage = "I need to play " + (magicNumber - count) + " more cards this turn!";
+            }
+            return false;
         }
     }
-
 
     // Upgraded stats.
     @Override

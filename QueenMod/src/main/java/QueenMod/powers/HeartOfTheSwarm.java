@@ -5,17 +5,14 @@ import QueenMod.actions.DistributeSwarmAction;
 import QueenMod.cards.*;
 import QueenMod.cards.BlindingSwarm;
 import QueenMod.effects.SwarmEffect;
-import QueenMod.effects.SwarmParticle;
 import QueenMod.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.actions.defect.DoubleEnergyAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -25,15 +22,11 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.vfx.SpeechBubble;
-import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
-import com.megacrit.cardcrawl.vfx.stance.WrathParticleEffect;
 
 import java.util.ArrayList;
 
 import static QueenMod.QueenMod.makePowerPath;
 import static com.megacrit.cardcrawl.cards.AbstractCard.CardTarget.ALL_ENEMY;
-import static com.megacrit.cardcrawl.cards.AbstractCard.CardTarget.ENEMY;
 
 //Gain 1 dex for the turn for each card played.
 
@@ -103,6 +96,13 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
     }
 
     @Override
+    public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
+        if (AbstractDungeon.player.hasPower(HoneyShieldPower.POWER_ID) && target.equals(AbstractDungeon.player) && power.ID.equals(Nectar.POWER_ID)){
+            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this.owner, this.source, AbstractDungeon.player.getPower(HoneyShieldPower.POWER_ID).amount));
+        }
+    }
+
+    @Override
     public void onAfterUseCard(AbstractCard c, UseCardAction a) {
         totalSwarm = 0;
         realTotalSwarm = 0;
@@ -123,28 +123,26 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
             realTotalSwarm += AbstractDungeon.player.getPower(FocusedSwarm.POWER_ID).amount;
         }
         if (!(totalSwarm == 0)) {
-            if (c.type.equals(AbstractCard.CardType.STATUS) || c.type.equals(AbstractCard.CardType.CURSE)) {
+            if (c.type.equals(AbstractCard.CardType.STATUS) || c.type.equals(AbstractCard.CardType.CURSE) || c.type.equals(AbstractCard.CardType.POWER)) {
                 return;
             }
-            if (c.cardID.equals(Mark.ID)) {
+            else if (c.cardID.equals(Mark.ID)) {
                 AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, true, totalSwarm, a));
                 AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(a.target, AbstractDungeon.player, SwarmPowerEnemy.POWER_ID));
-            } else if (c.cardID.equals(HoldPosition.ID)) {
+            }
+            else if (c.cardID.equals(Ravage.ID)) {
+                AbstractCard tmp = c.makeStatEquivalentCopy();
+                tmp.target = ALL_ENEMY;
+                AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(tmp, true, totalSwarm, a));
+            }
+            else if (c.cardID.equals(HoldPosition.ID)) {
+                System.out.println("test1");
                 AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, true, totalSwarm, a));
-            } else if (c.cardID.equals(Spearhead.ID)) {
-                AbstractCard tmp = c;
-                if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10) {
-                    tmp.target = ALL_ENEMY;
-                } else {
-                    tmp.target = ENEMY;
-                }
-                AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(tmp, false, totalSwarm, a));
-            } else if (c.cardID.equals(Ruthless.ID)) {
-                AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, true, totalSwarm, a));
-            } else if (c.cardID.equals(Anticipate.ID) || c.cardID.equals(Parry.ID) || c.cardID.equals(Feint.ID)) {
-                AbstractCard tmp = c;
+            }
+            else if (c.cardID.equals(Anticipate.ID) || c.cardID.equals(Parry.ID) || c.cardID.equals(Feint.ID)) {
+                AbstractCard tmp = c.makeStatEquivalentCopy();
                 tmp.target = AbstractCard.CardTarget.SELF;
-                AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, false, totalSwarm, a));
+                AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(tmp, false, totalSwarm, a));
             } else if (c.cardID.equals(Frenzy.ID)) {
                 AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, true, totalSwarm, a));
             } else if (c.cardID.equals(SplitStrike.ID) && totalSwarm > 1) {
@@ -156,7 +154,7 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
                     AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, false, totalSwarm, a));
                 }
             } else if (c.cardID.equals(BlindingSwarm.ID)) {
-                AbstractCard tmp = c;
+                AbstractCard tmp = c.makeStatEquivalentCopy();
                 tmp.target = ALL_ENEMY;
                 AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(tmp, true, totalSwarm, a));
             } else {

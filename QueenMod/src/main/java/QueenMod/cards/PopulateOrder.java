@@ -3,6 +3,8 @@ package QueenMod.cards;
 import QueenMod.QueenMod;
 import QueenMod.actions.MakeTempCardInDrawPileActionFast;
 import QueenMod.characters.TheQueen;
+import QueenMod.powers.SwarmPower;
+import QueenMod.powers.SwarmPowerEnemy;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -36,7 +38,8 @@ public class PopulateOrder extends AbstractDynamicCard {
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 1;  // COST = ${COST}
-    private static final int MAGIC = 1;
+    private static final int UPGRADED_COST = 0;
+    private static final int MAGIC = 2;
 
     // /STAT DECLARATION/
 
@@ -51,8 +54,8 @@ public class PopulateOrder extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new EnergizedBluePower(p, magicNumber)));
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new Drone(),1, true, false, false));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SwarmPower(p, p, magicNumber), magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new Drone(),2, true, false, false));
     }
 
 
@@ -61,8 +64,7 @@ public class PopulateOrder extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
-            this.rawDescription = UPGRADE_DESCRIPTION;
+            upgradeMagicNumber(2);
             initializeDescription();
         }
     }

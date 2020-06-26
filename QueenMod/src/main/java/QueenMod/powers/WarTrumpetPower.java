@@ -1,6 +1,7 @@
 package QueenMod.powers;
 
 import QueenMod.QueenMod;
+import QueenMod.actions.MakeTempCardInDrawPileActionFast;
 import QueenMod.cards.Drone;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -68,8 +69,7 @@ public class WarTrumpetPower extends AbstractPower {
 
     public void onAfterUseCard(AbstractCard c, UseCardAction a){
         if (c.type.equals(AbstractCard.CardType.ATTACK)){
-            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this.owner, this.owner, this.amount));
-            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Drone(), this.amount, true, false));
+            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new Drone(), this.amount, true, false));
         }
     }
 

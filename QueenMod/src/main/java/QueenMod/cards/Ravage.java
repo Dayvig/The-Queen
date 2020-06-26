@@ -2,7 +2,6 @@ package QueenMod.cards;
 
 import QueenMod.QueenMod;
 import QueenMod.characters.TheQueen;
-import QueenMod.powers.SwarmPower;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -19,11 +18,11 @@ import com.megacrit.cardcrawl.vfx.combat.BiteEffect;
 import static QueenMod.QueenMod.makeCardPath;
 
 // public class ${NAME} extends AbstractDynamicCard
-public class Ruthless extends AbstractDynamicCard {
+public class Ravage extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = QueenMod.makeID(Ruthless.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
+    public static final String ID = QueenMod.makeID(Ravage.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
     public static final String IMG = makeCardPath("ruthless.png");// "public static final String IMG = makeCardPath("${NAME}.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -34,28 +33,30 @@ public class Ruthless extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
-    private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
+    private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
+    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;  //   since they don't change much.
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 2;  // COST = ${COST}
-    private static final int MAGIC = 2;
-    private static final int UPGRADE_MAGIC = 2;
+    private static final int DAMAGE = 13;
+    private static final int UPGRADE_PLUS_DAMAGE = 5;
     // /STAT DECLARATION/
 
 
-    public Ruthless() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
+    public Ravage() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = MAGIC;
+        baseDamage = damage = DAMAGE;
+        isMultiDamage = true;
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(p, p, new SwarmPower(p,p,this.magicNumber),this.magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new VFXAction(new BiteEffect(m.hb.cX, m.hb.cY - 40.0F * Settings.scale, Color.SCARLET.cpy()), 0.3F));
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
+        for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            AbstractDungeon.actionManager.addToBottom(new VFXAction(new BiteEffect(mo.hb.cX, mo.hb.cY - 40.0F * Settings.scale, Color.SCARLET.cpy()), 0.1F));
+        }
+        AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
     }
 
     // Upgraded stats.
@@ -63,7 +64,7 @@ public class Ruthless extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_MAGIC);
+            upgradeDamage(UPGRADE_PLUS_DAMAGE);
             initializeDescription();
         }
     }

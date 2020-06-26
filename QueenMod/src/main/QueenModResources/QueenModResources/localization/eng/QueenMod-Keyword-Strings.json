@@ -116,9 +116,9 @@
   },
   {
     "NAMES": [
-      "defensive"
+      "lock"
     ],
-    "DESCRIPTION": "Activated if your current deck contains more Skills than Attacks."
+    "DESCRIPTION": "Your swarm will not move from the target during this turn."
   },
   {
     "NAMES": [

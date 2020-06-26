@@ -19,21 +19,21 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 
 import static QueenMod.QueenMod.makeCardPath;
 
-public class HoneycombSmash extends AbstractDynamicCard
+public class Honeyblaster extends AbstractDynamicCard
 {
-    public static final String ID = QueenMod.makeID(HoneycombSmash.class.getSimpleName());
+    public static final String ID = QueenMod.makeID(Honeyblaster.class.getSimpleName());
     public static final String IMG = makeCardPath("honeycomb.png");// "public static final String IMG = makeCardPath("${NAME}.png");
     private static final int COST = 1;
-    private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
+    private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
-    private static final int DAMAGE = 8;
-    private static final int UPGRADE_PLUS_DAMAGE = 4;
+    private static final int DAMAGE = 7;
+    private static final int UPGRADE_PLUS_DAMAGE = 2;
     private static final int MAGIC = 1;
 
-    public HoneycombSmash()
+    public Honeyblaster()
     {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
@@ -42,15 +42,13 @@ public class HoneycombSmash extends AbstractDynamicCard
 
     // Uses the titles and descriptions of the option cards as tooltips for this card
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m)
-    {
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10){
-            int boost = (int)Math.floor(AbstractDungeon.player.getPower(Nectar.POWER_ID).amount/10);
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new WeakPower(m, magicNumber+(boost*2), false), magicNumber));
+    public void use(AbstractPlayer p, AbstractMonster m) {
+        int boost = 0;
+        if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10) {
+            boost += (int) Math.floor(AbstractDungeon.player.getPower(Nectar.POWER_ID).amount / 10);
         }
-        else {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new WeakPower(m, magicNumber, false), magicNumber));
+        for (int i = 0; i < magicNumber + boost; i++) {
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         }
     }
 
@@ -76,6 +74,6 @@ public class HoneycombSmash extends AbstractDynamicCard
     @Override
     public AbstractCard makeCopy()
     {
-        return new HoneycombSmash();
+        return new Honeyblaster();
     }
 }

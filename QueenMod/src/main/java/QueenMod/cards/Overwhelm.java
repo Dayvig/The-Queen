@@ -53,7 +53,6 @@ public class Overwhelm extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (int i = 0;i<times; i++) {
             CardCrawlGame.sound.play("BEE_ATTACK1", (float)Math.random()*1.0F);
-
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         }
     }
