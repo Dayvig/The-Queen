@@ -417,6 +417,7 @@ public class QueenMod implements
         BaseMod.addCard(new IAmTheSwarm());
         BaseMod.addCard(new BusyBees());
         BaseMod.addCard(new Ravage());
+        BaseMod.addCard(new Regroup());
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -494,6 +495,7 @@ public class QueenMod implements
         UnlockTracker.unlockCard(IAmTheSwarm.ID);
         UnlockTracker.unlockCard(BusyBees.ID);
         UnlockTracker.unlockCard(Ravage.ID);
+        UnlockTracker.unlockCard(Regroup.ID);
 
         logger.info("Done adding cards!");
     }

@@ -44,10 +44,10 @@ public class SecretWeapon extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
-    private static final int COST = 4;  // COST = ${COST}
-    private static final int UPGRADED_COST = 3;
+    private static final int COST = 3;  // COST = ${COST}
 
     private static final int DAMAGE = 30;    // DAMAGE = ${DAMAGE}
+    private static final int UPGRADE_PLUS_DAMAGE = 10;
     // /STAT DECLARATION/
 
 
@@ -82,7 +82,7 @@ public class SecretWeapon extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
+            upgradeDamage(UPGRADE_PLUS_DAMAGE);
             initializeDescription();
         }
     }
