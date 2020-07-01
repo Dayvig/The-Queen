@@ -35,7 +35,7 @@
     "NAME": "Honey Jar",
     "FLAVOR": "A hereto unknown technology allowing the long term storage of nectar. Remarkable.",
     "DESCRIPTIONS": [
-      "At the start of each combat, gain #b20 #yNectar."
+      "At the start of each combat, gain #b5 #yNectar."
     ]
   },
   "QueenMod:Medal": {

@@ -14,5 +14,34 @@
       "[Invest] Remove a card. Improve future Hive events if common or better.",
       "[Leave]"
     ]
+  },
+  "QueenMod:HiveEventBuilding": {
+    "NAME": "Hive Builders Return",
+    "DESCRIPTIONS": [
+      "You hear an audible buzzing, and from a passageway, a small group of bees return to you. NL #yThis #yspire #yhas #ymany #yuseful #ythings #yto #yoffer! NL They say, handing you a small trinket and a sack of gold.",
+      "#yHive #ycontruction #yis #ygoing #ywell, #ymy #yqueen! #yBut #ywith #ya #ylittle #ymore #y~bee-power~ #ywe #ycould #yreally #yspeed #ythings #yup! NL They look at you, expectantly.",
+      "#yAs #yyou #ywish! NL They happily rejoin you.",
+      "#yWhich #yof #yyour #ytroops #ywill #yyou #yoffer? NL They ask.",
+      "#yThank #yyou #ymy #yQueen, #ythis #ywill #ybe #yever #yso #yhelpful! NL You detect a hint of sarcasm.",
+      "#yThank #yyou #ymy #yQueen, #ythis #ywill #ybe #yever #yso #yhelpful! NL They seem content, and buzz away.",
+      "#yThank #yyou #ymy #yQueen, #ythis #ywill #ybe #yever #yso #yhelpful! NL They seem overjoyed, and move with renewed enthusiasm."
+    ],
+    "OPTIONS": [
+      "[Collect] #gGain #g100 #ggold #gand #gan #guncommon #grelic",
+      "[Recall] #gGain #g2 #gyellow #gcards. #gGain #g100 #ggold.",
+      "[Invest] Remove a card. Improve future Hive events if common or better.",
+      "[Leave]"
+    ]
+  },
+  "QueenMod:HiveEventColony": {
+    "NAME": "The Colony Returns",
+    "DESCRIPTIONS": [
+      "You hear a deafening buzzing, and from two passageways, a full platoon emerges. NL #yEager #yto #yserve, #ymy #yqueen! NL They chant.",
+      "With your colony by your side, you feel #y~inspired.~"
+    ],
+    "OPTIONS": [
+      "[Collect] #gGain #g200 #ggold, #g3 #gcards #gand #g2 #gRare #gRelics.",
+      "[Leave]"
+    ]
   }
 }

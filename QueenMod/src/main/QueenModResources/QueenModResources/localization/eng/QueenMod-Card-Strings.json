@@ -316,8 +316,8 @@
   },
   "QueenMod:HonorGuard":{
     "NAME": "Honor Guards",
-    "DESCRIPTION": "Add 2 upgraded queenmod:Bumblebees to your hand. NL Retain. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Add 2 upgraded queenmod:Bumblebees to your hand. NL Retain. Exhaust."
+    "DESCRIPTION": "Innate. NL Add 2 Bumblebees to your hand. NL Retain. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Add 2 Upgraded Bumblebees to your hand. NL Retain. Exhaust."
   },
   "QueenMod:HoneyFactory":{
     "NAME": "Honey Factory",

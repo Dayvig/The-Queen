@@ -44,7 +44,7 @@ public class PheremoneSwap extends AbstractDynamicCard {
 
     public PheremoneSwap() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.retain = true;
+        this.selfRetain = true;
     }
 
 

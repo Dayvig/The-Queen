@@ -55,8 +55,6 @@ public class HiveEventScouting extends AbstractImageEvent {
                         this.imageEventText.clearRemainingOptions(); // 2. and remove all others
                         screenNum = 1;
                         this.reward();
-                        AbstractDungeon.player.gainGold(100);
-                        CardCrawlGame.sound.play("GOLD_GAIN", 0.05F);
 
                         break; // Onto screen 1 we go.
                     case 1: // If you press button the second button (Button at index 1), in this case: Deinal
@@ -94,6 +92,7 @@ public class HiveEventScouting extends AbstractImageEvent {
     private void reward() {
         AbstractDungeon.getCurrRoom().rewards.clear();
         //AbstractDungeon.getCurrRoom().addCardReward(new RewardItem());
+        AbstractDungeon.getCurrRoom().addGoldToRewards(100);
         AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE;
         AbstractDungeon.combatRewardScreen.open();
     }

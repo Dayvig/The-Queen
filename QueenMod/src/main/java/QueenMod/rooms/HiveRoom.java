@@ -1,5 +1,7 @@
 package QueenMod.rooms;
 
+import QueenMod.events.HiveEventBuilding;
+import QueenMod.events.HiveEventColony;
 import QueenMod.events.HiveEventScouting;
 import QueenMod.relics.QueensBanner;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -21,8 +23,28 @@ public class HiveRoom extends EventRoom {
     @Override
     public void onPlayerEntry() {
         AbstractDungeon.overlayMenu.proceedButton.hide();
-        if (AbstractDungeon.player.hasRelic(QueensBanner.ID) && AbstractDungeon.player.getRelic(QueensBanner.ID).counter == 0) {
-            this.event = new HiveEventScouting();
+
+        if (AbstractDungeon.player.hasRelic(QueensBanner.ID)) {
+            if (AbstractDungeon.player.getRelic(QueensBanner.ID).counter < 0){
+                AbstractDungeon.player.getRelic(QueensBanner.ID).counter = 0;
+            }
+            if (AbstractDungeon.player.getRelic(QueensBanner.ID).counter > 2){
+                AbstractDungeon.player.getRelic(QueensBanner.ID).counter = 2;
+            }
+            switch (AbstractDungeon.player.getRelic(QueensBanner.ID).counter){
+                case 0:
+                    this.event = new HiveEventScouting();
+                    break;
+                case 1:
+                    this.event = new HiveEventBuilding();
+                    break;
+                case 2:
+                    this.event = new HiveEventColony();
+                    break;
+                default:
+                    this.event = new HiveEventScouting();
+                    break;
+            }
         }
         AbstractDungeon.player.getRelic(QueensBanner.ID).usedUp();
     }

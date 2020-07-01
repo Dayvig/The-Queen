@@ -2,6 +2,8 @@ package QueenMod;
 
 import QueenMod.cards.*;
 import QueenMod.characters.TheQueen;
+import QueenMod.events.HiveEventBuilding;
+import QueenMod.events.HiveEventColony;
 import QueenMod.events.HiveEventScouting;
 import QueenMod.relics.*;
 import QueenMod.util.IDCheckDontTouchPls;
@@ -11,6 +13,7 @@ import QueenMod.variables.DefaultSecondMagicNumber;
 import basemod.BaseMod;
 import basemod.ModLabel;
 import basemod.ModPanel;
+import basemod.eventUtil.AddEventParams;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
@@ -273,6 +276,9 @@ public class QueenMod implements
         // =============== /EVENTS/ =================
 
         BaseMod.addEvent(HiveEventScouting.ID, HiveEventScouting.class);
+        BaseMod.addEvent(HiveEventBuilding.ID, HiveEventBuilding.class);
+        BaseMod.addEvent(HiveEventColony.ID, HiveEventColony.class);
+
         logger.info("Done loading badge Image and mod options");
 
     }

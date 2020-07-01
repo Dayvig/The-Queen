@@ -27,7 +27,7 @@ public class HoneyJar extends CustomRelic {
 
     @Override
     public void atBattleStartPreDraw() {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new Nectar(AbstractDungeon.player, AbstractDungeon.player, 20),20));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new Nectar(AbstractDungeon.player, AbstractDungeon.player, 5),5));
     }
 
 

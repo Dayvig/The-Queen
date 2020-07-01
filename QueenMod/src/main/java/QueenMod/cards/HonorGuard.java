@@ -29,20 +29,21 @@ public class HonorGuard extends AbstractDynamicCard {
     // STAT DECLARATION
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
-    private static final CardTarget TARGET = CardTarget.SELF;  //   since they don't change much.
+    private static final CardTarget TARGET = CardTarget.NONE;  //   since they don't change much.
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 0;  // COST = ${COST}
+    AbstractCard d = new BumbleBee();
     // /STAT DECLARATION/
 
 
     public HonorGuard() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.isInnate = false;
+        this.isInnate = true;
         this.exhaust = true;
-        this.retain = true;
-        this.cardsToPreview = new BumbleBee();
+        this.selfRetain = true;
+        this.cardsToPreview = d;
     }
 
 
@@ -50,7 +51,9 @@ public class HonorGuard extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractCard b = new BumbleBee();
-        b.upgrade();
+        if (upgraded) {
+            b.upgrade();
+        }
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(b,2));
     }
 
@@ -59,7 +62,7 @@ public class HonorGuard extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.isInnate = true;
+            d.upgrade();
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }

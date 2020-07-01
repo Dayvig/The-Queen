@@ -33,8 +33,8 @@ public class WorkerBee extends AbstractDynamicCard implements IsHive {
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 0;  // COST = ${COST}
-    private static final int MAGIC = 4;
-    private static final int UPGRADE_MAGIC = 2;
+    private static final int MAGIC = 5;
+    private static final int UPGRADE_MAGIC = 3;
 
     // /STAT DECLARATION/
 
