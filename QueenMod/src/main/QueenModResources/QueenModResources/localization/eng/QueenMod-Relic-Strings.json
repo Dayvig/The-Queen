@@ -3,7 +3,7 @@
     "NAME": "Queen's Banner",
     "FLAVOR": "As long as the banner remains, the nation will never die.",
     "DESCRIPTIONS": [
-      "At the start of your turn, add a #yDrone to your draw pile."
+      "The first event of every act is a Hive Event."
     ]
   },
   "QueenMod:PlaceholderRelic2": {

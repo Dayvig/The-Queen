@@ -2,6 +2,7 @@ package QueenMod;
 
 import QueenMod.cards.*;
 import QueenMod.characters.TheQueen;
+import QueenMod.events.HiveEventScouting;
 import QueenMod.relics.*;
 import QueenMod.util.IDCheckDontTouchPls;
 import QueenMod.util.TextureLoader;
@@ -18,6 +19,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
@@ -55,7 +57,8 @@ public class QueenMod implements
         EditKeywordsSubscriber,
         EditCharactersSubscriber,
         PostInitializeSubscriber,
-        AddAudioSubscriber
+        AddAudioSubscriber,
+        StartActSubscriber
 {
     // Make sure to implement the subscribers *you* are using (read basemod wiki). Editing cards? EditCardsSubscriber.
     // Making relics? EditRelicsSubscriber. etc., etc., for a full list and how to make your own, visit the basemod wiki.
@@ -268,6 +271,8 @@ public class QueenMod implements
         // Essentially, you need to patch the game and say "if a player is not playing my character class, remove the event from the pool"
 
         // =============== /EVENTS/ =================
+
+        BaseMod.addEvent(HiveEventScouting.ID, HiveEventScouting.class);
         logger.info("Done loading badge Image and mod options");
 
     }
@@ -312,6 +317,8 @@ public class QueenMod implements
     }
 
     // ================ /ADD RELICS/ ===================
+
+
 
     // ================ ADD AUDIO ====================
 
@@ -578,4 +585,12 @@ public class QueenMod implements
         return getModID() + ":" + idText;
     }
 
-}
+    @Override
+    public void receiveStartAct() {
+        System.out.println("Banner Refreshed");
+        if (AbstractDungeon.player.hasRelic(QueensBanner.ID)){
+            QueensBanner banner = (QueensBanner)AbstractDungeon.player.getRelic(QueensBanner.ID);
+            banner.refreshForAct();
+            }
+        }
+    }

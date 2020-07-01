@@ -22,11 +22,13 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.rooms.MonsterRoom;
 
 import java.util.ArrayList;
 
 import static QueenMod.QueenMod.makePowerPath;
 import static com.megacrit.cardcrawl.cards.AbstractCard.CardTarget.ALL_ENEMY;
+import static com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase.COMBAT;
 
 //Gain 1 dex for the turn for each card played.
 
@@ -165,7 +167,7 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
 
     @Override
     public void update(int z) {
-        if (!Settings.DISABLE_EFFECTS) {
+        if (!Settings.DISABLE_EFFECTS && AbstractDungeon.getCurrRoom().phase.equals(COMBAT)) {
             this.particleTimer -= Gdx.graphics.getDeltaTime();
             if (particleTimer < 0.0F) {
                 playerHasSwarm = (AbstractDungeon.player.hasPower(SwarmPower.POWER_ID) || AbstractDungeon.player.hasPower(FocusedSwarm.POWER_ID));

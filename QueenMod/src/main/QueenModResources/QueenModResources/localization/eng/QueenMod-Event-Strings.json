@@ -1,21 +1,18 @@
 {
-  "QueenMod:IdentityCrisisEvent": {
-    "NAME": "Identity Crisis",
+  "QueenMod:HiveEventScouting": {
+    "NAME": "Hive Scouts Return",
     "DESCRIPTIONS": [
-      "As you move through ~The~ ~City~ you come across a #pPurple #pMirror. NL You look at it, but you see no reflection.",
-      "You see no one but #g~You~ #g~wish~ #g~to~ #g~become~ #g~someone.~",
-      "#r@YOU@ #r@EXIST@ #r@AND@ #r@ARE@ #r@VALID!@",
-      "#yYou #yare #yat #ypeace #ywith #yyour #ypresence.",
-      "You have no hands."
+      "You hear a faint buzzing, and from a small hole, your scouts return to you. NL #yWe #yhave #yfound #ysome #ytreasure, #yand #ysome #ygood #yspots #yto #ycreate #your #yhive, #ybut #yI #yfear #ywe #yneed #ymore #y~bee-power!~ NL They say, still out of breath.",
+      "#yOf #ycourse, #ymy #yqueen. NL They say, with a hint of disappointment.",
+      "#yWhich #yof #yyour #ytroops #ywill #yyou #yoffer? NL They ask.",
+      "#yThank #yyou #ymy #yQueen, #ythis #ywill #ybe #yever #yso #yhelpful! NL You detect a hint of sarcasm.",
+      "#yThank #yyou #ymy #yQueen, #ythis #ywill #ybe #yever #yso #yhelpful! NL They seem content, and buzz away.",
+      "#yThank #yyou #ymy #yQueen, #ythis #ywill #ybe #yever #yso #yhelpful! NL They seem overjoyed, and move with renewed enthusiasm."
     ],
     "OPTIONS": [
-      "[Inspiration] #gGain #ga #gRandom #gStarting #gRelic.",
-      "[Denial] #rLose #r",
-      " #rMax #rHP. #gRemove #ga #gCard #gfrom #gyour #gdeck.",
-      "[Acceptance] #gGain #gApotheosis.",
-      "[TOUCH THE MIRROR] TOUCH TOUCH TO#C# TOUCH TO UCH TOUCH #rTOUCH TOUCH",
-      "[Leave]",
-      "Select card to remove."
+      "[Recall] #gGain #ga #gyellow #gcard. #gGain #g100 #ggold.",
+      "[Invest] Remove a card. Improve future Hive events if common or better.",
+      "[Leave]"
     ]
   }
 }

@@ -3,10 +3,22 @@ package QueenMod.relics;
 import QueenMod.QueenMod;
 import QueenMod.actions.MakeTempCardInDrawPileActionFast;
 import QueenMod.cards.Drone;
+import QueenMod.events.HiveEventScouting;
 import QueenMod.util.TextureLoader;
+import basemod.CustomEventRoom;
 import basemod.abstracts.CustomRelic;
+import basemod.interfaces.StartActSubscriber;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.events.AbstractImageEvent;
+import com.megacrit.cardcrawl.events.RoomEventDialog;
+import com.megacrit.cardcrawl.map.MapEdge;
+import com.megacrit.cardcrawl.map.MapRoomNode;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.rooms.EventRoom;
+
+import java.util.ArrayList;
 
 import static QueenMod.QueenMod.makeRelicOutlinePath;
 import static QueenMod.QueenMod.makeRelicPath;
@@ -21,20 +33,21 @@ public class QueensBanner extends CustomRelic {
 
     public QueensBanner() {
         super(ID, IMG, OUTLINE, RelicTier.STARTER, LandingSound.FLAT);
+        usedUp = false;
+        counter = 0;
     }
 
-
-    @Override
-    public void atTurnStart(){
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new Drone(), 1, true, false));
-        flash();
+    public void refreshForAct(){
+        usedUp = false;
+        beginPulse();
+        pulse = true;
+        grayscale = false;
+        description = DESCRIPTIONS[0];
     }
-
 
     // Description
     @Override
     public String getUpdatedDescription() {
         return DESCRIPTIONS[0];
     }
-
 }
