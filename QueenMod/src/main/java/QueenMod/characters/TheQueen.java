@@ -155,6 +155,7 @@ public class TheQueen extends CustomPlayer {
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
+        retVal.add(Defend.ID);
         retVal.add(QuickJabs.ID);
         retVal.add(Recruit.ID);
 
@@ -278,6 +279,11 @@ public class TheQueen extends CustomPlayer {
     public void applyPreCombatLogic() {
         super.applyPreCombatLogic();
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player,AbstractDungeon.player,new HeartOfTheSwarm(AbstractDungeon.player,AbstractDungeon.player,1),1));
+        for (AbstractCard c : AbstractDungeon.player.drawPile.group){
+            if (c.cardID.equals(KillerBee.ID)){
+                c.baseDamage = 0;
+            }
+        }
         //add action here
     }
 }

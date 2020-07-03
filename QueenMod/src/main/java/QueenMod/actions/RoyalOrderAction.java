@@ -48,9 +48,8 @@ public class RoyalOrderAction extends AbstractGameAction {
         while (!(h && b && d && w) && !cardMatrix.isEmpty()) {
             AbstractCard tmp = cardMatrix.remove((int) (cardMatrix.size() * Math.random()));
             if (tmp.cardID.equals(Hornet.ID) && !h) {
-                tmp.costForTurn = 0;
+                tmp.freeToPlayOnce = true;
                 tmp.applyPowers();
-                AbstractDungeon.player.limbo.group.add(tmp);
                 Hornet tempHornet = (Hornet) tmp;
                 if ((mo.hasPower(TimeWarpPower.POWER_ID) && mo.getPower(TimeWarpPower.POWER_ID).amount == 11) || mo.hasPower(ThornsPower.POWER_ID) || mo.hasPower(SharpHidePower.POWER_ID) || mo.hasPower(BeatOfDeathPower.POWER_ID)) {
                     AbstractDungeon.actionManager.addToTop(new DrawToHandAction(tmp));
@@ -63,26 +62,24 @@ public class RoyalOrderAction extends AbstractGameAction {
             }
 
             if (tmp.cardID.equals(BumbleBee.ID) && !b) {
-                tmp.costForTurn = 0;
+                tmp.freeToPlayOnce = true;
                 tmp.applyPowers();
-                AbstractDungeon.player.limbo.group.add(tmp);
-                    AbstractDungeon.actionManager.addToTop(new NewQueueCardAction(tmp, mo));
+                    AbstractDungeon.actionManager.addToTop(new NewQueueCardAction(tmp, true));
                 AbstractDungeon.actionManager.addToTop(new DiscardSpecificCardAction(tmp, AbstractDungeon.player.drawPile));
                 b = true;
             }
             if (tmp.cardID.equals(WorkerBee.ID) && !w) {
-                tmp.costForTurn = 0;
+                tmp.freeToPlayOnce = true;
                 tmp.applyPowers();
-                AbstractDungeon.player.limbo.group.add(tmp);
-                AbstractDungeon.actionManager.addToTop(new NewQueueCardAction(tmp, mo));
+                AbstractDungeon.actionManager.addToTop(new NewQueueCardAction(tmp, true));
                 AbstractDungeon.actionManager.addToTop(new DiscardSpecificCardAction(tmp, AbstractDungeon.player.drawPile));
                 w = true;
             }
             if (tmp.cardID.equals(Drone.ID) && !d) {
-                tmp.costForTurn = 0;
+                tmp.freeToPlayOnce = true;
                 tmp.applyPowers();
-                AbstractDungeon.player.limbo.group.add(tmp);
-                AbstractDungeon.actionManager.addToTop(new NewQueueCardAction(tmp, mo));
+                AbstractDungeon.actionManager.addToTop(new NewQueueCardAction(tmp, true));
+                AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(tmp, AbstractDungeon.player.drawPile));
                 d = true;
             }
         }

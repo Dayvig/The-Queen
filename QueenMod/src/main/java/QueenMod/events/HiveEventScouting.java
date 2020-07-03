@@ -30,7 +30,7 @@ public class HiveEventScouting extends AbstractImageEvent {
     private static final String NAME = eventStrings.NAME;
     private static final String[] DESCRIPTIONS = eventStrings.DESCRIPTIONS;
     private static final String[] OPTIONS = eventStrings.OPTIONS;
-    public static final String IMG = makeEventPath("IdentityCrisisEvent.png");
+    public static final String IMG = makeEventPath("scouts.png");
 
     private int screenNum = 0; // The initial screen we will see when encountering the event - screen 0;
     private boolean cardSelect = false;

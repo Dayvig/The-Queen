@@ -30,12 +30,12 @@ public class MilitaryHandbook extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
+    private static final CardRarity RARITY = CardRarity.RARE; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.NONE;  //   since they don't change much.
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
-    private static final int COST = 0;  // COST = ${COST}
+    private static final int COST = 1;  // COST = ${COST}
     private static final int MAGIC = 3;
     private static final int UPGRADE_MAGIC = 1;
     // /STAT DECLARATION/
@@ -52,17 +52,7 @@ public class MilitaryHandbook extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, magicNumber));
-        if (AbstractDungeon.player.hasPower(HoneyBoost.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new ArtOfWarAction());
-        }
-    }
-
-    public void triggerOnGlowCheck() {
-        if (AbstractDungeon.player.hasPower(HoneyBoost.POWER_ID)){
-            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
-        } else {
-            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        }
+        AbstractDungeon.actionManager.addToBottom(new ArtOfWarAction());
     }
 
 

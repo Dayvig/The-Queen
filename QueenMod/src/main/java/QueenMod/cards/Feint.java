@@ -50,8 +50,8 @@ public class Feint extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WeakPower(m, 1, false)));
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new WeakPower(m, magicNumber, false)));
+        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(1));
     }
 
 
@@ -73,14 +73,17 @@ public class Feint extends AbstractDynamicCard {
                     AbstractDungeon.actionManager.cardsPlayedThisTurn.get(
                             AbstractDungeon.actionManager.cardsPlayedThisTurn.size() - 1).type.equals(CardType.ATTACK);
         }
+        else {
+            attackPlayed = false;
+        }
     }
+
     // Upgraded stats.
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(1);
-            this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

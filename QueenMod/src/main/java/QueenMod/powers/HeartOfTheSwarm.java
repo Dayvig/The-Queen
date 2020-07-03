@@ -84,7 +84,6 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
 
     @Override
     public void atStartOfTurn(){
-
         for (AbstractCard c : AbstractDungeon.player.drawPile.group){
             if (c.cardID.equals(KillerBee.ID)){
                 if (c.upgraded) {

@@ -1,11 +1,13 @@
 package QueenMod.cards;
 
 import QueenMod.QueenMod;
+import QueenMod.actions.MakeTempCardInDrawPileActionFast;
 import QueenMod.actions.RecruitAction;
 import QueenMod.characters.TheQueen;
 import QueenMod.powers.DefenderPower;
 import QueenMod.powers.DefenderUpgradePower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -55,7 +57,7 @@ public class ProtectQueen extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(final AbstractPlayer p, final AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new RecruitAction(new BumbleBee(),2));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new BumbleBee(),2, true, false));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p, new DefenderPower(p,p,1, 1),1));
     }
 

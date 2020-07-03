@@ -24,17 +24,13 @@ public class HornetSwarmAction extends AbstractGameAction {
     private void playAllHornets (CardGroup g){
         for (AbstractCard c : g.group) {
 
-            if (c.cardID.equals(Hornet.ID) || c.cardID.equals(HornetCommander.ID))
+            if (c.cardID.equals(Hornet.ID))
             {
                 c.costForTurn = 0;
                 c.applyPowers();
                 AbstractDungeon.player.limbo.group.add(c);
                 if (c.cardID.equals(Hornet.ID)){
                     Hornet tmp = (Hornet) c;
-                    tmp.playedBySwarm = true;
-                }
-                else if (c.cardID.equals(HornetCommander.ID)){
-                    HornetCommander tmp = (HornetCommander) c;
                     tmp.playedBySwarm = true;
                 }
                 AbstractDungeon.actionManager.addToTop(new NewQueueCardAction(c, AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng)));

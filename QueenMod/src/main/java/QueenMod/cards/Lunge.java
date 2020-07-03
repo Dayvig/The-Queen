@@ -4,6 +4,7 @@ import QueenMod.QueenMod;
 import QueenMod.characters.TheQueen;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -26,15 +27,15 @@ public class Lunge extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
+    private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 0;  // COST = ${COST}
 
-    private static final int DAMAGE = 2;    // DAMAGE = ${DAMAGE}
-    private static final int MAGIC = 2;
+    private static final int DAMAGE = 4;    // DAMAGE = ${DAMAGE}
+    private static final int UPGRADE_PLUS_DAMAGE = 2;
     public boolean skillPlayed;
     // /STAT DECLARATION/
 
@@ -43,16 +44,14 @@ public class Lunge extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         skillPlayed = false;
-        this.baseMagicNumber = magicNumber = MAGIC;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (int i = 0; i < magicNumber; i++) {
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        }
+            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(1));
     }
 
     @Override
@@ -80,7 +79,7 @@ public class Lunge extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
+            upgradeDamage(UPGRADE_PLUS_DAMAGE);
             initializeDescription();
         }
     }

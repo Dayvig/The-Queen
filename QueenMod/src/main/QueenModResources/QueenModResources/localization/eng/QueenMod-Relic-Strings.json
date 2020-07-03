@@ -49,7 +49,7 @@
     "NAME": "Draft Notice",
     "FLAVOR": "One of the perks of eusocial societies: no draft dodgers.",
     "DESCRIPTIONS": [
-      "At the start of combat, add #b3 #yDrones to your draw pile."
+      "At the start of combat, add #b3 #yDrones to your draw pile. (Drones are 0-cost skills that draw 2 cards and exhaust.)"
     ]
   },
   "QueenMod:BloatedManual": {

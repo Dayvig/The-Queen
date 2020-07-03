@@ -403,13 +403,11 @@ public class QueenMod implements
         BaseMod.addCard(new PerfectLanding());
         BaseMod.addCard(new Advisor());
         BaseMod.addCard(new ScoutingParty());
-        BaseMod.addCard(new Garrison());
         BaseMod.addCard(new HoldPosition());
         BaseMod.addCard(new Conscripts());
         BaseMod.addCard(new Charge());
         BaseMod.addCard(new Rally());
         BaseMod.addCard(new Knighting());
-        BaseMod.addCard(new SupplyLines());
         BaseMod.addCard(new ChainStrike());
         BaseMod.addCard(new StrategicGenius());
         BaseMod.addCard(new Overwhelm());
@@ -431,6 +429,10 @@ public class QueenMod implements
         BaseMod.addCard(new BusyBees());
         BaseMod.addCard(new Ravage());
         BaseMod.addCard(new Regroup());
+        BaseMod.addCard(new HexGuard());
+        BaseMod.addCard(new Lunge());
+        BaseMod.addCard(new Feint());
+        BaseMod.addCard(new MilitaryHandbook());
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -481,13 +483,11 @@ public class QueenMod implements
         UnlockTracker.unlockCard(PerfectLanding.ID);
         UnlockTracker.unlockCard(Advisor.ID);
         UnlockTracker.unlockCard(ScoutingParty.ID);
-        UnlockTracker.unlockCard(Garrison.ID);
         UnlockTracker.unlockCard(HoldPosition.ID);
         UnlockTracker.unlockCard(Conscripts.ID);
         UnlockTracker.unlockCard(Charge.ID);
         UnlockTracker.unlockCard(Rally.ID);
         UnlockTracker.unlockCard(Knighting.ID);
-        UnlockTracker.unlockCard(SupplyLines.ID);
         UnlockTracker.unlockCard(ChainStrike.ID);
         UnlockTracker.unlockCard(StrategicGenius.ID);
         UnlockTracker.unlockCard(Overwhelm.ID);
@@ -509,6 +509,10 @@ public class QueenMod implements
         UnlockTracker.unlockCard(BusyBees.ID);
         UnlockTracker.unlockCard(Ravage.ID);
         UnlockTracker.unlockCard(Regroup.ID);
+        UnlockTracker.unlockCard(HexGuard.ID);
+        UnlockTracker.unlockCard(Lunge.ID);
+        UnlockTracker.unlockCard(Feint.ID);
+        UnlockTracker.unlockCard(MilitaryHandbook.ID);
 
         logger.info("Done adding cards!");
     }

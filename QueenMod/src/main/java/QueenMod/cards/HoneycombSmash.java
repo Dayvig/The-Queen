@@ -10,7 +10,9 @@ import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
@@ -28,8 +30,10 @@ public class HoneycombSmash extends AbstractDynamicCard
     private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
+    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+    public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 
-    private static final int DAMAGE = 8;
+    private static final int DAMAGE = 6;
     private static final int UPGRADE_PLUS_DAMAGE = 4;
     private static final int MAGIC = 1;
 
@@ -57,8 +61,13 @@ public class HoneycombSmash extends AbstractDynamicCard
     public void triggerOnGlowCheck() {
         if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10){
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+            this.rawDescription = DESCRIPTION;
+            this.rawDescription += "(x"+(int)Math.floor(AbstractDungeon.player.getPower(Nectar.POWER_ID).amount / 10)+")";
+            initializeDescription();
         } else {
             this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+            this.rawDescription = DESCRIPTION;
+            initializeDescription();
         }
     }
 

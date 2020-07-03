@@ -107,8 +107,8 @@
                 "NAME": "Gathering Swarm...",
                 "DESCRIPTIONS": [
                                 "At the start of your turn, gain #b",
-                                " Swarm. Doubles while Honey-boosted.",
-                                ""
+                                " Swarm.",
+                                " Swarm."
                 ]
         },
         "QueenMod:OrganizedWorkForcePower": {
@@ -194,24 +194,24 @@
         "QueenMod:ReinforcementsPower": {
                 "NAME": "Reinforcements",
                 "DESCRIPTIONS": [
-                        "At the start of your turn, play a Hornet, Bumblebee or Honeybee from your draw pile at random.",
-                        "",
-                        ""
+                        "At the start of your turn, play #b",
+                        " Hornet or Bumblebee from your draw pile, attacking a random target.",
+                        " Hornets or Bumblebees from your draw pile, attacking random targets."
                 ]
         },
         "QueenMod:DroneArmyPower": {
                 "NAME": "Drone Army",
                 "DESCRIPTIONS": [
-                        "When you play a Drone, gain #b Swarm.",
-                        "",
+                        "When you play a Drone, gain #b",
+                        " S",
                         ""
                 ]
         },
         "QueenMod:HoneyShieldPower": {
                 "NAME": "Honey Shield",
                 "DESCRIPTIONS": [
-                        "When you gain Nectar, gain #b block.",
-                        "",
+                        "When you gain Nectar, gain #b",
+                        " Block.",
                         ""
                 ]
         },
@@ -226,9 +226,9 @@
         "QueenMod:ProductionPower": {
                 "NAME": "Production",
                 "DESCRIPTIONS": [
-                        "At the start of your turn, add #b",
-                        "Workerbee from your Draw Pile to your hand.",
-                        "Workerbees from your Draw Pile to your hand."
+                        "At the start of your turn, gain #b",
+                        " Nectar.",
+                        " Nectar."
                 ]
         },
         "QueenMod:GeneralPower": {
@@ -251,8 +251,7 @@
                 "NAME": "War Trumpet",
                 "DESCRIPTIONS": [
                         "When you play an attack, add #b",
-                        "Drones to your draw pile and gain #b",
-                        "Block."
+                        "Drones to your draw pile."
                 ]
         },
         "QueenMod:HoneyBoost": {
@@ -261,6 +260,22 @@
                         "Doubles your energy at the start of the turn and improves your cards.",
                         "",
                         ""
+                ]
+        },
+        "QueenMod:MarchPower": {
+                "NAME": "Forced March",
+                "DESCRIPTIONS": [
+                        "At the start of your turn, shuffle your discard pile into your deck and draw #b",
+                        " card.",
+                        " cards."
+                ]
+        },
+        "QueenMod:BusyBeesPower": {
+                "NAME": "Busy Bees",
+                "DESCRIPTIONS": [
+                        "When you add a card to your draw pile, add #b",
+                        " additional card.",
+                        " additional cards."
                 ]
         }
 }

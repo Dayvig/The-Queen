@@ -23,19 +23,19 @@ public class OverwhelmingForce extends AbstractDynamicCard {
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
+    private static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 
     // /TEXT DECLARATION/
 
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
+    private static final CardRarity RARITY = CardRarity.RARE; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
-    private static final int COST = 3;  // COST = ${COST}
-    private static final int UPGRADED_COST = 2;
+    private static final int COST = 2;  // COST = ${COST}
 
     private static final int DAMAGE = 0;    // DAMAGE = ${DAMAGE}
     private static final int UPGRADE_PLUS_DAMAGE = 0;
@@ -60,7 +60,12 @@ public class OverwhelmingForce extends AbstractDynamicCard {
     public void applyPowers() {
         super.applyPowers();
         this.baseDamage = AbstractDungeon.player.drawPile.size();
-        this.rawDescription = EXTENDED_DESCRIPTION[0];
+        if (!upgraded) {
+            this.rawDescription = EXTENDED_DESCRIPTION[0];
+        }
+        else {
+            this.rawDescription = EXTENDED_DESCRIPTION[1];
+        }
         initializeDescription();
     }
 
@@ -70,7 +75,8 @@ public class OverwhelmingForce extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
+            this.target = CardTarget.ALL_ENEMY;
+            this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }
