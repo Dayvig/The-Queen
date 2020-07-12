@@ -1,10 +1,16 @@
 package QueenMod.cards;
 
 import QueenMod.QueenMod;
+import QueenMod.actions.DistributeSwarmAction;
 import QueenMod.actions.UpgradeCardInDeckAction;
 import QueenMod.characters.TheQueen;
+import QueenMod.powers.FocusedSwarm;
+import QueenMod.powers.FocusedSwarmE;
 import QueenMod.powers.SwarmPower;
+import QueenMod.powers.SwarmPowerEnemy;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -16,10 +22,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static QueenMod.QueenMod.makeCardPath;
 
 // public class ${NAME} extends AbstractDynamicCard
-public class MatingDance extends AbstractDynamicCard {
+public class TortureDance extends AbstractDynamicCard {
 
-    public static final String ID = QueenMod.makeID(MatingDance.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
-    public static final String IMG = makeCardPath("dance.png");// "public static final String IMG = makeCardPath("${NAME}.png");
+    public static final String ID = QueenMod.makeID(TortureDance.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
+    public static final String IMG = makeCardPath("torture.png");// "public static final String IMG = makeCardPath("${NAME}.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
@@ -30,15 +36,14 @@ public class MatingDance extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
-    private static final CardTarget TARGET = CardTarget.NONE;  //   since they don't change much.
+    private static final CardRarity RARITY = CardRarity.RARE; //  Up to you, I like auto-complete on these
+    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;  //   since they don't change much.
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = -2;  // COST = ${COST}
-    private static final int MAGIC = 4;
-    private static final int UPGRADE_MAGIC = 2;
-
+    private static final int DAMAGE = 10;
+    private static final int UPGRADE_PLUS_DAMAGE = 4;
 
     private int combo;
     private static final int COMBO_LENGTH = 3;
@@ -49,9 +54,10 @@ public class MatingDance extends AbstractDynamicCard {
     // /STAT DECLARATION/
 
 
-    public MatingDance() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
+    public TortureDance() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = MAGIC;
+        baseDamage = damage = DAMAGE;
+        isMultiDamage = true;
     }
 
 
@@ -71,7 +77,7 @@ public class MatingDance extends AbstractDynamicCard {
         if (c.type.equals(dance[combo])){
             combo++;
             if (combo == COMBO_LENGTH){
-                AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, magicNumber),magicNumber));
+                AbstractDungeon.actionManager.addToTop(new DamageAllEnemiesAction(AbstractDungeon.player, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
                 combo = 0;
                 desc = "";
                 for (int i=0;i<COMBO_LENGTH;i++) {
@@ -244,7 +250,7 @@ public class MatingDance extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.upgradeMagicNumber(UPGRADE_MAGIC);
+            upgradeDamage(UPGRADE_PLUS_DAMAGE);
             initializeDescription();
         }
     }

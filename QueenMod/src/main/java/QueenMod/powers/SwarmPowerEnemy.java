@@ -2,8 +2,10 @@ package QueenMod.powers;
 
 import QueenMod.QueenMod;
 import QueenMod.util.TextureLoader;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.HealthBarRenderPower;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.megacrit.cardcrawl.actions.common.*;
@@ -16,7 +18,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static QueenMod.QueenMod.makePowerPath;
 
-public class SwarmPowerEnemy extends AbstractPower {
+public class SwarmPowerEnemy extends AbstractPower implements HealthBarRenderPower {
     public AbstractCreature source;
     public static final String POWER_ID = QueenMod.makeID("SwarmE");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -81,6 +83,17 @@ public class SwarmPowerEnemy extends AbstractPower {
         AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner,this.source, SwarmPowerEnemy.POWER_ID));
         AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, am), am));
     }
+
+    @Override
+    public int getHealthBarAmount() {
+        return this.amount;
+    }
+
+    @Override
+    public Color getColor() {
+        return Color.TAN;
+    }
+
     /*
     @SpirePatch(
             clz=AbstractMonster.class,

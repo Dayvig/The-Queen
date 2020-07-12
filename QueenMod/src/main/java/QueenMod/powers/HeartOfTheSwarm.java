@@ -1,20 +1,26 @@
 package QueenMod.powers;
 
 import QueenMod.QueenMod;
+import QueenMod.actions.AmbushAction;
 import QueenMod.actions.DistributeSwarmAction;
 import QueenMod.cards.*;
 import QueenMod.cards.BlindingSwarm;
+import QueenMod.effects.AmbushEffect;
 import QueenMod.effects.SwarmEffect;
 import QueenMod.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -22,7 +28,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.SharpHidePower;
+import com.megacrit.cardcrawl.powers.ThornsPower;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
+import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 
 import java.util.ArrayList;
 
@@ -83,7 +92,7 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
     }
 
     @Override
-    public void atStartOfTurn(){
+    public void atStartOfTurnPostDraw(){
         for (AbstractCard c : AbstractDungeon.player.drawPile.group){
             if (c.cardID.equals(KillerBee.ID)){
                 if (c.upgraded) {
@@ -91,6 +100,22 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
                 }
                 else {
                     c.baseDamage += 8;
+                }
+            }
+            if (c.cardID.equals(HiveDefenses.ID)){
+                AbstractMonster mon = AbstractDungeon.getCurrRoom().monsters.getRandomMonster(true);
+                if (mon.hasPower(ThornsPower.POWER_ID) || mon.hasPower(SharpHidePower.POWER_ID)){
+                    AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 2.0F, "[RETALIATION DETECTED, HOLDING FIRE.]", true));
+                }
+                else {
+                    if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10) {
+                        int boost = AbstractDungeon.player.getPower(Nectar.POWER_ID).amount / 10;
+                        AbstractDungeon.effectList.add(new AmbushEffect(c));
+                        for (int i = 0; i < boost; i++) {
+                            c.calculateCardDamage(mon);
+                            AbstractDungeon.actionManager.addToBottom(new DamageAction(mon, new DamageInfo(AbstractDungeon.player, c.damage), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                        }
+                    }
                 }
             }
         }
@@ -152,7 +177,7 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
                     totalSwarm -= temp;
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
                             new FocusedSwarm(AbstractDungeon.player, AbstractDungeon.player, temp), temp));
-                    AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, false, totalSwarm, a));
+                    AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, true, totalSwarm, a));
                 }
             } else if (c.cardID.equals(BlindingSwarm.ID)) {
                 AbstractCard tmp = c.makeStatEquivalentCopy();

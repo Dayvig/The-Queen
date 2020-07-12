@@ -102,6 +102,7 @@ public class QueenMod implements
     private static final String SKILL_QUEEN_PORTRAIT = "QueenModResources/images/1024/beeSkillPortrait.png";
     private static final String POWER_QUEEN_PORTRAIT = "QueenModResources/images/1024/beepowerPortrait.png";
     private static final String ENERGY_ORB_QUEEN_PORTRAIT = "QueenModResources/images/1024/card_queen_orb.png";
+    public static final String QUEEN_CHARACTER = "QueenModResources/images/char/queen/char.png";
 
     // Character assets
     private static final String QUEEN_BUTTON = "QueenModResources/images/charSelect/DefaultCharacterButton.png";
@@ -275,9 +276,9 @@ public class QueenMod implements
 
         // =============== /EVENTS/ =================
 
-        BaseMod.addEvent(HiveEventScouting.ID, HiveEventScouting.class);
-        BaseMod.addEvent(HiveEventBuilding.ID, HiveEventBuilding.class);
-        BaseMod.addEvent(HiveEventColony.ID, HiveEventColony.class);
+        BaseMod.addEvent(new AddEventParams.Builder(HiveEventScouting.ID, HiveEventScouting.class).spawnCondition(() -> false).create());
+        BaseMod.addEvent(new AddEventParams.Builder(HiveEventBuilding.ID, HiveEventBuilding.class).spawnCondition(() -> false).create());
+        BaseMod.addEvent(new AddEventParams.Builder(HiveEventColony.ID, HiveEventColony.class).spawnCondition(() -> false).create());
 
         logger.info("Done loading badge Image and mod options");
 
@@ -410,7 +411,7 @@ public class QueenMod implements
         BaseMod.addCard(new Knighting());
         BaseMod.addCard(new ChainStrike());
         BaseMod.addCard(new StrategicGenius());
-        BaseMod.addCard(new Overwhelm());
+        //BaseMod.addCard(new FinishingBlow());
         BaseMod.addCard(new ForcedMarch());
         BaseMod.addCard(new HoneyShield());
         BaseMod.addCard(new Drone());
@@ -433,6 +434,15 @@ public class QueenMod implements
         BaseMod.addCard(new Lunge());
         BaseMod.addCard(new Feint());
         BaseMod.addCard(new MilitaryHandbook());
+        BaseMod.addCard(new TortureDance());
+        BaseMod.addCard(new HoneyTrap());
+        BaseMod.addCard(new EliteSoldiers());
+        BaseMod.addCard(new SwarmingStrike());
+        BaseMod.addCard(new WarriorDrones());
+        BaseMod.addCard(new FlankingStrike());
+        BaseMod.addCard(new WorkerDrones());
+        BaseMod.addCard(new Garrison());
+        BaseMod.addCard(new HiveDefenses());
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -490,7 +500,7 @@ public class QueenMod implements
         UnlockTracker.unlockCard(Knighting.ID);
         UnlockTracker.unlockCard(ChainStrike.ID);
         UnlockTracker.unlockCard(StrategicGenius.ID);
-        UnlockTracker.unlockCard(Overwhelm.ID);
+        UnlockTracker.unlockCard(FinishingBlow.ID);
         UnlockTracker.unlockCard(ForcedMarch.ID);
         UnlockTracker.unlockCard(HoneyShield.ID);
         UnlockTracker.unlockCard(Drone.ID);
@@ -513,6 +523,15 @@ public class QueenMod implements
         UnlockTracker.unlockCard(Lunge.ID);
         UnlockTracker.unlockCard(Feint.ID);
         UnlockTracker.unlockCard(MilitaryHandbook.ID);
+        UnlockTracker.unlockCard(TortureDance.ID);
+        UnlockTracker.unlockCard(HoneyTrap.ID);
+        UnlockTracker.unlockCard(EliteSoldiers.ID);
+        UnlockTracker.unlockCard(SwarmingStrike.ID);
+        UnlockTracker.unlockCard(WarriorDrones.ID);
+        UnlockTracker.unlockCard(FlankingStrike.ID);
+        UnlockTracker.unlockCard(WorkerDrones.ID);
+        UnlockTracker.unlockCard(Garrison.ID);
+        UnlockTracker.unlockCard(HiveDefenses.ID);
 
         logger.info("Done adding cards!");
     }

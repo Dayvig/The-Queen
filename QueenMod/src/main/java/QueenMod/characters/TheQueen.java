@@ -93,15 +93,14 @@ public class TheQueen extends CustomPlayer {
     // =============== CHARACTER CLASS START =================
 
     public TheQueen(String name, PlayerClass setClass) {
-        super(name, setClass, e, new SpriterAnimation(
-                "QueenModResources/images/char/queen/Spriter/theDefaultAnimation.scml"));
+        super(name, setClass, e, new noAnimation());
 
 
         // =============== TEXTURES, ENERGY, LOADOUT =================
 
-        initializeClass(null, // required call to load textures and setup energy/loadout.
+        initializeClass(QUEEN_CHARACTER, // required call to load textures and setup energy/loadout.
                 // I left these in QueenMod.java (Ctrl+click them to see where they are, Ctrl+hover to see what they read.)
-               QUEEN_SHOULDER_1, // campfire pose
+                QUEEN_SHOULDER_1, // campfire pose
                 QUEEN_SHOULDER_2, // another campfire pose
                 QUEEN_CORPSE, // dead corpse
                 getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN)); // energy manager
@@ -113,12 +112,13 @@ public class TheQueen extends CustomPlayer {
 
         // =============== ANIMATIONS =================
 
-        loadAnimation(
+        /*loadAnimation(
                 QUEEN_SKELETON_ATLAS,
                 QUEEN_SKELETON_JSON,
                 1.0f);
         AnimationState.TrackEntry e = state.setAnimation(0, "animation", true);
         e.setTime(e.getEndTime() * MathUtils.random());
+         */
 
         // =============== /ANIMATIONS/ =================
 
@@ -254,9 +254,9 @@ public class TheQueen extends CustomPlayer {
     @Override
     public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
         return new AbstractGameAction.AttackEffect[]{
-                AbstractGameAction.AttackEffect.BLUNT_HEAVY,
-                AbstractGameAction.AttackEffect.BLUNT_HEAVY,
-                AbstractGameAction.AttackEffect.BLUNT_HEAVY};
+                AbstractGameAction.AttackEffect.BLUNT_LIGHT,
+                AbstractGameAction.AttackEffect.SLASH_DIAGONAL,
+                AbstractGameAction.AttackEffect.BLUNT_LIGHT};
     }
 
     // Should return a string containing what text is shown when your character is

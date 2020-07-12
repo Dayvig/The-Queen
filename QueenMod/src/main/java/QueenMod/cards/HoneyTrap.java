@@ -21,26 +21,24 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 
 import static QueenMod.QueenMod.makeCardPath;
 
-public class HoneycombSmash extends AbstractDynamicCard
+public class HoneyTrap extends AbstractDynamicCard
 {
-    public static final String ID = QueenMod.makeID(HoneycombSmash.class.getSimpleName());
-    public static final String IMG = makeCardPath("honeycomb.png");// "public static final String IMG = makeCardPath("${NAME}.png");
+    public static final String ID = QueenMod.makeID(HoneyTrap.class.getSimpleName());
+    public static final String IMG = makeCardPath("honeytrap.png");// "public static final String IMG = makeCardPath("${NAME}.png");
     private static final int COST = 1;
-    private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
-    private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
-    private static final CardType TYPE = CardType.ATTACK;       //
+    private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
+    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;  //   since they don't change much.
+    private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 
-    private static final int DAMAGE = 6;
-    private static final int UPGRADE_PLUS_DAMAGE = 4;
-    private static final int MAGIC = 1;
+    private static final int MAGIC = 4;
+    private static final int UPGRADE_PLUS_MAGIC = 2;
 
-    public HoneycombSmash()
+    public HoneyTrap()
     {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = damage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC;
     }
 
@@ -48,13 +46,13 @@ public class HoneycombSmash extends AbstractDynamicCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10){
-            int boost = (int)Math.floor(AbstractDungeon.player.getPower(Nectar.POWER_ID).amount/10);
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new WeakPower(m, magicNumber+(boost*2), false), magicNumber+(boost*2)));
-        }
-        else {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new WeakPower(m, magicNumber, false), magicNumber));
+        for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10) {
+                int boost = (int) Math.floor(AbstractDungeon.player.getPower(Nectar.POWER_ID).amount / 10);
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new LoseStrengthPower(mo, magicNumber + (boost * 2)), magicNumber + (boost * 2)));
+            } else {
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new LoseStrengthPower(mo, magicNumber), magicNumber));
+            }
         }
     }
 
@@ -78,13 +76,13 @@ public class HoneycombSmash extends AbstractDynamicCard
     {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_PLUS_DAMAGE);
+            upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
         }
     }
 
     @Override
     public AbstractCard makeCopy()
     {
-        return new HoneycombSmash();
+        return new HoneyTrap();
     }
 }

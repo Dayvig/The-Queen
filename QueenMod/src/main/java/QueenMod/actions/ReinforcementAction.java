@@ -12,10 +12,8 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.BeatOfDeathPower;
-import com.megacrit.cardcrawl.powers.SharpHidePower;
-import com.megacrit.cardcrawl.powers.ThornsPower;
-import com.megacrit.cardcrawl.powers.TimeWarpPower;
+import com.megacrit.cardcrawl.monsters.city.Chosen;
+import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 
 import java.util.ArrayList;
@@ -45,7 +43,7 @@ public class ReinforcementAction extends AbstractGameAction {
         }
         CardGroup p = AbstractDungeon.player.drawPile;
         if (p.group.isEmpty()){
-            AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, Text2, true));
+            AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, Text, true));
             this.isDone = true;
             return;
         }
@@ -56,7 +54,7 @@ public class ReinforcementAction extends AbstractGameAction {
                 }
             }
             if (upgradeMatrix.isEmpty()) {
-                AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, Text, true));
+                AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, Text2, true));
                 this.isDone = true;
                 return;
             }
@@ -64,12 +62,18 @@ public class ReinforcementAction extends AbstractGameAction {
             c1.freeToPlayOnce = true;
             c1.applyPowers();
             AbstractDungeon.player.limbo.group.add(c1);
+            AbstractDungeon.player.drawPile.group.remove(c1);
         if (AbstractDungeon.player.hand.group.contains(c1)){
             AbstractDungeon.player.hand.removeCard(c1);
             AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, 1));
         }
 
         AbstractMonster mo = AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng);
+        for (AbstractMonster mon : AbstractDungeon.getCurrRoom().monsters.monsters){
+            if (mon.hasPower(HexPower.POWER_ID)){
+                mo = mon;
+            }
+        }
         if (c1.cardID.equals(Hornet.ID)){
                 Hornet tmp = (Hornet) c1;
                 tmp.playedBySwarm = true;
@@ -82,7 +86,7 @@ public class ReinforcementAction extends AbstractGameAction {
                 }
             }
             else {
-                if (mo.hasPower(TimeWarpPower.POWER_ID) && mo.getPower(TimeWarpPower.POWER_ID).amount == 11){
+                if (mo.hasPower(AngerPower.POWER_ID) || AbstractDungeon.player.hasPower(HexPower.POWER_ID) || (mo.hasPower(TimeWarpPower.POWER_ID) && mo.getPower(TimeWarpPower.POWER_ID).amount == 11)){
                     AbstractDungeon.actionManager.addToTop(new DrawToHandAction(c1));
                     AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, Text3, true));
                 }

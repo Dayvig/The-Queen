@@ -54,11 +54,50 @@ public class StingerPower extends AbstractPower implements CloneablePowerInterfa
            if (c.cardID.equals(Hornet.ID)) {
                if (!c.upgraded) {
                    c.baseDamage = 11 + this.amount;
+                   c.isDamageModified = true;
                } else {
                    c.baseDamage = 15 + this.amount;
+                   c.isDamageModified = true;
                }
            }
        }
+    }
+
+    @Override
+    public void onInitialApplication() {
+        for (AbstractCard c : AbstractDungeon.player.drawPile.group){
+            if (c.cardID.equals(Hornet.ID)) {
+                if (!c.upgraded) {
+                    c.baseDamage = 11 + this.amount;
+                    c.isDamageModified = true;
+                } else {
+                    c.baseDamage = 15 + this.amount;
+                    c.isDamageModified = true;
+                }
+            }
+        }
+        for (AbstractCard c : AbstractDungeon.player.hand.group){
+            if (c.cardID.equals(Hornet.ID)) {
+                if (!c.upgraded) {
+                    c.baseDamage = 11 + this.amount;
+                    c.isDamageModified = true;
+                } else {
+                    c.baseDamage = 15 + this.amount;
+                    c.isDamageModified = true;
+                }
+            }
+        }
+        for (AbstractCard c : AbstractDungeon.player.discardPile.group){
+            if (c.cardID.equals(Hornet.ID)) {
+                if (!c.upgraded) {
+                    c.baseDamage = 11 + this.amount;
+                    c.isDamageModified = true;
+                } else {
+                    c.baseDamage = 15 + this.amount;
+                    c.isDamageModified = true;
+                }
+            }
+        }
     }
 
     @Override

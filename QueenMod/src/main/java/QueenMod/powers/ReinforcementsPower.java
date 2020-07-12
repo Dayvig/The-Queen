@@ -61,8 +61,8 @@ public class ReinforcementsPower extends AbstractPower implements CloneablePower
     }
 
     @Override
-    public void atStartOfTurnPostDraw(){
-        AbstractDungeon.actionManager.addToBottom(new ReinforcementAction(this.owner, this.amount));
+    public void atStartOfTurn(){
+        AbstractDungeon.actionManager.addToTop(new ReinforcementAction(this.owner, this.amount));
     }
 
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))

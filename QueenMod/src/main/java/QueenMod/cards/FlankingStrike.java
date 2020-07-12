@@ -49,7 +49,6 @@ public class FlankingStrike extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         this.baseMagicNumber = this.magicNumber = 1;
-        this.tags.add(CardTags.STRIKE);
         this.isInnate = true;
         this.exhaust = true;
     }
@@ -70,7 +69,7 @@ public class FlankingStrike extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             this.rawDescription = UPGRADE_DESCRIPTION;
-            upgradeMagicNumber(1);
+            exhaust = false;
             initializeDescription();
         }
     }

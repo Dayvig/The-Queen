@@ -19,8 +19,8 @@ public class ArtOfWarAction extends AbstractGameAction {
 
     public void update() {
             for (AbstractCard c : AbstractDungeon.player.hand.group) {
-                if (c.type.equals(AbstractCard.CardType.ATTACK) && c.cost > 0) {
-                    c.costForTurn--;
+                if (c.type.equals(AbstractCard.CardType.ATTACK) && c.costForTurn > 0) {
+                    c.setCostForTurn(c.costForTurn -1);
                     c.isCostModifiedForTurn = true;
                 }
             }

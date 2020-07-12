@@ -18,7 +18,7 @@
         "workerbee",
         "workerbees"
       ],
-    "DESCRIPTION": "Worker Bees are 0-cost skills that gain Nectar. At the start of your turn, gain [E] for every 10 Nectar."
+    "DESCRIPTION": "Worker Bees are 0-cost skills that gain 5 Nectar. At the start of your turn, gain [E] for every 10 Nectar."
     },
   {
       "NAMES": [
@@ -38,7 +38,7 @@
       "NAMES": [
         "swarm"
       ],
-    "DESCRIPTION": "Swarm grants you block and damages enemies. It attacks enemies you attack, and returns to you when you block."
+    "DESCRIPTION": "Swarm grants you block and damages enemies. It attacks enemies you target, and returns to you when you block."
     },
   {
     "NAMES": [

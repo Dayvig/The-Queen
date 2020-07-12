@@ -37,6 +37,7 @@ public class Beekeeping extends AbstractDynamicCard {
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 1;  // COST = ${COST}
+    private static final int UPGRADED_COST = 0;
     private static final int MAGIC = 1;
     // /STAT DECLARATION/
 
@@ -53,9 +54,7 @@ public class Beekeeping extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ExhaustAction(p,p,magicNumber,false));
         CardCrawlGame.sound.playA("BEE_ATTACK1", -0.5F);
-        AbstractCard d = new BumbleBee();
-        if (upgraded){ d.upgrade(); }
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(d, magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new BumbleBee(), magicNumber));
     }
 
 
@@ -64,7 +63,7 @@ public class Beekeeping extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.rawDescription = UPGRADE_DESCRIPTION;
+            upgradeBaseCost(UPGRADED_COST);
             initializeDescription();
         }
     }

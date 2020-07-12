@@ -25,6 +25,11 @@ public class DistributeSwarmAction extends AbstractGameAction {
         f = isFocused;
         s = swarmamount;
     }
+    public DistributeSwarmAction(AbstractCard cardPlayed, boolean isFocused, int swarmamount) {
+        c = cardPlayed;
+        f = isFocused;
+        s = swarmamount;
+    }
 
     public void update() {
         if (s == -1){

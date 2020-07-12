@@ -2,8 +2,10 @@ package QueenMod.powers;
 
 import QueenMod.QueenMod;
 import QueenMod.util.TextureLoader;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.HealthBarRenderPower;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -18,7 +20,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static QueenMod.QueenMod.makePowerPath;
 
-public class FocusedSwarmE extends AbstractPower {
+public class FocusedSwarmE extends AbstractPower implements HealthBarRenderPower {
     public AbstractCreature source;
 
     public static final String POWER_ID = QueenMod.makeID("FocusedSwarmE");
@@ -79,12 +81,21 @@ public class FocusedSwarmE extends AbstractPower {
         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this.POWER_ID));
     }
 
+    @Override
+    public int getHealthBarAmount() {
+        return this.amount;
+    }
+
+    @Override
+    public Color getColor() {
+        return Color.TAN;
+    }
 
     @Override
     public void onDeath() {
         int am = this.amount;
         AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, am), am));
-        AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner, this.source, SwarmPowerEnemy.POWER_ID));
+        AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner, this.source, this));
     }
 
     @SpirePatch(
@@ -95,8 +106,8 @@ public class FocusedSwarmE extends AbstractPower {
     public static class swarmPatch {
         @SpirePrefixPatch
         public static void die(AbstractMonster target, boolean t) {
-            if (!target.isDying && !t && target.hasPower(SwarmPowerEnemy.POWER_ID)) {
-                int am = target.getPower(SwarmPowerEnemy.POWER_ID).amount;
+            if (!target.isDying && !t && target.hasPower(FocusedSwarmE.POWER_ID)) {
+                int am = target.getPower(FocusedSwarmE.POWER_ID).amount;
                 AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, am), am));
             }
         }
@@ -110,8 +121,8 @@ public class FocusedSwarmE extends AbstractPower {
     public static class swarmPatchEscape {
         @SpirePrefixPatch
         public static void escape(AbstractMonster target) {
-            if (!target.isEscaping && target.hasPower(SwarmPowerEnemy.POWER_ID)) {
-                int am = target.getPower(SwarmPowerEnemy.POWER_ID).amount;
+            if (!target.isEscaping && target.hasPower(FocusedSwarmE.POWER_ID)) {
+                int am = target.getPower(FocusedSwarmE.POWER_ID).amount;
                 AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, am), am));
             }
         }

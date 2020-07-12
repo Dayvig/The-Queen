@@ -29,12 +29,14 @@ public class EliteSoldiers extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
+    private static final CardRarity RARITY = CardRarity.RARE; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.NONE;  //   since they don't change much.
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 1;  // COST = ${COST}
+    private static final int UPGRADED_COST = 0;  // COST = ${COST}
+
     AbstractCard chosen;
 
     // /STAT DECLARATION/
@@ -49,7 +51,7 @@ public class EliteSoldiers extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new Drone(), 1, true, false));
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new Hornet(), 1, true, false));
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new BumbleBee(), 1, true, false));
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new WorkerBee(), 1, true, false));
@@ -61,8 +63,7 @@ public class EliteSoldiers extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.exhaust = false;
-            this.rawDescription = UPGRADE_DESCRIPTION;
+            upgradeBaseCost(UPGRADED_COST);
             initializeDescription();
         }
     }

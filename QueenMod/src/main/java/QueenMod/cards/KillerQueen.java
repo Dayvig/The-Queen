@@ -35,9 +35,9 @@ public class KillerQueen extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
-    private static final int COST = 2;  // COST = ${COST}
-    private static final int DAMAGE = 12;    // DAMAGE = ${DAMAGE}
-    private static final int UPGRADE_PLUS_DMG = 3;  // UPGRADE_PLUS_DMG = ${UPGRADED_DAMAGE_INCREASE}
+    private static final int COST = 3;  // COST = ${COST}
+    private static final int DAMAGE = 20;    // DAMAGE = ${DAMAGE}
+    private static final int UPGRADE_PLUS_DMG = 10;  // UPGRADE_PLUS_DMG = ${UPGRADED_DAMAGE_INCREASE}
     private static final int MAGIC = 2;
     private static final int UPGRADE_MAGIC = 1;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -63,13 +63,44 @@ public class KillerQueen extends AbstractDynamicCard {
 
     public void applyPowers() {
         int numAttacks = 0;
+        int numOther = 0;
         AbstractPlayer p = AbstractDungeon.player;
         for (AbstractCard c : p.drawPile.group) {
             if (c.type.equals(CardType.ATTACK)) {
                 numAttacks++;
             }
+            else if (c.type.equals(CardType.SKILL)){
+                numOther++;
+            }
         }
-        baseDamage = originalDamage + (numAttacks*magicNumber);
+        for (AbstractCard c : p.hand.group) {
+            if (c.type.equals(CardType.ATTACK)) {
+                numAttacks++;
+            }
+            else if (c.type.equals(CardType.SKILL)){
+                numOther++;
+            }
+        }
+        for (AbstractCard c : p.discardPile.group) {
+            if (c.type.equals(CardType.ATTACK)) {
+                numAttacks++;
+            }
+            else if (c.type.equals(CardType.SKILL)){
+                numOther++;
+            }
+        }
+        if (numAttacks > numOther){
+            if (costForTurn > 1 && !freeToPlayOnce) {
+                this.setCostForTurn(1);
+                this.isCostModifiedForTurn = true;
+            }
+        }
+        else {
+            if (costForTurn < 3 && !freeToPlayOnce) {
+                this.setCostForTurn(COST);
+                this.isCostModifiedForTurn = false;
+            }
+        }
         initializeDescription();
         super.applyPowers();
     }
@@ -79,9 +110,7 @@ public class KillerQueen extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            originalDamage += UPGRADE_PLUS_DMG;
             upgradeDamage(UPGRADE_PLUS_DMG);
-            upgradeMagicNumber(UPGRADE_MAGIC);
             initializeDescription();
         }
     }

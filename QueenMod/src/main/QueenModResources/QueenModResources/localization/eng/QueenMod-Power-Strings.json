@@ -51,8 +51,8 @@
                 "NAME": "At the ready",
                 "DESCRIPTIONS": [
                         "When attacked, automatically Exhausts up to #b",
-                        "#yBumblebee from your Draw Pile to gain its Block.",
-                        "#yBumblebees from your Draw Pile to gain their Block."
+                        " Bumblebee from your Draw Pile to gain its Block.",
+                        " Bumblebees from your Draw Pile to gain their Block."
                 ]
         },
         "QueenMod:DefenderUpgradePower": {
@@ -68,7 +68,7 @@
                 "DESCRIPTIONS": [
                         "Hornets deal #b",
                         " more damage.",
-                        ""
+                        " more damage."
                 ]
         },
         "QueenMod:PollinatePower": {
@@ -98,8 +98,8 @@
         "QueenMod:HeartOfTheSwarm": {
                 "NAME": "Heart of the Swarm",
                 "DESCRIPTIONS": [
-                        "Command a powerful #ySwarm. When attacking enemies, it is applied to them, dealing damage. When you #yBlock it returns to you, granting #yBlock. #ySwarm is reduced by #b1 each turn on all targets.",
-                        "",
+                        "Command a powerful #ySwarm. When targeting enemies, it is applied to them, dealing damage. When you #yBlock it returns to you, granting #yBlock. #ySwarm is reduced by #b",
+                        " each turn on all targets.",
                         ""
                 ]
         },
@@ -234,8 +234,8 @@
         "QueenMod:GeneralPower": {
                 "NAME": "General Form",
                 "DESCRIPTIONS": [
-                        "When you play a card, spend 5 queenmod:Nectar to gain [E]",
-                        "",
+                        "When you play a card, spend 5 queenmod:Nectar to gain [E] ",
+                        "/10",
                         ""
                 ]
         },
@@ -251,7 +251,8 @@
                 "NAME": "War Trumpet",
                 "DESCRIPTIONS": [
                         "When you play an attack, add #b",
-                        "Drones to your draw pile."
+                        " Drone to your draw pile.",
+                        " Drones to your draw pile."
                 ]
         },
         "QueenMod:HoneyBoost": {
@@ -276,6 +277,30 @@
                         "When you add a card to your draw pile, add #b",
                         " additional card.",
                         " additional cards."
+                ]
+        },
+        "QueenMod:CellPower": {
+                "NAME": "Birthing Cells",
+                "DESCRIPTIONS": [
+                        "At the start of your turn, add ",
+                        " Drone to your draw pile.",
+                        " Drones to your draw pile."
+                ]
+        },
+        "QueenMod:WarriorDronePower": {
+                "NAME": "Birthing Cells",
+                "DESCRIPTIONS": [
+                        "When you play a Drone, deal #b",
+                        " damage to a random enemy.",
+                        " damage to a random enemy."
+                ]
+        },
+        "QueenMod:WorkerDronesPower": {
+                "NAME": "Drone Workers",
+                "DESCRIPTIONS": [
+                        "When you play a Drone, add #b",
+                        " Workerbee to your draw pile.",
+                        " Workerbees to your draw pile."
                 ]
         }
 }

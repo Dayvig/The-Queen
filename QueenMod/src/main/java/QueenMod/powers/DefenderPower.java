@@ -116,6 +116,17 @@ public class DefenderPower extends AbstractPower implements CloneablePowerInterf
     }
 
     @Override
+    public String getHoverMessage() {
+        if (powerAmount == 1) {
+            this.description = DESCRIPTIONS[0] + " #b" + this.powerAmount + DESCRIPTIONS[1];
+        }
+        else {
+            this.description = DESCRIPTIONS[0] + " #b" + this.powerAmount + DESCRIPTIONS[1];
+        }
+        return this.name + ":\n" + this.description;
+    }
+
+    @Override
     public void atStartOfTurnPostDraw () {
         checkNum();
     }

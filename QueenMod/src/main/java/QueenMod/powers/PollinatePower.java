@@ -78,6 +78,11 @@ public class PollinatePower extends AbstractPower implements CloneablePowerInter
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new PollinatePower(this.owner, this.owner, this.amount - 1), -1));
     }
 
+    @Override
+    public String getHoverMessage() {
+        this.description = DESCRIPTIONS[0];
+        return this.name + ":\n" + this.description;
+    }
 
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
     @Override
