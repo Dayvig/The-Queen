@@ -64,8 +64,6 @@ public class DefenderPower extends AbstractPower implements CloneablePowerInterf
 
     @Override
     public int onAttacked(DamageInfo info, int damageAmount) {
-        System.out.println(blockingCard.isEmpty());
-        numTimes = powerAmount;
         if (numTimes > 0 && info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != this.owner && this.owner.currentBlock < damageAmount) {
             for (int i = 0; i < numTimes; i++) {
                 if (blockingCard.isEmpty() || damageAmount <= 0) {

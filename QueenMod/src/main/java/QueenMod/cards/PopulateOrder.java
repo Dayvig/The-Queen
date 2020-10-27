@@ -39,7 +39,7 @@ public class PopulateOrder extends AbstractDynamicCard {
 
     private static final int COST = 1;  // COST = ${COST}
     private static final int UPGRADED_COST = 0;
-    private static final int MAGIC = 2;
+    private static final int MAGIC = 1;
 
     // /STAT DECLARATION/
 
@@ -54,8 +54,8 @@ public class PopulateOrder extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SwarmPower(p, p, magicNumber), magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new Drone(),2, true, false, false));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Drone(),1));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new Drone(),magicNumber, false, false));
     }
 
 
@@ -64,7 +64,8 @@ public class PopulateOrder extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(2);
+            upgradeMagicNumber(1);
+            this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

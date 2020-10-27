@@ -45,7 +45,8 @@
   },
   "QueenMod:PopulateOrder": {
     "NAME": "Populate Order",
-    "DESCRIPTION": "Add 2 Drones to your draw pile. NL Gain !M! queenmod:Swarm."
+    "DESCRIPTION": "Add a Drone to your hand. NL Add a Drone to your draw pile.",
+    "UPGRADE_DESCRIPTION": "Add a Drone to your hand. NL Add !M! Drones to your draw pile."
   },
   "QueenMod:Drone": {
     "NAME": "Drone",
