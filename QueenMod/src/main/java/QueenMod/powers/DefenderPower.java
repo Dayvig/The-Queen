@@ -64,6 +64,7 @@ public class DefenderPower extends AbstractPower implements CloneablePowerInterf
 
     @Override
     public int onAttacked(DamageInfo info, int damageAmount) {
+        System.out.println("numtimes: "+numTimes);
         if (numTimes > 0 && info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != this.owner && this.owner.currentBlock < damageAmount) {
             for (int i = 0; i < numTimes; i++) {
                 if (blockingCard.isEmpty() || damageAmount <= 0) {
@@ -111,17 +112,17 @@ public class DefenderPower extends AbstractPower implements CloneablePowerInterf
                 }
             }
         }
+        numTimes = powerAmount;
     }
 
     @Override
-    public String getHoverMessage() {
+    public void updateDescription() {
         if (powerAmount == 1) {
-            this.description = DESCRIPTIONS[0] + " #b" + this.powerAmount + DESCRIPTIONS[1];
+            this.description = DESCRIPTIONS[0] + "#b" + this.powerAmount + DESCRIPTIONS[1];
         }
         else {
-            this.description = DESCRIPTIONS[0] + " #b" + this.powerAmount + DESCRIPTIONS[1];
+            this.description = DESCRIPTIONS[0] + "#b" + this.powerAmount + DESCRIPTIONS[2];
         }
-        return this.name + ":\n" + this.description;
     }
 
     @Override
@@ -133,6 +134,7 @@ public class DefenderPower extends AbstractPower implements CloneablePowerInterf
     public void onDrawOrDiscard () {
         checkNum();
     }
+
     @Override
     public void onAfterUseCard(AbstractCard c, UseCardAction a){
         checkNum();
@@ -140,18 +142,9 @@ public class DefenderPower extends AbstractPower implements CloneablePowerInterf
 
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
         if (AbstractDungeon.player.hasPower(DefenderPower.POWER_ID) && target.equals(AbstractDungeon.player) && power.ID.equals(DefenderPower.POWER_ID)) {
-            DefenderPower tmp = (DefenderPower) power;
-            this.powerAmount += ((DefenderPower) power).powerAmount;
-        }
-    }
-
-    // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
-    @Override
-    public void updateDescription() {
-        if (amount == 1) {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
-        } else if (amount > 1) {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2];
+            if (power instanceof DefenderPower) {
+                this.powerAmount += ((DefenderPower) power).powerAmount;
+            }
         }
     }
 
