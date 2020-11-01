@@ -29,7 +29,7 @@ public class WorkerDronesPower extends AbstractPower {
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("workerdrones84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("workerdrones32.png"));
-
+    private int workers;
 
     public WorkerDronesPower(final AbstractCreature owner, final AbstractCreature source, int newAmount) {
         this.name = NAME;
@@ -39,6 +39,7 @@ public class WorkerDronesPower extends AbstractPower {
         this.amount = newAmount;
         this.type = PowerType.BUFF;
         this.updateDescription();
+        workers = 0;
         if (this.amount >= 999) {
             this.amount = 999;
         }
@@ -57,7 +58,7 @@ public class WorkerDronesPower extends AbstractPower {
     }
 
     public void playApplyPowerSfx() {
-        CardCrawlGame.sound.play("POWER_STRENGTH", 0.05F);
+        CardCrawlGame.sound.play("BEE_ATTACK2", 0.15F);
     }
 
     public void stackPower(int stackAmount) {
@@ -77,12 +78,13 @@ public class WorkerDronesPower extends AbstractPower {
     }
 
     public void onAfterUseCard(AbstractCard c, UseCardAction a){
-        if (c.cardID.equals(Drone.ID)){
-            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new WorkerBee(), 1, true, false));
+        if (c.cardID.equals(WorkerBee.ID) && workers < this.amount){
+            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Drone(), 1));
+            workers++;
         }
     }
 
-    public void atEndOfTurn(boolean isPlayer) {
-        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, this));
+    public void atStartOfTurn() {
+        workers = 0;
     }
 }

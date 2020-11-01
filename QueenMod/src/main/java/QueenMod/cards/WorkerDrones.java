@@ -39,7 +39,7 @@ public class WorkerDrones extends AbstractDynamicCard {
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.NONE;  //   since they don't change much.
-    private static final CardType TYPE = CardType.SKILL;       //
+    private static final CardType TYPE = CardType.POWER;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 1;  // COST = ${COST}
@@ -56,7 +56,6 @@ public class WorkerDrones extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        CardCrawlGame.sound.playA("BEE_ATTACK2", (float)Math.random()*-1.0F);
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WorkerDronesPower(p, p, 1)));
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new Drone(), 1, true, false));
     }

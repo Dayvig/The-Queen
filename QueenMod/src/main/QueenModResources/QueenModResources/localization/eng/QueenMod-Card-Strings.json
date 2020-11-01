@@ -503,7 +503,7 @@
   },
   "QueenMod:WorkerDrones": {
     "NAME": "Drone Workers",
-    "DESCRIPTION": "When you play a queenmod:Drone this turn, add a queenmod:Workerbee to your draw pile."
+    "DESCRIPTION": "The first time you play a queenmod:Workerbee each turn, add a queenmod:Drone to your hand."
   },
   "QueenMod:Garrison": {
   "NAME": "Garrison",

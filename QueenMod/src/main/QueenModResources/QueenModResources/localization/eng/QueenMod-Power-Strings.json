@@ -298,9 +298,9 @@
         "QueenMod:WorkerDronesPower": {
                 "NAME": "Drone Workers",
                 "DESCRIPTIONS": [
-                        "When you play a Drone, add #b",
-                        " Workerbee to your draw pile.",
-                        " Workerbees to your draw pile."
+                        "The first #b",
+                        " times you play a Workerbee this turn, add a Drone to your hand.",
+                        " times you play a Workerbee this turn, add a Drone to your hand."
                 ]
         }
 }
