@@ -34,7 +34,7 @@ public class AddToTopOfDrawPileAction extends AbstractGameAction {
             case ATTACK:
                 typeText = "attacks";
             case SKILL:
-                typeText = "non-Drone skills";
+                typeText = "skills";
             case POWER:
                 typeText = "powers";
             default:
@@ -48,7 +48,7 @@ public class AddToTopOfDrawPileAction extends AbstractGameAction {
         upgradeMatrix = new ArrayList<AbstractCard>();
         int numCards = 0;
             for (AbstractCard c : p.group) {
-                if (c.type.equals(t) && !c.cardID.equals(Drone.ID)) {
+                if (c.type.equals(t)) {
                     upgradeMatrix.add(c);
                     numCards++;
                 }
@@ -62,6 +62,7 @@ public class AddToTopOfDrawPileAction extends AbstractGameAction {
             AbstractCard c1 = upgradeMatrix.remove(AbstractDungeon.cardRandomRng.random(numCards - 1));
             p.removeCard(c1);
             p.addToTop(c1);
+            numCards--;
             numTimes--;
             if (numTimes <= 0){
                 isDone = true;

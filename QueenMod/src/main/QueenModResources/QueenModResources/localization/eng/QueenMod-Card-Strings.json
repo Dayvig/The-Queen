@@ -266,7 +266,7 @@
   },
   "QueenMod:Charge":{
     "NAME": "Charge!",
-    "DESCRIPTION": "Innate. NL Deal !D! damage. NL Draw 3 cards. NL Exhaust."
+    "DESCRIPTION": "Innate. NL Deal !D! damage. NL Draw !M! cards. NL Exhaust."
   },
   "QueenMod:PlanAhead":{
     "NAME": "Plan Ahead",
@@ -278,7 +278,7 @@
 },
   "QueenMod:Conscripts":{
     "NAME": "Conscripts",
-    "DESCRIPTION": "Deal !D! damage. NL Draw a card. NL When you add this to your deck, add two additional copies."
+    "DESCRIPTION": "Deal !D! damage. NL Draw a card. NL When you add this to your deck, add an additional copy."
   },
   "QueenMod:Strike":{
     "NAME": "Strike",
@@ -512,5 +512,14 @@
   "QueenMod:HiveDefenses": {
     "NAME": "Hive Autodefenses",
     "DESCRIPTION": "Deal !D! damage. NL queenmod:Honey-boost: At the start of your turn, if this is in your draw pile, deal !D! damage to a random enemy."
+  },
+  "QueenMod:Strategize": {
+    "NAME": "Strategize",
+    "DESCRIPTION": "Gain !B! Block. NL Draw an Attack and Skill from your draw pile."
+  },
+  "QueenMod:Scramble": {
+    "NAME": "Scramble!",
+    "DESCRIPTION": "Gain !M! Swarm. NL Discard your hand, then draw 3 Attacks and 3 Skills from your draw pile.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Swarm. NL Discard your hand, then draw 4 Attacks and 4 Skills from your draw pile."
   }
 }

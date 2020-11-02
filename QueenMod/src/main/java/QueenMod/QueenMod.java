@@ -443,12 +443,15 @@ public class QueenMod implements
         BaseMod.addCard(new WorkerDrones());
         BaseMod.addCard(new Garrison());
         BaseMod.addCard(new HiveDefenses());
+        BaseMod.addCard(new Strategize());
+        BaseMod.addCard(new Scramble());
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
         // This is so that they are all "seen" in the library, for people who like to look at the card list
         // before playing your mod.
 
+        UnlockTracker.unlockCard(Strategize.ID);
         UnlockTracker.unlockCard(Fleche.ID);
         UnlockTracker.unlockCard(CrossGuard.ID);
         UnlockTracker.unlockCard(Hornet.ID);
@@ -532,6 +535,7 @@ public class QueenMod implements
         UnlockTracker.unlockCard(WorkerDrones.ID);
         UnlockTracker.unlockCard(Garrison.ID);
         UnlockTracker.unlockCard(HiveDefenses.ID);
+        UnlockTracker.unlockCard(Scramble.ID);
 
         logger.info("Done adding cards!");
     }

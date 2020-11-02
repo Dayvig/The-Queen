@@ -20,7 +20,7 @@ public class BecomeSwarmAction extends AbstractGameAction {
     public void update(){
         int total = 0;
        for (AbstractCard c : AbstractDungeon.player.drawPile.group){
-           AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(c, AbstractDungeon.player.drawPile, true));
+           AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardFasterAction(c, AbstractDungeon.player.drawPile, true));
            total++;
         }
 

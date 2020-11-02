@@ -36,8 +36,8 @@ public class QuickJabs extends AbstractDynamicCard {
     private static final int COST = 1;  // COST = ${COST}
     private static final int UPGRADED_COST = 1; // UPGRADED_COST = ${UPGRADED_COST}
 
-    private static final int DAMAGE = 4;    // DAMAGE = ${DAMAGE}
-    private static final int MAGIC = 2;
+    private static final int DAMAGE = 3;    // DAMAGE = ${DAMAGE}
+    private static final int MAGIC = 3;
     private static final int UPGRADE_MAGIC = 1;
 
     // /STAT DECLARATION/

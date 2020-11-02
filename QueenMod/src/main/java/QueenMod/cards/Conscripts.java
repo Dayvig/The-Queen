@@ -38,7 +38,7 @@ public class Conscripts extends AbstractDynamicCard implements CardAddedToDeck {
 
     private static final int COST = 0;  // COST = ${COST}
 
-    private static final int DAMAGE = 2;    // DAMAGE = ${DAMAGE}
+    private static final int DAMAGE = 3;    // DAMAGE = ${DAMAGE}
     private static final int UPGRADE_PLUS_DAMAGE = 2;
     private int numLeft;
 
@@ -60,13 +60,11 @@ public class Conscripts extends AbstractDynamicCard implements CardAddedToDeck {
 
     @Override
     public boolean onAddedToMasterDeck() {
-        for (int i = 0; i < 2; i++) {
             AbstractCard c = new Conscripts();
             if (this.upgraded) {
                 c.upgrade();
             }
             AbstractDungeon.player.masterDeck.addToTop(c);
-        }
         return false;
     }
 
