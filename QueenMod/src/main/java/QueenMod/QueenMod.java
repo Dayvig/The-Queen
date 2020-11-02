@@ -445,6 +445,7 @@ public class QueenMod implements
         BaseMod.addCard(new HiveDefenses());
         BaseMod.addCard(new Strategize());
         BaseMod.addCard(new Scramble());
+        BaseMod.addCard(new WarRoom());
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -536,6 +537,7 @@ public class QueenMod implements
         UnlockTracker.unlockCard(Garrison.ID);
         UnlockTracker.unlockCard(HiveDefenses.ID);
         UnlockTracker.unlockCard(Scramble.ID);
+        UnlockTracker.unlockCard(WarRoom.ID);
 
         logger.info("Done adding cards!");
     }

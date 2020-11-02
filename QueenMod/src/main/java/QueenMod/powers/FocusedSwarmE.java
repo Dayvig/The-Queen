@@ -91,6 +91,7 @@ public class FocusedSwarmE extends AbstractPower implements HealthBarRenderPower
         return Color.TAN;
     }
 
+
     @Override
     public void onDeath() {
         int am = this.amount;
@@ -106,7 +107,7 @@ public class FocusedSwarmE extends AbstractPower implements HealthBarRenderPower
     public static class swarmPatch {
         @SpirePrefixPatch
         public static void die(AbstractMonster target, boolean t) {
-            if (!target.isDying && !t && target.hasPower(FocusedSwarmE.POWER_ID)) {
+            if (!t && target.hasPower(FocusedSwarmE.POWER_ID)) {
                 int am = target.getPower(FocusedSwarmE.POWER_ID).amount;
                 AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, am), am));
             }

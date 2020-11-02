@@ -196,7 +196,6 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
             if (particleTimer < 0.0F) {
                 playerHasSwarm = (AbstractDungeon.player.hasPower(SwarmPower.POWER_ID) || AbstractDungeon.player.hasPower(FocusedSwarm.POWER_ID));
                 targets.clear();
-                System.out.println("Swarm is on player: " + playerHasSwarm);
                 for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
                     if ((mo.hasPower(SwarmPowerEnemy.POWER_ID) || mo.hasPower(FocusedSwarmE.POWER_ID))) {
                         targets.add(mo);

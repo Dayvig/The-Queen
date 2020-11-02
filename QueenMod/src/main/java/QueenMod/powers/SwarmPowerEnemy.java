@@ -80,8 +80,8 @@ public class SwarmPowerEnemy extends AbstractPower implements HealthBarRenderPow
     public void onDeath() {
         super.onDeath();
         int am = this.amount;
-        AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner,this.source, SwarmPowerEnemy.POWER_ID));
         AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, am), am));
+        AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner,this.source, SwarmPowerEnemy.POWER_ID));
     }
 
     @Override
@@ -94,7 +94,7 @@ public class SwarmPowerEnemy extends AbstractPower implements HealthBarRenderPow
         return Color.TAN;
     }
 
-    /*
+
     @SpirePatch(
             clz=AbstractMonster.class,
             method="die",
@@ -107,12 +107,8 @@ public class SwarmPowerEnemy extends AbstractPower implements HealthBarRenderPow
                 int am = target.getPower(SwarmPowerEnemy.POWER_ID).amount;
                 AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, am), am));
             }
-            if (!t && target.hasPower(FocusedSwarmE.POWER_ID)) {
-                int am = target.getPower(FocusedSwarmE.POWER_ID).amount;
-                AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, am), am));
-            }
         }
-    }*/
+    }
     @SpirePatch(
             clz=AbstractMonster.class,
             method="escape",

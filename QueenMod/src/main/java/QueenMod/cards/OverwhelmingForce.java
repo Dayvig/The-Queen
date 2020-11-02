@@ -53,8 +53,11 @@ public class OverwhelmingForce extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-
+        if (!upgraded) {
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+        } else {
+            AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+        }
     }
 
     public void applyPowers() {
@@ -76,6 +79,7 @@ public class OverwhelmingForce extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             this.target = CardTarget.ALL_ENEMY;
+            this.isMultiDamage = true;
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
