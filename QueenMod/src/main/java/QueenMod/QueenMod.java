@@ -435,7 +435,7 @@ public class QueenMod implements
         BaseMod.addCard(new Feint());
         BaseMod.addCard(new MilitaryHandbook());
         BaseMod.addCard(new TortureDance());
-        BaseMod.addCard(new HoneyTrap());
+        //BaseMod.addCard(new HoneyTrap());
         BaseMod.addCard(new EliteSoldiers());
         BaseMod.addCard(new SwarmingStrike());
         BaseMod.addCard(new WarriorDrones());
@@ -446,12 +446,15 @@ public class QueenMod implements
         BaseMod.addCard(new Strategize());
         BaseMod.addCard(new Scramble());
         BaseMod.addCard(new WarRoom());
+        BaseMod.addCard(new WaxCrafters());
+        //BaseMod.addCard(new PlanAhead());
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
         // This is so that they are all "seen" in the library, for people who like to look at the card list
         // before playing your mod.
 
+        UnlockTracker.unlockCard(PlanAhead.ID);
         UnlockTracker.unlockCard(Strategize.ID);
         UnlockTracker.unlockCard(Fleche.ID);
         UnlockTracker.unlockCard(CrossGuard.ID);
@@ -528,7 +531,7 @@ public class QueenMod implements
         UnlockTracker.unlockCard(Feint.ID);
         UnlockTracker.unlockCard(MilitaryHandbook.ID);
         UnlockTracker.unlockCard(TortureDance.ID);
-        UnlockTracker.unlockCard(HoneyTrap.ID);
+        //UnlockTracker.unlockCard(HoneyTrap.ID);
         UnlockTracker.unlockCard(EliteSoldiers.ID);
         UnlockTracker.unlockCard(SwarmingStrike.ID);
         UnlockTracker.unlockCard(WarriorDrones.ID);
@@ -538,6 +541,7 @@ public class QueenMod implements
         UnlockTracker.unlockCard(HiveDefenses.ID);
         UnlockTracker.unlockCard(Scramble.ID);
         UnlockTracker.unlockCard(WarRoom.ID);
+        UnlockTracker.unlockCard(WaxCrafters.ID);
 
         logger.info("Done adding cards!");
     }

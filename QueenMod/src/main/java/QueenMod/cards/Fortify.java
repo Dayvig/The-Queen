@@ -34,7 +34,7 @@ public class Fortify extends AbstractDynamicCard {
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 3;
-    private static final int BLOCK = 4;
+    private static final int UPGRADED_COST = 2;
     public int numCards = 0;
 
     // /STAT DECLARATION/
@@ -42,43 +42,22 @@ public class Fortify extends AbstractDynamicCard {
 
     public Fortify() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseBlock = block = BLOCK;
+        baseBlock = block = 0;
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (int k = 0; k<numCards; k++) {
+
             AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
-        }
+
     }
 
     @Override
-    public void update() {
-        super.update();
-        try {
-            int n = 0;
-            for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
-                if (c.cardID.equals(Hornet.ID) ||
-                        c.cardID.equals(BumbleBee.ID) ||
-                        c.cardID.equals(Drone.ID) ||
-                        c.cardID.equals(WorkerBee.ID) ||
-                        c.cardID.equals(HornetCommander.ID) ||
-                        c.cardID.equals(BumbleBeeCommander.ID) ||
-                        c.cardID.equals(DroneCommander.ID) ||
-                        c.cardID.equals(WorkerBeeCommander.ID) ||
-                        c.cardID.equals(RoyalOrder.ID)) {
-                    n++;
-                }
-            }
-            numCards = n;
-            this.rawDescription = "Gain " + block + " Block " + numCards + " times. NL (Equal to number of queenmod:Hive cards in your Draw Pile)";
-            initializeDescription();
-        }
-        catch (NullPointerException e){
-            this.rawDescription = "Gain "+ block + " Block once for each queenmod:Hive card in your Draw Pile.";
-
-        }
+    public void applyPowers() {
+        super.applyPowers();
+        baseBlock = AbstractDungeon.player.drawPile.group.size();
+        initializeDescription();
     }
 
     //Upgraded stats.
@@ -86,7 +65,7 @@ public class Fortify extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBlock(1);
+            upgradeBaseCost(UPGRADED_COST);
             initializeDescription();
         }
     }

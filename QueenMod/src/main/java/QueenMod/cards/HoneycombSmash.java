@@ -34,8 +34,9 @@ public class HoneycombSmash extends AbstractDynamicCard
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 
     private static final int DAMAGE = 6;
-    private static final int UPGRADE_PLUS_DAMAGE = 4;
+    private static final int UPGRADE_PLUS_DAMAGE = 2;
     private static final int MAGIC = 1;
+    private static final int UPGRADE_MAGIC = 1;
 
     public HoneycombSmash()
     {
@@ -49,12 +50,14 @@ public class HoneycombSmash extends AbstractDynamicCard
     public void use(AbstractPlayer p, AbstractMonster m)
     {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new WeakPower(m, magicNumber, false), magicNumber));
+
         if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10){
             int boost = (int)Math.floor(AbstractDungeon.player.getPower(Nectar.POWER_ID).amount/10);
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new WeakPower(m, magicNumber+(boost*2), false), magicNumber+(boost*2)));
-        }
-        else {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new WeakPower(m, magicNumber, false), magicNumber));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new StrengthPower(m, -boost*2), -boost*2));
+            if (m != null && !m.hasPower("Artifact")){
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new GainStrengthPower(m, boost*2), boost*2));
+            }
         }
     }
 
@@ -79,6 +82,7 @@ public class HoneycombSmash extends AbstractDynamicCard
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DAMAGE);
+            upgradeMagicNumber(UPGRADE_MAGIC);
         }
     }
 

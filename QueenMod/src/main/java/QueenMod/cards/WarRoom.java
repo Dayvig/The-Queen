@@ -2,6 +2,7 @@ package QueenMod.cards;
 
 import QueenMod.QueenMod;
 import QueenMod.actions.AddToTopOfDrawPileAction;
+import QueenMod.actions.DrawSpecificCardTypeAction;
 import QueenMod.characters.TheQueen;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -41,8 +42,6 @@ public class WarRoom extends AbstractDynamicCard {
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 0;  // COST = ${COST}
-
-    private static final int MAGIC = 1;
     private int numLeft;
 
     // /STAT DECLARATION/
@@ -50,17 +49,16 @@ public class WarRoom extends AbstractDynamicCard {
 
     public WarRoom() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = MAGIC;
-        shuffleBackIntoDrawPile = false;
+        baseMagicNumber = magicNumber = 1;
+        exhaust = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new AddToTopOfDrawPileAction(p.drawPile, magicNumber, CardType.ATTACK));
-        AbstractDungeon.actionManager.addToBottom(new AddToTopOfDrawPileAction(p.drawPile, magicNumber, CardType.SKILL));
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(2));
+        AbstractDungeon.actionManager.addToBottom(new DrawSpecificCardTypeAction(p.drawPile, magicNumber, CardType.ATTACK));
+        AbstractDungeon.actionManager.addToBottom(new DrawSpecificCardTypeAction(p.drawPile, magicNumber, CardType.SKILL));
     }
 
     // Upgraded stats.
@@ -68,7 +66,7 @@ public class WarRoom extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            shuffleBackIntoDrawPile = true;
+            exhaust = false;
             rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }

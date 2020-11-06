@@ -32,26 +32,29 @@ public class PlanAhead extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
+    private static final CardRarity RARITY = CardRarity.RARE; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.NONE;  //   since they don't change much.
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
-    private static final int COST = 1;  // COST = ${COST}
-    private static final int UPGRADED_COST = 0;
-    private ModalChoice modal;
+    private static final int COST = 0;  // COST = ${COST}
+    private static final int MAGIC = 2;
+    private static final int UPGRADE_MAGIC = 3;
     // /STAT DECLARATION/
 
 
     public PlanAhead() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        baseMagicNumber = magicNumber = MAGIC;
+        this.shuffleBackIntoDrawPile = false;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ScryAction(5));
+        AbstractDungeon.actionManager.addToBottom(new ScryAction(magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(1));
     }
 
     // Upgraded stats.
@@ -59,7 +62,7 @@ public class PlanAhead extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
+            upgradeMagicNumber(UPGRADE_MAGIC);
             initializeDescription();
         }
     }

@@ -17,7 +17,7 @@
   },
   "QueenMod:DefendOrder": {
     "NAME": "Defend Order",
-    "DESCRIPTION": "Gain !B! block. NL Add a queenmod:Bumblebee to your draw pile."
+    "DESCRIPTION": "Gain !B! block. NL Add a Bumblebee to your draw pile."
   },
   "QueenMod:BumbleBee": {
     "NAME": "BumbleBee",
@@ -41,12 +41,11 @@
   },
   "QueenMod:HoneycombSmash": {
     "NAME": "Honeycomb Smash",
-    "DESCRIPTION": "Deal !D! Damage. NL Apply 1 Weak. NL queenmod:Honey-boost: Apply 2 more Weak. "
+    "DESCRIPTION": "Deal !D! Damage. NL Apply !M! Weak. NL queenmod:Honey-boost: Enemy loses 2 Strength this turn. "
   },
   "QueenMod:PopulateOrder": {
     "NAME": "Populate Order",
-    "DESCRIPTION": "Add a Drone to your hand. NL Add a Drone to your draw pile.",
-    "UPGRADE_DESCRIPTION": "Add a Drone to your hand. NL Add !M! Drones to your draw pile."
+    "DESCRIPTION": "Add a Drone to your hand. NL Add !M! Drones to your draw pile."
   },
   "QueenMod:Drone": {
     "NAME": "Drone",
@@ -269,8 +268,8 @@
     "DESCRIPTION": "Innate. NL Deal !D! damage. NL Draw !M! cards. NL Exhaust."
   },
   "QueenMod:PlanAhead":{
-    "NAME": "Plan Ahead",
-    "DESCRIPTION": "Scry 10."
+    "NAME": "Organize",
+    "DESCRIPTION": "Scry !M!. NL Draw a card."
   },
   "QueenMod:Spearhead":{
   "NAME": "Spearhead",
@@ -348,7 +347,7 @@
   },
   "QueenMod:Fortify":{
     "NAME": "Fortify",
-    "DESCRIPTION": "Gain !B! block for each queenmod:Hive card in your draw pile."
+    "DESCRIPTION": "Gain 1 block for each card in your draw pile. ( !B! Block. )"
   },
   "QueenMod:HoldPosition":{
     "NAME": "Hold Position",
@@ -465,9 +464,8 @@
     "DESCRIPTION": "Apply !M! queenmod:Swarm to all enemies and yourself. NL queenmod:Honey-boost: Apply !QueenMod:second! more."
   },
   "QueenMod:Advisor": {
-    "NAME": "Royal Advisors",
-    "DESCRIPTION": "Innate. NL Add a queenmod:Workerbee and a queenmod:Bumblebee to your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Add a queenmod:Workerbee and a queenmod:Bumblebee to your hand."
+    "NAME": "Reserve Force",
+    "DESCRIPTION": "Innate. NL Add !M! queenmod:Hornets to your draw pile. NL Add !M! queenmod:Bumblebees to your draw pile. NL Add !M! queenmod:Drones to your draw pile. NL Add !M! queenmod:Workerbees to your draw pile. NL Exhaust."
   },
   "QueenMod:RoyalBanquet": {
     "NAME": "Royal Banquet",
@@ -523,8 +521,12 @@
     "UPGRADE_DESCRIPTION": "Gain !M! Swarm. NL Discard your hand, then draw 4 Attacks and 4 Skills from your draw pile."
   },
   "QueenMod:WarRoom": {
-    "NAME": "Plan Ahead",
-    "DESCRIPTION": "Draw an Attack and Skill from your draw pile.",
-    "UPGRADE_DESCRIPTION": "Draw an Attack and Skill from your draw pile. NL Add this card into your draw pile instead of your discard pile."
+    "NAME": "Pheremone Trail",
+    "DESCRIPTION": "Draw an Attack and Skill from your draw pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Draw an Attack and Skill from your draw pile."
+  },
+  "QueenMod:WaxCrafters": {
+    "NAME": "Wax Crafters",
+    "DESCRIPTION": "Add 2 Workerbees to your draw pile. NL Gain !M! Block when you play a Workerbee."
   }
 }

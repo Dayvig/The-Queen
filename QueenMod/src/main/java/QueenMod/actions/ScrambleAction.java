@@ -25,14 +25,9 @@ public class ScrambleAction extends AbstractGameAction {
         AbstractDungeon.actionManager.addToTop(new DiscardAction(AbstractDungeon.player, AbstractDungeon.player, theSize, false));
 
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(player, player, new SwarmPower(player, player, amount), amount));
-        AbstractDungeon.actionManager.addToBottom(new AddToTopOfDrawPileAction(player.drawPile, amount/2, AbstractCard.CardType.ATTACK));
-        AbstractDungeon.actionManager.addToBottom(new AddToTopOfDrawPileAction(player.drawPile, amount/2, AbstractCard.CardType.SKILL));
-        if (player.drawPile.group.size() >= amount) {
-            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(amount));
-        }
-        else {
-            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(player.drawPile.group.size()));
-        }
+        AbstractDungeon.actionManager.addToBottom(new DrawSpecificCardTypeAction(AbstractDungeon.player.drawPile, this.amount, AbstractCard.CardType.ATTACK));
+        AbstractDungeon.actionManager.addToBottom(new DrawSpecificCardTypeAction(AbstractDungeon.player.drawPile, this.amount, AbstractCard.CardType.SKILL));
+
         this.isDone = true;
     }
 }

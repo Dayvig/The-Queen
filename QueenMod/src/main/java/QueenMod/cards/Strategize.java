@@ -2,12 +2,14 @@ package QueenMod.cards;
 
 import QueenMod.QueenMod;
 import QueenMod.actions.AddToTopOfDrawPileAction;
+import QueenMod.actions.DrawSpecificCardTypeAction;
 import QueenMod.characters.TheQueen;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.utility.DrawPileToHandAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -60,9 +62,9 @@ public class Strategize extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, block));
-        AbstractDungeon.actionManager.addToBottom(new AddToTopOfDrawPileAction(p.drawPile, magicNumber, CardType.ATTACK));
-        AbstractDungeon.actionManager.addToBottom(new AddToTopOfDrawPileAction(p.drawPile, magicNumber, CardType.SKILL));
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(2));
+        AbstractDungeon.actionManager.addToBottom(new DrawSpecificCardTypeAction(AbstractDungeon.player.drawPile, 1, AbstractCard.CardType.ATTACK));
+        AbstractDungeon.actionManager.addToBottom(new DrawSpecificCardTypeAction(AbstractDungeon.player.drawPile, 1, AbstractCard.CardType.ATTACK));
+
     }
 
     // Upgraded stats.

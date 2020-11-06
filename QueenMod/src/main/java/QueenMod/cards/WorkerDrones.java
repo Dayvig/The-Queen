@@ -44,12 +44,14 @@ public class WorkerDrones extends AbstractDynamicCard {
 
     private static final int COST = 1;  // COST = ${COST}
     private static final int UPGRADED_COST = 0;
+    private static final int MAGIC = 2;
 
     // /STAT DECLARATION/
 
 
     public WorkerDrones() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        baseMagicNumber = magicNumber = MAGIC;
     }
 
 
@@ -57,7 +59,7 @@ public class WorkerDrones extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WorkerDronesPower(p, p, 1)));
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new Drone(), 1, true, false));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new WorkerBee(), magicNumber, true, false));
     }
 
 

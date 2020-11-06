@@ -49,9 +49,9 @@ public class HoneyTrap extends AbstractDynamicCard
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10) {
                 int boost = (int) Math.floor(AbstractDungeon.player.getPower(Nectar.POWER_ID).amount / 10);
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new LoseStrengthPower(mo, magicNumber + (boost * 2)), magicNumber + (boost * 2)));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new LoseStrengthPower(mo, magicNumber + (boost * 2)), magicNumber + (boost * 2)));
             } else {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new LoseStrengthPower(mo, magicNumber), magicNumber));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new LoseStrengthPower(mo, magicNumber), magicNumber));
             }
         }
     }
