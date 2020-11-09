@@ -130,24 +130,6 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
 
     @Override
     public void onAfterUseCard(AbstractCard c, UseCardAction a) {
-        totalSwarm = 0;
-        realTotalSwarm = 0;
-        for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            if (m.hasPower(SwarmPowerEnemy.POWER_ID) && !m.isDying && !m.halfDead) {
-                totalSwarm += m.getPower(SwarmPowerEnemy.POWER_ID).amount;
-                realTotalSwarm += m.getPower(SwarmPowerEnemy.POWER_ID).amount;
-            }
-            if (m.hasPower(FocusedSwarmE.POWER_ID)){
-                realTotalSwarm += m.getPower(FocusedSwarmE.POWER_ID).amount;
-            }
-        }
-        if (AbstractDungeon.player.hasPower(SwarmPower.POWER_ID)) {
-            totalSwarm += AbstractDungeon.player.getPower(SwarmPower.POWER_ID).amount;
-            realTotalSwarm += AbstractDungeon.player.getPower(SwarmPower.POWER_ID).amount;
-        }
-        if (AbstractDungeon.player.hasPower(FocusedSwarm.POWER_ID)) {
-            realTotalSwarm += AbstractDungeon.player.getPower(FocusedSwarm.POWER_ID).amount;
-        }
         if (!(totalSwarm == 0)) {
             if (c.type.equals(AbstractCard.CardType.STATUS) || c.type.equals(AbstractCard.CardType.CURSE) || c.type.equals(AbstractCard.CardType.POWER)) {
                 return;
@@ -162,7 +144,6 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
                 AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(tmp, true, totalSwarm, a));
             }
             else if (c.cardID.equals(HoldPosition.ID)) {
-                System.out.println("test1");
                 AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, true, totalSwarm, a));
             }
             else if (c.cardID.equals(Anticipate.ID) || c.cardID.equals(Parry.ID) || c.cardID.equals(Feint.ID)) {
@@ -190,7 +171,25 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
     }
 
     @Override
-    public void update(int z) {
+    public void updateParticles(){
+        totalSwarm = 0;
+        realTotalSwarm = 0;
+        for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            if (m.hasPower(SwarmPowerEnemy.POWER_ID) && !m.isDying && !m.halfDead) {
+                totalSwarm += m.getPower(SwarmPowerEnemy.POWER_ID).amount;
+                realTotalSwarm += m.getPower(SwarmPowerEnemy.POWER_ID).amount;
+            }
+            if (m.hasPower(FocusedSwarmE.POWER_ID)){
+                realTotalSwarm += m.getPower(FocusedSwarmE.POWER_ID).amount;
+            }
+        }
+        if (AbstractDungeon.player.hasPower(SwarmPower.POWER_ID)) {
+            totalSwarm += AbstractDungeon.player.getPower(SwarmPower.POWER_ID).amount;
+            realTotalSwarm += AbstractDungeon.player.getPower(SwarmPower.POWER_ID).amount;
+        }
+        if (AbstractDungeon.player.hasPower(FocusedSwarm.POWER_ID)) {
+            realTotalSwarm += AbstractDungeon.player.getPower(FocusedSwarm.POWER_ID).amount;
+        }
         if (!Settings.DISABLE_EFFECTS && AbstractDungeon.getCurrRoom().phase.equals(COMBAT)) {
             this.particleTimer -= Gdx.graphics.getDeltaTime();
             if (particleTimer < 0.0F) {
@@ -207,8 +206,8 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
                 }
             }
         }
-    }
 
+    }
 
     @Override
     public void onRemove() {

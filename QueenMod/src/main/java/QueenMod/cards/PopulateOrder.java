@@ -54,8 +54,8 @@ public class PopulateOrder extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Drone(),1));
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new Drone(),magicNumber, false, false));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Drone(),magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new Drone(),1, false, false));
     }
 
 
@@ -65,7 +65,6 @@ public class PopulateOrder extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(1);
-            this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

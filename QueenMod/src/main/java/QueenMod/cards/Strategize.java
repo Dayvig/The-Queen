@@ -63,7 +63,7 @@ public class Strategize extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, block));
         AbstractDungeon.actionManager.addToBottom(new DrawSpecificCardTypeAction(AbstractDungeon.player.drawPile, 1, AbstractCard.CardType.ATTACK));
-        AbstractDungeon.actionManager.addToBottom(new DrawSpecificCardTypeAction(AbstractDungeon.player.drawPile, 1, AbstractCard.CardType.ATTACK));
+        AbstractDungeon.actionManager.addToBottom(new DrawSpecificCardTypeAction(AbstractDungeon.player.drawPile, 1, AbstractCard.CardType.SKILL));
 
     }
 

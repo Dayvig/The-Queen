@@ -454,7 +454,7 @@ public class QueenMod implements
         // This is so that they are all "seen" in the library, for people who like to look at the card list
         // before playing your mod.
 
-        UnlockTracker.unlockCard(PlanAhead.ID);
+        //UnlockTracker.unlockCard(PlanAhead.ID);
         UnlockTracker.unlockCard(Strategize.ID);
         UnlockTracker.unlockCard(Fleche.ID);
         UnlockTracker.unlockCard(CrossGuard.ID);

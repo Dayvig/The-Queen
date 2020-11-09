@@ -45,7 +45,7 @@
   },
   "QueenMod:PopulateOrder": {
     "NAME": "Populate Order",
-    "DESCRIPTION": "Add a Drone to your hand. NL Add !M! Drones to your draw pile."
+    "DESCRIPTION": "Add !M! Drones to your draw pile. NL Draw a card."
   },
   "QueenMod:Drone": {
     "NAME": "Drone",
@@ -265,7 +265,8 @@
   },
   "QueenMod:Charge":{
     "NAME": "Charge!",
-    "DESCRIPTION": "Innate. NL Deal !D! damage. NL Draw !M! cards. NL Exhaust."
+    "DESCRIPTION": "Innate. NL Deal !D! damage. NL Draw !M! cards. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Deal !D! damage. NL Draw !M! cards."
   },
   "QueenMod:PlanAhead":{
     "NAME": "Organize",
@@ -334,8 +335,8 @@
     "DESCRIPTION": "Gain !M! queenmod:Nectar. NL queenmod:Honey-boost: Gain !QueenMod:second! queenmod:Swarm instead."
   },
   "QueenMod:HoneyShield":{
-    "NAME": "Honey Shield",
-    "DESCRIPTION": "When you gain queenmod:Nectar, gain !M! Block."
+    "NAME": "Royal Catering Service",
+    "DESCRIPTION": "Gain !M! Strength. NL queenmod:Honey-boost: Gain 1 Strength."
   },
   "QueenMod:Rally":{
     "NAME": "Rally",
@@ -465,7 +466,7 @@
   },
   "QueenMod:Advisor": {
     "NAME": "Reserve Force",
-    "DESCRIPTION": "Innate. NL Add !M! queenmod:Hornets to your draw pile. NL Add !M! queenmod:Bumblebees to your draw pile. NL Add !M! queenmod:Drones to your draw pile. NL Add !M! queenmod:Workerbees to your draw pile. NL Exhaust."
+    "DESCRIPTION": "Innate. NL Add !M! of each queenmod:Hive card to your draw pile. NL Exhaust."
   },
   "QueenMod:RoyalBanquet": {
     "NAME": "Royal Banquet",

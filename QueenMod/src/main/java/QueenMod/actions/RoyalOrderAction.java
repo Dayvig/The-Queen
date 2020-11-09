@@ -40,7 +40,6 @@ public class RoyalOrderAction extends AbstractGameAction {
         for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
             if (c instanceof IsHive) {
                 cardMatrix.add(c);
-                System.out.println("test 27");
             }
         }
         AbstractMonster mo =  AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng);

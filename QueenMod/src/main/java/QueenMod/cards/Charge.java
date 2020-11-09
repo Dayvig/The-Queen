@@ -70,7 +70,8 @@ public class Charge extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_MAGIC);
+            this.exhaust = false;
+            this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }
