@@ -24,7 +24,7 @@ public class HexGuard extends AbstractDynamicCard
     public static final String IMG = makeCardPath("hexguard.png");// "public static final String IMG = makeCardPath("${NAME}.png");
     private static final int COST = 2;
     private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
-    private static final CardTarget TARGET = CardTarget.NONE;  //   since they don't change much.
+    private static final CardTarget TARGET = CardTarget.SELF;  //   since they don't change much.
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
     public static final int BLOCK = 14;

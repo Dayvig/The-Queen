@@ -3,11 +3,13 @@ package QueenMod.cards;
 import QueenMod.QueenMod;
 import QueenMod.actions.FlybyAction;
 import QueenMod.characters.TheQueen;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.combat.WhirlwindEffect;
 
 import static QueenMod.QueenMod.makeCardPath;
 
@@ -47,7 +49,8 @@ public class Flyby extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
+        AbstractDungeon.effectsQueue.add(new WhirlwindEffect(Color.YELLOW, false));
     }
 
     // Upgraded stats.

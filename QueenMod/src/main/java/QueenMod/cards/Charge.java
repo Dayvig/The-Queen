@@ -40,7 +40,8 @@ public class Charge extends AbstractDynamicCard {
 
     private static final int COST = 1;  // COST = ${COST}
 
-    private static final int DAMAGE = 8;    // DAMAGE = ${DAMAGE}
+    private static final int DAMAGE = 6;    // DAMAGE = ${DAMAGE}
+    private static final int UPGRADE_PLUS_DAMAGE = 4;
     private static final int MAGIC = 2;
     private static final int UPGRADE_MAGIC = 1;
 
@@ -70,8 +71,7 @@ public class Charge extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.exhaust = false;
-            this.rawDescription = UPGRADE_DESCRIPTION;
+            upgradeDamage(UPGRADE_PLUS_DAMAGE);
             initializeDescription();
         }
     }

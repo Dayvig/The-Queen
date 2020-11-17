@@ -30,25 +30,22 @@ public class KillerQueen extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
+    private static final CardRarity RARITY = CardRarity.RARE; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
-    private static final int COST = 3;  // COST = ${COST}
-    private static final int DAMAGE = 20;    // DAMAGE = ${DAMAGE}
-    private static final int UPGRADE_PLUS_DMG = 10;  // UPGRADE_PLUS_DMG = ${UPGRADED_DAMAGE_INCREASE}
-    private static final int MAGIC = 2;
-    private static final int UPGRADE_MAGIC = 1;
+    private static final int COST = 2;  // COST = ${COST}
+    private static final int DAMAGE = 16;    // DAMAGE = ${DAMAGE}
+    private static final int UPGRADE_PLUS_DMG = 8;  // UPGRADE_PLUS_DMG = ${UPGRADED_DAMAGE_INCREASE}
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-    private int originalDamage = 0;
+    private int originalDamage;
 
     // /STAT DECLARATION/
 
 
     public KillerQueen() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = MAGIC;
         baseDamage = damage = DAMAGE;
         originalDamage = DAMAGE;
     }
@@ -61,7 +58,7 @@ public class KillerQueen extends AbstractDynamicCard {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn)));
     }
 
-    public void applyPowers() {
+    public void triggerOnGlowCheck() {
         int numAttacks = 0;
         int numOther = 0;
         AbstractPlayer p = AbstractDungeon.player;
@@ -90,16 +87,14 @@ public class KillerQueen extends AbstractDynamicCard {
             }
         }
         if (numAttacks > numOther){
-            if (costForTurn > 1 && !freeToPlayOnce) {
-                this.setCostForTurn(1);
-                this.isCostModifiedForTurn = true;
-            }
+            baseDamage = originalDamage*2;
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
         else {
-            if (costForTurn < 3 && !freeToPlayOnce) {
-                this.setCostForTurn(COST);
-                this.isCostModifiedForTurn = false;
-            }
+            baseDamage = originalDamage;
+            this.rawDescription = cardStrings.DESCRIPTION;
+            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
         }
         initializeDescription();
         super.applyPowers();

@@ -3,11 +3,13 @@ package QueenMod.cards;
 import QueenMod.QueenMod;
 import QueenMod.actions.ExhaustAllBeesAction;
 import QueenMod.characters.TheQueen;
+import QueenMod.effects.GatherEffect;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.stances.WrathStance;
 
 import static QueenMod.QueenMod.makeCardPath;
 
@@ -57,8 +59,9 @@ public class Assimilate extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.effectsQueue.add(new GatherEffect(true));
         AbstractDungeon.actionManager.addToBottom(new ExhaustAllBeesAction(magicNumber));
-        CardCrawlGame.sound.playA("BEE_SLOW", 1.0F);
+        CardCrawlGame.sound.playA("BEE_SLOW", 1.5F);
     }
 
     //Upgraded stats.

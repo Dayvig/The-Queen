@@ -3,6 +3,7 @@ package QueenMod.cards;
 import QueenMod.QueenMod;
 import QueenMod.actions.RecruitAction;
 import QueenMod.characters.TheQueen;
+import QueenMod.effects.pollenEffect;
 import QueenMod.powers.PollinatePower;
 import basemod.patches.com.megacrit.cardcrawl.screens.mainMenu.MainMenuScreen.SwapCharacterSelectScreen;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -59,10 +60,14 @@ public class PollenBlast extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-            AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-            for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters){
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new PollinatePower(mo, p, magicNumber),magicNumber));
+            AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
+            CardCrawlGame.sound.playA("PUFF", (float) Math.random() * 1.0F);
+        for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            if (!mo.isDead && !mo.halfDead) {
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new PollinatePower(mo, p, magicNumber), magicNumber));
+                AbstractDungeon.effectsQueue.add(new pollenEffect(true, mo));
             }
+        }
     }
 
     // Upgraded stats.

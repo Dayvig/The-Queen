@@ -18,7 +18,7 @@ import static QueenMod.QueenMod.makeCardPath;
 // public class ${NAME} extends AbstractDynamicCard
 public class HoneyShield extends AbstractDynamicCard {
     public static final String ID = QueenMod.makeID(HoneyShield.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
-    public static final String IMG = makeCardPath("honeyshield.png");// "public static final String IMG = makeCardPath("${NAME}.png");
+    public static final String IMG = makeCardPath("catering.png");// "public static final String IMG = makeCardPath("${NAME}.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
@@ -54,7 +54,7 @@ public class HoneyShield extends AbstractDynamicCard {
         if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10) {
             boost = (int)Math.floor(AbstractDungeon.player.getPower(Nectar.POWER_ID).amount / 10);
         }
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber+boost), magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber+boost), magicNumber+boost));
     }
 
     public void triggerOnGlowCheck() {

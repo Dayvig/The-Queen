@@ -41,7 +41,7 @@
   },
   "QueenMod:HoneycombSmash": {
     "NAME": "Honeycomb Smash",
-    "DESCRIPTION": "Deal !D! Damage. NL Apply !M! Weak. NL queenmod:Honey-boost: Enemy loses 2 Strength this turn. "
+    "DESCRIPTION": "Deal !D! Damage. NL Apply !M! Weak. NL queenmod:Honey-boost: Apply 1 Weak. "
   },
   "QueenMod:PopulateOrder": {
     "NAME": "Populate Order",
@@ -65,7 +65,8 @@
   },
   "QueenMod:KillerQueen": {
     "NAME": "Killer Queen",
-    "DESCRIPTION": "Deal !D! damage. NL If you have more Attacks than Skills in your combat deck, this costs 1 [E] ."
+    "DESCRIPTION": "Deal !D! damage. NL If you have more Attacks than other card types in your current combat deck, this damage is doubled.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage."
   },
   "QueenMod:HiveNetwork": {
     "NAME": "Hive Network",
@@ -104,7 +105,7 @@
 },
   "QueenMod:ProtectQueen": {
   "NAME": "Protect The Queen!",
-  "DESCRIPTION": "When you would take attack damage, Exhaust a queenmod:Bumblebee from your draw pile to gain its Block. NL queenmod:Recruit 2 queenmod:Bumblebees."
+  "DESCRIPTION": "When you would take attack damage, Exhaust a queenmod:Bumblebee from your draw pile to gain its Block. NL Add 2 Bumblebees to your draw pile."
 },
   "QueenMod:SharpStingers": {
     "NAME": "Sharper Stingers",
@@ -155,11 +156,8 @@
 },
   "QueenMod:Feast": {
   "NAME": "Feast",
-  "DESCRIPTION": "Apply !M! queenmod:Swarm to an enemy. Deal damage equal to your total queenmod:Swarm.",
-    "EXTENDED_DESCRIPTION": [
-      "Apply !M! queenmod:Swarm to an enemy. NL Deal !D! damage. (Equal to your total Swarm.)",
-      ""
-]
+  "DESCRIPTION": "Deal damage equal to your total queenmod:Swarm NL ( !D! Damage.) NL If Fatal, Heal 6. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to your total queenmod:Swarm NL ( !D! Damage.) NL If Fatal, Heal 6. NL Exhaust."
 },
   "QueenMod:BirthingCells": {
     "NAME": "Birthing Cells",
@@ -265,8 +263,7 @@
   },
   "QueenMod:Charge":{
     "NAME": "Charge!",
-    "DESCRIPTION": "Innate. NL Deal !D! damage. NL Draw !M! cards. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Deal !D! damage. NL Draw !M! cards."
+    "DESCRIPTION": "Innate. NL Deal !D! damage. NL Draw !M! cards. NL Exhaust."
   },
   "QueenMod:PlanAhead":{
     "NAME": "Organize",
@@ -299,8 +296,7 @@
   },
   "QueenMod:FlankingStrike":{
     "NAME": "Flanking Manuevers",
-    "DESCRIPTION": "Innate. NL Deal !D! damage and apply !M! Vulnerable to all enemies. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Deal !D! damage and apply !M! Vulnerable to all enemies."
+    "DESCRIPTION": "Innate. NL Deal !D! damage and apply !M! Vulnerable to all enemies. NL Exhaust."
   },
   "QueenMod:Reinforcements":{
     "NAME": "Reinforcements",
@@ -335,7 +331,7 @@
     "DESCRIPTION": "Gain !M! queenmod:Nectar. NL queenmod:Honey-boost: Gain !QueenMod:second! queenmod:Swarm instead."
   },
   "QueenMod:HoneyShield":{
-    "NAME": "Royal Catering Service",
+    "NAME": "Catering Service",
     "DESCRIPTION": "Gain !M! Strength. NL queenmod:Honey-boost: Gain 1 Strength."
   },
   "QueenMod:Rally":{
@@ -453,7 +449,7 @@
     "DESCRIPTION": "Gain !M! queenmod:Nectar. NL queenmod:Defensive: queenmod:Recruit a Workerbee and gain !B! Block."
   },
   "QueenMod:ForcedMarch": {
-    "NAME": "Forced March",
+    "NAME": "Loyal Subjects",
     "DESCRIPTION": "At the start of your turn, shuffle your discard pile into your deck, then draw a card."
   },
   "QueenMod:Collect": {
@@ -529,5 +525,14 @@
   "QueenMod:WaxCrafters": {
     "NAME": "Wax Crafters",
     "DESCRIPTION": "Add 2 Workerbees to your draw pile. NL Gain !M! Block when you play a Workerbee."
+  },
+  "QueenMod:Coronation": {
+    "NAME": "Coronation",
+    "DESCRIPTION": "Exhaust a queenmod:Hive card in your hand, then add a Princess Bee to your hand.",
+    "UPGRADE_DESCRIPTION": "Exhaust a queenmod:Hive card in your hand, then add a Princess Bee+ to your hand."
+  },
+  "QueenMod:Princess": {
+    "NAME": "Princess Bee",
+    "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage twice. NL Add 2 random queenmod:Hive cards from your draw pile to your hand."
   }
 }

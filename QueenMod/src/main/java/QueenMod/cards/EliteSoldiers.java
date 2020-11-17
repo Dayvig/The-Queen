@@ -56,6 +56,7 @@ public class EliteSoldiers extends AbstractDynamicCard {
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new BumbleBee(), 1, true, false));
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new WorkerBee(), 1, true, false));
         AbstractDungeon.actionManager.addToBottom(new UpgradeAllHive());
+        CardCrawlGame.sound.play("ORB_SLOT_GAIN", -0.2F);
     }
 
     // Upgraded stats.

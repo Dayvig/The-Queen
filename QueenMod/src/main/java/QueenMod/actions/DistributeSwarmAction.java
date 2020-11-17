@@ -83,10 +83,10 @@ public class DistributeSwarmAction extends AbstractGameAction {
                 }
                 if (moveSwarm) {
                     if (!f) {
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(AbstractDungeon.player, AbstractDungeon.player,
                                 new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, s), s));
                     } else {
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(AbstractDungeon.player, AbstractDungeon.player,
                                 new FocusedSwarm(AbstractDungeon.player, AbstractDungeon.player, s), s));
                     }
                 }
@@ -100,11 +100,11 @@ public class DistributeSwarmAction extends AbstractGameAction {
                     AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, SwarmPower.POWER_ID));
                 }
                 if (!f) {
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(a.target, AbstractDungeon.player,
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(a.target, AbstractDungeon.player,
                             new SwarmPowerEnemy(a.target, AbstractDungeon.player, s), s));
                 }
                 else {
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(a.target, AbstractDungeon.player,
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(a.target, AbstractDungeon.player,
                             new FocusedSwarmE(a.target, AbstractDungeon.player, s), s));
                     }
                 }
@@ -129,10 +129,10 @@ public class DistributeSwarmAction extends AbstractGameAction {
                     for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
                         if (!m.isDying && !m.halfDead) {
                             if (f) {
-                                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, AbstractDungeon.player, new FocusedSwarmE(m, AbstractDungeon.player, 1), 1));
+                                AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(m, AbstractDungeon.player, new FocusedSwarmE(m, AbstractDungeon.player, 1), 1));
                                 isDone = true;
                             } else {
-                                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, AbstractDungeon.player, new SwarmPowerEnemy(m, AbstractDungeon.player, 1), 1));
+                                AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(m, AbstractDungeon.player, new SwarmPowerEnemy(m, AbstractDungeon.player, 1), 1));
                                 isDone = true;
                             }
                         }
@@ -142,11 +142,11 @@ public class DistributeSwarmAction extends AbstractGameAction {
                     for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
                         if (!m.isDying && !m.halfDead) {
                             if (f) {
-                                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, AbstractDungeon.player, new FocusedSwarmE(m, AbstractDungeon.player, 1), 1));
+                                AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(m, AbstractDungeon.player, new FocusedSwarmE(m, AbstractDungeon.player, 1), 1));
                                 s--;
                                 if (s <= 0){ isDone = true; }
                             } else {
-                                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, AbstractDungeon.player, new SwarmPowerEnemy(m, AbstractDungeon.player, 1), 1));
+                                AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(m, AbstractDungeon.player, new SwarmPowerEnemy(m, AbstractDungeon.player, 1), 1));
                                 s--;
                                 if (s <= 0){ isDone = true; }
                             }
@@ -166,7 +166,7 @@ public class DistributeSwarmAction extends AbstractGameAction {
                                 while (toApply > s){
                                     toApply--;
                                 }
-                                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, AbstractDungeon.player, new FocusedSwarmE(m, AbstractDungeon.player, toApply), toApply));
+                                AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(m, AbstractDungeon.player, new FocusedSwarmE(m, AbstractDungeon.player, toApply), toApply));
                                 s -= toApply;
                                 if (s <= 0){ isDone = true; }
                             } else {
@@ -174,7 +174,7 @@ public class DistributeSwarmAction extends AbstractGameAction {
                                 while (toApply > s){
                                     toApply--;
                                 }
-                                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, AbstractDungeon.player, new SwarmPowerEnemy(m, AbstractDungeon.player, toApply), toApply));
+                                AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(m, AbstractDungeon.player, new SwarmPowerEnemy(m, AbstractDungeon.player, toApply), toApply));
                                 s -= toApply;
                                 if (s <= 0){ isDone = true; }
                             }
@@ -192,9 +192,9 @@ public class DistributeSwarmAction extends AbstractGameAction {
                     if (AbstractDungeon.player.hasPower(SwarmPower.POWER_ID)) {
                         AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, SwarmPower.POWER_ID));
                     }
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(a.target, AbstractDungeon.player,
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(a.target, AbstractDungeon.player,
                             new SwarmPowerEnemy(a.target, AbstractDungeon.player, (int) Math.floor(s / 2)), (int) Math.floor(s / 2)));
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(AbstractDungeon.player, AbstractDungeon.player,
                             new SwarmPower(a.target, AbstractDungeon.player, s / 2), s / 2));
                 }
                 break;
@@ -216,33 +216,33 @@ public class DistributeSwarmAction extends AbstractGameAction {
                 }
                 else if (s == 1){
                     if (f){
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new FocusedSwarm(AbstractDungeon.player, AbstractDungeon.player, 1),1));
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(AbstractDungeon.player, AbstractDungeon.player, new FocusedSwarm(AbstractDungeon.player, AbstractDungeon.player, 1),1));
                         isDone = true;
                     }
                     else {
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, 1),1));
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(AbstractDungeon.player, AbstractDungeon.player, new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, 1),1));
                         isDone = true;
                     }
                 }
                 else if (n > s){
                     if (f){
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new FocusedSwarm(AbstractDungeon.player, AbstractDungeon.player, 1),1));
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(AbstractDungeon.player, AbstractDungeon.player, new FocusedSwarm(AbstractDungeon.player, AbstractDungeon.player, 1),1));
                         s--;
                         if (s <= 0){ isDone = true; }
                     }
                     else {
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, 1),1));
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(AbstractDungeon.player, AbstractDungeon.player, new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, 1),1));
                         s--;
                         if (s <= 0){ isDone = true; }
                     }
                     for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
                         if (!m.isDying && !m.halfDead) {
                             if (f) {
-                                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, AbstractDungeon.player, new FocusedSwarmE(m, AbstractDungeon.player, 1), 1));
+                                AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(m, AbstractDungeon.player, new FocusedSwarmE(m, AbstractDungeon.player, 1), 1));
                                 s--;
                                 if (s <= 0){ isDone = true; }
                             } else {
-                                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, AbstractDungeon.player, new SwarmPowerEnemy(m, AbstractDungeon.player, 1), 1));
+                                AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(m, AbstractDungeon.player, new SwarmPowerEnemy(m, AbstractDungeon.player, 1), 1));
                                 s--;
                                 if (s <= 0){ isDone = true; }
                             }
@@ -256,12 +256,12 @@ public class DistributeSwarmAction extends AbstractGameAction {
                     int toApply = swarmdivide1;
                     System.out.println(swarmdivide1);
                     if (f){
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new FocusedSwarm(AbstractDungeon.player, AbstractDungeon.player, toApply),toApply));
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(AbstractDungeon.player, AbstractDungeon.player, new FocusedSwarm(AbstractDungeon.player, AbstractDungeon.player, toApply),toApply));
                         s -= toApply;
                         if (s <= 0){ isDone = true; }
                     }
                     else {
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, toApply),toApply));
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(AbstractDungeon.player, AbstractDungeon.player, new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, toApply),toApply));
                         s -= toApply;
                         if (s <= 0){ isDone = true; }
                     }
@@ -269,12 +269,12 @@ public class DistributeSwarmAction extends AbstractGameAction {
                         if (!m.isDying && !m.halfDead) {
                             if (f) {
                                 toApply = swarmdivide2;
-                                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, AbstractDungeon.player, new FocusedSwarmE(m, AbstractDungeon.player, toApply), toApply));
+                                AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(m, AbstractDungeon.player, new FocusedSwarmE(m, AbstractDungeon.player, toApply), toApply));
                                 s -= toApply;
                                 if (s <= 0){ isDone = true; }
                             } else {
                                 toApply = swarmdivide2;
-                                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, AbstractDungeon.player, new SwarmPowerEnemy(m, AbstractDungeon.player, toApply), toApply));
+                                AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(m, AbstractDungeon.player, new SwarmPowerEnemy(m, AbstractDungeon.player, toApply), toApply));
                                 s -= toApply;
                                 if (s <= 0){ isDone = true; }
                             }

@@ -7,6 +7,7 @@ package QueenMod.actions;
 
 import QueenMod.effects.AmbushEffect;
 import QueenMod.effects.ShowCardAddToDrawPileFast;
+import QueenMod.effects.ShowCardAndAddToDrawPileEffectFast;
 import QueenMod.powers.BusyBeesPower;
 import com.badlogic.gdx.Gdx;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -58,12 +59,21 @@ public class MakeTempCardInDrawPileActionFast extends AbstractGameAction {
             if (this.amount < 6) {
                 for(i = 0; i < this.amount; ++i) {
                     c = this.cardToMake.makeStatEquivalentCopy();
-                    AbstractDungeon.player.drawPile.addToRandomSpot(c);
+                    if (c.type != AbstractCard.CardType.CURSE && c.type != AbstractCard.CardType.STATUS && AbstractDungeon.player.hasPower("MasterRealityPower")) {
+                        c.upgrade();
+                    }
+
+                    AbstractDungeon.effectList.add(new ShowCardAndAddToDrawPileEffectFast(c, this.x, this.y, this.randomSpot, this.autoPosition, this.toBottom));
                 }
             } else {
                 for(i = 0; i < this.amount; ++i) {
                     c = this.cardToMake.makeStatEquivalentCopy();
-                    AbstractDungeon.player.drawPile.addToRandomSpot(c);
+                    if (c.type != AbstractCard.CardType.CURSE && c.type != AbstractCard.CardType.STATUS && AbstractDungeon.player.hasPower("MasterRealityPower")) {
+                        c.upgrade();
+                    }
+
+                    AbstractDungeon.effectList.add(new ShowCardAndAddToDrawPileEffectFast(c, this.x, this.y, this.randomSpot, this.autoPosition, this.toBottom));
+
                 }
             }
 

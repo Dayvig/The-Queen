@@ -3,6 +3,7 @@ package QueenMod.cards;
 import QueenMod.QueenMod;
 import QueenMod.actions.BecomeSwarmAction;
 import QueenMod.characters.TheQueen;
+import QueenMod.effects.GatherEffect;
 import QueenMod.powers.FromScratch;
 import QueenMod.powers.GeneralPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -54,6 +55,8 @@ public class IAmTheSwarm extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(final AbstractPlayer p, final AbstractMonster m) {
+        AbstractDungeon.effectsQueue.add(new GatherEffect(true));
+        CardCrawlGame.sound.playA("BEE_FADE", -0.2F + (float) Math.random() * -0.3F);
         AbstractDungeon.actionManager.addToBottom(new BecomeSwarmAction(magicNumber));
     }
 

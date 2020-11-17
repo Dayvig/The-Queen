@@ -4,6 +4,7 @@ import QueenMod.QueenMod;
 import QueenMod.actions.MakeTempCardInDrawPileActionFast;
 import QueenMod.actions.RecruitAction;
 import QueenMod.characters.TheQueen;
+import QueenMod.effects.pollenEffect;
 import QueenMod.powers.Nectar;
 import QueenMod.powers.PollinatePower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -17,6 +18,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
+
+import javax.smartcardio.Card;
 
 import static QueenMod.QueenMod.makeCardPath;
 
@@ -64,6 +67,8 @@ public class Gather extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new PollinatePower(m, p, magicNumber), magicNumber));
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new WorkerBee(), 1, true, false));
+        AbstractDungeon.effectsQueue.add(new pollenEffect(true, m));
+        CardCrawlGame.sound.playA("PUFF", (float) Math.random() * 1.0F);
     }
 
     //Upgraded stats.

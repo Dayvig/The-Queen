@@ -25,7 +25,7 @@ public class SwarmingStrike extends AbstractDynamicCard {
     // TEXT DECLARATION
 
     public static final String ID = QueenMod.makeID(SwarmingStrike.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
-    public static final String IMG = makeCardPath("feast.png");// "public static final String IMG = makeCardPath("${NAME}.png");
+    public static final String IMG = makeCardPath("swarmingstrike.png");// "public static final String IMG = makeCardPath("${NAME}.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String DESCRIPTION = cardStrings.DESCRIPTION;
@@ -56,8 +56,13 @@ public class SwarmingStrike extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(m, p, new SwarmPowerEnemy(m, p, damage), damage));
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+        if (!m.isDying && !m.halfDead && !m.isDead) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new SwarmPowerEnemy(m, p, damage), damage));
+        }
+        else {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SwarmPower(m, p, damage), damage));
+        }
     }
 
     // Upgraded stats.

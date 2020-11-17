@@ -339,6 +339,8 @@ public class QueenMod implements
         BaseMod.addAudio("BEE_FADE", "QueenModResources/sound/bee_fade.ogg");
         BaseMod.addAudio("BEE_SWARM", "QueenModResources/sound/bee_swarm_attack.ogg");
         BaseMod.addAudio("SLAP", "QueenModResources/sound/slap.ogg");
+        BaseMod.addAudio("MARCH", "QueenModResources/sound/march.ogg");
+        BaseMod.addAudio("PUFF", "QueenModResources/sound/pollen_puff.ogg");
     }
 
 
@@ -448,6 +450,8 @@ public class QueenMod implements
         BaseMod.addCard(new WarRoom());
         BaseMod.addCard(new WaxCrafters());
         //BaseMod.addCard(new PlanAhead());
+        BaseMod.addCard(new Coronation());
+        BaseMod.addCard(new Princess());
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -542,6 +546,8 @@ public class QueenMod implements
         UnlockTracker.unlockCard(Scramble.ID);
         UnlockTracker.unlockCard(WarRoom.ID);
         UnlockTracker.unlockCard(WaxCrafters.ID);
+        UnlockTracker.unlockCard(Coronation.ID);
+        UnlockTracker.unlockCard(Princess.ID);
 
         logger.info("Done adding cards!");
     }

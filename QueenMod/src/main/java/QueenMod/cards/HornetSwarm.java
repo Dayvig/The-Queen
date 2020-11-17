@@ -74,7 +74,7 @@ public class HornetSwarm extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             this.exhaust = false;
-            rawDescription = UPGRADE_DESCRIPTION;
+            this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

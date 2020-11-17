@@ -39,7 +39,8 @@ public class FlankingStrike extends AbstractDynamicCard {
     private static final int COST = 0;  // COST = ${COST}
     private static final int UPGRADED_COST = 0; // UPGRADED_COST = ${UPGRADED_COST}
 
-    private static final int DAMAGE = 5;    // DAMAGE = ${DAMAGE}
+    private static final int DAMAGE = 4;    // DAMAGE = ${DAMAGE}
+    private static final int UPGRADE_PLUS_DAMAGE = 3;
     private int numLeft;
 
     // /STAT DECLARATION/
@@ -68,8 +69,7 @@ public class FlankingStrike extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.rawDescription = UPGRADE_DESCRIPTION;
-            exhaust = false;
+            upgradeDamage(UPGRADE_PLUS_DAMAGE);
             initializeDescription();
         }
     }
