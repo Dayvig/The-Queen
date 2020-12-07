@@ -33,14 +33,28 @@ public class HiveEventScouting extends AbstractImageEvent {
     public static final String IMG = makeEventPath("scouts.png");
 
     private int screenNum = 0; // The initial screen we will see when encountering the event - screen 0;
-    private boolean cardSelect = false;
+    private boolean hasBasic = false;
+    private boolean hasNonBasic = false;
+    private boolean cardSelect;
 
     public HiveEventScouting() {
         super(NAME, DESCRIPTIONS[0], IMG);
 
+        boolean hasBasic = false;
+        boolean hasNonBasic = false;
+        for (AbstractCard c: CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck.getPurgeableCards()).group){
+            if (c.rarity.equals(AbstractCard.CardRarity.BASIC)){
+                hasBasic = true;
+            }
+            else {
+                hasNonBasic = true;
+            }
+        }
         // The first dialogue options available to us.
         imageEventText.setDialogOption(OPTIONS[0]); // Recall - Gain a yellow card and 100 gold.
-        imageEventText.setDialogOption(OPTIONS[1]); // Invest - Lose a non-starter card. Improve future Hive events.
+        imageEventText.setDialogOption(OPTIONS[1], !hasBasic); // Delegate - Remove a basic card from your deck.
+        imageEventText.setDialogOption(OPTIONS[2], !hasNonBasic); // Invest - [Remove a non-basic card from your deck]: Improve future Hive Events.
+        imageEventText.setDialogOption(OPTIONS[3]); // Leave
 
     }
 
@@ -51,23 +65,29 @@ public class HiveEventScouting extends AbstractImageEvent {
                 switch (i) {
                     case 0: // If you press button the first button (Button at index 0), in this case: Inspiration.
                         this.imageEventText.updateBodyText(DESCRIPTIONS[1]); // Update the text of the event
-                        this.imageEventText.updateDialogOption(0, OPTIONS[2]); // 1. Change the first button to the [Leave] button
+                        this.imageEventText.updateDialogOption(0, OPTIONS[3]); // 1. Change the first button to the [Leave] button
                         this.imageEventText.clearRemainingOptions(); // 2. and remove all others
                         screenNum = 1;
                         this.reward();
 
                         break; // Onto screen 1 we go.
                     case 1: // If you press button the second button (Button at index 1), in this case: Deinal
+                        CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 
                         if (CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck.getPurgeableCards()).size() > 0) {
-                            AbstractDungeon.gridSelectScreen.open(CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck.getPurgeableCards()), 1, OPTIONS[1], false, false, false, true);
+                            CardGroup g = CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck.getPurgeableCards());
+                            for (AbstractCard c : g.group){
+                                if (c.rarity.equals(AbstractCard.CardRarity.BASIC)){
+                                    tmp.addToBottom(c);
+                                }
+                            }
+                            AbstractDungeon.gridSelectScreen.open(tmp, 1, OPTIONS[1], false, false, false, true);
                             this.cardSelect = true;
                         }
 
                         this.imageEventText.updateBodyText(DESCRIPTIONS[2]);
-                        this.imageEventText.updateDialogOption(0, OPTIONS[2]);
-                        this.imageEventText.clearRemainingOptions();
-                        screenNum = 1;
+                        this.imageEventText.updateDialogOption(0, OPTIONS[3]); // 1. Change the first button to the [Leave] button
+                        this.imageEventText.clearRemainingOptions(); // 2. and remove all others
 
                         // Same as before. A note here is that you can also do
                         // imageEventText.clearAllDialogs();
@@ -76,7 +96,33 @@ public class HiveEventScouting extends AbstractImageEvent {
                         // (etc.)
                         // And that would also just set them into slot 0, 1, 2... in order, just like what we do in the very beginning
 
-                        break; // Onto screen 1 we go.
+                        break;
+                    case 2:
+                        CardGroup tmp2 = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+
+                        if (CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck.getPurgeableCards()).size() > 0) {
+                            CardGroup g = CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck.getPurgeableCards());
+                            for (AbstractCard c : g.group){
+                                if (!c.rarity.equals(AbstractCard.CardRarity.BASIC)){
+                                    tmp2.addToBottom(c);
+                                }
+                            }
+                            AbstractDungeon.gridSelectScreen.open(tmp2, 1, OPTIONS[1], false, false, false, true);
+                            this.cardSelect = true;
+                        }
+
+                        this.imageEventText.updateBodyText(DESCRIPTIONS[2]);
+                        this.imageEventText.updateDialogOption(0, OPTIONS[3]); // 1. Change the first button to the [Leave] button
+                        this.imageEventText.clearRemainingOptions(); // 2. and remove all others
+
+                        // Same as before. A note here is that you can also do
+                        // imageEventText.clearAllDialogs();
+                        // imageEventText.setDialogOption(OPTIONS[1]);
+                        // imageEventText.setDialogOption(OPTIONS[4]);
+                        // (etc.)
+                        // And that would also just set them into slot 0, 1, 2... in order, just like what we do in the very beginning
+
+                        break;
                 }
                 break;
             case 1: // Welcome to screenNum = 1;
@@ -107,21 +153,27 @@ public class HiveEventScouting extends AbstractImageEvent {
             switch (c.rarity){
                 case CURSE:
                     this.imageEventText.updateBodyText(DESCRIPTIONS[3]);
+                    this.screenNum = 1;
                 case BASIC:
                     this.imageEventText.updateBodyText(DESCRIPTIONS[3]);
+                    this.screenNum = 1;
                     break;
                 case COMMON:
                     this.imageEventText.updateBodyText(DESCRIPTIONS[4]);
                     AbstractDungeon.player.getRelic(QueensBanner.ID).counter++;
+                    this.screenNum = 1;
                     break;
                 case UNCOMMON:
                     this.imageEventText.updateBodyText(DESCRIPTIONS[4]);
                     AbstractDungeon.player.getRelic(QueensBanner.ID).counter++;
+                    this.screenNum = 1;
                     break;
                 case RARE:
                     this.imageEventText.updateBodyText(DESCRIPTIONS[5]);
                     AbstractDungeon.player.getRelic(QueensBanner.ID).counter += 2;
+                    this.screenNum = 1;
                 default:
+                    this.screenNum = 1;
             }
             // if you want to continue using the other selected cards for something
         }

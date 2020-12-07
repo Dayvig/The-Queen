@@ -2,6 +2,7 @@ package QueenMod.cards;
 
 import QueenMod.QueenMod;
 import QueenMod.characters.TheQueen;
+import QueenMod.effects.SecretWeaponEffect;
 import QueenMod.powers.Nectar;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -63,7 +64,7 @@ public class SecretWeapon extends AbstractDynamicCard {
         if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10) {
             int boost = (int) Math.floor(AbstractDungeon.player.getPower(Nectar.POWER_ID).amount / 10);
             for (int i = 0; i < boost; i++) {
-                this.addToBot(new VFXAction(p, new MindblastEffect(p.dialogX, p.dialogY, p.flipHorizontal), 0.1F));
+                this.addToBot(new VFXAction(p, new SecretWeaponEffect(p.dialogX, p.dialogY, p.flipHorizontal), 0.1F));
                 this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
             }
         }

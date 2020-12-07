@@ -72,6 +72,7 @@ public class MatingDance extends AbstractDynamicCard {
             combo++;
             if (combo == COMBO_LENGTH){
                 AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, magicNumber),magicNumber));
+                this.flash();
                 combo = 0;
                 desc = "";
                 for (int i=0;i<COMBO_LENGTH;i++) {

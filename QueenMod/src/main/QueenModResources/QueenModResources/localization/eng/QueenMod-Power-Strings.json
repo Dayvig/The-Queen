@@ -18,9 +18,9 @@
         "QueenMod:Nectar": {
                 "NAME": "Nectar",
                 "DESCRIPTIONS": [
-                        "At the start of your turn, gain 1 [E] for every 10 Nectar.",
-                        "",
-                        ""
+                        "At the start of your turn, gain 1 [E] for every 10 Nectar. #b",
+                        "Nectar.",
+                        "Nectar."
                 ]
         },
         "QueenMod:Swarm": {
@@ -28,7 +28,7 @@
                 "DESCRIPTIONS": [
                         "At the end of your turn, gain #b",
                         " #yBlock. Then reduce #ySwarm by #b1.",
-                        ""
+                        " #yBlock. Then reduce #ySwarm by #b1."
                 ]
         },
         "QueenMod:SwarmE": {
@@ -36,7 +36,7 @@
                 "DESCRIPTIONS": [
                         "At the end of your turn, lose #b",
                         " HP. Then reduce #ySwarm by #b1.",
-                        ""
+                        " HP. Then reduce #ySwarm by #b1."
                 ]
         },
         "QueenMod:HoneyPower": {
@@ -50,9 +50,9 @@
         "QueenMod:DefenderPower": {
                 "NAME": "At the ready",
                 "DESCRIPTIONS": [
-                        "When attacked, automatically Exhausts up to #b",
-                        " Bumblebee from your Draw Pile to gain its Block.",
-                        " Bumblebees from your Draw Pile to gain their Block."
+                        "When attacked, automatically Exhausts up to ",
+                        "Bumblebee from your Draw Pile to gain its Block.",
+                        "Bumblebees from your Draw Pile to gain their Block."
                 ]
         },
         "QueenMod:DefenderUpgradePower": {
@@ -74,9 +74,9 @@
         "QueenMod:PollinatePower": {
                 "NAME": "Pollinated",
                 "DESCRIPTIONS": [
-                        "When taking attack damage, the Queen gains 1 Nectar. At the end of the turn, reduce #yPollinate by #b1.",
-                        "",
-                        ""
+                        "When taking attack damage, the Queen gains 1 Nectar. At the end of the turn, reduce #yPollinate by #b1. #b",
+                        " Pollinated.",
+                        " Pollinated."
                 ]
         },
         "QueenMod:SwarmTacticsPower": {
@@ -84,7 +84,7 @@
                 "DESCRIPTIONS": [
                         "When you play a card, gain #b",
                         " #ySwarm.",
-                        ""
+                        " #ySwarm."
                 ]
         },
         "QueenMod:StrategicGeniusPower": {
@@ -282,13 +282,13 @@
         "QueenMod:CellPower": {
                 "NAME": "Birthing Cells",
                 "DESCRIPTIONS": [
-                        "At the start of your turn, add ",
+                        "At the start of your turn, add #b",
                         " Drone to your draw pile.",
                         " Drones to your draw pile."
                 ]
         },
         "QueenMod:WarriorDronePower": {
-                "NAME": "Birthing Cells",
+                "NAME": "Warrior Drones",
                 "DESCRIPTIONS": [
                         "When you play a Drone, deal #b",
                         " damage to a random enemy.",
@@ -301,6 +301,14 @@
                         "The first #b",
                         " times you play a Workerbee this turn, add a Drone to your hand.",
                         " times you play a Workerbee this turn, add a Drone to your hand."
+                ]
+        },
+        "QueenMod:WaxCraftersPower": {
+                "NAME": "Wax Crafters",
+                "DESCRIPTIONS": [
+                        "Gain #b",
+                        " Block every time you play a Workerbee.",
+                        " Block every time you play a Workerbee."
                 ]
         }
 }

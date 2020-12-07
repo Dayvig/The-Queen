@@ -53,7 +53,7 @@ public class Beekeeping extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ExhaustAction(p,p,magicNumber,false));
-        CardCrawlGame.sound.playA("BEE_ATTACK1", -0.5F);
+        CardCrawlGame.sound.playA("BEE_ATTACK1", -0.1F);
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new BumbleBee(), magicNumber));
     }
 

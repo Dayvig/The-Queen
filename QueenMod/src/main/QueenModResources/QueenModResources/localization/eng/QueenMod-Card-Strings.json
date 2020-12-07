@@ -156,8 +156,8 @@
 },
   "QueenMod:Feast": {
   "NAME": "Feast",
-  "DESCRIPTION": "Deal damage equal to your total queenmod:Swarm NL ( !D! Damage.) NL If Fatal, Heal 6. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Deal damage equal to your total queenmod:Swarm NL ( !D! Damage.) NL If Fatal, Heal 6. NL Exhaust."
+  "DESCRIPTION": "Deal damage equal to your total queenmod:Swarm NL ( !D! Damage.) NL If Fatal, Heal 6.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to your total queenmod:Swarm NL ( !D! Damage.) NL If Fatal, Heal 6."
 },
   "QueenMod:BirthingCells": {
     "NAME": "Birthing Cells",
@@ -344,7 +344,7 @@
   },
   "QueenMod:Fortify":{
     "NAME": "Fortify",
-    "DESCRIPTION": "Gain 1 block for each card in your draw pile. ( !B! Block. )"
+    "DESCRIPTION": "Gain 1 Block for each card in your draw pile. ( !B! Block. )"
   },
   "QueenMod:HoldPosition":{
     "NAME": "Hold Position",
@@ -388,21 +388,6 @@
     "DESCRIPTION": "Innate. NL Deal !D! damage. NL Exhaust."
   },
   "QueenMod:SupplyLines": {
-    "NAME": "Supply Lines",
-    "DESCRIPTION": "Draw a card. NL queenmod:Honey-boost: Draw a card.",
-    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL queenmod:Honey-boost: Draw a card."
-  },
-  "QueenMod:Incubate": {
-    "NAME": "Incubate",
-    "DESCRIPTION": "Gain !M! queenmod:Swarm."
-  },
-  "QueenMod:Frenzy": {
-    "NAME": "Frenzy",
-    "DESCRIPTION": "Gain Block and deal damage to all enemies equal to your queenmod:Swarm and split it among all targets for the turn.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block and Deal !D! damage to all enemies (equal to your Swarm) NL Split your queenmod:Swarm among all targets for the turn."
-  },
-  "QueenMod:SecretService": {
-    "NAME": "Secret Service",
     "DESCRIPTION": "Exhaust one of each type of queenmod:Hive card in your draw pile. Combine them into a W.A.S.P. and add it to your hand. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Exhaust one of each type of queenmod:Hive card in your draw pile. Combine them into a W.A.S.P. upgrade it and add it to your hand. NL Exhaust."
   },
@@ -498,7 +483,7 @@
   },
   "QueenMod:WorkerDrones": {
     "NAME": "Drone Workers",
-    "DESCRIPTION": "The first time you play a queenmod:Workerbee each turn, add a queenmod:Drone to your hand."
+    "DESCRIPTION": "Add 2 queenmod:Workerbees to your draw pile. NL The first time you play a queenmod:Workerbee each turn, add a queenmod:Drone to your hand."
   },
   "QueenMod:Garrison": {
   "NAME": "Garrison",
@@ -514,8 +499,7 @@
   },
   "QueenMod:Scramble": {
     "NAME": "Scramble!",
-    "DESCRIPTION": "Gain !M! Swarm. NL Discard your hand, then draw 3 Attacks and 3 Skills from your draw pile.",
-    "UPGRADE_DESCRIPTION": "Gain !M! Swarm. NL Discard your hand, then draw 4 Attacks and 4 Skills from your draw pile."
+    "DESCRIPTION": "Gain !M! Swarm. NL Discard your hand, then draw !QueenMod:second! Attacks and !QueenMod:second! Skills from your draw pile."
   },
   "QueenMod:WarRoom": {
     "NAME": "Pheremone Trail",
@@ -534,5 +518,9 @@
   "QueenMod:Princess": {
     "NAME": "Princess Bee",
     "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage twice. NL Add 2 random queenmod:Hive cards from your draw pile to your hand."
+  },
+  "QueenMod:Incubate": {
+    "NAME": "Incubate",
+    "DESCRIPTION": "Gain !M! Swarm."
   }
 }

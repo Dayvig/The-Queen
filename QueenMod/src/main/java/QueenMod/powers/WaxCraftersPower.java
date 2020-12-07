@@ -27,8 +27,8 @@ public class WaxCraftersPower extends AbstractPower {
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("workerdrones84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("workerdrones32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("waxpower84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("waxpower32.png"));
     private int workers;
 
     public WaxCraftersPower(final AbstractCreature owner, final AbstractCreature source, int newAmount) {

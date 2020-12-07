@@ -78,6 +78,7 @@ public class TortureDance extends AbstractDynamicCard {
             combo++;
             if (combo == COMBO_LENGTH){
                 AbstractDungeon.actionManager.addToTop(new DamageAllEnemiesAction(AbstractDungeon.player, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
+                this.flash();
                 combo = 0;
                 desc = "";
                 for (int i=0;i<COMBO_LENGTH;i++) {

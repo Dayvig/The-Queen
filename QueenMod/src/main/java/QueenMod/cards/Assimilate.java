@@ -52,7 +52,7 @@ public class Assimilate extends AbstractDynamicCard {
 
     public Assimilate() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = 3;
+        magicNumber = baseMagicNumber = 4;
     }
 
 

@@ -11,7 +11,8 @@
     ],
     "OPTIONS": [
       "[Recall] #gGain #ga #gyellow #gcard. #gGain #g100 #ggold.",
-      "[Invest] Remove a card. Improve future Hive events if common or better.",
+      "[Delegate] Remove a basic card.",
+      "[Invest] Remove a #ynon-basic card. #gImprove #gfuture #gHive #gevents.",
       "[Leave]"
     ]
   },

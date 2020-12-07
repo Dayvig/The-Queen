@@ -5,10 +5,14 @@ import QueenMod.actions.FlybyAction;
 import QueenMod.characters.TheQueen;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.combat.CleaveEffect;
 import com.megacrit.cardcrawl.vfx.combat.WhirlwindEffect;
 
 import static QueenMod.QueenMod.makeCardPath;
@@ -51,6 +55,8 @@ public class Flyby extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
         AbstractDungeon.effectsQueue.add(new WhirlwindEffect(Color.YELLOW, false));
+        this.addToBot(new SFXAction("ATTACK_HEAVY"));
+        this.addToBot(new VFXAction(p, new CleaveEffect(), 0.0F));
     }
 
     // Upgraded stats.

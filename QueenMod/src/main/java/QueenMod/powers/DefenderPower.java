@@ -38,6 +38,7 @@ public class DefenderPower extends AbstractPower implements CloneablePowerInterf
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("defenderexhaust84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("defenderexhaust32.png"));
     private int numTimes;
+    private int usedThisTurn;
     private boolean isUpgraded;
     public int powerAmount;
     private ArrayList<AbstractCard> blockingCard = new ArrayList<>();
@@ -51,6 +52,7 @@ public class DefenderPower extends AbstractPower implements CloneablePowerInterf
         this.source = source;
         numTimes = p;
         powerAmount = p;
+        usedThisTurn = numTimes;
 
         type = PowerType.BUFF;
         isTurnBased = false;
@@ -65,16 +67,15 @@ public class DefenderPower extends AbstractPower implements CloneablePowerInterf
     @Override
     public int onAttacked(DamageInfo info, int damageAmount) {
         System.out.println("numtimes: "+numTimes);
-        if (numTimes > 0 && info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != this.owner && this.owner.currentBlock < damageAmount) {
-            for (int i = 0; i < numTimes; i++) {
+        if (usedThisTurn > 0 && info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != this.owner && this.owner.currentBlock < damageAmount) {
                 if (blockingCard.isEmpty() || damageAmount <= 0) {
-                    break;
+                    return damageAmount;
                 }
                 AbstractCard c = blockingCard.remove(AbstractDungeon.cardRandomRng.random(blockingCard.size() - 1));
                 damageAmount -= c.block;
                 AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.owner.hb.cX, this.owner.hb.cY, AbstractGameAction.AttackEffect.SHIELD));
                 AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(c, AbstractDungeon.player.drawPile, true));
-            }
+                usedThisTurn--;
         }
         if (damageAmount == 0) {
             return damageAmount;
@@ -128,6 +129,7 @@ public class DefenderPower extends AbstractPower implements CloneablePowerInterf
     @Override
     public void atStartOfTurnPostDraw () {
         checkNum();
+        usedThisTurn = this.powerAmount;
     }
 
     @Override
@@ -144,6 +146,7 @@ public class DefenderPower extends AbstractPower implements CloneablePowerInterf
         if (AbstractDungeon.player.hasPower(DefenderPower.POWER_ID) && target.equals(AbstractDungeon.player) && power.ID.equals(DefenderPower.POWER_ID)) {
             if (power instanceof DefenderPower) {
                 this.powerAmount += ((DefenderPower) power).powerAmount;
+                this.usedThisTurn++;
             }
         }
     }

@@ -51,7 +51,6 @@ public class Feast extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
         baseDamage= damage = 0;
-        this.exhaust = true;
         this.tags.add(CardTags.HEALING);
     }
 

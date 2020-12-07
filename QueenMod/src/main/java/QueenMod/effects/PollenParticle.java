@@ -37,8 +37,8 @@ public class PollenParticle extends AbstractGameEffect {
         this.img = ImageMaster.GLOW_SPARK_2;
         this.sX = sX * Settings.scale;
         this.sY = sY * Settings.scale;
-        this.tX = (sX + MathUtils.random(-100.0F, 100.0F)) * Settings.scale;
-        this.tY = (sY + MathUtils.random(-100.0F, 100.0F)) * Settings.scale;
+        this.tX = (sX + MathUtils.random(-150.0F, 150.0F)) * Settings.scale;
+        this.tY = (sY + MathUtils.random(-150.0F, 150.0F)) * Settings.scale;
         this.x = this.sX;
         this.y = this.sY;
         this.startingScale = Settings.scale - MathUtils.random(0.0F, 0.5F*Settings.scale);

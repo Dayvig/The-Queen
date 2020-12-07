@@ -110,6 +110,7 @@ public class QueenMod implements
     public static final String QUEEN_SHOULDER_1 = "QueenModResources/images/char/queen/shoulder.png";
     public static final String QUEEN_SHOULDER_2 = "QueenModResources/images/char/queen/shoulder2.png";
     public static final String QUEEN_CORPSE = "QueenModResources/images/char/queen/corpse.png";
+    public static final String QUEEN_MAPBEE = "QueenModResources/images/char/queen/map_bee.png";
 
     //Mod Badge - A small icon that appears in the mod settings menu next to your mod.
     public static final String BADGE_IMAGE = "QueenModResources/images/Badge.png";

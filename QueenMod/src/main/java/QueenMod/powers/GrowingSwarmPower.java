@@ -1,6 +1,8 @@
 package QueenMod.powers;
 
 import QueenMod.QueenMod;
+import QueenMod.cards.Gather;
+import QueenMod.effects.GatherEffect;
 import QueenMod.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
@@ -12,6 +14,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+
+import javax.smartcardio.Card;
 
 import static QueenMod.QueenMod.makePowerPath;
 
@@ -50,7 +54,9 @@ public class GrowingSwarmPower extends AbstractPower implements CloneablePowerIn
 
     @Override
     public void atStartOfTurn() {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner,this.source,new SwarmPower(this.owner, this.source, this.amount),this.amount));
+        AbstractDungeon.effectsQueue.add(new GatherEffect(true));
+        CardCrawlGame.sound.play("BEE_ATTACK1", -0.6F);
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner,this.source,new SwarmPower(this.owner, this.source, this.amount),this.amount));
     }
 
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))

@@ -47,6 +47,7 @@ public class Incubate extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        CardCrawlGame.sound.play("BEE_ATTACK1", -0.6F);
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SwarmPower(p,p,this.magicNumber),this.magicNumber));
     }
 

@@ -19,8 +19,10 @@ public class updateExistingHornetsAction extends AbstractGameAction {
             if (c.cardID.equals(Hornet.ID)) {
                 if (!c.upgraded) {
                     c.baseDamage = 11 + AbstractDungeon.player.getPower(StingerPower.POWER_ID).amount;
+                    c.applyPowers();
                 } else {
                     c.baseDamage = 15 + AbstractDungeon.player.getPower(StingerPower.POWER_ID).amount;
+                    c.applyPowers();
                 }
             }
         }
@@ -28,8 +30,12 @@ public class updateExistingHornetsAction extends AbstractGameAction {
             if (c.cardID.equals(Hornet.ID)) {
                 if (!c.upgraded) {
                     c.baseDamage = 11 + AbstractDungeon.player.getPower(StingerPower.POWER_ID).amount;
+                    c.superFlash();
+                    c.applyPowers();
                 } else {
                     c.baseDamage = 15 + AbstractDungeon.player.getPower(StingerPower.POWER_ID).amount;
+                    c.superFlash();
+                    c.applyPowers();
                 }
             }
         }
@@ -37,8 +43,10 @@ public class updateExistingHornetsAction extends AbstractGameAction {
             if (c.cardID.equals(Hornet.ID)) {
                 if (!c.upgraded) {
                     c.baseDamage = 11 + AbstractDungeon.player.getPower(StingerPower.POWER_ID).amount;
+                    c.applyPowers();
                 } else {
                     c.baseDamage = 15 + AbstractDungeon.player.getPower(StingerPower.POWER_ID).amount;
+                    c.applyPowers();
                 }
             }
         }
