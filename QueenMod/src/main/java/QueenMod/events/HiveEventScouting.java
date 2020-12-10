@@ -107,7 +107,7 @@ public class HiveEventScouting extends AbstractImageEvent {
                                     tmp2.addToBottom(c);
                                 }
                             }
-                            AbstractDungeon.gridSelectScreen.open(tmp2, 1, OPTIONS[1], false, false, false, true);
+                            AbstractDungeon.gridSelectScreen.open(tmp2, 1, OPTIONS[2], false, false, false, true);
                             this.cardSelect = true;
                         }
 

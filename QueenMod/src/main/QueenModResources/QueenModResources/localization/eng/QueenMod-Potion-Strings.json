@@ -1,6 +1,9 @@
 {
-"QueenMod:PlaceholderPotion": {
-        "NAME": "Placeholder Potion",
-        "DESCRIPTIONS": ["Gain ", " At the end of your turn, lose ", " Strength."]
+"QueenMod:HoneyPotion": {
+        "NAME": "Honey Potion",
+        "DESCRIPTIONS": ["Gain ", " Nectar. (At the start of your turn, gain [E] for every 10 Nectar. Also trigger your Honey-Boost cards once when played."]
+}, "QueenMod:BeesInAJar": {
+        "NAME": "Bees in a Jar",
+        "DESCRIPTIONS": ["Apply ", " Swarm to an enemy."]
 }
 }

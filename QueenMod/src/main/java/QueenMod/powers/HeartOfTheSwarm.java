@@ -122,13 +122,6 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
     }
 
     @Override
-    public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        if (AbstractDungeon.player.hasPower(HoneyShieldPower.POWER_ID) && target.equals(AbstractDungeon.player) && power.ID.equals(Nectar.POWER_ID)){
-            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this.owner, this.source, AbstractDungeon.player.getPower(HoneyShieldPower.POWER_ID).amount));
-        }
-    }
-
-    @Override
     public void onAfterUseCard(AbstractCard c, UseCardAction a) {
         if (!(totalSwarm == 0)) {
             if (c.type.equals(AbstractCard.CardType.STATUS) || c.type.equals(AbstractCard.CardType.CURSE) || c.type.equals(AbstractCard.CardType.POWER)) {

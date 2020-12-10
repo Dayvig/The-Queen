@@ -275,7 +275,7 @@
 },
   "QueenMod:Conscripts":{
     "NAME": "Conscripts",
-    "DESCRIPTION": "Deal !D! damage. NL Draw a card. NL When you add this to your deck, add an additional copy."
+    "DESCRIPTION": "Deal !D! damage. NL Draw a card. NL When you add this to your deck, add two additional copies."
   },
   "QueenMod:Strike":{
     "NAME": "Strike",

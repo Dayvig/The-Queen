@@ -29,8 +29,9 @@
     ],
     "OPTIONS": [
       "[Collect] #gGain #g100 #ggold #gand #gan #guncommon #grelic",
-      "[Recall] #gGain #g2 #gyellow #gcards. #gGain #g100 #ggold.",
-      "[Invest] Remove a card. Improve future Hive events if common or better.",
+      "[Recall] #gGain #ga #gyellow #gcard. #gGain #g100 #ggold.",
+      "[Delegate] Remove a basic card.",
+      "[Invest] Remove a #ynon-basic card. #gImprove #gfuture #gHive #gevents.",
       "[Leave]"
     ]
   },

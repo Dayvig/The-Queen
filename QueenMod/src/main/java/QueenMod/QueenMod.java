@@ -5,6 +5,8 @@ import QueenMod.characters.TheQueen;
 import QueenMod.events.HiveEventBuilding;
 import QueenMod.events.HiveEventColony;
 import QueenMod.events.HiveEventScouting;
+import QueenMod.potions.BeesInAJar;
+import QueenMod.potions.HoneyPotion;
 import QueenMod.relics.*;
 import QueenMod.util.IDCheckDontTouchPls;
 import QueenMod.util.TextureLoader;
@@ -22,6 +24,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.localization.*;
@@ -294,7 +297,8 @@ public class QueenMod implements
     public void receiveEditPotions() {
         logger.info("Beginning to edit potions");
 
-        // Class Specific Potion. If you want your potion to not be class-specific,
+        BaseMod.addPotion(HoneyPotion.class, Color.YELLOW, Color.WHITE, Color.CLEAR, "HoneyPotion", TheQueen.Enums.THE_QUEEN);
+        BaseMod.addPotion(BeesInAJar.class, Color.CLEAR, Color.CLEAR, Color.YELLOW, "BeesInAJar", TheQueen.Enums.THE_QUEEN);
         // just remove the player class at the end (in this case the "Enum.THE_DEFAULT".
         // Remember, you can press ctrl+P inside parentheses like addPotions)
 
@@ -558,7 +562,6 @@ public class QueenMod implements
     // shorten all the imports, go look take a look at other mods, such as Hubris.
 
     // ================ /ADD CARDS/ ===================
-
 
     // ================ LOAD THE TEXT ===================
 
