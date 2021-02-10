@@ -277,6 +277,14 @@
     "NAME": "Conscripts",
     "DESCRIPTION": "Deal !D! damage. NL Draw a card. NL When you add this to your deck, add two additional copies."
   },
+  "QueenMod:Volunteers":{
+    "NAME": "Volunteers",
+    "DESCRIPTION": "Gain !B! Block. NL Draw a card. NL When you add this to your deck, add two additional copies."
+  },
+  "QueenMod:Wasps":{
+    "NAME": "Wasps",
+    "DESCRIPTION": "Deal !D! damage twice. NL Draw a card. NL When you add this to your deck, add two additional copies."
+  },
   "QueenMod:Strike":{
     "NAME": "Strike",
     "DESCRIPTION": "Deal !D! damage."
