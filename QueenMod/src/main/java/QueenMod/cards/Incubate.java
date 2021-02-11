@@ -34,7 +34,8 @@ public class Incubate extends AbstractDynamicCard {
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 1;  // COST = ${COST}
-    private static final int MAGIC = 6;
+    private static final int MAGIC = 5;
+    private static final int UPGRADE_MAGIC = 3;
     // /STAT DECLARATION/
 
 
@@ -56,7 +57,7 @@ public class Incubate extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(2);
+            upgradeMagicNumber(UPGRADE_MAGIC);
             initializeDescription();
         }
     }

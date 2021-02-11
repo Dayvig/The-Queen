@@ -452,7 +452,7 @@
   },
   "QueenMod:Infest": {
     "NAME": "Infest",
-    "DESCRIPTION": "Apply !M! queenmod:Swarm to all enemies and yourself. NL queenmod:Honey-boost: Apply !QueenMod:second! more."
+    "DESCRIPTION": "Apply !M! queenmod:Swarm to all enemies and yourself. NL queenmod:Honey-boost: Apply !QueenMod:second! queenmod:Swarm to all enemies and yourself."
   },
   "QueenMod:Advisor": {
     "NAME": "Reserve Force",
@@ -530,6 +530,6 @@
   },
   "QueenMod:Incubate": {
     "NAME": "Incubate",
-    "DESCRIPTION": "Gain !M! Swarm."
+    "DESCRIPTION": "Gain !M! queenmod:Swarm."
   }
 }

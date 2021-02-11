@@ -58,16 +58,18 @@ public class Infest extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         CardCrawlGame.sound.play("BEE_ATTACK1", -0.6F);
-        int amnt = magicNumber;
         if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10){
-            int boost = (int)Math.floor(AbstractDungeon.player.getPower(Nectar.POWER_ID).amount/10);
+            int boost = AbstractDungeon.player.getPower(Nectar.POWER_ID).amount/10;
             for (int i = 0;i<boost;i++){
-                amnt += defaultSecondMagicNumber;
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SwarmPower(p, p, boost * defaultSecondMagicNumber), boost * defaultSecondMagicNumber));
+                for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters){
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new SwarmPowerEnemy(mo, p, boost * defaultSecondMagicNumber), boost * defaultSecondMagicNumber));
+                }
             }
         }
-         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SwarmPower(p, p, amnt), amnt));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SwarmPower(p, p, magicNumber), magicNumber));
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters){
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new SwarmPowerEnemy(mo, p, amnt), amnt));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new SwarmPowerEnemy(mo, p, magicNumber), magicNumber));
         }
     }
 
