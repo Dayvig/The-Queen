@@ -27,10 +27,11 @@ public class SwarmTactics extends AbstractDynamicCard {
 
     private static final CardRarity RARITY = CardRarity.RARE; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.NONE;  //   since they don't change much.
-    private static final CardType TYPE = CardType.SKILL;       //
+    private static final CardType TYPE = CardType.POWER;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
-    private static final int COST = 1;  // COST = ${COST}
+    private static final int COST = 2;  // COST = ${COST}
+    private static final int UPGRADED_COST = 1;
 
     // /STAT DECLARATION/
 
@@ -54,7 +55,7 @@ public class SwarmTactics extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
+            upgradeBaseCost(UPGRADED_COST);
             initializeDescription();
         }
     }

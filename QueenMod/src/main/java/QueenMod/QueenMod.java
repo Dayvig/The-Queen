@@ -459,11 +459,14 @@ public class QueenMod implements
         BaseMod.addCard(new Princess());
         BaseMod.addCard(new Wasps());
         BaseMod.addCard(new Volunteers());
+        BaseMod.addCard(new Suitors());
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
         // This is so that they are all "seen" in the library, for people who like to look at the card list
         // before playing your mod.
+
+        UnlockTracker.unlockCard(Suitors.ID);
         UnlockTracker.unlockCard(Wasps.ID);
         UnlockTracker.unlockCard(Volunteers.ID);
         //UnlockTracker.unlockCard(PlanAhead.ID);

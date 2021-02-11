@@ -38,8 +38,8 @@ public class Wasps extends AbstractDynamicCard implements CardAddedToDeck {
 
     private static final int COST = 0;  // COST = ${COST}
 
-    private static final int DAMAGE = 1;    // DAMAGE = ${DAMAGE}
-    private static final int UPGRADE_PLUS_DAMAGE = 1;
+    private static final int DAMAGE = 3;    // DAMAGE = ${DAMAGE}
+    private static final int UPGRADE_PLUS_DAMAGE = 2;
     private int numLeft;
 
     // /STAT DECLARATION/
@@ -54,16 +54,14 @@ public class Wasps extends AbstractDynamicCard implements CardAddedToDeck {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (int i = 0; i< 2; i++) {
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        }
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(1));
     }
 
     @Override
     public boolean onAddedToMasterDeck() {
         for (int i = 0; i<2;i++) {
-            AbstractCard c = new Conscripts();
+            AbstractCard c = new Wasps();
             if (this.upgraded) {
                 c.upgrade();
             }

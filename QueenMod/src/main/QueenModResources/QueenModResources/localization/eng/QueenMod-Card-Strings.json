@@ -126,7 +126,7 @@
   },
   "QueenMod:SwarmTactics": {
     "NAME": "Swarm Tactics",
-    "DESCRIPTION": "When you play a card this turn, gain !M! queenmod:Swarm."
+    "DESCRIPTION": "When you play a card, gain !M! queenmod:Swarm."
   },
   "QueenMod:StrategicGenius": {
   "NAME": "Strategic Genius",
@@ -531,5 +531,9 @@
   "QueenMod:Incubate": {
     "NAME": "Incubate",
     "DESCRIPTION": "Gain !M! queenmod:Swarm."
+  },
+  "QueenMod:Suitors": {
+    "NAME": "Suitors",
+    "DESCRIPTION": "Add !M! Drones to your draw pile. NL Exhaust."
   }
 }

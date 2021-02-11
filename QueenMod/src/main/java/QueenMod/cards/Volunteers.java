@@ -61,7 +61,7 @@ public class Volunteers extends AbstractDynamicCard implements CardAddedToDeck {
     @Override
     public boolean onAddedToMasterDeck() {
         for (int i = 0; i<2;i++) {
-            AbstractCard c = new Conscripts();
+            AbstractCard c = new Volunteers();
             if (this.upgraded) {
                 c.upgrade();
             }

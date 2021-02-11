@@ -31,7 +31,7 @@ public class HoldPosition extends AbstractDynamicCard {
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 1;  // COST = ${COST}
-    private static final int BLOCK = 7;
+    private static final int BLOCK = 9;
     private static final int UPGRADE_PLUS_BLOCK = 3;
     // /STAT DECLARATION/
 
