@@ -36,16 +36,20 @@ public class Beekeeping extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
-    private static final int COST = 1;  // COST = ${COST}
-    private static final int UPGRADED_COST = 0;
+    private static final int COST = 0;  // COST = ${COST}
     private static final int MAGIC = 1;
     // /STAT DECLARATION/
+    AbstractCard b;
 
 
     public Beekeeping() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
-        this.cardsToPreview = new BumbleBee();
+        b = new BumbleBee();
+        if (upgraded){
+            b.upgrade();
+        }
+        this.cardsToPreview = b;
     }
 
 
@@ -54,7 +58,7 @@ public class Beekeeping extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ExhaustAction(p,p,magicNumber,false));
         CardCrawlGame.sound.playA("BEE_ATTACK1", -0.1F);
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new BumbleBee(), magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(b.makeStatEquivalentCopy(), magicNumber));
     }
 
 
@@ -63,7 +67,8 @@ public class Beekeeping extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
+            b.upgrade();
+            this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

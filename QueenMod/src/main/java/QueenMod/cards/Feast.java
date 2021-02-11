@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -29,7 +30,7 @@ public class Feast extends AbstractDynamicCard {
     public static final String IMG = makeCardPath("feast.png");// "public static final String IMG = makeCardPath("${NAME}.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-    private static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    private static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 
     // /TEXT DECLARATION/
 
@@ -41,8 +42,7 @@ public class Feast extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
-    private static final int COST = 2;  // COST = ${COST}
-    private static final int UPGRADED_COST = 1;
+    private static final int COST = 1;  // COST = ${COST}
     private static final int MAGIC = 6;
     // /STAT DECLARATION/
 
@@ -52,26 +52,39 @@ public class Feast extends AbstractDynamicCard {
         baseMagicNumber = magicNumber = MAGIC;
         baseDamage= damage = 0;
         this.tags.add(CardTags.HEALING);
+        this.isEthereal = true;
     }
 
     @Override
     public void applyPowers(){
-        super.applyPowers();
-            int totalSwarm = 0;
-            for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                if (m.hasPower(SwarmPowerEnemy.POWER_ID) && !m.isDying) {
-                    totalSwarm += m.getPower(SwarmPowerEnemy.POWER_ID).amount;
-                }
-                if (m.hasPower(FocusedSwarmE.POWER_ID) && !m.isDying) {
-                    totalSwarm += m.getPower(FocusedSwarmE.POWER_ID).amount;
-                }
+        calcSwarm();
+    }
+
+    @Override
+    public void triggerOnOtherCardPlayed(AbstractCard c){
+        calcSwarm();
+    }
+
+    public void atTurnStart(){
+        calcSwarm();
+    }
+
+    void calcSwarm(){
+        int totalSwarm = 0;
+        for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            if (m.hasPower(SwarmPowerEnemy.POWER_ID) && !m.isDying) {
+                totalSwarm += m.getPower(SwarmPowerEnemy.POWER_ID).amount;
             }
-            if (AbstractDungeon.player.hasPower(SwarmPower.POWER_ID)) {
-                totalSwarm += AbstractDungeon.player.getPower(SwarmPower.POWER_ID).amount;
+            if (m.hasPower(FocusedSwarmE.POWER_ID) && !m.isDying) {
+                totalSwarm += m.getPower(FocusedSwarmE.POWER_ID).amount;
             }
-            if (AbstractDungeon.player.hasPower(FocusedSwarm.POWER_ID)) {
-                totalSwarm += AbstractDungeon.player.getPower(FocusedSwarm.POWER_ID).amount;
-            }
+        }
+        if (AbstractDungeon.player.hasPower(SwarmPower.POWER_ID)) {
+            totalSwarm += AbstractDungeon.player.getPower(SwarmPower.POWER_ID).amount;
+        }
+        if (AbstractDungeon.player.hasPower(FocusedSwarm.POWER_ID)) {
+            totalSwarm += AbstractDungeon.player.getPower(FocusedSwarm.POWER_ID).amount;
+        }
         baseDamage = totalSwarm;
         initializeDescription();
     }
@@ -89,7 +102,8 @@ public class Feast extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
+            this.isEthereal = false;
+            this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

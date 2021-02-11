@@ -156,8 +156,8 @@
 },
   "QueenMod:Feast": {
   "NAME": "Feast",
-  "DESCRIPTION": "Deal damage equal to your total queenmod:Swarm NL ( !D! Damage.) NL If Fatal, Heal 6.",
-    "UPGRADE_DESCRIPTION": "Deal damage equal to your total queenmod:Swarm NL ( !D! Damage.) NL If Fatal, Heal 6."
+  "DESCRIPTION": "Ethereal. NL Deal damage equal to your total queenmod:Swarm. If Fatal, Heal 6. NL ( !D! Damage.)",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to your total queenmod:Swarm. If Fatal, Heal 6. NL ( !D! Damage.)"
 },
   "QueenMod:BirthingCells": {
     "NAME": "Birthing Cells",
@@ -375,7 +375,8 @@
     "DESCRIPTION": "Unplayable. NL While in your hand, play a series of card types in sequence to gain !M! queenmod:Swarm.",
     "EXTENDED_DESCRIPTION": [
       "Gain !M! Swarm.",
-      "I can't play this."
+      "I can't play this.",
+      "(Changes each turn.)"
     ]
   },
   "QueenMod:OverwhelmingPower": {

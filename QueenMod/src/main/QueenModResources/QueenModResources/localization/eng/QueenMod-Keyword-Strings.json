@@ -51,7 +51,7 @@
         "pollinate",
         "pollinate"
       ],
-    "DESCRIPTION": "When a Pollinated enemy is attacked, gain 2 Nectar. Gain 1 [E] for every 10 Nectar at the start of your turn."
+    "DESCRIPTION": "When a Pollinated enemy is dealt unblocked damage, gain 2 Nectar. Gain 1 [E] for every 10 Nectar at the start of your turn."
     },
   {
       "NAMES": [

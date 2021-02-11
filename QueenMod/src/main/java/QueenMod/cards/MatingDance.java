@@ -46,12 +46,15 @@ public class MatingDance extends AbstractDynamicCard {
     String[] danceDescriptions = new String[COMBO_LENGTH];
     String danceDescAlt = "";
     int danceMoves;
+    boolean danceSet = false;
     // /STAT DECLARATION/
 
 
     public MatingDance() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
+        this.rawDescription += " NL (Changes each turn.)";
+        initializeDescription();
     }
 
 
@@ -133,6 +136,18 @@ public class MatingDance extends AbstractDynamicCard {
     }
 
     public void atTurnStart() {
+        setDanceMoves();
+    }
+
+    @Override
+    public void applyPowers(){
+        super.applyPowers();
+        if (!danceSet) {
+            setDanceMoves();
+        }
+    }
+
+    public void setDanceMoves(){
         danceMoves = AbstractDungeon.cardRandomRng.random(100);
         if (danceMoves <= 45) {
             dance[0] = CardType.SKILL;
@@ -238,6 +253,7 @@ public class MatingDance extends AbstractDynamicCard {
                 EXTENDED_DESCRIPTION[0];
         combo = 0;
         initializeDescription();
+        danceSet = true;
     }
 
     // Upgraded stats.

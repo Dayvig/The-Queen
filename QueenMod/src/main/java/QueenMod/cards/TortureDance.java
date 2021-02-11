@@ -51,6 +51,7 @@ public class TortureDance extends AbstractDynamicCard {
     String[] danceDescriptions = new String[COMBO_LENGTH];
     String danceDescAlt = "";
     int danceMoves;
+    boolean danceSet = false;
     // /STAT DECLARATION/
 
 
@@ -138,7 +139,20 @@ public class TortureDance extends AbstractDynamicCard {
         System.out.println(combo);
     }
 
+    @Override
     public void atTurnStart() {
+        setDanceMoves();
+    }
+
+    @Override
+    public void applyPowers() {
+        super.applyPowers();
+        if (!danceSet) {
+            setDanceMoves();
+        }
+    }
+
+    public void setDanceMoves(){
         danceMoves = AbstractDungeon.cardRandomRng.random(100);
         if (danceMoves <= 45) {
             dance[0] = CardType.SKILL;
@@ -244,6 +258,7 @@ public class TortureDance extends AbstractDynamicCard {
                 EXTENDED_DESCRIPTION[0];
         combo = 0;
         initializeDescription();
+        danceSet = true;
     }
 
     // Upgraded stats.
