@@ -36,10 +36,12 @@ public class DefendOrder extends AbstractDynamicCard {
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 1;  // COST = ${COST}
-    private static final int UPGRADED_COST = 1; // UPGRADED_COST = ${UPGRADED_COST}
 
     private static final int BLOCK = 6;    // DAMAGE = ${DAMAGE}
     private static final int UPGRADE_PLUS_BLOCK = 4;  // UPGRADE_PLUS_DMG = ${UPGRADED_DAMAGE_INCREASE}
+    private static final int MAGIC = 1;
+    private static final int UPGRADE_PLUS_MAGIC = 1;  // UPGRADE_PLUS_DMG = ${UPGRADED_DAMAGE_INCREASE}
+
 
     // /STAT DECLARATION/
 
@@ -55,7 +57,7 @@ public class DefendOrder extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new BumbleBee(), 1, true, false));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new BumbleBee(), magicNumber, true, false));
     }
 
 
@@ -64,7 +66,9 @@ public class DefendOrder extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             upgradeBlock(UPGRADE_PLUS_BLOCK);
+            this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

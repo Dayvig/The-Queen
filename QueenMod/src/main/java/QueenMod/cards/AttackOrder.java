@@ -38,19 +38,19 @@ public class AttackOrder extends AbstractDynamicCard {
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 1;  // COST = ${COST}
-    private static final int UPGRADED_COST = 1; // UPGRADED_COST = ${UPGRADED_COST}
 
     private static final int DAMAGE = 7;    // DAMAGE = ${DAMAGE}
-    private static final int UPGRADE_PLUS_DMG = 4;  // UPGRADE_PLUS_DMG = ${UPGRADED_DAMAGE_INCREASE}
+    private static final int UPGRADE_PLUS_DMG = 2;  // UPGRADE_PLUS_DMG = ${UPGRADED_DAMAGE_INCREASE}
+    private static final int UPGRADE_PLUS_MAGIC = 1;  // UPGRADE_PLUS_DMG = ${UPGRADED_DAMAGE_INCREASE}
+    private static final int MAGIC = 1;
 
     // /STAT DECLARATION/
 
 
     public AttackOrder() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = DAMAGE;
-        this.baseMagicNumber = 1;
-        this.magicNumber = this.baseMagicNumber;
+        baseDamage = damage = DAMAGE;
+        this.baseMagicNumber = magicNumber = MAGIC;
         this.cardsToPreview = new Hornet();
     }
 
@@ -59,7 +59,7 @@ public class AttackOrder extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new Hornet(), 1, true, false));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new Hornet(), magicNumber, true, false));
     }
 
 
@@ -68,7 +68,9 @@ public class AttackOrder extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             upgradeDamage(UPGRADE_PLUS_DMG);
+            this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

@@ -408,7 +408,7 @@ public class QueenMod implements
         BaseMod.addCard(new BuildOrder());
         BaseMod.addCard(new Gather());
         BaseMod.addCard(new Feast());
-        BaseMod.addCard(new PerfectLanding());
+        //BaseMod.addCard(new PerfectLanding());
         BaseMod.addCard(new Advisor());
         BaseMod.addCard(new ScoutingParty());
         BaseMod.addCard(new HoldPosition());
@@ -416,11 +416,11 @@ public class QueenMod implements
         BaseMod.addCard(new Charge());
         BaseMod.addCard(new Rally());
         BaseMod.addCard(new Knighting());
-        BaseMod.addCard(new ChainStrike());
+        //BaseMod.addCard(new ChainStrike());
         BaseMod.addCard(new StrategicGenius());
         //BaseMod.addCard(new FinishingBlow());
-        BaseMod.addCard(new ForcedMarch());
-        BaseMod.addCard(new HoneyShield());
+        //BaseMod.addCard(new ForcedMarch());
+        //BaseMod.addCard(new HoneyShield());
         BaseMod.addCard(new Drone());
         BaseMod.addCard(new PopulateOrder());
         BaseMod.addCard(new BirthingCells());
@@ -429,7 +429,7 @@ public class QueenMod implements
         BaseMod.addCard(new ProtectQueen());
         BaseMod.addCard(new SwarmTactics());
         BaseMod.addCard(new KillerQueen());
-        BaseMod.addCard(new WarTrumpet());
+        //BaseMod.addCard(new WarTrumpet());
         BaseMod.addCard(new Honeyblaster());
         BaseMod.addCard(new PheremoneSwap());
         BaseMod.addCard(new HornetSwarm());
@@ -455,8 +455,8 @@ public class QueenMod implements
         BaseMod.addCard(new WarRoom());
         BaseMod.addCard(new WaxCrafters());
         //BaseMod.addCard(new PlanAhead());
-        BaseMod.addCard(new Coronation());
-        BaseMod.addCard(new Princess());
+        //BaseMod.addCard(new Coronation());
+        //BaseMod.addCard(new Princess());
         BaseMod.addCard(new Wasps());
         BaseMod.addCard(new Volunteers());
         BaseMod.addCard(new Suitors());
@@ -512,7 +512,7 @@ public class QueenMod implements
         UnlockTracker.unlockCard(BuildOrder.ID);
         UnlockTracker.unlockCard(Gather.ID);
         UnlockTracker.unlockCard(Feast.ID);
-        UnlockTracker.unlockCard(PerfectLanding.ID);
+        //UnlockTracker.unlockCard(PerfectLanding.ID);
         UnlockTracker.unlockCard(Advisor.ID);
         UnlockTracker.unlockCard(ScoutingParty.ID);
         UnlockTracker.unlockCard(HoldPosition.ID);
@@ -520,11 +520,11 @@ public class QueenMod implements
         UnlockTracker.unlockCard(Charge.ID);
         UnlockTracker.unlockCard(Rally.ID);
         UnlockTracker.unlockCard(Knighting.ID);
-        UnlockTracker.unlockCard(ChainStrike.ID);
+        //UnlockTracker.unlockCard(ChainStrike.ID);
         UnlockTracker.unlockCard(StrategicGenius.ID);
-        UnlockTracker.unlockCard(FinishingBlow.ID);
+        //UnlockTracker.unlockCard(FinishingBlow.ID);
         UnlockTracker.unlockCard(ForcedMarch.ID);
-        UnlockTracker.unlockCard(HoneyShield.ID);
+        //UnlockTracker.unlockCard(HoneyShield.ID);
         UnlockTracker.unlockCard(Drone.ID);
         UnlockTracker.unlockCard(PopulateOrder.ID);
         UnlockTracker.unlockCard(BirthingCells.ID);
@@ -533,7 +533,7 @@ public class QueenMod implements
         UnlockTracker.unlockCard(ProtectQueen.ID);
         UnlockTracker.unlockCard(SwarmTactics.ID);
         UnlockTracker.unlockCard(KillerQueen.ID);
-        UnlockTracker.unlockCard(WarTrumpet.ID);
+        //UnlockTracker.unlockCard(WarTrumpet.ID);
         UnlockTracker.unlockCard(Honeyblaster.ID);
         UnlockTracker.unlockCard(PheremoneSwap.ID);
         UnlockTracker.unlockCard(HornetSwarm.ID);
@@ -557,8 +557,8 @@ public class QueenMod implements
         UnlockTracker.unlockCard(Scramble.ID);
         UnlockTracker.unlockCard(WarRoom.ID);
         UnlockTracker.unlockCard(WaxCrafters.ID);
-        UnlockTracker.unlockCard(Coronation.ID);
-        UnlockTracker.unlockCard(Princess.ID);
+        //UnlockTracker.unlockCard(Coronation.ID);
+        //UnlockTracker.unlockCard(Princess.ID);
 
         logger.info("Done adding cards!");
     }

@@ -15,6 +15,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+import javax.smartcardio.Card;
+
 import static QueenMod.QueenMod.makeCardPath;
 
 // public class ${NAME} extends AbstractDynamicCard
@@ -40,8 +42,8 @@ public class HiveDefenses extends AbstractDynamicCard {
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 0;  // COST = ${COST}
-    private static final int DAMAGE = 2;
-    private static final int UPGRADE_PLUS_DAMAGE = 1;
+    private static final int DAMAGE = 4;
+    private static final int UPGRADE_PLUS_DAMAGE = 2;
     // /STAT DECLARATION/
 
 
@@ -50,23 +52,11 @@ public class HiveDefenses extends AbstractDynamicCard {
         baseDamage = damage = DAMAGE;
     }
 
-    public void triggerOnGlowCheck() {
-        if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10){
-            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
-            this.rawDescription = DESCRIPTION;
-            this.rawDescription += "(x"+(int)Math.floor(AbstractDungeon.player.getPower(Nectar.POWER_ID).amount / 10)+")";
-            initializeDescription();
-        } else {
-            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-            this.rawDescription = DESCRIPTION;
-            initializeDescription();
-        }
-    }
-
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        CardCrawlGame.sound.playA("BEE_ATTACK2", (float)Math.random()*1.5f);
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
     }
 
 

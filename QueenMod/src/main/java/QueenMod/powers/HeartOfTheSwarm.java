@@ -92,31 +92,21 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
     }
 
     @Override
-    public void atStartOfTurnPostDraw(){
-        for (AbstractCard c : AbstractDungeon.player.drawPile.group){
-            if (c.cardID.equals(KillerBee.ID)){
+    public void atStartOfTurn() {
+        for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
+            if (c.cardID.equals(KillerBee.ID)) {
                 if (c.upgraded) {
                     c.baseDamage += 10;
-                }
-                else {
+                } else {
                     c.baseDamage += 8;
                 }
             }
-            if (c.cardID.equals(HiveDefenses.ID)){
+            if (c.cardID.equals(HiveDefenses.ID)) {
                 AbstractMonster mon = AbstractDungeon.getCurrRoom().monsters.getRandomMonster(true);
-                if (mon.hasPower(ThornsPower.POWER_ID) || mon.hasPower(SharpHidePower.POWER_ID)){
-                    AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 2.0F, "[RETALIATION DETECTED, HOLDING FIRE.]", true));
-                }
-                else {
-                    if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10) {
-                        int boost = AbstractDungeon.player.getPower(Nectar.POWER_ID).amount / 10;
-                        AbstractDungeon.effectList.add(new AmbushEffect(c));
-                        for (int i = 0; i < boost; i++) {
-                            c.calculateCardDamage(mon);
-                            AbstractDungeon.actionManager.addToBottom(new DamageAction(mon, new DamageInfo(AbstractDungeon.player, c.damage), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-                        }
-                    }
-                }
+                AbstractDungeon.effectList.add(new AmbushEffect(c));
+                CardCrawlGame.sound.playA("BEE_ATTACK2", (float)Math.random()*0.5f);
+                c.calculateCardDamage(mon);
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(mon, new DamageInfo(AbstractDungeon.player, c.damage, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
             }
         }
     }

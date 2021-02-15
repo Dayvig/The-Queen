@@ -5,6 +5,7 @@ import QueenMod.actions.MakeTempCardInDrawPileActionFast;
 import QueenMod.actions.RecruitAction;
 import QueenMod.characters.TheQueen;
 import QueenMod.powers.Nectar;
+import QueenMod.powers.SwarmPower;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -22,7 +23,7 @@ import static QueenMod.QueenMod.makeCardPath;
         // TEXT DECLARATION
 
         public static final String ID = QueenMod.makeID(ScoutingParty.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
-        public static final String IMG = makeCardPath("honeycorps.png");// "public static final String IMG = makeCardPath("${NAME}.png");
+        public static final String IMG = makeCardPath("economics.png");// "public static final String IMG = makeCardPath("${NAME}.png");
         // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
         private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
         private static final String DESCRIPTION = cardStrings.DESCRIPTION;
@@ -39,7 +40,9 @@ import static QueenMod.QueenMod.makeCardPath;
         public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
         private static final int COST = 1;  // COST = ${COST}
-        private static final int MAGIC = 3;
+        private static final int MAGIC = 2;
+        private static final int UPGRADE_MAGIC = 1;
+
         // /STAT DECLARATION/
 
 
@@ -53,20 +56,27 @@ import static QueenMod.QueenMod.makeCardPath;
         @Override
         public void use(AbstractPlayer p, AbstractMonster m) {
             AbstractDungeon.actionManager.addToBottom(new DrawCardAction(magicNumber));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SwarmPower(p, p, 4), 4));
             if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10){
                 int boost = (int)Math.floor(AbstractDungeon.player.getPower(Nectar.POWER_ID).amount/10);
                 AbstractDungeon.actionManager.addToBottom(new DrawCardAction(boost));
             }
         }
 
+
         public void triggerOnGlowCheck() {
             if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10){
                 this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
                 this.rawDescription = DESCRIPTION;
-                this.rawDescription += "(x"+(int)Math.floor(AbstractDungeon.player.getPower(Nectar.POWER_ID).amount / 10)+")";
+                this.rawDescription += "( x"+(int)Math.floor(AbstractDungeon.player.getPower(Nectar.POWER_ID).amount / 10)+")";
                 initializeDescription();
             } else {
-                this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+                if (canUse(AbstractDungeon.player, null)) {
+                    this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+                }
+                else {
+                    this.stopGlowing();
+                }
                 this.rawDescription = DESCRIPTION;
                 initializeDescription();
             }
@@ -79,7 +89,7 @@ import static QueenMod.QueenMod.makeCardPath;
         public void upgrade() {
             if (!upgraded) {
                 upgradeName();
-                this.upgradeMagicNumber(1);
+                this.upgradeMagicNumber(UPGRADE_MAGIC);
                 initializeDescription();
             }
         }

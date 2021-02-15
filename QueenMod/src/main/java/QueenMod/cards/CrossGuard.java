@@ -32,7 +32,7 @@ public class CrossGuard extends AbstractDynamicCard {
 
     private static final int COST = 1;  // COST = ${COST}
 
-    private static final int BLOCK = 3;    // DAMAGE = ${DAMAGE}
+    private static final int BLOCK = 4;    // DAMAGE = ${DAMAGE}
     private static final int UPGRADE_PLUS_BLOCK = 1;  // UPGRADE_PLUS_DMG = ${UPGRADED_DAMAGE_INCREASE}
 
     // /STAT DECLARATION/

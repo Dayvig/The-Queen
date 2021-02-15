@@ -281,7 +281,12 @@ public class TheQueen extends CustomPlayer {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player,AbstractDungeon.player,new HeartOfTheSwarm(AbstractDungeon.player,AbstractDungeon.player,1),1));
         for (AbstractCard c : AbstractDungeon.player.drawPile.group){
             if (c.cardID.equals(KillerBee.ID)){
-                c.baseDamage = 0;
+                if (c.upgraded) {
+                    c.baseDamage = 0;
+                }
+                else {
+                    c.baseDamage = 0;
+                }
             }
         }
         //add action here

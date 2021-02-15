@@ -9,7 +9,8 @@
   },
   "QueenMod:AttackOrder": {
     "NAME": "Attack Order",
-    "DESCRIPTION": "Deal !D! damage. NL Add a Hornet to your draw pile."
+    "DESCRIPTION": "Deal !D! damage. NL Add a Hornet to your draw pile.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Add !M! Hornets to your draw pile."
   },
   "QueenMod:Hornet": {
     "NAME": "Hornet",
@@ -17,7 +18,8 @@
   },
   "QueenMod:DefendOrder": {
     "NAME": "Defend Order",
-    "DESCRIPTION": "Gain !B! block. NL Add a Bumblebee to your draw pile."
+    "DESCRIPTION": "Gain !B! block. NL Add a Bumblebee to your draw pile.",
+    "UPGRADE_DESCRIPTION": "Gain !B! block. NL Add !M! Bumblebees to your draw pile."
   },
   "QueenMod:BumbleBee": {
     "NAME": "BumbleBee",
@@ -65,8 +67,11 @@
   },
   "QueenMod:KillerQueen": {
     "NAME": "Killer Queen",
-    "DESCRIPTION": "Deal !D! damage. NL If you have more Attacks than other card types in your current combat deck, this damage is doubled.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage."
+    "DESCRIPTION": "Deal !D! damage. NL Gain 1 Strength for every !M! Attacks in your draw pile.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (",
+      " Attacks.)"
+    ]
   },
   "QueenMod:HiveNetwork": {
     "NAME": "Hive Network",
@@ -183,8 +188,8 @@
     ]
   },
   "QueenMod:ScoutingParty": {
-    "NAME": "Scouting Party",
-    "DESCRIPTION": "Draw !M! cards. NL queenmod:Honey-boost: Draw a card."
+    "NAME": "Supply Lines",
+    "DESCRIPTION": "Gain 4 queenmod:Swarm. NL Draw !M! cards. NL queenmod:Honey-boost: Draw a card."
   },
   "QueenMod:MilitaryHandbook": {
     "NAME": "Art of War",
@@ -500,7 +505,7 @@
 },
   "QueenMod:HiveDefenses": {
     "NAME": "Hive Autodefenses",
-    "DESCRIPTION": "Deal !D! damage. NL queenmod:Honey-boost: At the start of your turn, if this is in your draw pile, deal !D! damage to a random enemy."
+    "DESCRIPTION": "Deal !D! damage. NL At the start of your turn if this is in your draw pile, deal !D! damage to a random enemy."
   },
   "QueenMod:Strategize": {
     "NAME": "War Room",
