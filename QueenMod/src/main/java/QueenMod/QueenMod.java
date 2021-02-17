@@ -499,7 +499,7 @@ public class QueenMod implements
         UnlockTracker.unlockCard(HonorGuard.ID);
         UnlockTracker.unlockCard(WarBuzz.ID);
         UnlockTracker.unlockCard(HoneycombSmash.ID);
-        UnlockTracker.unlockCard(PollenBlast.ID);
+         UnlockTracker.unlockCard(PollenBlast.ID);
         UnlockTracker.unlockCard(SecretWeapon.ID);
         UnlockTracker.unlockCard(GatheringSwarm.ID);
         UnlockTracker.unlockCard(Mark.ID);

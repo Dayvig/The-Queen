@@ -288,7 +288,7 @@
   },
   "QueenMod:Wasps":{
     "NAME": "Wasps",
-    "DESCRIPTION": "Deal !D! damage twice. NL Draw a card. NL When you add this to your deck, add two additional copies."
+    "DESCRIPTION": "Deal !D! damage. NL Draw a card. NL When you add this to your deck, add two additional copies."
   },
   "QueenMod:Strike":{
     "NAME": "Strike",
