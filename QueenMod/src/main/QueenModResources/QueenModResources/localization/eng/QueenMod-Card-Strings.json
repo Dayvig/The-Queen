@@ -149,7 +149,7 @@
   },
   "QueenMod:Flyby": {
     "NAME": "Flyby",
-    "DESCRIPTION": "Deal !D! damage to all enemies. Add this card to your draw pile instead of your discard pile."
+    "DESCRIPTION": "Deal !D! damage to all enemies. NL Increase this card's damage by 1. NL Add this card to your draw pile instead of your discard pile."
   },
   "QueenMod:PerfectLanding": {
     "NAME": "Perfect Landing",
@@ -501,7 +501,7 @@
   },
   "QueenMod:Garrison": {
   "NAME": "Garrison",
-  "DESCRIPTION": "Gain !B! Block. Add this card into your draw pile instead of your discard pile."
+  "DESCRIPTION": "Gain !B! Block. NL Increase this card's Block by 2. NL Add this card into your draw pile instead of your discard pile."
 },
   "QueenMod:HiveDefenses": {
     "NAME": "Hive Autodefenses",

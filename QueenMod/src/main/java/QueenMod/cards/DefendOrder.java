@@ -38,7 +38,7 @@ public class DefendOrder extends AbstractDynamicCard {
     private static final int COST = 1;  // COST = ${COST}
 
     private static final int BLOCK = 6;    // DAMAGE = ${DAMAGE}
-    private static final int UPGRADE_PLUS_BLOCK = 4;  // UPGRADE_PLUS_DMG = ${UPGRADED_DAMAGE_INCREASE}
+    private static final int UPGRADE_PLUS_BLOCK = 2;  // UPGRADE_PLUS_DMG = ${UPGRADED_DAMAGE_INCREASE}
     private static final int MAGIC = 1;
     private static final int UPGRADE_PLUS_MAGIC = 1;  // UPGRADE_PLUS_DMG = ${UPGRADED_DAMAGE_INCREASE}
 
@@ -49,6 +49,7 @@ public class DefendOrder extends AbstractDynamicCard {
     public DefendOrder() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = BLOCK;
+        baseMagicNumber = magicNumber = MAGIC;
         this.cardsToPreview = new BumbleBee();
     }
 
