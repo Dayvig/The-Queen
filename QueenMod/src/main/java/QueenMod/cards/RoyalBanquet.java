@@ -1,8 +1,6 @@
 package QueenMod.cards;
 
 import QueenMod.QueenMod;
-import QueenMod.actions.MakeTempCardInDrawPileActionFast;
-import QueenMod.actions.RecruitAction;
 import QueenMod.characters.TheQueen;
 import QueenMod.powers.Nectar;
 import com.megacrit.cardcrawl.actions.common.*;
@@ -10,8 +8,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
-import com.megacrit.cardcrawl.powers.WeakPower;
 
 import static QueenMod.QueenMod.makeCardPath;
 
@@ -62,7 +58,7 @@ public class RoyalBanquet extends AbstractDynamicCard {
                     c = new Drone();
                     break;
                 case 1:
-                    c = new WorkerBee();
+                    c = new HoneyBee();
                     break;
                 case 2:
                     c = new Hornet();

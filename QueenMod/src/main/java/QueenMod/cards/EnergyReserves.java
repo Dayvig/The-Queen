@@ -45,7 +45,7 @@ public class EnergyReserves extends AbstractDynamicCard {
 
     public EnergyReserves() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.cardsToPreview = new WorkerBee();
+        this.cardsToPreview = new HoneyBee();
 
     }
 
@@ -53,7 +53,7 @@ public class EnergyReserves extends AbstractDynamicCard {
     @Override
     public void use(final AbstractPlayer p, final AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p, new HoneyPower(p,p,1),1));
-        AbstractDungeon.actionManager.addToBottom(new RecruitAction(new WorkerBee(),2));
+        AbstractDungeon.actionManager.addToBottom(new RecruitAction(new HoneyBee(),2));
     }
 
     //Upgraded stats.

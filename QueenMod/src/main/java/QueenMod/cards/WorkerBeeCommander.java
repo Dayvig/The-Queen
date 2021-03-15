@@ -7,7 +7,6 @@ import QueenMod.powers.*;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -58,7 +57,7 @@ public class WorkerBeeCommander extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new UpgradeSpecificCardInDrawPileAction(p,new WorkerBee(),true));
+        AbstractDungeon.actionManager.addToBottom(new UpgradeSpecificCardInDrawPileAction(p,new HoneyBee(),true));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new PollinatePower(m, p, magicNumber), magicNumber));
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
     }

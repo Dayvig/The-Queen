@@ -1,17 +1,13 @@
 package QueenMod.cards;
 
 import QueenMod.QueenMod;
-import QueenMod.actions.AmbushAction;
 import QueenMod.actions.MakeTempCardInDrawPileActionFast;
 import QueenMod.characters.TheQueen;
-import basemod.BaseMod;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 import static QueenMod.QueenMod.makeCardPath;
 
@@ -59,7 +55,7 @@ public class Advisor extends AbstractDynamicCard {
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new Hornet(), magicNumber, true, false, false));
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new BumbleBee(), magicNumber, true, false, false));
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new Drone(), magicNumber, true, false, false));
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new WorkerBee(), magicNumber, true, false, false));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new HoneyBee(), magicNumber, true, false, false));
     }
 
     // Upgraded stats.

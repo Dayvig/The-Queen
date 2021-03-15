@@ -3,19 +3,14 @@ package QueenMod.cards;
 import QueenMod.QueenMod;
 import QueenMod.actions.MakeTempCardInDrawPileActionFast;
 import QueenMod.characters.TheQueen;
-import QueenMod.powers.WarTrumpetPower;
 import QueenMod.powers.WorkerDronesPower;
-import com.badlogic.gdx.graphics.Color;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.vfx.combat.ShockWaveEffect;
 
 import static QueenMod.QueenMod.makeCardPath;
 
@@ -59,7 +54,7 @@ public class WorkerDrones extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WorkerDronesPower(p, p, 1)));
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new WorkerBee(), magicNumber, true, false));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new HoneyBee(), magicNumber, true, false));
     }
 
 

@@ -39,7 +39,7 @@ public class Assimilate extends AbstractDynamicCard {
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
-    public static final int MAGIC = 5;
+    public static final int MAGIC = 4;
     public static final int UPGRADE_MAGIC = 1;
     private static final int COST = 1;
 

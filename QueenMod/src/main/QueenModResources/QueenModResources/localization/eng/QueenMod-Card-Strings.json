@@ -39,7 +39,7 @@
   },
   "QueenMod:HexGuard": {
     "NAME": "Hex Guard",
-    "DESCRIPTION": "Gain !B! Block. NL queenmod:Honey-boost: Gain !M! Block."
+    "DESCRIPTION": "Gain !B! Block. NL queenmod:Honey-boost: Gain !B! Block."
   },
   "QueenMod:HoneycombSmash": {
     "NAME": "Honeycomb Smash",
@@ -57,13 +57,13 @@
     "NAME": "Assimilate",
     "DESCRIPTION": "Exhaust all queenmod:Hive cards in your hand. NL Gain !M! queenmod:Swarm for each."
   },
-  "QueenMod:WorkerBee": {
+  "QueenMod:Honeybee": {
     "NAME": "Worker Bee",
     "DESCRIPTION": "Gain !M! queenmod:Nectar."
   },
   "QueenMod:BuildOrder": {
     "NAME": "Build Order",
-    "DESCRIPTION": "Add 2 queenmod:Workerbees to your draw pile. NL At the start of your turn, gain !M! queenmod:Nectar."
+    "DESCRIPTION": "Add 2 queenmod:Honeybees to your draw pile. NL At the start of your turn, gain !M! queenmod:Nectar."
   },
   "QueenMod:KillerQueen": {
     "NAME": "Killer Queen",
@@ -89,7 +89,7 @@
   },
   "QueenMod:Metamorphosis": {
     "NAME": "Metamorphosis",
-    "DESCRIPTION": "Replace all queenmod:Drones with queenmod:Hornets, queenmod:Bumblebees, or queenmod:Workerbees."
+    "DESCRIPTION": "Replace all queenmod:Drones with queenmod:Hornets, queenmod:Bumblebees, or queenmod:Honeybees."
   },
   "QueenMod:Nourish": {
     "NAME": "Nourish",
@@ -118,12 +118,12 @@
   },
   "QueenMod:EnergyReserves": {
     "NAME": "Stockpile",
-    "DESCRIPTION": "At the start of the turn, spend 10 queenmod:Nectar to gain [E]. NL queenmod:Recruit 2 queenmod:Workerbees."
+    "DESCRIPTION": "At the start of the turn, spend 10 queenmod:Nectar to gain [E]. NL queenmod:Recruit 2 queenmod:Honeybees."
   },
   "QueenMod:PheremoneSwap": {
     "NAME": "Pheremone Swap",
-    "DESCRIPTION": "Retain. NL Switch your queenmod:Hornets and queenmod:Bumblebees. NL Switch your queenmod:Workerbees and queenmod:Drones.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Switch your queenmod:Hornets and queenmod:Bumblebees. NL Switch your queenmod:Workerbees and queenmod:Drones. NL Draw a card."
+    "DESCRIPTION": "Retain. NL Switch your queenmod:Hornets and queenmod:Bumblebees. NL Switch your queenmod:Honeybees and queenmod:Drones.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Switch your queenmod:Hornets and queenmod:Bumblebees. NL Switch your queenmod:Honeybees and queenmod:Drones. NL Draw a card."
   },
   "QueenMod:Mark": {
     "NAME": "Mark",
@@ -183,7 +183,7 @@
     "EXTENDED_DESCRIPTION": [
       "queenmod:Recruit a queenmod:Bumblebee and add it to your hand.",
       "queenmod:Recruit a queenmod:Hornet and add it to your hand.",
-      "queenmod:Recruit a queenmod:Workerbee and add it to your hand.",
+      "queenmod:Recruit a queenmod:Honeybee and add it to your hand.",
       "Gain !B! block. Add a Drone to your hand."
     ]
   },
@@ -231,9 +231,9 @@
     "DESCRIPTION": "Upgrade all queenmod:Drones in your draw pile. NL Draw a card.",
     "UPGRADE_DESCRIPTION": "Upgrade all queenmod:Drones in your draw pile. NL Draw 2 cards."
   },
-  "QueenMod:WorkerBeeCommander": {
+  "QueenMod:HoneybeeCommander": {
     "NAME": "Worker Bee Commander",
-    "DESCRIPTION": "Deal !D! damage. NL Inflict !M! queenmod:Pollinate. NL Upgrade all queenmod:Workerbees in your draw pile."
+    "DESCRIPTION": "Deal !D! damage. NL Inflict !M! queenmod:Pollinate. NL Upgrade all queenmod:Honeybees in your draw pile."
   },
   "QueenMod:EliteSoldiers": {
     "NAME": "Hive Officers",
@@ -280,15 +280,15 @@
 },
   "QueenMod:Conscripts":{
     "NAME": "Conscripts",
-    "DESCRIPTION": "Deal !D! damage. NL Draw a card. NL When you add this to your deck, add two additional copies."
+    "DESCRIPTION": "Deal !D! damage. NL Draw a card. NL queenmod:Multiply."
   },
   "QueenMod:Volunteers":{
     "NAME": "Volunteers",
-    "DESCRIPTION": "Gain !B! Block. NL Draw a card. NL When you add this to your deck, add two additional copies."
+    "DESCRIPTION": "Gain !B! Block. NL Draw a card. NL queenmod:Multiply."
   },
   "QueenMod:Wasps":{
     "NAME": "Wasps",
-    "DESCRIPTION": "Deal !D! damage. NL Draw a card. NL When you add this to your deck, add two additional copies."
+    "DESCRIPTION": "Deal !D! damage. NL Draw a card. NL queenmod:Multiply."
   },
   "QueenMod:Strike":{
     "NAME": "Strike",
@@ -325,7 +325,7 @@
   },
   "QueenMod:Gather": {
     "NAME": "Gather Order",
-    "DESCRIPTION": "Inflict !M! queenmod:Pollinate. NL Add a queenmod:Workerbee to your draw pile."
+    "DESCRIPTION": "Inflict !M! queenmod:Pollinate. NL Add a queenmod:Honeybee to your draw pile."
   },
   "QueenMod:HonorGuard":{
     "NAME": "Honor Guards",
@@ -445,7 +445,7 @@
   },
   "QueenMod:SwordsToPlowshares": {
     "NAME": "Swords to Plowshares",
-    "DESCRIPTION": "Gain !M! queenmod:Nectar. NL queenmod:Defensive: queenmod:Recruit a Workerbee and gain !B! Block."
+    "DESCRIPTION": "Gain !M! queenmod:Nectar. NL queenmod:Defensive: queenmod:Recruit a Honeybee and gain !B! Block."
   },
   "QueenMod:ForcedMarch": {
     "NAME": "Loyal Subjects",
@@ -497,7 +497,7 @@
   },
   "QueenMod:WorkerDrones": {
     "NAME": "Drone Workers",
-    "DESCRIPTION": "Add 2 queenmod:Workerbees to your draw pile. NL The first time you play a queenmod:Workerbee each turn, add a queenmod:Drone to your hand."
+    "DESCRIPTION": "Add 2 queenmod:Honeybees to your draw pile. NL The first time you play a queenmod:Honeybee each turn, add a queenmod:Drone to your hand."
   },
   "QueenMod:Garrison": {
   "NAME": "Garrison",
@@ -522,7 +522,7 @@
   },
   "QueenMod:WaxCrafters": {
     "NAME": "Wax Crafters",
-    "DESCRIPTION": "Add 2 Workerbees to your draw pile. NL Gain !M! Block when you play a Workerbee."
+    "DESCRIPTION": "Add 2 Honeybees to your draw pile. NL Gain !M! Block when you play a Honeybee."
   },
   "QueenMod:Coronation": {
     "NAME": "Coronation",

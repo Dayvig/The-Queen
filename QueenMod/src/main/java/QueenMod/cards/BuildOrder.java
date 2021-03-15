@@ -2,10 +2,7 @@ package QueenMod.cards;
 
 import QueenMod.QueenMod;
 import QueenMod.actions.MakeTempCardInDrawPileActionFast;
-import QueenMod.actions.RecruitAction;
 import QueenMod.characters.TheQueen;
-import QueenMod.effects.AddToDrawEffect;
-import QueenMod.powers.Nectar;
 import QueenMod.powers.ProductionPower;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -45,7 +42,7 @@ public class BuildOrder extends AbstractDynamicCard {
     public BuildOrder() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = magicNumber = MAGIC;
-        this.cardsToPreview = new WorkerBee();
+        this.cardsToPreview = new HoneyBee();
     }
 
 
@@ -53,7 +50,7 @@ public class BuildOrder extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ProductionPower(p, p, magicNumber), magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new WorkerBee(), 2, true, false));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new HoneyBee(), 2, true, false));
     }
 
 

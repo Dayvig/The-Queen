@@ -3,20 +3,14 @@ package QueenMod.cards;
 import QueenMod.QueenMod;
 import QueenMod.actions.MakeTempCardInDrawPileActionFast;
 import QueenMod.characters.TheQueen;
-import QueenMod.powers.WarTrumpetPower;
 import QueenMod.powers.WaxCraftersPower;
-import QueenMod.powers.WorkerDronesPower;
-import com.badlogic.gdx.graphics.Color;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.vfx.combat.ShockWaveEffect;
 
 import static QueenMod.QueenMod.makeCardPath;
 
@@ -53,7 +47,7 @@ public class WaxCrafters extends AbstractDynamicCard {
     public WaxCrafters() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
-        this.cardsToPreview = new WorkerBee();
+        this.cardsToPreview = new HoneyBee();
     }
 
 
@@ -61,7 +55,7 @@ public class WaxCrafters extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WaxCraftersPower(p, p, magicNumber)));
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new WorkerBee(), 2, true, false));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new HoneyBee(), 2, true, false));
     }
 
 

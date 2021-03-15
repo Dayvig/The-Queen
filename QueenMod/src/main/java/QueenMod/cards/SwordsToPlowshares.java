@@ -4,7 +4,6 @@ import QueenMod.QueenMod;
 import QueenMod.actions.RecruitAction;
 import QueenMod.characters.TheQueen;
 import QueenMod.powers.Nectar;
-import QueenMod.powers.SwarmTacticsPower;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -47,7 +46,7 @@ public class SwordsToPlowshares extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = magicNumber = MAGIC;
         this.baseBlock = block = BLOCK;
-        this.cardsToPreview = new WorkerBee();
+        this.cardsToPreview = new HoneyBee();
         isActive = false;
     }
 
@@ -59,7 +58,7 @@ public class SwordsToPlowshares extends AbstractDynamicCard {
         if (isActive) {
             this.target = CardTarget.SELF;
             AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, block));
-            AbstractDungeon.actionManager.addToBottom(new RecruitAction(new WorkerBee(), 1));
+            AbstractDungeon.actionManager.addToBottom(new RecruitAction(new HoneyBee(), 1));
         }
         else {
             this.target = CardTarget.NONE;

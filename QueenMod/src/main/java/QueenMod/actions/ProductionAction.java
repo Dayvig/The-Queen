@@ -1,9 +1,8 @@
 package QueenMod.actions;
 
 
-import QueenMod.cards.WorkerBee;
+import QueenMod.cards.HoneyBee;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
@@ -20,7 +19,7 @@ public class ProductionAction extends AbstractGameAction {
 
     public void update() {
         for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
-            if (c.cardID.equals(WorkerBee.ID)) {
+            if (c.cardID.equals(HoneyBee.ID)) {
                 upgradeMatrix.add(c);
             }
         }

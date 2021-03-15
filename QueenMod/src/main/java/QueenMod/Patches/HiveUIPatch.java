@@ -4,7 +4,7 @@ import QueenMod.UIElements.HiveCounterPanel;
 import QueenMod.cards.BumbleBee;
 import QueenMod.cards.Drone;
 import QueenMod.cards.Hornet;
-import QueenMod.cards.WorkerBee;
+import QueenMod.cards.HoneyBee;
 import QueenMod.characters.TheQueen;
 import QueenMod.util.TextureLoader;
 import basemod.interfaces.RenderSubscriber;
@@ -31,7 +31,7 @@ import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.overlayMenu;
 public class HiveUIPatch {
     public HiveCounterPanel hornetCounter = new HiveCounterPanel(new Hornet(), 168.0F, 190.0F);
     public HiveCounterPanel bumbleCounter = new HiveCounterPanel(new BumbleBee(), 148.0F, 190.0F);
-    public HiveCounterPanel workerCounter = new HiveCounterPanel(new WorkerBee(), 128.0F, 190.0F);
+    public HiveCounterPanel workerCounter = new HiveCounterPanel(new HoneyBee(), 128.0F, 190.0F);
     public HiveCounterPanel droneCounter = new HiveCounterPanel(new Drone(), 108.0F, 190.0F);
 
 
@@ -96,7 +96,7 @@ public class HiveUIPatch {
                 if (c.cardID.equals(BumbleBee.ID)){
                     i2++;
                 }
-                if (c.cardID.equals(WorkerBee.ID)){
+                if (c.cardID.equals(HoneyBee.ID)){
                     i3++;
                 }
                 if (c.cardID.equals(Drone.ID)){

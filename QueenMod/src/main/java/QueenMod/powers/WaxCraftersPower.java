@@ -1,17 +1,13 @@
 package QueenMod.powers;
 
 import QueenMod.QueenMod;
-import QueenMod.actions.MakeTempCardInDrawPileActionFast;
-import QueenMod.cards.Drone;
-import QueenMod.cards.WorkerBee;
+import QueenMod.cards.HoneyBee;
 import QueenMod.util.TextureLoader;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -78,7 +74,7 @@ public class WaxCraftersPower extends AbstractPower {
     }
 
     public void onAfterUseCard(AbstractCard c, UseCardAction a){
-        if (c.cardID.equals(WorkerBee.ID)){
+        if (c.cardID.equals(HoneyBee.ID)){
             AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this.owner, this.amount));
         }
     }

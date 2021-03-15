@@ -59,7 +59,7 @@ public class HornetCommanderPower extends AbstractPower implements CloneablePowe
     public void onAfterUseCard(final AbstractCard card, final UseCardAction action) {
         if (card.cardID.equals(Hornet.ID) ||
                 card.cardID.equals(BumbleBee.ID) ||
-                card.cardID.equals(WorkerBee.ID) ||
+                card.cardID.equals(HoneyBee.ID) ||
                 card.cardID.equals(Drone.ID) ||
                 card.cardID.equals(BumbleBeeCommander.ID) ||
                 card.cardID.equals(DroneCommander.ID) ||

@@ -57,7 +57,7 @@ public class BumbleBeeCommanderPower extends AbstractPower implements CloneableP
     public void onAfterUseCard(final AbstractCard card, final UseCardAction action) {
         if (card.cardID.equals(Hornet.ID) ||
                 card.cardID.equals(BumbleBee.ID) ||
-                card.cardID.equals(WorkerBee.ID) ||
+                card.cardID.equals(HoneyBee.ID) ||
                 card.cardID.equals(Drone.ID) ||
                 card.cardID.equals(HornetCommander.ID) ||
                 card.cardID.equals(DroneCommander.ID) ||

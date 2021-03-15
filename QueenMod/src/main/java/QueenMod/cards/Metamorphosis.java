@@ -44,7 +44,7 @@ public class Metamorphosis extends AbstractDynamicCard implements ModalChoice.Ca
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         AbstractDynamicCard tmp1 = new Hornet();
         AbstractDynamicCard tmp2 = new BumbleBee();
-        AbstractDynamicCard tmp3 = new WorkerBee();
+        AbstractDynamicCard tmp3 = new HoneyBee();
         modal = new ModalChoiceBuilder()
                 .setCallback(this) // Sets callback of all the below options to this
                 .setColor(CardColor.RED) // Sets color of any following cards to colorless
@@ -97,7 +97,7 @@ public class Metamorphosis extends AbstractDynamicCard implements ModalChoice.Ca
         } else if (color == CardColor.BLUE) {
             SwapAll(p,new BumbleBee());
         } else if (color == CardColor.GREEN) {
-            SwapAll(p,new WorkerBee());
+            SwapAll(p,new HoneyBee());
         }
     }
 

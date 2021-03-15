@@ -24,7 +24,6 @@ import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.localization.*;
@@ -389,7 +388,7 @@ public class QueenMod implements
         BaseMod.addCard(new Reinforcements());
         BaseMod.addCard(new SharpStingers());
         BaseMod.addCard(new Recruit());
-        BaseMod.addCard(new WorkerBee());
+        BaseMod.addCard(new HoneyBee());
         BaseMod.addCard(new DefendOrder());
         BaseMod.addCard(new Beekeeping());
         BaseMod.addCard(new HonorGuard());
@@ -397,7 +396,7 @@ public class QueenMod implements
         BaseMod.addCard(new HoneycombSmash());
         BaseMod.addCard(new PollenBlast());
         BaseMod.addCard(new SecretWeapon());
-        BaseMod.addCard(new GatheringSwarm());
+        //BaseMod.addCard(new GatheringSwarm());
         BaseMod.addCard(new Mark());
         BaseMod.addCard(new Infest());
         BaseMod.addCard(new MatingDance());
@@ -493,7 +492,7 @@ public class QueenMod implements
         UnlockTracker.unlockCard(Reinforcements.ID);
         UnlockTracker.unlockCard(SharpStingers.ID);
         UnlockTracker.unlockCard(Recruit.ID);
-        UnlockTracker.unlockCard(WorkerBee.ID);
+        UnlockTracker.unlockCard(HoneyBee.ID);
         UnlockTracker.unlockCard(DefendOrder.ID);
         UnlockTracker.unlockCard(Beekeeping.ID);
         UnlockTracker.unlockCard(HonorGuard.ID);
@@ -501,7 +500,7 @@ public class QueenMod implements
         UnlockTracker.unlockCard(HoneycombSmash.ID);
          UnlockTracker.unlockCard(PollenBlast.ID);
         UnlockTracker.unlockCard(SecretWeapon.ID);
-        UnlockTracker.unlockCard(GatheringSwarm.ID);
+        //UnlockTracker.unlockCard(GatheringSwarm.ID);
         UnlockTracker.unlockCard(Mark.ID);
         UnlockTracker.unlockCard(Infest.ID);
         UnlockTracker.unlockCard(MatingDance.ID);
@@ -523,7 +522,7 @@ public class QueenMod implements
         //UnlockTracker.unlockCard(ChainStrike.ID);
         UnlockTracker.unlockCard(StrategicGenius.ID);
         //UnlockTracker.unlockCard(FinishingBlow.ID);
-        UnlockTracker.unlockCard(ForcedMarch.ID);
+        //UnlockTracker.unlockCard(ForcedMarch.ID);
         //UnlockTracker.unlockCard(HoneyShield.ID);
         UnlockTracker.unlockCard(Drone.ID);
         UnlockTracker.unlockCard(PopulateOrder.ID);

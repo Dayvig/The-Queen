@@ -2,24 +2,15 @@ package QueenMod.cards;
 
 import QueenMod.QueenMod;
 import QueenMod.actions.MakeTempCardInDrawPileActionFast;
-import QueenMod.actions.RecruitAction;
 import QueenMod.characters.TheQueen;
 import QueenMod.effects.pollenEffect;
-import QueenMod.powers.Nectar;
 import QueenMod.powers.PollinatePower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.FrailPower;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
-import com.megacrit.cardcrawl.powers.WeakPower;
-
-import javax.smartcardio.Card;
 
 import static QueenMod.QueenMod.makeCardPath;
 
@@ -59,14 +50,14 @@ public class Gather extends AbstractDynamicCard {
     public Gather() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
-        this.cardsToPreview = new WorkerBee();
+        this.cardsToPreview = new HoneyBee();
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new PollinatePower(m, p, magicNumber), magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new WorkerBee(), 1, true, false));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new HoneyBee(), 1, true, false));
         AbstractDungeon.effectsQueue.add(new pollenEffect(true, m));
         CardCrawlGame.sound.playA("PUFF", (float) Math.random() * 1.0F);
     }

@@ -57,7 +57,7 @@ public class Wasps extends AbstractDynamicCard implements CardAddedToDeck {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(1));
     }
-
+    /*
     @Override
     public boolean onAddedToMasterDeck() {
         for (int i = 0; i<2;i++) {
@@ -68,7 +68,7 @@ public class Wasps extends AbstractDynamicCard implements CardAddedToDeck {
             AbstractDungeon.player.masterDeck.addToTop(c);
         }
         return false;
-    }
+    }*/
 
     // Upgraded stats.
     @Override

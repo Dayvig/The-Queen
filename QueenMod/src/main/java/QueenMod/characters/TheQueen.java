@@ -2,7 +2,9 @@ package QueenMod.characters;
 
 import QueenMod.QueenMod;
 import QueenMod.UIElements.QueenOrb;
+import QueenMod.actions.MakeTempCardInDrawPileActionFast;
 import QueenMod.cards.*;
+import QueenMod.interfaces.CardAddedToDeck;
 import QueenMod.powers.HeartOfTheSwarm;
 import QueenMod.relics.*;
 import basemod.abstracts.CustomPlayer;
@@ -287,6 +289,9 @@ public class TheQueen extends CustomPlayer {
                 else {
                     c.baseDamage = 0;
                 }
+            }
+            if (c instanceof CardAddedToDeck) {
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(c, 2, true, false));
             }
         }
         //add action here

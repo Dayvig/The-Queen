@@ -125,5 +125,11 @@
       "honey-boost"
     ],
     "DESCRIPTION": "Activates once for every 10 Nectar you have."
+  },
+  {
+    "NAMES": [
+      "multiply"
+    ],
+    "DESCRIPTION": "At the start of combat, add 2 copies of this card to your draw pile."
   }
 ]

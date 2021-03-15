@@ -3,23 +3,13 @@ package QueenMod.actions;
 import QueenMod.cards.BumbleBee;
 import QueenMod.cards.Drone;
 import QueenMod.cards.Hornet;
-import QueenMod.cards.WorkerBee;
-import QueenMod.interfaces.IsHive;
+import QueenMod.cards.HoneyBee;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
-import com.megacrit.cardcrawl.actions.utility.QueueCardAction;
-import com.megacrit.cardcrawl.actions.utility.UnlimboAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.BeatOfDeathPower;
-import com.megacrit.cardcrawl.powers.SharpHidePower;
-import com.megacrit.cardcrawl.powers.ThornsPower;
-import com.megacrit.cardcrawl.powers.TimeWarpPower;
-import com.megacrit.cardcrawl.vfx.ThoughtBubble;
-import sun.tools.jconsole.Worker;
 
 import java.util.ArrayList;
 
@@ -68,7 +58,7 @@ public class RoyalOrderAction extends AbstractGameAction {
                 //AbstractDungeon.actionManager.addToTop(new DiscardSpecificCardAction(tmp, AbstractDungeon.player.drawPile));
                 b = true;
             }
-            if (tmp.cardID.equals(WorkerBee.ID) && !w) {
+            if (tmp.cardID.equals(HoneyBee.ID) && !w) {
                 tmp.freeToPlayOnce = true;
                 tmp.applyPowers();
                 AbstractDungeon.actionManager.addToTop(new NewQueueCardAction(tmp, true));
@@ -97,7 +87,7 @@ public class RoyalOrderAction extends AbstractGameAction {
         playCard(findInDrawPile(new Hornet()));
         playCard(findInDrawPile(new BumbleBee()));
         playCard(findInDrawPile(new Drone()));
-        playCard(findInDrawPile(new WorkerBee()));
+        playCard(findInDrawPile(new HoneyBee()));
         this.isDone = true;
     }
 

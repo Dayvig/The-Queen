@@ -143,7 +143,7 @@ public class SecretService extends AbstractDynamicCard {
                     }
                     bumblebeeMatrix.add(c);
                 }
-                if (c.cardID.equals(WorkerBee.ID) && containsHoneybee < 3) {
+                if (c.cardID.equals(HoneyBee.ID) && containsHoneybee < 3) {
                     containsHoneybee = 1;
                     if (c.upgraded) {
                         containsHoneybee = 2;
@@ -156,7 +156,7 @@ public class SecretService extends AbstractDynamicCard {
                         containsHoneybee = 4;
                     }
                     for (AbstractCard d : honeybeeMatrix) {
-                        if (d.cardID.equals(WorkerBee.ID)) {
+                        if (d.cardID.equals(HoneyBee.ID)) {
                             honeybeeMatrix.remove(d);
                         }
                     }

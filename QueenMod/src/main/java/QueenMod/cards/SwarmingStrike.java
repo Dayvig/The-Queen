@@ -42,7 +42,7 @@ public class SwarmingStrike extends AbstractDynamicCard {
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 1;  // COST = ${COST}
-    private static final int DAMAGE = 4;
+    private static final int DAMAGE = 3;
     private static final int UPGRADE_PLUS_DAMAGE = 2;
     // /STAT DECLARATION/
 

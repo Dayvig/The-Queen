@@ -4,14 +4,9 @@ package QueenMod.UIElements;
 import QueenMod.cards.BumbleBee;
 import QueenMod.cards.Drone;
 import QueenMod.cards.Hornet;
-import QueenMod.cards.WorkerBee;
-import QueenMod.characters.TheQueen;
+import QueenMod.cards.HoneyBee;
 import basemod.abstracts.CustomEnergyOrb;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -19,13 +14,7 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import com.megacrit.cardcrawl.ui.panels.energyorb.EnergyOrbInterface;
-import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
-import java.awt.*;
-import java.util.ArrayList;
-
-import static QueenMod.QueenMod.QUEEN_YELLOW;
 
 
 public class QueenOrb extends CustomEnergyOrb implements EnergyOrbInterface {
@@ -93,7 +82,7 @@ public class QueenOrb extends CustomEnergyOrb implements EnergyOrbInterface {
                 i[1]++;
             } else if (c.cardID.equals(Drone.ID)) {
                 i[2]++;
-            } else if (c.cardID.equals((WorkerBee.ID))) {
+            } else if (c.cardID.equals((HoneyBee.ID))) {
                 i[3]++;
             }
         }

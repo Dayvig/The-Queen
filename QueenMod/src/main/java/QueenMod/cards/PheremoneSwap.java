@@ -3,10 +3,7 @@ package QueenMod.cards;
 import QueenMod.QueenMod;
 import QueenMod.actions.SwapCardAction;
 import QueenMod.characters.TheQueen;
-import QueenMod.powers.ProductionPower;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -69,20 +66,6 @@ public class PheremoneSwap extends AbstractDynamicCard {
             }
             else if (c.cardID.equals(BumbleBee.ID)) {
                 AbstractCard d = new Hornet();
-                if (c.upgraded){
-                    d.upgrade();
-                }
-                AbstractDungeon.actionManager.addToBottom(new SwapCardAction(c, d, g));
-            }
-            else if (c.cardID.equals(WorkerBee.ID)) {
-                AbstractCard d = new Drone();
-                if (c.upgraded){
-                    d.upgrade();
-                }
-                AbstractDungeon.actionManager.addToBottom(new SwapCardAction(c, d, g));
-            }
-            else if (c.cardID.equals(Drone.ID)) {
-                AbstractCard d = new WorkerBee();
                 if (c.upgraded){
                     d.upgrade();
                 }

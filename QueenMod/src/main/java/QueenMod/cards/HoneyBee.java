@@ -4,11 +4,7 @@ import QueenMod.QueenMod;
 import QueenMod.characters.TheQueen;
 import QueenMod.interfaces.IsHive;
 import QueenMod.powers.Nectar;
-import QueenMod.powers.PollinatePower;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -16,8 +12,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static QueenMod.QueenMod.makeCardPath;
 
 // public class ${NAME} extends AbstractDynamicCard
-public class WorkerBee extends AbstractDynamicCard implements IsHive {
-    public static final String ID = QueenMod.makeID(WorkerBee.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
+public class HoneyBee extends AbstractDynamicCard implements IsHive {
+    public static final String ID = QueenMod.makeID(HoneyBee.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
     public static final String IMG = makeCardPath("worker.png");// "public static final String IMG = makeCardPath("${NAME}.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
@@ -39,7 +35,7 @@ public class WorkerBee extends AbstractDynamicCard implements IsHive {
     // /STAT DECLARATION/
 
 
-    public WorkerBee() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
+    public HoneyBee() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = magicNumber = MAGIC;
     }
