@@ -39,8 +39,8 @@ public class Flyby extends AbstractDynamicCard {
 
     private static final int COST = 0;  // COST = ${COST}
 
-    private static final int DAMAGE = 3;    // DAMAGE = ${DAMAGE}
-    private static final int UPGRADE_PLUS_DMG = 2;  // UPGRADE_PLUS_DMG = ${UPGRADED_DAMAGE_INCREASE}
+    private static final int DAMAGE = 5;    // DAMAGE = ${DAMAGE}
+    private static final int UPGRADE_PLUS_DMG = 3;  // UPGRADE_PLUS_DMG = ${UPGRADED_DAMAGE_INCREASE}
     // /STAT DECLARATION/
 
 

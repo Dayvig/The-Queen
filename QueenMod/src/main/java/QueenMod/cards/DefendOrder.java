@@ -37,8 +37,8 @@ public class DefendOrder extends AbstractDynamicCard {
 
     private static final int COST = 1;  // COST = ${COST}
 
-    private static final int BLOCK = 6;    // DAMAGE = ${DAMAGE}
-    private static final int UPGRADE_PLUS_BLOCK = 2;  // UPGRADE_PLUS_DMG = ${UPGRADED_DAMAGE_INCREASE}
+    private static final int BLOCK = 5;    // DAMAGE = ${DAMAGE}
+    private static final int UPGRADE_PLUS_BLOCK = 3;  // UPGRADE_PLUS_DMG = ${UPGRADED_DAMAGE_INCREASE}
     private static final int MAGIC = 1;
     private static final int UPGRADE_PLUS_MAGIC = 1;  // UPGRADE_PLUS_DMG = ${UPGRADED_DAMAGE_INCREASE}
 

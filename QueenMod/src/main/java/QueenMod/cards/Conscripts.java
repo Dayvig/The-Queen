@@ -38,7 +38,7 @@ public class Conscripts extends AbstractDynamicCard implements CardAddedToDeck {
 
     private static final int COST = 1;  // COST = ${COST}
 
-    private static final int DAMAGE = 7;    // DAMAGE = ${DAMAGE}
+    private static final int DAMAGE = 8;    // DAMAGE = ${DAMAGE}
     private static final int UPGRADE_PLUS_DAMAGE = 3;
     private int numLeft;
 
@@ -47,17 +47,18 @@ public class Conscripts extends AbstractDynamicCard implements CardAddedToDeck {
 
     public Conscripts() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = DAMAGE;
+        baseDamage = damage = DAMAGE;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        CardCrawlGame.sound.playA("BEE_ATTACK2", (float)Math.random()*0.5F - 0.5F);
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(1));
     }
-
+    /*
     @Override
     public boolean onAddedToMasterDeck() {
         for (int i = 0; i<2;i++) {
@@ -68,7 +69,7 @@ public class Conscripts extends AbstractDynamicCard implements CardAddedToDeck {
             AbstractDungeon.player.masterDeck.addToTop(c);
         }
         return false;
-    }
+    }*/
 
     // Upgraded stats.
     @Override
