@@ -57,7 +57,6 @@ public class Garrison extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
-        baseBlock += 2;
     }
 
     //Upgraded stats.

@@ -290,7 +290,7 @@ public class TheQueen extends CustomPlayer {
                     c.baseDamage = 0;
                 }
             }
-            if (c instanceof CardAddedToDeck) {
+            if (c.cardID.equals(Conscripts.ID) || c.cardID.equals(Volunteers.ID) || c.cardID.equals(Wasps.ID)) {
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(c, 2, true, false));
             }
         }

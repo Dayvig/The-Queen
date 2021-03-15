@@ -16,7 +16,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static QueenMod.QueenMod.makeCardPath;
 
 // public class ${NAME} extends AbstractDynamicCard
-public class Volunteers extends AbstractDynamicCard implements CardAddedToDeck {
+public class Volunteers extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
