@@ -67,6 +67,10 @@ public class SwarmTacticsPower extends AbstractPower implements CloneablePowerIn
         }
     }
 
+    @Override
+    public void atEndOfTurn(boolean isPlayer) {
+        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, SwarmTacticsPower.POWER_ID));
+    }
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
     @Override
     public void updateDescription() {

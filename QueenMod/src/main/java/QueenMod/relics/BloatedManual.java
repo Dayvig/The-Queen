@@ -28,7 +28,7 @@ public class BloatedManual extends CustomRelic {
     }
 
     @Override
-    public void atTurnStartPostDraw() {
+    public void atTurnStart() {
         if (AbstractDungeon.player.drawPile.group.size() > 20) {
             AbstractDungeon.actionManager.addToBottom(new ManualAction());
             this.flash();

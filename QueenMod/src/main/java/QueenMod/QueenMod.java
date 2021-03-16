@@ -419,7 +419,7 @@ public class QueenMod implements
         BaseMod.addCard(new StrategicGenius());
         //BaseMod.addCard(new FinishingBlow());
         //BaseMod.addCard(new ForcedMarch());
-        //BaseMod.addCard(new HoneyShield());
+        BaseMod.addCard(new HoneyShield());
         BaseMod.addCard(new Drone());
         BaseMod.addCard(new PopulateOrder());
         BaseMod.addCard(new BirthingCells());
@@ -523,7 +523,7 @@ public class QueenMod implements
         UnlockTracker.unlockCard(StrategicGenius.ID);
         //UnlockTracker.unlockCard(FinishingBlow.ID);
         //UnlockTracker.unlockCard(ForcedMarch.ID);
-        //UnlockTracker.unlockCard(HoneyShield.ID);
+        UnlockTracker.unlockCard(HoneyShield.ID);
         UnlockTracker.unlockCard(Drone.ID);
         UnlockTracker.unlockCard(PopulateOrder.ID);
         UnlockTracker.unlockCard(BirthingCells.ID);

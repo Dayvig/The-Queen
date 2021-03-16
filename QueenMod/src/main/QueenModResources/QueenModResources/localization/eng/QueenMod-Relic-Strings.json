@@ -3,7 +3,8 @@
     "NAME": "Queen's Banner",
     "FLAVOR": "As long as the banner remains, the nation will never die.",
     "DESCRIPTIONS": [
-      "The first event of every act is a Hive Event."
+      "The first event of every act is a Hive Event.",
+      "This relic is used up for this act."
     ]
   },
   "QueenMod:PlaceholderRelic2": {

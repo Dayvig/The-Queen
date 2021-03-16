@@ -27,19 +27,19 @@ public class SwarmTactics extends AbstractDynamicCard {
 
     private static final CardRarity RARITY = CardRarity.RARE; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.NONE;  //   since they don't change much.
-    private static final CardType TYPE = CardType.POWER;       //
+    private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
-    private static final int COST = 2;  // COST = ${COST}
-    private static final int UPGRADED_COST = 1;
+    private static final int COST = 1;  // COST = ${COST}
+    private static final int UPGRADED_COST = 0;
+    private static final int MAGIC = 1;
 
     // /STAT DECLARATION/
 
 
     public SwarmTactics() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = 1;
-        this.magicNumber = this.baseMagicNumber;
+        this.baseMagicNumber = magicNumber = MAGIC;
     }
 
 

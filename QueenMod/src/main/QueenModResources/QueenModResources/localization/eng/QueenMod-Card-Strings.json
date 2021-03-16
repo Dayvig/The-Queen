@@ -131,7 +131,7 @@
   },
   "QueenMod:SwarmTactics": {
     "NAME": "Swarm Tactics",
-    "DESCRIPTION": "When you play a card, gain !M! queenmod:Swarm."
+    "DESCRIPTION": "When you play a card this turn, gain !M! queenmod:Swarm."
   },
   "QueenMod:StrategicGenius": {
   "NAME": "Strategic Genius",
@@ -237,7 +237,8 @@
   },
   "QueenMod:EliteSoldiers": {
     "NAME": "Hive Officers",
-    "DESCRIPTION": "Add one of each queenmod:Hive card to your draw pile. NL Upgrade all queenmod:Hive cards in your draw pile. NL Exhaust."
+    "DESCRIPTION": "Upgrade all queenmod:Hive cards in your draw pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Add one of each queenmod:Hive card to your draw pile. NL Upgrade all queenmod:Hive cards in your draw pile. NL Exhaust."
   },
     "QueenMod:Knighting":{
       "NAME": "Knighting",
@@ -345,7 +346,7 @@
   },
   "QueenMod:HoneyShield":{
     "NAME": "Catering Service",
-    "DESCRIPTION": "Gain !M! Strength. NL queenmod:Honey-boost: Gain 1 Strength."
+    "DESCRIPTION": "Gain !M! Strength this turn only. NL queenmod:Honey-boost: Gain !M! Strength this turn only."
   },
   "QueenMod:Rally":{
     "NAME": "Rally",

@@ -61,7 +61,7 @@ public class SwarmingStrike extends AbstractDynamicCard {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new SwarmPowerEnemy(m, p, damage), damage));
         }
         else {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SwarmPower(m, p, damage), damage));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SwarmPower(p, p, damage), damage));
         }
     }
 

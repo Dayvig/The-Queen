@@ -47,7 +47,6 @@ public class QueensBanner extends CustomRelic implements CustomSavable<Boolean> 
         beginPulse();
         pulse = true;
         grayscale = false;
-        description = DESCRIPTIONS[0];
         this.description = DESCRIPTIONS[0];
         this.description += "Current Hive Presence: "+(counter+1)+"/3";
         initializeTips();
@@ -79,6 +78,7 @@ public class QueensBanner extends CustomRelic implements CustomSavable<Boolean> 
         usedUp = aBoolean;
         if (usedUp){
             this.grayscale = true;
+            this.description = DESCRIPTIONS[1];
         }
         this.description = DESCRIPTIONS[0];
         this.description += "Current Hive Presence: "+(counter+1)+"/3";
