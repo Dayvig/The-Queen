@@ -9,12 +9,15 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.utility.DrawPileToHandAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+
+import javax.smartcardio.Card;
 
 import static QueenMod.QueenMod.makeCardPath;
 import static basemod.helpers.BaseModCardTags.BASIC_STRIKE;
@@ -30,19 +33,19 @@ public class WarRoom extends AbstractDynamicCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String DESCRIPTION = cardStrings.DESCRIPTION;
     private static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-
+    private static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     // /TEXT DECLARATION/
 
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.RARE; //  Up to you, I like auto-complete on these
+    private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.NONE;  //   since they don't change much.
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
-    private static final int COST = 0;  // COST = ${COST}
-    private int numLeft;
+    private static final int COST = 0;  // COST = ${COST};
+    private CardType typeToDraw;
 
     // /STAT DECLARATION/
 
@@ -50,15 +53,45 @@ public class WarRoom extends AbstractDynamicCard {
     public WarRoom() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = 1;
-        exhaust = true;
+        this.selfRetain = false;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DrawSpecificCardTypeAction(p.drawPile, magicNumber, CardType.ATTACK));
-        AbstractDungeon.actionManager.addToBottom(new DrawSpecificCardTypeAction(p.drawPile, magicNumber, CardType.SKILL));
+        typeToDraw = StrategicDraw(p);
+        AbstractDungeon.actionManager.addToBottom(new DrawSpecificCardTypeAction(p.drawPile, magicNumber, typeToDraw));
+    }
+
+    public CardType StrategicDraw(AbstractPlayer p){
+        int numAttacks = 0;
+        int numSkills = 0;
+        for (AbstractCard c : p.hand.group) {
+            if (!c.equals(this)) {
+                switch (c.type) {
+                    case ATTACK:
+                        numAttacks++;
+                        break;
+                    case SKILL:
+                        numSkills++;
+                        break;
+                    default:
+                }
+            }
+        }
+        if (numAttacks > numSkills){
+            System.out.println("Skills");
+            return CardType.SKILL;
+        }
+        else if (numSkills > numAttacks){
+            System.out.println("Attacks");
+            return CardType.ATTACK;
+        }
+        else {
+            System.out.println("Powers");
+            return CardType.POWER;
+        }
     }
 
     // Upgraded stats.
@@ -66,7 +99,7 @@ public class WarRoom extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            exhaust = false;
+            this.selfRetain = true;
             rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }

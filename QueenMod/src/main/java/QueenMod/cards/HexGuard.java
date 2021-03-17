@@ -29,6 +29,8 @@ public class HexGuard extends AbstractDynamicCard
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
     public static final int BLOCK = 7;
     public static final int UPGRADE_PLUS_BLOCK = 2;
+    public static final int MAGIC = 4;
+    public static final int UPGRADE_PLUS_MAGIC = 1;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 
@@ -36,6 +38,7 @@ public class HexGuard extends AbstractDynamicCard
     {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = block = BLOCK;
+        baseMagicNumber = magicNumber = MAGIC;
     }
 
     // Uses the titles and descriptions of the option cards as tooltips for this card
@@ -46,7 +49,7 @@ public class HexGuard extends AbstractDynamicCard
         if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10){
             int boost = (int)Math.floor(AbstractDungeon.player.getPower(Nectar.POWER_ID).amount/10);
             for (int i = 0;i<boost;i++){
-                AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
+                AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, magicNumber));
             }
         }
     }
@@ -71,6 +74,7 @@ public class HexGuard extends AbstractDynamicCard
         if (!upgraded) {
             upgradeName();
             upgradeBlock(UPGRADE_PLUS_BLOCK);
+            upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             initializeDescription();
         }
     }

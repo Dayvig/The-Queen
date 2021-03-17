@@ -56,7 +56,7 @@ import static QueenMod.QueenMod.makeCardPath;
         @Override
         public void use(AbstractPlayer p, AbstractMonster m) {
             AbstractDungeon.actionManager.addToBottom(new DrawCardAction(magicNumber));
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SwarmPower(p, p, 4), 4));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SwarmPower(p, p, 3), 3));
             if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10){
                 int boost = (int)Math.floor(AbstractDungeon.player.getPower(Nectar.POWER_ID).amount/10);
                 AbstractDungeon.actionManager.addToBottom(new DrawCardAction(boost));

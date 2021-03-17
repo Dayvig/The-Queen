@@ -131,6 +131,9 @@ public class HiveEventBuilding extends AbstractImageEvent {
                     case 3:
                         screenNum = 2;
                         break;
+                    case 4:
+                        openMap(); // You'll open the map and end the event.
+                        break;
                 }
                 break;
             case 2:

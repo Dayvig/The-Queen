@@ -37,17 +37,18 @@ public class Strategize extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
+    private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.SELF;  //   since they don't change much.
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 1;  // COST = ${COST}
 
-    private static final int BLOCK = 6;    // DAMAGE = ${DAMAGE}
+    private static final int BLOCK = 4;    // DAMAGE = ${DAMAGE}
     private static final int UPGRADE_PLUS_BLOCK = 3;
     private static final int MAGIC = 1;
     private int numLeft;
+    CardType typeToDraw;
 
     // /STAT DECLARATION/
 
@@ -61,10 +62,39 @@ public class Strategize extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        typeToDraw = StrategicDraw(p);
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, block));
-        AbstractDungeon.actionManager.addToBottom(new DrawSpecificCardTypeAction(AbstractDungeon.player.drawPile, 1, AbstractCard.CardType.ATTACK));
-        AbstractDungeon.actionManager.addToBottom(new DrawSpecificCardTypeAction(AbstractDungeon.player.drawPile, 1, AbstractCard.CardType.SKILL));
+        AbstractDungeon.actionManager.addToBottom(new DrawSpecificCardTypeAction(AbstractDungeon.player.drawPile, 2, typeToDraw));
+    }
 
+    public CardType StrategicDraw(AbstractPlayer p){
+        int numAttacks = 0;
+        int numSkills = 0;
+        for (AbstractCard c : p.hand.group) {
+            if (!c.equals(this)) {
+                switch (c.type) {
+                    case ATTACK:
+                        numAttacks++;
+                        break;
+                    case SKILL:
+                        numSkills++;
+                        break;
+                    default:
+                }
+            }
+        }
+        if (numAttacks > numSkills){
+            System.out.println("Skills");
+            return CardType.SKILL;
+        }
+        else if (numSkills > numAttacks){
+            System.out.println("Attacks");
+            return CardType.ATTACK;
+        }
+        else {
+            System.out.println("Powers");
+            return CardType.POWER;
+        }
     }
 
     // Upgraded stats.

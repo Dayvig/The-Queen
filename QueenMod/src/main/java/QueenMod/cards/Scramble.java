@@ -1,11 +1,13 @@
 package QueenMod.cards;
 
 import QueenMod.QueenMod;
+import QueenMod.actions.DrawSpecificCardTypeAction;
 import QueenMod.actions.MakeTempCardInDrawPileActionFast;
 import QueenMod.actions.RecruitAction;
 import QueenMod.actions.ScrambleAction;
 import QueenMod.characters.TheQueen;
 import QueenMod.powers.Nectar;
+import QueenMod.powers.SwarmPower;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -42,10 +44,10 @@ public class Scramble extends AbstractDynamicCard {
     private static final int COST = 2;  // COST = ${COST}
     private static final int MAGIC = 6;
     private static final int UPGRADE_MAGIC = 2;
-    private static final int SECOND_MAGIC = 2;
+    private static final int SECOND_MAGIC = 3;
     private static final int UPGRADE_SECOND_MAGIC = 1;
     // /STAT DECLARATION/
-
+    private CardType typeToDraw;
 
     public Scramble() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -57,9 +59,41 @@ public class Scramble extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ScrambleAction(magicNumber, defaultSecondMagicNumber, p));
+        typeToDraw = StrategicDraw(p);
+        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(p, p, new SwarmPower(p, p, magicNumber), magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new DiscardAction(p, p, p.hand.size()-2, false));
+        AbstractDungeon.actionManager.addToBottom(new DrawSpecificCardTypeAction(p.hand, defaultSecondMagicNumber, typeToDraw));
     }
 
+    public CardType StrategicDraw(AbstractPlayer p){
+        int numAttacks = 0;
+        int numSkills = 0;
+        for (AbstractCard c : p.hand.group) {
+            if (!c.equals(this)) {
+                switch (c.type) {
+                    case ATTACK:
+                        numAttacks++;
+                        break;
+                    case SKILL:
+                        numSkills++;
+                        break;
+                    default:
+                }
+            }
+        }
+        if (numAttacks > numSkills){
+            System.out.println("Skills");
+            return CardType.SKILL;
+        }
+        else if (numSkills > numAttacks){
+            System.out.println("Attacks");
+            return CardType.ATTACK;
+        }
+        else {
+            System.out.println("Powers");
+            return CardType.POWER;
+        }
+    }
 
     // Upgraded stats.
     @Override

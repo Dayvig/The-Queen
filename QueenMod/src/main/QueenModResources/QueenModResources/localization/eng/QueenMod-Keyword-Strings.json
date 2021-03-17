@@ -15,10 +15,10 @@
     },
   {
       "NAMES": [
-        "workerbee",
-        "workerbees"
+        "honeybee",
+        "honeybees"
       ],
-    "DESCRIPTION": "Worker Bees are 0-cost skills that gain 5 Nectar. At the start of your turn, gain [E] for every 10 Nectar."
+    "DESCRIPTION": "Honeybees are 0-cost skills that gain 5 Nectar. At the start of your turn, gain [E] for every 10 Nectar."
     },
   {
       "NAMES": [
@@ -44,7 +44,7 @@
     "NAMES": [
         "hive"
       ],
-    "DESCRIPTION": "Hive cards are Hornets, Bumblebees, Workerbees and Drones."
+    "DESCRIPTION": "Hive cards are Hornets, Bumblebees, honeybees and Drones."
     },
   {
       "NAMES": [
@@ -131,5 +131,11 @@
       "multiply"
     ],
     "DESCRIPTION": "At the start of combat, add 2 copies of this card to your draw pile."
+  },
+  {
+    "NAMES": [
+      "strategize"
+    ],
+    "DESCRIPTION": "If you have more attacks in hand than skills, draw x skills. If you have more skills, draw x attacks, otherwise draw x powers. If cards of that type don't exist in your draw pile, draw normally."
   }
 ]

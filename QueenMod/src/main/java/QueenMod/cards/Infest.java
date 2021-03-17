@@ -41,9 +41,9 @@ public class Infest extends AbstractDynamicCard {
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 2;  // COST = ${COST}
-    private static final int MAGIC = 4;
+    private static final int MAGIC = 3;
     private static final int UPGRADE_MAGIC = 1;
-    private static final int MAGIC2 = 2;
+    private static final int MAGIC2 = 1;
     // /STAT DECLARATION/
 
 
@@ -87,7 +87,6 @@ public class Infest extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_MAGIC);
-            upgradeDefaultSecondMagicNumber(UPGRADE_MAGIC);
             initializeDescription();
         }
     }

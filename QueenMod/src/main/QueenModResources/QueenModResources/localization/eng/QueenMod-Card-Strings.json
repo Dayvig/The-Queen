@@ -57,8 +57,8 @@
     "NAME": "Assimilate",
     "DESCRIPTION": "Exhaust all queenmod:Hive cards in your hand. NL Gain !M! queenmod:Swarm for each."
   },
-  "QueenMod:Honeybee": {
-    "NAME": "Worker Bee",
+  "QueenMod:HoneyBee": {
+    "NAME": "Honeybee",
     "DESCRIPTION": "Gain !M! queenmod:Nectar."
   },
   "QueenMod:BuildOrder": {
@@ -122,8 +122,8 @@
   },
   "QueenMod:PheremoneSwap": {
     "NAME": "Pheremone Swap",
-    "DESCRIPTION": "Retain. NL Switch your queenmod:Hornets and queenmod:Bumblebees. NL Switch your queenmod:Honeybees and queenmod:Drones.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Switch your queenmod:Hornets and queenmod:Bumblebees. NL Switch your queenmod:Honeybees and queenmod:Drones. NL Draw a card."
+    "DESCRIPTION": "Retain. NL Switch your queenmod:Hornets and queenmod:Bumblebees.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Switch your queenmod:Hornets and queenmod:Bumblebees. NL Draw a card."
   },
   "QueenMod:Mark": {
     "NAME": "Mark",
@@ -458,7 +458,7 @@
   },
   "QueenMod:Infest": {
     "NAME": "Infest",
-    "DESCRIPTION": "Apply !M! queenmod:Swarm to all enemies and yourself. NL queenmod:Honey-boost: Apply !QueenMod:second! queenmod:Swarm to all enemies and yourself."
+    "DESCRIPTION": "Apply !M! queenmod:Swarm to everyone. NL queenmod:Honey-boost: Apply !QueenMod:second! queenmod:Swarm to everyone."
   },
   "QueenMod:Advisor": {
     "NAME": "Reserve Force",
@@ -510,16 +510,16 @@
   },
   "QueenMod:Strategize": {
     "NAME": "War Room",
-    "DESCRIPTION": "Gain !B! Block. NL Draw an Attack and Skill from your draw pile."
+    "DESCRIPTION": "Gain !B! Block. NL queenmod:Strategize 2."
   },
   "QueenMod:Scramble": {
     "NAME": "Scramble!",
-    "DESCRIPTION": "Gain !M! Swarm. NL Discard your hand, then draw !QueenMod:second! Attacks and !QueenMod:second! Skills from your draw pile."
+    "DESCRIPTION": "Gain !M! Swarm. NL Discard every card except one, then Strategize !QueenMod:second!."
   },
   "QueenMod:WarRoom": {
     "NAME": "Pheremone Trail",
-    "DESCRIPTION": "Draw an Attack and Skill from your draw pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Draw an Attack and Skill from your draw pile."
+    "DESCRIPTION": "queenmod:Strategize 1.",
+    "UPGRADE_DESCRIPTION": "Retain. NL queenmod:Strategize 1."
   },
   "QueenMod:WaxCrafters": {
     "NAME": "Wax Crafters",
@@ -541,5 +541,9 @@
   "QueenMod:Suitors": {
     "NAME": "Suitors",
     "DESCRIPTION": "Add !M! Drones to your draw pile. NL Exhaust."
+  },
+  "QueenMod:Assault": {
+    "NAME": "All-out Assault",
+    "DESCRIPTION": "Deal !D! damage !M! times. NL Exhaust."
   }
 }

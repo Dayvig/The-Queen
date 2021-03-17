@@ -41,7 +41,7 @@ public class DrawSpecificCardTypeAction extends AbstractGameAction {
             default:
                 typeText = "cards of that type";
         }
-        Text = "I have no "+typeText+" in my draw pile!";
+        Text = "Not enough "+typeText+" in my draw pile!";
     }
 
     public void update() {
@@ -54,22 +54,19 @@ public class DrawSpecificCardTypeAction extends AbstractGameAction {
                 numCards++;
             }
         }
-        if (upgradeMatrix.isEmpty()) {
-            AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, Text, true));
-            isDone = true;
-            return;
-        }
-        while (!upgradeMatrix.isEmpty()) {
+        while (numTimes > 0) {
+            if (upgradeMatrix.isEmpty()) {
+                AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, Text, true));
+                AbstractDungeon.actionManager.addToBottom(new DrawCardAction(numTimes));
+                isDone = true;
+                return;
+            }
             AbstractCard c1 = upgradeMatrix.remove(AbstractDungeon.cardRandomRng.random(numCards - 1));
             p.removeCard(c1);
             p.addToTop(c1);
             AbstractDungeon.actionManager.addToBottom(new DrawCardAction(1));
             numCards--;
             numTimes--;
-            if (numTimes <= 0){
-                isDone = true;
-                return;
-            }
         }
         isDone = true;
     }

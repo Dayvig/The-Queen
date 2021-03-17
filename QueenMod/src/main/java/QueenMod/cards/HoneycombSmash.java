@@ -34,9 +34,9 @@ public class HoneycombSmash extends AbstractDynamicCard
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 
     private static final int DAMAGE = 6;
-    private static final int UPGRADE_PLUS_DAMAGE = 2;
+    private static final int UPGRADE_PLUS_DAMAGE = 4;
     private static final int MAGIC = 1;
-    private static final int UPGRADE_MAGIC = 1;
+    private static final int UPGRADE_MAGIC = 0;
 
     public HoneycombSmash()
     {

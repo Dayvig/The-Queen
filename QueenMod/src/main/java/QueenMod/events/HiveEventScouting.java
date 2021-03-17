@@ -123,6 +123,9 @@ public class HiveEventScouting extends AbstractImageEvent {
                         // And that would also just set them into slot 0, 1, 2... in order, just like what we do in the very beginning
 
                         break;
+                    case 3:
+                        openMap(); // You'll open the map and end the event.
+                        break;
                 }
                 break;
             case 1: // Welcome to screenNum = 1;
