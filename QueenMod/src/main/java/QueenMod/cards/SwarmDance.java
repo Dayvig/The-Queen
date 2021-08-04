@@ -1,7 +1,6 @@
 package QueenMod.cards;
 
 import QueenMod.QueenMod;
-import QueenMod.actions.MakeTempCardInDrawPileActionFast;
 import QueenMod.actions.UpgradeCardInDeckAction;
 import QueenMod.characters.TheQueen;
 import QueenMod.powers.SwarmPower;
@@ -17,9 +16,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static QueenMod.QueenMod.makeCardPath;
 
 // public class ${NAME} extends AbstractDynamicCard
-public class MatingDance extends AbstractDynamicCard {
+public class SwarmDance extends AbstractDynamicCard {
 
-    public static final String ID = QueenMod.makeID(MatingDance.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
+    public static final String ID = QueenMod.makeID(SwarmDance.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
     public static final String IMG = makeCardPath("dance.png");// "public static final String IMG = makeCardPath("${NAME}.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -37,8 +36,8 @@ public class MatingDance extends AbstractDynamicCard {
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = -2;  // COST = ${COST}
-    private static final int MAGIC = 1;
-    private static final int UPGRADE_MAGIC = 1;
+    private static final int MAGIC = 4;
+    private static final int UPGRADE_MAGIC = 2;
 
 
     private int combo;
@@ -51,7 +50,7 @@ public class MatingDance extends AbstractDynamicCard {
     // /STAT DECLARATION/
 
 
-    public MatingDance() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
+    public SwarmDance() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
         this.rawDescription += " NL (Changes each turn.)";
@@ -75,7 +74,7 @@ public class MatingDance extends AbstractDynamicCard {
         if (c.type.equals(dance[combo])){
             combo++;
             if (combo == COMBO_LENGTH){
-                AbstractDungeon.actionManager.addToTop(new MakeTempCardInDrawPileActionFast(new Drone(), magicNumber, true, false));
+                AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, magicNumber),magicNumber));
                 this.flash();
                 combo = 0;
                 desc = "";
@@ -200,6 +199,7 @@ public class MatingDance extends AbstractDynamicCard {
                 danceDescAlt = "Attack, ";
             }
         }
+        //generates the next moves of the dance: weighted slightly to vary the card types.
         for (int i = 1; i < COMBO_LENGTH; i++) {
             danceMoves = AbstractDungeon.cardRandomRng.random(100);
             if (dance[i - 1].equals(CardType.ATTACK)) {
@@ -229,7 +229,8 @@ public class MatingDance extends AbstractDynamicCard {
                     } else {
                         danceDescriptions[i] += ", ";
                     }
-                } else {
+                }
+                else {
                     dance[i] = CardType.ATTACK;
                     danceDescriptions[i] = "Attack";
                     if (i == COMBO_LENGTH-1) {
@@ -259,7 +260,7 @@ public class MatingDance extends AbstractDynamicCard {
             } else {
                 if (danceMoves <= 40) {
                     dance[i] = CardType.SKILL;
-                    danceDescriptions[i] = "Attack";
+                    danceDescriptions[i] = "Skill";
                     if (i == COMBO_LENGTH-1) {
                         danceDescriptions[i] += ".";
                     } else {
@@ -275,7 +276,7 @@ public class MatingDance extends AbstractDynamicCard {
                     }
                 } else {
                     dance[i] = CardType.POWER;
-                    danceDescriptions[i] = "Attack";
+                    danceDescriptions[i] = "Power";
                     if (i == COMBO_LENGTH-1) {
                         danceDescriptions[i] += ".";
                     } else {
@@ -284,11 +285,8 @@ public class MatingDance extends AbstractDynamicCard {
                 }
             }
         }
-        String s;
-        if (upgraded){ s = EXTENDED_DESCRIPTION[0]; }
-        else { s = EXTENDED_DESCRIPTION[3]; }
         this.rawDescription = "Play these card types in sequence: NL " + danceDescriptions[0]+danceDescriptions[1]+danceDescriptions[2]+" NL "+
-                s;
+                EXTENDED_DESCRIPTION[0];
         combo = 0;
         initializeDescription();
         danceSet = true;
@@ -300,7 +298,6 @@ public class MatingDance extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             this.upgradeMagicNumber(UPGRADE_MAGIC);
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

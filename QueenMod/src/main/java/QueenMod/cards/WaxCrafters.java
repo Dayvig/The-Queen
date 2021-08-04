@@ -39,7 +39,7 @@ public class WaxCrafters extends AbstractDynamicCard {
 
     private static final int COST = 1;  // COST = ${COST}
     private static final int UPGRADED_COST = 0;
-    private static final int MAGIC = 4;
+    private static final int MAGIC = 3;
     private static final int UPGRADE_MAGIC = 2;
     // /STAT DECLARATION/
 

@@ -458,8 +458,9 @@ public class QueenMod implements
         //BaseMod.addCard(new Princess());
         BaseMod.addCard(new Wasps());
         BaseMod.addCard(new Volunteers());
-        BaseMod.addCard(new Suitors());
+        BaseMod.addCard(new SwarmDance());
         BaseMod.addCard(new Assault());
+        BaseMod.addCard(new MatingDance());
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -467,7 +468,8 @@ public class QueenMod implements
         // before playing your mod.
 
         UnlockTracker.unlockCard(Assault.ID);
-        UnlockTracker.unlockCard(Suitors.ID);
+        UnlockTracker.unlockCard(MatingDance.ID);
+        UnlockTracker.unlockCard(SwarmDance.ID);
         UnlockTracker.unlockCard(Wasps.ID);
         UnlockTracker.unlockCard(Volunteers.ID);
         //UnlockTracker.unlockCard(PlanAhead.ID);

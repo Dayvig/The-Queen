@@ -189,7 +189,7 @@
   },
   "QueenMod:ScoutingParty": {
     "NAME": "Supply Lines",
-    "DESCRIPTION": "Gain 4 queenmod:Swarm. NL Draw !M! cards. NL queenmod:Honey-boost: Draw a card."
+    "DESCRIPTION": "Gain 3 queenmod:Swarm. NL Draw !M! cards. NL queenmod:Honey-boost: Draw a card."
   },
   "QueenMod:MilitaryHandbook": {
     "NAME": "Art of War",
@@ -378,9 +378,20 @@
   },
   "QueenMod:MatingDance": {
     "NAME": "Mating Dance",
-    "DESCRIPTION": "Unplayable. NL While in your hand, play a series of card types in sequence to gain !M! queenmod:Swarm.",
+    "DESCRIPTION": "Unplayable. NL While in your hand, play a series of 2 card types in sequence to add a queenmod:Drone to your draw pile.",
+    "UPGRADE_DESCRIPTION": "Unplayable. NL While in your hand, play a series of 2 card types in sequence to add !M! queenmod:Drones to your draw pile.",
     "EXTENDED_DESCRIPTION": [
-      "Gain !M! Swarm.",
+      "Add !M! queenmod:Drones to your draw pile.",
+      "I can't play this.",
+      "(Changes each turn.)",
+      "Add a queenmod:Drone to your draw pile."
+    ]
+  },
+  "QueenMod:SwarmDance": {
+    "NAME": "Frenzy Dance",
+    "DESCRIPTION": "Unplayable. NL While in your hand, play a series of 3 card types in sequence to gain !M! queenmod:Swarm.",
+    "EXTENDED_DESCRIPTION": [
+      "gain !M! queenmod:Swarm.",
       "I can't play this.",
       "(Changes each turn.)"
     ]
@@ -477,8 +488,8 @@
     "DESCRIPTION": "Deal !D! damage 2 times. NL queenmod:Honey-boost: Deal !D! damage."
   },
   "QueenMod:TortureDance": {
-    "NAME": "Torture Dance",
-    "DESCRIPTION": "Unplayable. NL While in your hand, play a series of card types in sequence to Deal !D! damage to all enemies.",
+    "NAME": "Battle Dance",
+    "DESCRIPTION": "Unplayable. NL While in your hand, play a series of 4 card types in sequence to deal !D! damage to all enemies.",
     "EXTENDED_DESCRIPTION": [
       "Deal !D! damage to all enemies.",
       "I can't play this."
@@ -514,7 +525,7 @@
   },
   "QueenMod:Scramble": {
     "NAME": "Scramble!",
-    "DESCRIPTION": "Gain !M! Swarm. NL Discard every card except one, then Strategize !QueenMod:second!."
+    "DESCRIPTION": "Gain !M! Swarm. NL Discard every card except one, then queenmod:Strategize !QueenMod:second!."
   },
   "QueenMod:WarRoom": {
     "NAME": "Pheremone Trail",

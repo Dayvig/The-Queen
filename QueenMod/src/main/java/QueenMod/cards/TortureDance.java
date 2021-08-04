@@ -42,11 +42,11 @@ public class TortureDance extends AbstractDynamicCard {
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = -2;  // COST = ${COST}
-    private static final int DAMAGE = 10;
-    private static final int UPGRADE_PLUS_DAMAGE = 4;
+    private static final int DAMAGE = 20;
+    private static final int UPGRADE_PLUS_DAMAGE = 8;
 
     private int combo;
-    private static final int COMBO_LENGTH = 3;
+    private static final int COMBO_LENGTH = 4;
     CardType dance[] = new CardType[COMBO_LENGTH];
     String[] danceDescriptions = new String[COMBO_LENGTH];
     String danceDescAlt = "";
@@ -151,9 +151,32 @@ public class TortureDance extends AbstractDynamicCard {
             setDanceMoves();
         }
     }
+    private boolean powersPresent(){
+        for (AbstractCard c : AbstractDungeon.player.hand.group){
+            if (c.type.equals(CardType.POWER)){
+                return true;
+            }
+        }
+        for (AbstractCard c : AbstractDungeon.player.drawPile.group){
+            if (c.type.equals(CardType.POWER)){
+                return true;
+            }
+        }
+        for (AbstractCard c : AbstractDungeon.player.discardPile.group){
+            if (c.type.equals(CardType.POWER)){
+                return true;
+            }
+        }
+        return false;
+    }
 
     public void setDanceMoves(){
         danceMoves = AbstractDungeon.cardRandomRng.random(100);
+
+        //determines if the player has a power in their current deck.
+        boolean generatePowers = powersPresent();
+
+        //Sets the first move of the dance
         if (danceMoves <= 45) {
             dance[0] = CardType.SKILL;
             danceDescriptions[0] = "[#00FF00]Skill";
@@ -164,11 +187,21 @@ public class TortureDance extends AbstractDynamicCard {
             danceDescriptions[0] = "[#ff0000]Attack";
             danceDescriptions[0] += ", ";
             danceDescAlt = "Attack, ";
-        } else {
-            dance[0] = CardType.POWER;
-            danceDescriptions[0] = "[#0000FF]Power";
-            danceDescriptions[0] += ", ";
-            danceDescAlt = "Power, ";
+        }
+        //10% chance: if powers can be generated, generates a power, otherwise generates an attack.
+        else {
+            if (generatePowers) {
+                dance[0] = CardType.POWER;
+                danceDescriptions[0] = "[#0000FF]Power";
+                danceDescriptions[0] += ", ";
+                danceDescAlt = "Power, ";
+            }
+            else {
+                dance[0] = CardType.ATTACK;
+                danceDescriptions[0] = "[#ff0000]Attack";
+                danceDescriptions[0] += ", ";
+                danceDescAlt = "Attack, ";
+            }
         }
         for (int i = 1; i < COMBO_LENGTH; i++) {
             danceMoves = AbstractDungeon.cardRandomRng.random(100);
