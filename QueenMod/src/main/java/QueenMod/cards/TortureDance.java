@@ -287,11 +287,15 @@ public class TortureDance extends AbstractDynamicCard {
                 }
             }
         }
-        this.rawDescription = "Play these card types in sequence: NL " + danceDescriptions[0]+danceDescriptions[1]+danceDescriptions[2]+" NL "+
-                EXTENDED_DESCRIPTION[0];
+        String s2 = "";
+        for (int k = 0; k < COMBO_LENGTH; k++){
+            s2 += danceDescriptions[k];
+        }
+        this.rawDescription = "Play these card types in sequence: NL " + s2 +" NL "+ EXTENDED_DESCRIPTION[0];
         combo = 0;
         initializeDescription();
         danceSet = true;
+
     }
 
     // Upgraded stats.

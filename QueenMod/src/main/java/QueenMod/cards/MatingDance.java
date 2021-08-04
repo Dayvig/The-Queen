@@ -4,6 +4,7 @@ import QueenMod.QueenMod;
 import QueenMod.actions.MakeTempCardInDrawPileActionFast;
 import QueenMod.actions.UpgradeCardInDeckAction;
 import QueenMod.characters.TheQueen;
+import QueenMod.powers.Nectar;
 import QueenMod.powers.SwarmPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
@@ -42,7 +43,7 @@ public class MatingDance extends AbstractDynamicCard {
 
 
     private int combo;
-    private static final int COMBO_LENGTH = 3;
+    private static final int COMBO_LENGTH = 2;
     CardType dance[] = new CardType[COMBO_LENGTH];
     String[] danceDescriptions = new String[COMBO_LENGTH];
     String danceDescAlt = "";
@@ -285,10 +286,13 @@ public class MatingDance extends AbstractDynamicCard {
             }
         }
         String s;
+        String s2 = "";
         if (upgraded){ s = EXTENDED_DESCRIPTION[0]; }
         else { s = EXTENDED_DESCRIPTION[3]; }
-        this.rawDescription = "Play these card types in sequence: NL " + danceDescriptions[0]+danceDescriptions[1]+danceDescriptions[2]+" NL "+
-                s;
+        for (int k = 0; k < COMBO_LENGTH; k++){
+            s2 += danceDescriptions[k];
+        }
+        this.rawDescription = "Play these card types in sequence: NL " + s2 +" NL "+ s;
         combo = 0;
         initializeDescription();
         danceSet = true;

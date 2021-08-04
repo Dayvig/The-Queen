@@ -410,7 +410,7 @@ public class QueenMod implements
         //BaseMod.addCard(new PerfectLanding());
         BaseMod.addCard(new Advisor());
         BaseMod.addCard(new ScoutingParty());
-        BaseMod.addCard(new HoldPosition());
+        BaseMod.addCard(new Scatter());
         BaseMod.addCard(new Conscripts());
         BaseMod.addCard(new Charge());
         BaseMod.addCard(new Rally());
@@ -451,7 +451,7 @@ public class QueenMod implements
         BaseMod.addCard(new HiveDefenses());
         BaseMod.addCard(new Strategize());
         BaseMod.addCard(new Scramble());
-        BaseMod.addCard(new WarRoom());
+        BaseMod.addCard(new Pheremones());
         BaseMod.addCard(new WaxCrafters());
         //BaseMod.addCard(new PlanAhead());
         //BaseMod.addCard(new Coronation());
@@ -518,7 +518,7 @@ public class QueenMod implements
         //UnlockTracker.unlockCard(PerfectLanding.ID);
         UnlockTracker.unlockCard(Advisor.ID);
         UnlockTracker.unlockCard(ScoutingParty.ID);
-        UnlockTracker.unlockCard(HoldPosition.ID);
+        UnlockTracker.unlockCard(Scatter.ID);
         UnlockTracker.unlockCard(Conscripts.ID);
         UnlockTracker.unlockCard(Charge.ID);
         UnlockTracker.unlockCard(Rally.ID);
@@ -558,7 +558,7 @@ public class QueenMod implements
         UnlockTracker.unlockCard(Garrison.ID);
         UnlockTracker.unlockCard(HiveDefenses.ID);
         UnlockTracker.unlockCard(Scramble.ID);
-        UnlockTracker.unlockCard(WarRoom.ID);
+        UnlockTracker.unlockCard(Pheremones.ID);
         UnlockTracker.unlockCard(WaxCrafters.ID);
         //UnlockTracker.unlockCard(Coronation.ID);
         //UnlockTracker.unlockCard(Princess.ID);

@@ -39,7 +39,7 @@
   },
   "QueenMod:HexGuard": {
     "NAME": "Hex Guard",
-    "DESCRIPTION": "Gain !B! Block. NL queenmod:Honey-boost: Gain !B! Block."
+    "DESCRIPTION": "Gain !B! Block. NL queenmod:Honey-boost: Gain !M! Block."
   },
   "QueenMod:HoneycombSmash": {
     "NAME": "Honeycomb Smash",
@@ -269,7 +269,7 @@
   },
   "QueenMod:Charge":{
     "NAME": "Charge!",
-    "DESCRIPTION": "Innate. NL Deal !D! damage. NL Draw !M! cards. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage. NL Draw a card for every 10 cards in your draw pile."
   },
   "QueenMod:PlanAhead":{
     "NAME": "Organize",
@@ -309,8 +309,8 @@
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL While in your draw pile, increase this card's damage by 10 at the start of your turn. NL Exhaust."
   },
   "QueenMod:FlankingStrike":{
-    "NAME": "Flanking Manuevers",
-    "DESCRIPTION": "Innate. NL Deal !D! damage and apply !M! Vulnerable to all enemies. NL Exhaust."
+    "NAME": "Flanking",
+    "DESCRIPTION": "Deal !D! damage and apply !M! Vulnerable to all enemies. NL Exhaust."
   },
   "QueenMod:Reinforcements":{
     "NAME": "Reinforcements",
@@ -329,9 +329,9 @@
     "DESCRIPTION": "Inflict !M! queenmod:Pollinate. NL Add a queenmod:Honeybee to your draw pile."
   },
   "QueenMod:HonorGuard":{
-    "NAME": "Honor Guards",
-    "DESCRIPTION": "Innate. NL Add 2 Bumblebees to your hand. NL Retain. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Add 2 Upgraded Bumblebees to your hand. NL Retain. Exhaust."
+    "NAME": "Retainers.",
+    "DESCRIPTION": "Retain. NL Add 2 Bumblebees to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Retain. NL Add 2 Bumblebees to your hand. NL Exhaust."
   },
   "QueenMod:HoneyFactory":{
     "NAME": "Honey Factory",
@@ -360,9 +360,9 @@
     "NAME": "Fortify",
     "DESCRIPTION": "Gain 1 Block for each card in your draw pile. ( !B! Block. )"
   },
-  "QueenMod:HoldPosition":{
-    "NAME": "Hold Position",
-    "DESCRIPTION": "Gain !B! block. NL queenmod:Lock your queenmod:Swarm on yourself for the turn."
+  "QueenMod:Scatter":{
+    "NAME": "Scatter",
+    "DESCRIPTION": "Deal !D! damage to all enemies. NL Gain !B! Block. NL queenmod:Lock your Swarm on all enemies and yourself this turn."
   },
   "QueenMod:Multiply":{
     "NAME": "Multiply",
@@ -391,7 +391,7 @@
     "NAME": "Frenzy Dance",
     "DESCRIPTION": "Unplayable. NL While in your hand, play a series of 3 card types in sequence to gain !M! queenmod:Swarm.",
     "EXTENDED_DESCRIPTION": [
-      "gain !M! queenmod:Swarm.",
+      "Gain !M! queenmod:Swarm.",
       "I can't play this.",
       "(Changes each turn.)"
     ]
@@ -520,14 +520,14 @@
     "DESCRIPTION": "Deal !D! damage. NL At the start of your turn if this is in your draw pile, deal !D! damage to a random enemy."
   },
   "QueenMod:Strategize": {
-    "NAME": "War Room",
+    "NAME": "Battle Plans",
     "DESCRIPTION": "Gain !B! Block. NL queenmod:Strategize 2."
   },
   "QueenMod:Scramble": {
     "NAME": "Scramble!",
-    "DESCRIPTION": "Gain !M! Swarm. NL Discard every card except one, then queenmod:Strategize !QueenMod:second!."
+    "DESCRIPTION": "Gain !M! queenmod:Swarm. NL Discard every card except one, then queenmod:Strategize !QueenMod:second!."
   },
-  "QueenMod:WarRoom": {
+  "QueenMod:Pheremones": {
     "NAME": "Pheremone Trail",
     "DESCRIPTION": "queenmod:Strategize 1.",
     "UPGRADE_DESCRIPTION": "Retain. NL queenmod:Strategize 1."

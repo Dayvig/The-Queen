@@ -10,8 +10,8 @@
       "#yThank #yyou #ymy #yQueen, #ythis #ywill #ybe #yever #yso #yhelpful! NL They seem overjoyed, and move with renewed enthusiasm."
     ],
     "OPTIONS": [
-      "[Recall] #gGain #ga #gyellow #gcard. #gGain #g100 #ggold.",
-      "[Delegate] Remove a basic card.",
+      "#g[Recall] #gGain #ga #gyellow #gcard. #gGain #g100 #ggold.",
+      "#g[Delegate] #gRemove #ga #gbasic #gcard.",
       "[Invest] Remove a #ynon-basic card. #gImprove #gfuture #gHive #gevents.",
       "[Leave]"
     ]
@@ -28,9 +28,9 @@
       "#yThank #yyou #ymy #yQueen, #ythis #ywill #ybe #yever #yso #yhelpful! NL They seem overjoyed, and move with renewed enthusiasm."
     ],
     "OPTIONS": [
-      "[Collect] #gGain #g100 #ggold #gand #gan #guncommon #grelic",
-      "[Recall] #gGain #ga #gyellow #gcard. #gGain #g100 #ggold.",
-      "[Delegate] Remove a basic card.",
+      "#g[Collect] #gGain #g100 #ggold #gand #gan #guncommon #grelic",
+      "#g[Recall] #gGain #ga #gyellow #gcard. #gGain #g100 #ggold.",
+      "#g[Delegate] #gRemove #ga #gbasic #gcard.",
       "[Invest] Remove a #ynon-basic card. #gImprove #gfuture #gHive #gevents.",
       "[Leave]"
     ]
@@ -42,7 +42,7 @@
       "With your colony by your side, you feel #y~inspired.~"
     ],
     "OPTIONS": [
-      "[Collect] #gGain #g200 #ggold, #g3 #gcards #gand #g2 #gRare #gRelics.",
+      "#g[Collect] #gGain #g200 #ggold, #g3 #gcards #gand #g2 #gRare #gRelics.",
       "[Leave]"
     ]
   }

@@ -40,7 +40,6 @@ public class HonorGuard extends AbstractDynamicCard {
 
     public HonorGuard() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.isInnate = true;
         this.exhaust = true;
         this.selfRetain = true;
         this.cardsToPreview = d;
@@ -50,11 +49,7 @@ public class HonorGuard extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractCard b = new BumbleBee();
-        if (upgraded) {
-            b.upgrade();
-        }
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(b,2));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new BumbleBee(),2));
     }
 
     // Upgraded stats.
@@ -63,6 +58,7 @@ public class HonorGuard extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             d.upgrade();
+            this.isInnate = true;
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }

@@ -40,11 +40,10 @@ public class Charge extends AbstractDynamicCard {
 
     private static final int COST = 1;  // COST = ${COST}
 
-    private static final int DAMAGE = 6;    // DAMAGE = ${DAMAGE}
+    private static final int DAMAGE = 5;    // DAMAGE = ${DAMAGE}
     private static final int UPGRADE_PLUS_DAMAGE = 4;
-    private static final int MAGIC = 2;
-    private static final int UPGRADE_MAGIC = 1;
-
+    private static final int MAGIC = 1;
+    private static final int FACTOR = 10;
     // /STAT DECLARATION/
 
 
@@ -52,17 +51,16 @@ public class Charge extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
         baseMagicNumber = magicNumber = MAGIC;
-        this.isInnate = true;
-        this.exhaust = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        CardCrawlGame.sound.playA("TRUMPET", (float)Math.random()*0.05F);
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p,magicNumber));
+        CardCrawlGame.sound.playA("MARCH", ((float)Math.random()*1f) - 0.5f);
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        int drawAmnt = p.drawPile.group.size()*magicNumber / FACTOR;
+        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, drawAmnt));
     }
 
 

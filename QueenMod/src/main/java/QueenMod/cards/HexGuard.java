@@ -27,7 +27,7 @@ public class HexGuard extends AbstractDynamicCard
     private static final CardTarget TARGET = CardTarget.SELF;  //   since they don't change much.
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
-    public static final int BLOCK = 7;
+    public static final int BLOCK = 8;
     public static final int UPGRADE_PLUS_BLOCK = 2;
     public static final int MAGIC = 4;
     public static final int UPGRADE_PLUS_MAGIC = 1;

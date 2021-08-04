@@ -44,7 +44,7 @@ public class Strategize extends AbstractDynamicCard {
 
     private static final int COST = 1;  // COST = ${COST}
 
-    private static final int BLOCK = 4;    // DAMAGE = ${DAMAGE}
+    private static final int BLOCK = 5;    // DAMAGE = ${DAMAGE}
     private static final int UPGRADE_PLUS_BLOCK = 3;
     private static final int MAGIC = 1;
     private int numLeft;
