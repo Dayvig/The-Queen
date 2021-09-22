@@ -319,11 +319,19 @@ public class QueenMod implements
         BaseMod.addRelicToCustomPool(new Medal(), TheQueen.Enums.COLOR_YELLOW);
         BaseMod.addRelicToCustomPool(new DraftNotice(), TheQueen.Enums.COLOR_YELLOW);
         BaseMod.addRelicToCustomPool(new BloatedManual(), TheQueen.Enums.COLOR_YELLOW);
+        BaseMod.addRelicToCustomPool(new WhiteHibiscus(), TheQueen.Enums.COLOR_YELLOW);
+        BaseMod.addRelicToCustomPool(new QueenSceptre(), TheQueen.Enums.COLOR_YELLOW);
 
         // This adds a relic to the Shared pool. Every character can find this relic.
 
         // Mark relics as seen (the others are all starters so they're marked as seen in the character file
         UnlockTracker.markRelicAsSeen(HoneyJar.ID);
+        UnlockTracker.markRelicAsSeen(Medal.ID);
+        UnlockTracker.markRelicAsSeen(WhiteHibiscus.ID);
+        UnlockTracker.markRelicAsSeen(BloatedManual.ID);
+        UnlockTracker.markRelicAsSeen(DraftNotice.ID);
+        UnlockTracker.markRelicAsSeen(QueenSceptre.ID);
+
         logger.info("Done adding relics!");
     }
 

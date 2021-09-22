@@ -33,15 +33,15 @@
     ]
   },
   "QueenMod:HoneyJar": {
-    "NAME": "Honey Jar",
+    "NAME": "Honey Pot",
     "FLAVOR": "A hereto unknown technology allowing the long term storage of nectar. Remarkable.",
     "DESCRIPTIONS": [
-      "At the start of each combat, gain #b5 #yqueenmod:Nectar."
+      "Conserve 20% of your Nectar between combats. (Max 10.)"
     ]
   },
   "QueenMod:Medal": {
     "NAME": "Medal of Honor",
-    "FLAVOR": "Some troops will distinguish themselves on the battlefield, and fight not for money, but for their nation and their pride.",
+    "FLAVOR": "Some troops will distinguish themselves on the battlefield, and fight not for money or glory, but for their nation and their pride.",
     "DESCRIPTIONS": [
       "At the start of your turn, #yHornets and #yBumblebees in your hand cost 0."
     ]
@@ -50,14 +50,28 @@
     "NAME": "Draft Notice",
     "FLAVOR": "One of the perks of eusocial societies: no draft dodgers.",
     "DESCRIPTIONS": [
-      "At the start of combat, add #b3 #yDrones to your draw pile. (Drones are 0-cost skills that draw 2 cards and exhaust.)"
+      "At the start of combat, add 1 of each Hive card to your draw pile. (Hive cards are powerful attack, defend, draw and buff cards.)"
     ]
   },
   "QueenMod:BloatedManual": {
     "NAME": "Bloated Manual",
     "FLAVOR": "I assure you, every bit of information is essential.",
     "DESCRIPTIONS": [
-      "At the start of the turn, draw a card for every #b20 cards in your draw pile."
+      "At the end of the turn, Scry 1 for every 10 cards in your draw pile."
+    ]
+  },
+  "QueenMod:WhiteHibiscus": {
+    "NAME": "White Hibiscus",
+    "FLAVOR": "A beautiful flower whose pollen has a calming effect on those around it.",
+    "DESCRIPTIONS": [
+      "When you apply Pollinate, also reduce the target's Strength by the same amount for the turn."
+    ]
+  },
+  "QueenMod:QueenSceptre": {
+    "NAME": "Queen's Sceptre",
+    "FLAVOR": "An instrument only truly wielded by royalty.",
+    "DESCRIPTIONS": [
+      "The first time you would add a card to your draw pile each turn, add it to your hand instead."
     ]
   }
 }

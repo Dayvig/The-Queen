@@ -70,6 +70,7 @@ public class SwarmTacticsPower extends AbstractPower implements CloneablePowerIn
     //checks to see if the target of the attack is dead or dying, if it is applies the stacks to player instead.
     @Override
     public void onAfterUseCard(AbstractCard c, UseCardAction a){
+        if (!(a.target instanceof AbstractMonster)) { return; }
         if (a.target.isDead || a.target.isDying || a.target.halfDead || a.target.isEscaping){
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player,a.source,new SwarmPower(AbstractDungeon.player,this.owner,this.amount),this.amount));
         }

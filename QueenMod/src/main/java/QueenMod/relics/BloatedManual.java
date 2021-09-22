@@ -24,15 +24,13 @@ public class BloatedManual extends CustomRelic {
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("manual.png"));
 
     public BloatedManual() {
-        super(ID, IMG, OUTLINE, RelicTier.UNCOMMON, LandingSound.FLAT);
+        super(ID, IMG, OUTLINE, RelicTier.UNCOMMON, LandingSound.SOLID);
     }
 
     @Override
-    public void atTurnStart() {
-        if (AbstractDungeon.player.drawPile.group.size() > 20) {
-            AbstractDungeon.actionManager.addToBottom(new ManualAction());
+    public void onPlayerEndTurn() {
+            AbstractDungeon.actionManager.addToTop(new ManualAction());
             this.flash();
-        }
     }
 
 

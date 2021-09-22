@@ -2,7 +2,10 @@ package QueenMod.relics;
 
 import QueenMod.QueenMod;
 import QueenMod.actions.MakeTempCardInDrawPileActionFast;
+import QueenMod.cards.BumbleBee;
 import QueenMod.cards.Drone;
+import QueenMod.cards.HoneyBee;
+import QueenMod.cards.Hornet;
 import QueenMod.powers.Nectar;
 import QueenMod.util.TextureLoader;
 import basemod.abstracts.CustomRelic;
@@ -27,7 +30,10 @@ public class DraftNotice extends CustomRelic {
 
     @Override
     public void atBattleStartPreDraw() {
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new Drone(), 3, true, false));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new Hornet(), 1, true, false));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new BumbleBee(), 1, true, false));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new Drone(), 1, true, false));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(new HoneyBee(), 1, true, false));
         this.flash();
     }
 

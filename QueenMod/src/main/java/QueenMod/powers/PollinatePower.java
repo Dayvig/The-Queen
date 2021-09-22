@@ -1,6 +1,7 @@
 package QueenMod.powers;
 
 import QueenMod.QueenMod;
+import QueenMod.relics.WhiteHibiscus;
 import QueenMod.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
@@ -13,6 +14,10 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.GainStrengthPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
+import org.apache.logging.log4j.core.pattern.AbstractStyleNameConverter;
 
 import static QueenMod.QueenMod.makePowerPath;
 
@@ -62,6 +67,28 @@ public class PollinatePower extends AbstractPower implements CloneablePowerInter
 
         if (this.amount < 0) {
             this.amount = 0;
+        }
+        if (AbstractDungeon.player.hasRelic(WhiteHibiscus.ID) && stackAmount > 0){
+            AbstractDungeon.player.getRelic(WhiteHibiscus.ID).flash();
+            activateHibiscus(this.owner, stackAmount);
+        }
+
+    }
+
+
+    public void activateHibiscus(AbstractCreature m, int am){
+        System.out.println("Hibiscus test");
+        this.addToBot(new ApplyPowerAction(m, AbstractDungeon.player, new StrengthPower(m, -am), -am));
+        if (m != null && !m.hasPower("Artifact")) {
+            this.addToBot(new ApplyPowerAction(m, AbstractDungeon.player, new GainStrengthPower(m, am), am));
+        }
+    }
+
+    @Override
+    public void onInitialApplication(){
+        if (AbstractDungeon.player.hasRelic(WhiteHibiscus.ID)){
+            AbstractDungeon.player.getRelic(WhiteHibiscus.ID).flash();
+            activateHibiscus(this.owner, this.amount);
         }
     }
 

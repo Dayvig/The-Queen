@@ -268,7 +268,7 @@
     "UPGRADE_DESCRIPTION": "X+1 random cards in your draw pile cost 0 until played."
   },
   "QueenMod:Charge":{
-    "NAME": "Charge!",
+    "NAME": "Forward March!",
     "DESCRIPTION": "Deal !D! damage. NL Draw a card for every 10 cards in your draw pile."
   },
   "QueenMod:PlanAhead":{
@@ -329,7 +329,7 @@
     "DESCRIPTION": "Inflict !M! queenmod:Pollinate. NL Add a queenmod:Honeybee to your draw pile."
   },
   "QueenMod:HonorGuard":{
-    "NAME": "Retainers.",
+    "NAME": "Retainers",
     "DESCRIPTION": "Retain. NL Add 2 Bumblebees to your hand. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Innate. NL Retain. NL Add 2 Bumblebees to your hand. NL Exhaust."
   },

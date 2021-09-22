@@ -36,7 +36,7 @@ public class GnatSquadron extends AbstractDynamicCard {
 
     private static final int DAMAGE = 1;    // DAMAGE = ${DAMAGE}
     private static final int UPGRADE_MAGIC = 1;
-    private static final int MAGIC = 5;
+    private static final int MAGIC = 4;
 
     // /STAT DECLARATION/
 

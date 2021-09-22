@@ -9,8 +9,10 @@ import QueenMod.effects.AmbushEffect;
 import QueenMod.effects.ShowCardAddToDrawPileFast;
 import QueenMod.effects.ShowCardAndAddToDrawPileEffectFast;
 import QueenMod.powers.BusyBeesPower;
+import QueenMod.relics.QueenSceptre;
 import com.badlogic.gdx.Gdx;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -53,6 +55,19 @@ public class MakeTempCardInDrawPileActionFast extends AbstractGameAction {
         if (this.duration == dur) {
             if (AbstractDungeon.player.hasPower(BusyBeesPower.POWER_ID)){
                 amount += AbstractDungeon.player.getPower(BusyBeesPower.POWER_ID).amount;
+            }
+            if (AbstractDungeon.player.hasRelic(QueenSceptre.ID)){
+                QueenSceptre q = (QueenSceptre)AbstractDungeon.player.getRelic(QueenSceptre.ID);
+                if (q.isActive) {
+                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(cardToMake, 1));
+                    amount--;
+                    q.isActive = false;
+                    q.grayscale = true;
+                    q.stopPulse();
+                    if (amount <= 0) {
+                        this.isDone = true;
+                    }
+                }
             }
             AbstractCard c;
             int i;
