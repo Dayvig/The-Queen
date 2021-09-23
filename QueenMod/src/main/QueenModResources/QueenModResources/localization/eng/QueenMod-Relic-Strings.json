@@ -4,7 +4,12 @@
     "FLAVOR": "As long as the banner remains, the nation will never die.",
     "DESCRIPTIONS": [
       "The first event of every act is a Hive Event.",
-      "This relic is used up for this act."
+      "This relic is used up for this act.",
+      " NL Hive Presence (",
+      ") NL Next Reward: ",
+      "100 Gold, 1 card.",
+      "One Uncommon Relic, 200 Gold, 2 cards.",
+      "Two Rare Relics, 300 gold, 3 cards."
     ]
   },
   "QueenMod:PlaceholderRelic2": {

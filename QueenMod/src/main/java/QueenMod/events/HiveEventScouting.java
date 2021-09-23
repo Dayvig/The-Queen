@@ -164,17 +164,21 @@ public class HiveEventScouting extends AbstractImageEvent {
                 case COMMON:
                     this.imageEventText.updateBodyText(DESCRIPTIONS[4]);
                     AbstractDungeon.player.getRelic(QueensBanner.ID).counter++;
+                    AbstractDungeon.player.getRelic(QueensBanner.ID).updateDescription(AbstractDungeon.player.chosenClass);
                     this.screenNum = 1;
                     break;
                 case UNCOMMON:
                     this.imageEventText.updateBodyText(DESCRIPTIONS[4]);
                     AbstractDungeon.player.getRelic(QueensBanner.ID).counter++;
+                    AbstractDungeon.player.getRelic(QueensBanner.ID).updateDescription(AbstractDungeon.player.chosenClass);
                     this.screenNum = 1;
                     break;
                 case RARE:
                     this.imageEventText.updateBodyText(DESCRIPTIONS[5]);
-                    AbstractDungeon.player.getRelic(QueensBanner.ID).counter += 2;
+                    AbstractDungeon.player.getRelic(QueensBanner.ID).counter++;
+                    AbstractDungeon.player.getRelic(QueensBanner.ID).updateDescription(AbstractDungeon.player.chosenClass);
                     this.screenNum = 1;
+                    break;
                 default:
                     this.screenNum = 1;
             }

@@ -13,9 +13,14 @@ import basemod.abstracts.CustomSavable;
 import basemod.interfaces.StartActSubscriber;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.AbstractImageEvent;
 import com.megacrit.cardcrawl.events.RoomEventDialog;
+import com.megacrit.cardcrawl.helpers.PowerTip;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.map.MapEdge;
 import com.megacrit.cardcrawl.map.MapRoomNode;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
@@ -33,8 +38,8 @@ public class QueensBanner extends CustomRelic implements CustomSavable<Boolean> 
 
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("banner.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("banner.png"));
-    private static String BaseFlavor;
-    boolean realUsedUp;
+    private static final RelicStrings relicStrings = CardCrawlGame.languagePack.getRelicStrings(ID);
+    private static final String [] DESCRIPTIONS = relicStrings.DESCRIPTIONS;
 
     public QueensBanner() {
         super(ID, IMG, OUTLINE, RelicTier.STARTER, LandingSound.FLAT);
@@ -44,28 +49,16 @@ public class QueensBanner extends CustomRelic implements CustomSavable<Boolean> 
 
     public void refreshForAct(){
         usedUp = false;
-        beginPulse();
-        pulse = true;
         grayscale = false;
-        this.description = DESCRIPTIONS[0];
-        this.description += "Current Hive Presence: "+(counter+1)+"/3";
-        initializeTips();
+        beginLongPulse();
+        pulse = true;
+        updateDescription(AbstractDungeon.player.chosenClass);
     }
 
     // Description
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0];
-    }
-
-    @Override
-    public void onEnterRoom(AbstractRoom room){
-        super.onEnterRoom(room);
-        if (room instanceof HiveRoom){
-            this.description = DESCRIPTIONS[0];
-            this.description += "Current Hive Presence: "+(counter+1)+"/3";
-            initializeTips();
-        }
+        return AbstractDungeon.player != null ? this.setDescription(AbstractDungeon.player.chosenClass) : this.setDescription((AbstractPlayer.PlayerClass)null);
     }
 
     @Override
@@ -73,15 +66,39 @@ public class QueensBanner extends CustomRelic implements CustomSavable<Boolean> 
         return usedUp;
     }
 
+    private String setDescription(AbstractPlayer.PlayerClass c) {
+        String s = "";
+        if (usedUp){
+            s = DESCRIPTIONS[1] + DESCRIPTIONS[2] + counter +" / 3"+ DESCRIPTIONS[3];
+            s += DESCRIPTIONS[counter + 4];
+            return s;
+        }
+        s = DESCRIPTIONS[0] + DESCRIPTIONS[2] + counter +" / 3"+ DESCRIPTIONS[3];
+        s += DESCRIPTIONS[counter + 4];
+        return s;
+    }
+
+    public void updateDescription(AbstractPlayer.PlayerClass c) {
+        this.description = this.setDescription(c);
+        this.tips.clear();
+        this.tips.add(new PowerTip(this.name, this.description));
+        this.initializeTips();
+    }
+
     @Override
     public void onLoad(Boolean aBoolean) {
         usedUp = aBoolean;
         if (usedUp){
             this.grayscale = true;
-            this.description = DESCRIPTIONS[1];
+            this.stopPulse();
+            this.pulse = false;
+            updateDescription(AbstractDungeon.player.chosenClass);
         }
-        this.description = DESCRIPTIONS[0];
-        this.description += "Current Hive Presence: "+(counter+1)+"/3";
-        initializeTips();
+        else {
+            this.grayscale = false;
+            this.beginLongPulse();
+            this.pulse = true;
+            updateDescription(AbstractDungeon.player.chosenClass);
+        }
     }
 }

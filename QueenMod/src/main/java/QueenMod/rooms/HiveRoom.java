@@ -6,6 +6,7 @@ import QueenMod.events.HiveEventColony;
 import QueenMod.events.HiveEventScouting;
 import QueenMod.relics.QueensBanner;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -49,6 +50,7 @@ public class HiveRoom extends EventRoom {
                 }
                 AbstractDungeon.player.getRelic(QueensBanner.ID).usedUp();
                 AbstractDungeon.player.getRelic(QueensBanner.ID).stopPulse();
+                AbstractDungeon.player.getRelic(QueensBanner.ID).updateDescription(AbstractDungeon.player.chosenClass);
             }
         }
     }
