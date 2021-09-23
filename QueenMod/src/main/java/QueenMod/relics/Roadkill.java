@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import static QueenMod.QueenMod.makeRelicOutlinePath;
 import static QueenMod.QueenMod.makeRelicPath;
 
-public class SmellyMushroom extends CustomRelic {
+public class Roadkill extends CustomRelic {
 
     // ID, images, text.
     public static final String ID = QueenMod.makeID("SmellyMushroom");
@@ -24,7 +24,7 @@ public class SmellyMushroom extends CustomRelic {
     private static final int AMOUNT = 4;
     public int amount;
 
-    public SmellyMushroom() {
+    public Roadkill() {
         super(ID, IMG, OUTLINE, RelicTier.UNCOMMON, LandingSound.FLAT);
         amount = AMOUNT;
     }

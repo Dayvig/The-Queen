@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import static QueenMod.QueenMod.makeCardPath;
@@ -55,6 +56,8 @@ public class HoneyShield extends AbstractDynamicCard {
             boost = (int)Math.floor(AbstractDungeon.player.getPower(Nectar.POWER_ID).amount / 10);
         }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber+(magicNumber*boost)), magicNumber+(magicNumber*boost)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LoseStrengthPower(p, magicNumber+(magicNumber*boost)), magicNumber+(magicNumber*boost)));
+
     }
 
     public void triggerOnGlowCheck() {

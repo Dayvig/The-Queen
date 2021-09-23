@@ -78,5 +78,12 @@
     "DESCRIPTIONS": [
       "The first time you would add a card to your draw pile each turn, add it to your hand instead."
     ]
+  },
+  "QueenMod:Roadkill": {
+    "NAME": "Roadkill",
+    "FLAVOR": "For some reason, is an insect magnet.",
+    "DESCRIPTIONS": [
+      "At the start of combat, gain 4 Swarm."
+    ]
   }
 }
