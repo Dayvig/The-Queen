@@ -33,7 +33,7 @@ public class Riposte extends AbstractDynamicCard {
 
     private static final int COST = 1;  // COST = ${COST}
 
-    private static final int DAMAGE = 9;    // DAMAGE = ${DAMAGE}
+    private static final int DAMAGE = 7;    // DAMAGE = ${DAMAGE}
     private static final int UPGRADE_PLUS_DMG = 3;  // UPGRADE_PLUS_DMG = ${UPGRADED_DAMAGE_INCREASE}
     public boolean playedBySwarm;
     // /STAT DECLARATION/

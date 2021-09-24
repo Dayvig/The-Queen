@@ -344,7 +344,7 @@
     "NAME": "Synthesize",
     "DESCRIPTION": "Gain !M! queenmod:Nectar. NL queenmod:Honey-boost: Gain !QueenMod:second! queenmod:Swarm instead."
   },
-  "QueenMod:HoneyShield":{
+  "QueenMod:Catering":{
     "NAME": "Catering Service",
     "DESCRIPTION": "Gain !M! Strength this turn only. NL queenmod:Honey-boost: Gain !M! Strength this turn only."
   },

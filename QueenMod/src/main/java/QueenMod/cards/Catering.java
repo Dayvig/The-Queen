@@ -17,8 +17,8 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import static QueenMod.QueenMod.makeCardPath;
 
 // public class ${NAME} extends AbstractDynamicCard
-public class HoneyShield extends AbstractDynamicCard {
-    public static final String ID = QueenMod.makeID(HoneyShield.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
+public class Catering extends AbstractDynamicCard {
+    public static final String ID = QueenMod.makeID(Catering.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
     public static final String IMG = makeCardPath("catering.png");// "public static final String IMG = makeCardPath("${NAME}.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -42,7 +42,7 @@ public class HoneyShield extends AbstractDynamicCard {
     // /STAT DECLARATION/
 
 
-    public HoneyShield() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
+    public Catering() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
     }
