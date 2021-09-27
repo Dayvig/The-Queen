@@ -1,6 +1,7 @@
 package QueenMod.cards;
 
 import QueenMod.QueenMod;
+import QueenMod.actions.ApplyPowerActionFast;
 import QueenMod.actions.FeastAction;
 import QueenMod.characters.TheQueen;
 import QueenMod.powers.*;
@@ -43,30 +44,29 @@ public class Feast extends AbstractDynamicCard {
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 1;  // COST = ${COST}
-    private static final int MAGIC = 6;
+    private static final int DAMAGE = 10;
     // /STAT DECLARATION/
 
 
     public Feast() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = MAGIC;
-        baseDamage= damage = 0;
-        this.tags.add(CardTags.HEALING);
+        baseDamage = damage = DAMAGE;
         this.isEthereal = true;
     }
 
     @Override
     public void applyPowers(){
         calcSwarm();
+        super.applyPowers();
     }
 
     @Override
     public void triggerOnOtherCardPlayed(AbstractCard c){
-        calcSwarm();
+        applyPowers();
     }
 
     public void atTurnStart(){
-        calcSwarm();
+        applyPowers();
     }
 
     void calcSwarm(){
@@ -85,7 +85,7 @@ public class Feast extends AbstractDynamicCard {
         if (AbstractDungeon.player.hasPower(FocusedSwarm.POWER_ID)) {
             totalSwarm += AbstractDungeon.player.getPower(FocusedSwarm.POWER_ID).amount;
         }
-        baseDamage = totalSwarm;
+        baseDamage = damage = totalSwarm + DAMAGE;
         initializeDescription();
     }
 
@@ -93,8 +93,9 @@ public class Feast extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new VFXAction(new BiteEffect(m.hb.cX, m.hb.cY - 40.0F * Settings.scale, Color.SCARLET.cpy()), 0.2F));
-        AbstractDungeon.actionManager.addToBottom(new FeastAction(m, new DamageInfo(p, damage, damageTypeForTurn), magicNumber));
+        CardCrawlGame.sound.playA("BEE_SLOW", -0.2F);
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new BiteEffect((m.hb.cX + (float)Math.random()*40f - 20f) * Settings.scale, (m.hb.cY + (float)Math.random()*40.0F - 20f - 40.0F) * Settings.scale, Color.SCARLET.cpy()), 0.5F));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
     }
 
     // Upgraded stats.

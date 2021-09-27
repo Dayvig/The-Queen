@@ -44,11 +44,26 @@ public class HiveEventVisualPatch {
                 if (!AbstractDungeon.player.getRelic(QueensBanner.ID).usedUp && __instance.room instanceof EventRoom) {
 
                     sb.draw(beemap,
-                                __instance.x * spacingX + offsetX - 64.0f + __instance.offsetX,
-                                __instance.y * Settings.MAP_DST_Y + offsetY + DungeonMapScreen.offsetY - 56.0f + __instance.offsetY,
-                                64.0F, 64.0F, beemap.getWidth()*Settings.scale, beemap.getHeight()*Settings.scale, (scale * 0.65f + 0.2f) * Settings.scale,
-                                (scale * 0.65f + 0.2f) * Settings.scale, 0, 0, 0, (int)(beemap.getWidth()*Settings.scale), (int)(beemap.getHeight()*Settings.scale),
+                            __instance.x * spacingX + offsetX - 64.0f + __instance.offsetX,
+                            __instance.y * Settings.MAP_DST_Y + offsetY + DungeonMapScreen.offsetY - 50.0f + __instance.offsetY,
+                            64.0f,
+                            50.0f,
+                            128.0f,
+                            100.0f,
+                            (scale * 0.65f + 0.2f) * Settings.scale,
+                            (scale * 0.65f + 0.2f) * Settings.scale,
+                            0,
+                            0,
+                            0,
+                            128, 100,
                                 false, false);
+                    /*
+                    sb.draw(beemap,
+                            (__instance.x * spacingX + offsetX - 64.0f + __instance.offsetX),
+                            (__instance.y * Settings.MAP_DST_Y + offsetY + DungeonMapScreen.offsetY - 56.0f + __instance.offsetY),
+                            64.0F, 64.0F, beemap.getWidth()*Settings.scale, beemap.getHeight()*Settings.scale, (scale * 0.65f + 0.2f) * Settings.scale,
+                            (scale * 0.65f + 0.2f) * Settings.scale, 0, 0, 0, (int)(beemap.getWidth()*Settings.scale), (int)(beemap.getHeight()*Settings.scale),
+                            false, false);*/
                 }
             }
         }

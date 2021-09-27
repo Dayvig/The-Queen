@@ -51,8 +51,7 @@ public class MilitaryHandbook extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new ArtOfWarAction());
+        AbstractDungeon.actionManager.addToBottom(new ArtOfWarAction(p, magicNumber));
     }
 
 

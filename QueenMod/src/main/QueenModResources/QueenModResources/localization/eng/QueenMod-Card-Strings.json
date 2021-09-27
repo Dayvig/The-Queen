@@ -67,10 +67,11 @@
   },
   "QueenMod:KillerQueen": {
     "NAME": "Killer Queen",
-    "DESCRIPTION": "Deal !D! damage. NL Gain 1 Strength for every !M! Attacks in your draw pile.",
+    "DESCRIPTION": "Can only be played if your Draw Pile is mostly Attacks. NL Deal !D! damage. NL Gain !M! Strength.",
     "EXTENDED_DESCRIPTION": [
-      " NL (",
-      " Attacks.)"
+      " NL (Add ",
+      " more Attacks.)",
+      " more Attack.)"
     ]
   },
   "QueenMod:HiveNetwork": {
@@ -138,7 +139,7 @@
   "DESCRIPTION": "When you draw a card this turn, gain 1 Strength this turn only."
 },
   "QueenMod:OverwhelmingForce": {
-  "NAME": "Overwhelming Force",
+  "NAME": "Royal Army",
   "DESCRIPTION": "Deal damage to an enemy equal to the number of cards in your draw pile.",
     "UPGRADE_DESCRIPTION": "Deal damage to all enemies equal to the number of cards in your draw pile.",
     "EXTENDED_DESCRIPTION": [
@@ -160,9 +161,9 @@
   "DESCRIPTION": "Deal !D! Damage. NL queenmod:Lock half your queenmod:Swarm on yourself and half on the enemy this turn."
 },
   "QueenMod:Feast": {
-  "NAME": "Feast",
-  "DESCRIPTION": "Ethereal. NL Deal damage equal to your total queenmod:Swarm. If Fatal, Heal 6. NL ( !D! Damage.)",
-    "UPGRADE_DESCRIPTION": "Deal damage equal to your total queenmod:Swarm. If Fatal, Heal 6. NL ( !D! Damage.)"
+  "NAME": "Consume",
+  "DESCRIPTION": "Ethereal. NL Deal !D! damage and queenmod:Lock your queenmod:Swarm on the target. Deals additional damage equal to your total queenmod:Swarm.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage and queenmod:Lock your queenmod:Swarm on the target. Deals additional damage equal to your total queenmod:Swarm."
 },
   "QueenMod:BirthingCells": {
     "NAME": "Birthing Cells",
@@ -193,7 +194,7 @@
   },
   "QueenMod:MilitaryHandbook": {
     "NAME": "Art of War",
-    "DESCRIPTION": "Draw !M! cards. NL Reduce the cost of all attacks in your hand by 1 this turn. NL Exhaust."
+    "DESCRIPTION": "Draw !M! cards. NL Reduce the cost of attacks drawn by 1 this turn. NL Exhaust."
   },
   "QueenMod:PollenBlast": {
     "NAME": "Pollen Shot",
@@ -251,8 +252,8 @@
   },
   "QueenMod:Parry":{
     "NAME": "Parry",
-    "DESCRIPTION": "Gain !B! block. NL Apply 1 Vulnerable. NL Add a queenmod:Riposte to your hand.",
-    "UPGRADE_DESCRIPTION": "Gain !B! block. NL Apply 1 Vulnerable. NL Add a queenmod:Riposte+ to your hand."
+    "DESCRIPTION": "Gain !B! Block. NL Apply 1 Vulnerable. NL Add a Riposte to your hand.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Apply 1 Vulnerable. NL Add a Riposte+ to your hand."
   },
   "QueenMod:Riposte":{
     "NAME": "Riposte",
@@ -516,30 +517,29 @@
   "DESCRIPTION": "Gain !B! Block. NL Add this card into your draw pile instead of your discard pile."
 },
   "QueenMod:HiveDefenses": {
-    "NAME": "Hive Autodefenses",
+    "NAME": "Guard Patrols",
     "DESCRIPTION": "Deal !D! damage. NL At the start of your turn if this is in your draw pile, deal !D! damage to a random enemy."
   },
   "QueenMod:Strategize": {
     "NAME": "Battle Plans",
-    "DESCRIPTION": "Gain !B! Block. NL queenmod:Strategize 2."
+    "DESCRIPTION": "Gain !B! Block. NL queenmod:Strategize."
   },
   "QueenMod:Scramble": {
     "NAME": "Scramble!",
-    "DESCRIPTION": "Gain !M! queenmod:Swarm. NL Discard every card except one, then queenmod:Strategize !QueenMod:second!."
+    "DESCRIPTION": "Gain !M! queenmod:Swarm. NL Discard your hand, then draw !QueenMod:second! cards."
   },
   "QueenMod:Pheremones": {
     "NAME": "Pheremone Trail",
-    "DESCRIPTION": "queenmod:Strategize 1.",
-    "UPGRADE_DESCRIPTION": "Retain. NL queenmod:Strategize 1."
+    "DESCRIPTION": "queenmod:Strategize.",
+    "UPGRADE_DESCRIPTION": "Retain. NL queenmod:Strategize."
   },
   "QueenMod:WaxCrafters": {
     "NAME": "Wax Crafters",
     "DESCRIPTION": "Add 2 Honeybees to your draw pile. NL Gain !M! Block when you play a Honeybee."
   },
   "QueenMod:Coronation": {
-    "NAME": "Coronation",
-    "DESCRIPTION": "Exhaust a queenmod:Hive card in your hand, then add a Princess Bee to your hand.",
-    "UPGRADE_DESCRIPTION": "Exhaust a queenmod:Hive card in your hand, then add a Princess Bee+ to your hand."
+    "NAME": "Successor",
+    "DESCRIPTION": "If you would die, instead reduce your max HP by half, heal to full HP and replace all non-hive cards in your deck with 10 random cards."
   },
   "QueenMod:Princess": {
     "NAME": "Princess Bee",

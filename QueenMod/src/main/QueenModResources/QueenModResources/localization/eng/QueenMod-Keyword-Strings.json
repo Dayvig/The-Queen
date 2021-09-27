@@ -136,6 +136,6 @@
     "NAMES": [
       "strategize"
     ],
-    "DESCRIPTION": "If you have more attacks in hand than skills, draw x skills. If you have more skills, draw x attacks, otherwise draw x powers. If cards of that type don't exist in your draw pile, draw normally."
+    "DESCRIPTION": "Discard a card. If it was a Skill, draw 2 Attacks. If it was an Attack, draw 2 Skills, otherwise draw 2 cards."
   }
 ]

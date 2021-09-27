@@ -310,5 +310,21 @@
                         " Block every time you play a Workerbee.",
                         " Block every time you play a Workerbee."
                 ]
+        },
+        "QueenMod:RavenousPower": {
+                "NAME": "Ravenous",
+                "DESCRIPTIONS": [
+                        "Swarm deals double damage.",
+                        "",
+                        ""
+                ]
+        },
+        "QueenMod:CoronationPower": {
+                "NAME": "SuccessorPower",
+                "DESCRIPTIONS": [
+                        "If you would die, instead lose half your Max Hp, Heal to full HP, and replace non-hive cards in your deck with 10 random cards.",
+                        "",
+                        ""
+                ]
         }
 }

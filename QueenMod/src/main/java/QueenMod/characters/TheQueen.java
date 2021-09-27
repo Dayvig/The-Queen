@@ -8,6 +8,7 @@ import QueenMod.interfaces.CardAddedToDeck;
 import QueenMod.powers.HeartOfTheSwarm;
 import QueenMod.relics.*;
 import basemod.abstracts.CustomPlayer;
+import basemod.abstracts.CustomSavable;
 import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -24,6 +25,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
@@ -40,8 +42,19 @@ import static QueenMod.characters.TheQueen.Enums.COLOR_YELLOW;
 //and https://github.com/daviscook477/BaseMod/wiki/Migrating-to-5.0
 //All text (starting description and loadout, anything labeled TEXT[]) can be found in QueenMod-character-Strings.json in the resources
 
-public class TheQueen extends CustomPlayer {
+public class TheQueen extends CustomPlayer implements CustomSavable<Boolean> {
     public static final Logger logger = LogManager.getLogger(QueenMod.class.getName());
+
+    @Override
+    public Boolean onSave() {
+        return isSuccessor;
+    }
+
+    @Override
+    public void onLoad(Boolean aBoolean) {
+        isSuccessor = aBoolean;
+        AbstractDungeon.player.img = ImageMaster.loadImage(QueenMod.QUEEN_SUCCESSOR);
+    }
 
     // =============== CHARACTER ENUMERATORS =================
     // These are enums for your Characters color (both general color and for the card library) as well as
@@ -70,6 +83,7 @@ public class TheQueen extends CustomPlayer {
     public static final int STARTING_GOLD = 99;
     public static final int CARD_DRAW = 5;
     public static final int ORB_SLOTS = 0;
+    public static boolean isSuccessor = false;
 
     // =============== /BASE STATS/ =================
 
@@ -280,6 +294,8 @@ public class TheQueen extends CustomPlayer {
     @Override
     public void applyPreCombatLogic() {
         super.applyPreCombatLogic();
+        System.out.println("Is Successor:"+TheQueen.isSuccessor);
+        if (TheQueen.isSuccessor){ AbstractDungeon.player.img = ImageMaster.loadImage(QueenMod.QUEEN_SUCCESSOR); }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player,AbstractDungeon.player,new HeartOfTheSwarm(AbstractDungeon.player,AbstractDungeon.player,1),1));
         for (AbstractCard c : AbstractDungeon.player.drawPile.group){
             if (c.cardID.equals(KillerBee.ID)){
@@ -295,5 +311,9 @@ public class TheQueen extends CustomPlayer {
             }
         }
         //add action here
+    }
+
+    public void setSuccessorStatus(boolean s){
+        isSuccessor = s;
     }
 }

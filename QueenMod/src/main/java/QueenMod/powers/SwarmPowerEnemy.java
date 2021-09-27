@@ -72,7 +72,12 @@ public class SwarmPowerEnemy extends AbstractPower implements HealthBarRenderPow
     }
 
     public void atStartOfTurn() {
-        AbstractDungeon.actionManager.addToBottom(new LoseHPAction(this.owner, this.owner, this.amount));
+        if (this.owner.hasPower(RavenousPower.POWER_ID)) {
+            AbstractDungeon.actionManager.addToBottom(new LoseHPAction(this.owner, this.owner, this.amount*2));
+        }
+        else {
+            AbstractDungeon.actionManager.addToBottom(new LoseHPAction(this.owner, this.owner, this.amount));
+        }
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new SwarmPowerEnemy(this.owner, this.owner, this.amount-1), -1));
     }
 
@@ -86,6 +91,7 @@ public class SwarmPowerEnemy extends AbstractPower implements HealthBarRenderPow
 
     @Override
     public int getHealthBarAmount() {
+        if (this.owner.hasPower(RavenousPower.POWER_ID)) { return this.amount * 2; }
         return this.amount;
     }
 

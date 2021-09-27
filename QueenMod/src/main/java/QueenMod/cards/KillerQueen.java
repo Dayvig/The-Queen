@@ -1,6 +1,7 @@
 package QueenMod.cards;
 
 import QueenMod.QueenMod;
+import QueenMod.actions.ApplyPowerActionFast;
 import QueenMod.characters.TheQueen;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -16,6 +17,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.vfx.combat.ClashEffect;
 import com.megacrit.cardcrawl.vfx.stance.WrathParticleEffect;
+import jdk.tools.jlink.internal.plugins.StripNativeCommandsPlugin;
 
 import static QueenMod.QueenMod.makeCardPath;
 
@@ -34,15 +36,15 @@ public class KillerQueen extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.RARE; //  Up to you, I like auto-complete on these
+    private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 2;  // COST = ${COST}
-    private static final int DAMAGE = 18;    // DAMAGE = ${DAMAGE}
-    private static final int MAGIC = 5;    // DAMAGE = ${DAMAGE}
-    private static final int UPGRADE_MINUS_MAGIC = -1;
+    private static final int DAMAGE = 30;    // DAMAGE = ${DAMAGE}
+    private static final int UPGRADE_PLUS_DAMAGE = 10;
+    private static final int MAGIC = 3;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     // /STAT DECLARATION/
@@ -60,30 +62,45 @@ public class KillerQueen extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new ClashEffect(m.hb.cX, m.hb.cY), 0.1F));
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn)));
-        int ctr = 0;
-        for (AbstractCard c : p.drawPile.group){
-            if (c.type.equals(CardType.ATTACK)){
-                ctr++;
-            }
-        }
-        if (ctr >= magicNumber) {
-            ctr /= magicNumber;
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, ctr), ctr));
-        }
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber)));
     }
 
     @Override
-    public void triggerOnGlowCheck() {
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        super.canUse(p, m);
+        return checkAttacks() > 0;
+    }
+
+    private int checkAttacks(){
         int numAttacks = 0;
+        int numOther = 0;
         AbstractPlayer p = AbstractDungeon.player;
         for (AbstractCard c : p.drawPile.group) {
             if (c.type.equals(CardType.ATTACK)) {
                 numAttacks++;
             }
+            else {
+                numOther++;
+            }
         }
-        this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0]+numAttacks+cardStrings.EXTENDED_DESCRIPTION[1];
+        return numAttacks - numOther;
+    }
+
+    @Override
+    public void applyPowers() {
+        int atks = checkAttacks();
+        if (atks <= 0) {
+            if (atks == -1) {
+                this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0] + ((checkAttacks() * -1) + 1) + cardStrings.EXTENDED_DESCRIPTION[2];
+            }
+            else {
+                this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0] + ((checkAttacks() * -1) + 1) + cardStrings.EXTENDED_DESCRIPTION[1];
+            }
+        }
+        else {
+            this.rawDescription = cardStrings.DESCRIPTION;
+        }
         initializeDescription();
-        super.triggerOnGlowCheck();
     }
 
     // Upgraded stats.
@@ -91,7 +108,7 @@ public class KillerQueen extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_MINUS_MAGIC);
+            upgradeDamage(UPGRADE_PLUS_DAMAGE);
             initializeDescription();
         }
     }

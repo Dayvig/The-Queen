@@ -26,7 +26,9 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -105,6 +107,8 @@ public class QueenMod implements
     private static final String POWER_QUEEN_PORTRAIT = "QueenModResources/images/1024/beepowerPortrait.png";
     private static final String ENERGY_ORB_QUEEN_PORTRAIT = "QueenModResources/images/1024/card_queen_orb.png";
     public static final String QUEEN_CHARACTER = "QueenModResources/images/char/queen/char.png";
+    public static final String QUEEN_SUCCESSOR = "QueenModResources/images/char/queen/successor.png";
+    public static final String QUEEN_SUCCESSOR_WITH_CORPSE = "QueenModResources/images/char/queen/successor_with_corpse.png";
 
     // Character assets
     private static final String QUEEN_BUTTON = "QueenModResources/images/charSelect/DefaultCharacterButton.png";
@@ -338,12 +342,11 @@ public class QueenMod implements
     // ================ /ADD RELICS/ ===================
 
 
-
     // ================ ADD AUDIO ====================
 
 
     @Override
-    public void receiveAddAudio(){
+    public void receiveAddAudio() {
         BaseMod.addAudio("BEE_SLOW", "QueenModResources/sound/bee_slow.ogg");
         BaseMod.addAudio("BEE_ATTACK1", "QueenModResources/sound/bee_attack1.ogg");
         BaseMod.addAudio("BEE_ATTACK2", "QueenModResources/sound/bee_attack2.ogg");
@@ -462,7 +465,7 @@ public class QueenMod implements
         BaseMod.addCard(new Pheremones());
         BaseMod.addCard(new WaxCrafters());
         //BaseMod.addCard(new PlanAhead());
-        //BaseMod.addCard(new Coronation());
+        BaseMod.addCard(new Coronation());
         //BaseMod.addCard(new Princess());
         BaseMod.addCard(new Wasps());
         BaseMod.addCard(new Volunteers());
@@ -510,7 +513,7 @@ public class QueenMod implements
         UnlockTracker.unlockCard(HonorGuard.ID);
         UnlockTracker.unlockCard(WarBuzz.ID);
         UnlockTracker.unlockCard(HoneycombSmash.ID);
-         UnlockTracker.unlockCard(PollenBlast.ID);
+        UnlockTracker.unlockCard(PollenBlast.ID);
         UnlockTracker.unlockCard(SecretWeapon.ID);
         //UnlockTracker.unlockCard(GatheringSwarm.ID);
         UnlockTracker.unlockCard(Mark.ID);
@@ -568,7 +571,7 @@ public class QueenMod implements
         UnlockTracker.unlockCard(Scramble.ID);
         UnlockTracker.unlockCard(Pheremones.ID);
         UnlockTracker.unlockCard(WaxCrafters.ID);
-        //UnlockTracker.unlockCard(Coronation.ID);
+        UnlockTracker.unlockCard(Coronation.ID);
         //UnlockTracker.unlockCard(Princess.ID);
 
         logger.info("Done adding cards!");
@@ -654,9 +657,10 @@ public class QueenMod implements
     @Override
     public void receiveStartAct() {
         System.out.println("Banner Refreshed");
-        if (AbstractDungeon.player.hasRelic(QueensBanner.ID)){
-            QueensBanner banner = (QueensBanner)AbstractDungeon.player.getRelic(QueensBanner.ID);
+        if (AbstractDungeon.player.hasRelic(QueensBanner.ID)) {
+            QueensBanner banner = (QueensBanner) AbstractDungeon.player.getRelic(QueensBanner.ID);
             banner.refreshForAct();
-            }
         }
     }
+
+}

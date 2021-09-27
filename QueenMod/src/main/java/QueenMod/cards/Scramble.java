@@ -44,7 +44,7 @@ public class Scramble extends AbstractDynamicCard {
     private static final int COST = 2;  // COST = ${COST}
     private static final int MAGIC = 6;
     private static final int UPGRADE_MAGIC = 2;
-    private static final int SECOND_MAGIC = 3;
+    private static final int SECOND_MAGIC = 4;
     private static final int UPGRADE_SECOND_MAGIC = 1;
     // /STAT DECLARATION/
     private CardType typeToDraw;
@@ -59,12 +59,12 @@ public class Scramble extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        typeToDraw = StrategicDraw(p);
-        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(p, p, new SwarmPower(p, p, magicNumber), magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new DiscardAction(p, p, p.hand.size()-2, false));
-        AbstractDungeon.actionManager.addToBottom(new DrawSpecificCardTypeAction(p.hand, defaultSecondMagicNumber, typeToDraw));
+        AbstractDungeon.actionManager.addToBottom(new DiscardAction(p, p, p.hand.size(), true));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SwarmPower(p, p, magicNumber), magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(defaultSecondMagicNumber));
     }
 
+    /*
     public CardType StrategicDraw(AbstractPlayer p){
         int numAttacks = 0;
         int numSkills = 0;
@@ -93,7 +93,7 @@ public class Scramble extends AbstractDynamicCard {
             System.out.println("Powers");
             return CardType.POWER;
         }
-    }
+    }*/
 
     // Upgraded stats.
     @Override
