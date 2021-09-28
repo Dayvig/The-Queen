@@ -67,7 +67,7 @@
   },
   "QueenMod:KillerQueen": {
     "NAME": "Killer Queen",
-    "DESCRIPTION": "Can only be played if your Draw Pile is mostly Attacks. NL Deal !D! damage. NL Gain !M! Strength.",
+    "DESCRIPTION": "Can only be played if there are more Attacks than Skills in your Draw Pile. NL Deal !D! damage. NL Gain !M! Strength.",
     "EXTENDED_DESCRIPTION": [
       " NL (Add ",
       " more Attacks.)",
@@ -367,7 +367,7 @@
   },
   "QueenMod:Multiply":{
     "NAME": "Multiply",
-    "DESCRIPTION": "Add a copy of each queenmod:Hive card in your draw pile to your draw pile."
+    "DESCRIPTION": "Add a copy of your Draw Pile to your Draw Pile. NL Exhaust."
   },
   "QueenMod:Fleche":{
     "NAME": "Fleche",

@@ -14,18 +14,18 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import static QueenMod.QueenMod.makeRelicOutlinePath;
 import static QueenMod.QueenMod.makeRelicPath;
 
-public class Roadkill extends CustomRelic {
+public class BugLantern extends CustomRelic {
 
     // ID, images, text.
-    public static final String ID = QueenMod.makeID("SmellyMushroom");
+    public static final String ID = QueenMod.makeID("BugLantern");
 
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("honeyjar.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("honeyjar.png"));
-    private static final int AMOUNT = 4;
+    private static final int AMOUNT = 3;
     public int amount;
 
-    public Roadkill() {
-        super(ID, IMG, OUTLINE, RelicTier.UNCOMMON, LandingSound.FLAT);
+    public BugLantern() {
+        super(ID, IMG, OUTLINE, RelicTier.COMMON, LandingSound.CLINK);
         amount = AMOUNT;
     }
 

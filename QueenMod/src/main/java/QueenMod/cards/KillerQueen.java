@@ -73,17 +73,17 @@ public class KillerQueen extends AbstractDynamicCard {
 
     private int checkAttacks(){
         int numAttacks = 0;
-        int numOther = 0;
+        int numSkills = 0;
         AbstractPlayer p = AbstractDungeon.player;
         for (AbstractCard c : p.drawPile.group) {
             if (c.type.equals(CardType.ATTACK)) {
                 numAttacks++;
             }
-            else {
-                numOther++;
+            else if (c.type.equals(CardType.SKILL)) {
+                numSkills++;
             }
         }
-        return numAttacks - numOther;
+        return numAttacks - numSkills;
     }
 
     @Override

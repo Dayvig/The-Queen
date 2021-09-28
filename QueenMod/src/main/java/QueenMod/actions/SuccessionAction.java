@@ -3,6 +3,7 @@ package QueenMod.actions;
 import QueenMod.QueenMod;
 import QueenMod.characters.TheQueen;
 import QueenMod.interfaces.IsHive;
+import QueenMod.relics.Tiara;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;

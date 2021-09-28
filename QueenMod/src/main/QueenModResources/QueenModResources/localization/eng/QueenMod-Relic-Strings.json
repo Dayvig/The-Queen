@@ -52,10 +52,10 @@
     ]
   },
   "QueenMod:DraftNotice": {
-    "NAME": "Draft Notice",
-    "FLAVOR": "One of the perks of eusocial societies: no draft dodgers.",
+    "NAME": "Love Letters",
+    "FLAVOR": "The Queen has no shortage of suitors.",
     "DESCRIPTIONS": [
-      "At the start of combat, add 1 of each Hive card to your draw pile. (Hive cards are powerful attack, defend, draw and buff cards.)"
+      "At the start of combat, add 3 Drones to your draw pile. (0-cost skills which draw 2 cards and Exhaust.)"
     ]
   },
   "QueenMod:BloatedManual": {
@@ -79,11 +79,18 @@
       "The first time you would add a card to your draw pile each turn, add it to your hand instead."
     ]
   },
-  "QueenMod:Roadkill": {
-    "NAME": "Roadkill",
+  "QueenMod:BugLantern": {
+    "NAME": "Lamp",
     "FLAVOR": "For some reason, is an insect magnet.",
     "DESCRIPTIONS": [
       "At the start of combat, gain 4 Swarm."
+    ]
+  },
+  "QueenMod:Tiara": {
+    "NAME": "Princess Tiara",
+    "FLAVOR": "When there is someone new to take up the mantle, the hive will live on.",
+    "DESCRIPTIONS": [
+      "When you would die, instead reduce your Max HP by half, and fully heal, then replace your Deck with 10 random cards, keeping all Hive cards you currently have. (Works once.)"
     ]
   }
 }

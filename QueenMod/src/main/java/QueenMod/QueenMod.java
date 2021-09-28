@@ -21,6 +21,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
@@ -325,6 +326,8 @@ public class QueenMod implements
         BaseMod.addRelicToCustomPool(new BloatedManual(), TheQueen.Enums.COLOR_YELLOW);
         BaseMod.addRelicToCustomPool(new WhiteHibiscus(), TheQueen.Enums.COLOR_YELLOW);
         BaseMod.addRelicToCustomPool(new QueenSceptre(), TheQueen.Enums.COLOR_YELLOW);
+        BaseMod.addRelicToCustomPool(new Tiara(), TheQueen.Enums.COLOR_YELLOW);
+        BaseMod.addRelicToCustomPool(new BugLantern(), TheQueen.Enums.COLOR_YELLOW);
 
         // This adds a relic to the Shared pool. Every character can find this relic.
 
@@ -472,12 +475,14 @@ public class QueenMod implements
         BaseMod.addCard(new SwarmDance());
         BaseMod.addCard(new Assault());
         BaseMod.addCard(new MatingDance());
+        BaseMod.addCard(new Multiply());
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
         // This is so that they are all "seen" in the library, for people who like to look at the card list
         // before playing your mod.
 
+        UnlockTracker.unlockCard(Multiply.ID);
         UnlockTracker.unlockCard(Assault.ID);
         UnlockTracker.unlockCard(MatingDance.ID);
         UnlockTracker.unlockCard(SwarmDance.ID);

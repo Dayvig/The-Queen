@@ -28,14 +28,15 @@ public class Multiply extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
-    private static final int COST = 2;  // COST = ${COST}
-    private static final int UPGRADED_COST = 1; // UPGRADED_COST = ${UPGRADED_COST}
+    private static final int COST = 1;  // COST = ${COST}
+    private static final int UPGRADED_COST = 0; // UPGRADED_COST = ${UPGRADED_COST}
 
     // /STAT DECLARATION/
 
 
     public Multiply() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        this.exhaust = true;
     }
 
 
@@ -43,13 +44,8 @@ public class Multiply extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (AbstractCard c : p.drawPile.group){
-            if (c.cardID.equals(Hornet.ID) ||
-                    c.cardID.equals(BumbleBee.ID) ||
-                    c.cardID.equals(Drone.ID) ||
-                    c.cardID.equals(HoneyBee.ID)){
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(c, 1, true, false));
             }
-        }
     }
 
 

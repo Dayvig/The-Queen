@@ -7,6 +7,7 @@ import QueenMod.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.InvisiblePower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -23,7 +24,7 @@ import static QueenMod.QueenMod.makePowerPath;
 
 //Gain 1 dex for the turn for each card played.
 
-public class CoronationPower extends AbstractPower implements CloneablePowerInterface {
+public class CoronationPower extends AbstractPower implements CloneablePowerInterface, InvisiblePower {
     public AbstractCreature source;
 
     public static final String POWER_ID = QueenMod.makeID("CoronationPower");
