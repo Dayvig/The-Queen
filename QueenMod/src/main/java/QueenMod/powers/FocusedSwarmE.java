@@ -74,21 +74,20 @@ public class FocusedSwarmE extends AbstractPower implements HealthBarRenderPower
     }
 
     public void atStartOfTurn() {
-        if (this.owner.hasPower(RavenousPower.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(new LoseHPAction(this.owner, this.owner, this.amount*2));
+        AbstractDungeon.actionManager.addToBottom(new LoseHPAction(this.owner, this.owner, this.amount));
+        if (this.amount > 1 && !AbstractDungeon.player.hasPower(SwarmStayPower.POWER_ID)) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new SwarmPowerEnemy(this.owner, this.owner, this.amount - 1), this.amount - 1));
         }
         else {
-            AbstractDungeon.actionManager.addToBottom(new LoseHPAction(this.owner, this.owner, this.amount));
-        }
-        if (this.amount > 1) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new SwarmPowerEnemy(this.owner, this.owner, this.amount - 1), this.amount - 1));
+            if (AbstractDungeon.player.hasPower(SwarmStayPower.POWER_ID)) {
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new SwarmPowerEnemy(this.owner, this.owner, this.amount), this.amount));
+            }
         }
         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this.POWER_ID));
     }
 
     @Override
     public int getHealthBarAmount() {
-        if (this.owner.hasPower(RavenousPower.POWER_ID)) { return this.amount * 2; }
         return this.amount;
     }
 

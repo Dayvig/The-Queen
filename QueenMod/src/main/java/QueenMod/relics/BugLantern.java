@@ -19,13 +19,13 @@ public class BugLantern extends CustomRelic {
     // ID, images, text.
     public static final String ID = QueenMod.makeID("BugLantern");
 
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("honeyjar.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("honeyjar.png"));
-    private static final int AMOUNT = 3;
+    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("lamp.png"));
+    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("lamp.png"));
+    private static final int AMOUNT = 4;
     public int amount;
 
     public BugLantern() {
-        super(ID, IMG, OUTLINE, RelicTier.COMMON, LandingSound.CLINK);
+        super(ID, IMG, OUTLINE, RelicTier.UNCOMMON, LandingSound.CLINK);
         amount = AMOUNT;
     }
 

@@ -22,11 +22,11 @@ public class WhiteHibiscus extends CustomRelic {
     // ID, images, text.
     public static final String ID = QueenMod.makeID("WhiteHibiscus");
 
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("honeyjar.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("honeyjar.png"));
+    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("flower.png"));
+    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("flower.png"));
 
     public WhiteHibiscus() {
-        super(ID, IMG, OUTLINE, RelicTier.COMMON, LandingSound.SOLID);
+        super(ID, IMG, OUTLINE, RelicTier.COMMON, LandingSound.FLAT);
     }
 
     // Description

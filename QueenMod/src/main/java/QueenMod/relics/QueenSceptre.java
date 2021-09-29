@@ -22,8 +22,8 @@ public class QueenSceptre extends CustomRelic {
     // ID, images, text.
     public static final String ID = QueenMod.makeID("QueenSceptre");
 
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("QueenSceptre.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("honeyjar.png"));
+    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("sceptre.png"));
+    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("sceptre.png"));
     public boolean isActive = true;
 
     public QueenSceptre() {

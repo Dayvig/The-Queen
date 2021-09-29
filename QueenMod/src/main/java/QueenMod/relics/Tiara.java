@@ -28,8 +28,8 @@ public class Tiara extends CustomRelic implements OnPlayerDeathRelic {
     // ID, images, text.
     public static final String ID = QueenMod.makeID("Tiara");
 
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("Tiara.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("honeyjar.png"));
+    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("tiara.png"));
+    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("tiara.png"));
 
     public Tiara() {
         super(ID, IMG, OUTLINE, RelicTier.SHOP, LandingSound.CLINK);

@@ -72,6 +72,8 @@ public class SwarmPower extends AbstractPower {
 
     public void atEndOfTurn(boolean isPlayer) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this.owner, this.owner, this.amount));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new SwarmPower(this.owner, this.owner, this.amount - 1), -1));
+        if (!AbstractDungeon.player.hasPower(SwarmStayPower.POWER_ID)) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new SwarmPower(this.owner, this.owner, this.amount - 1), -1));
+        }
     }
 }

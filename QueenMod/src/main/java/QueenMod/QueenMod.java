@@ -323,7 +323,7 @@ public class QueenMod implements
         BaseMod.addRelicToCustomPool(new HoneyJar(), TheQueen.Enums.COLOR_YELLOW);
         BaseMod.addRelicToCustomPool(new Medal(), TheQueen.Enums.COLOR_YELLOW);
         BaseMod.addRelicToCustomPool(new DraftNotice(), TheQueen.Enums.COLOR_YELLOW);
-        BaseMod.addRelicToCustomPool(new BloatedManual(), TheQueen.Enums.COLOR_YELLOW);
+        //BaseMod.addRelicToCustomPool(new BloatedManual(), TheQueen.Enums.COLOR_YELLOW);
         BaseMod.addRelicToCustomPool(new WhiteHibiscus(), TheQueen.Enums.COLOR_YELLOW);
         BaseMod.addRelicToCustomPool(new QueenSceptre(), TheQueen.Enums.COLOR_YELLOW);
         BaseMod.addRelicToCustomPool(new Tiara(), TheQueen.Enums.COLOR_YELLOW);
@@ -338,6 +338,9 @@ public class QueenMod implements
         UnlockTracker.markRelicAsSeen(BloatedManual.ID);
         UnlockTracker.markRelicAsSeen(DraftNotice.ID);
         UnlockTracker.markRelicAsSeen(QueenSceptre.ID);
+        UnlockTracker.markRelicAsSeen(Tiara.ID);
+        UnlockTracker.markRelicAsSeen(BugLantern.ID);
+        UnlockTracker.markRelicAsSeen(QueensBanner.ID);
 
         logger.info("Done adding relics!");
     }
@@ -468,7 +471,7 @@ public class QueenMod implements
         BaseMod.addCard(new Pheremones());
         BaseMod.addCard(new WaxCrafters());
         //BaseMod.addCard(new PlanAhead());
-        BaseMod.addCard(new Coronation());
+        //BaseMod.addCard(new Coronation());
         //BaseMod.addCard(new Princess());
         BaseMod.addCard(new Wasps());
         BaseMod.addCard(new Volunteers());

@@ -50,7 +50,7 @@ public class DistributeSwarmAction extends AbstractGameAction {
         }
         System.out.println(s);
         if (a.target instanceof AbstractMonster){
-                if (a.target.isDying || a.target.halfDead) {
+                if (a.target.isDying || a.target.halfDead || a.target.isDead) {
                     this.isDone = true;
                 }
         }
@@ -67,7 +67,6 @@ public class DistributeSwarmAction extends AbstractGameAction {
         else if (c.target.equals(AbstractCard.CardTarget.ALL)){
             i = 5;
         }
-        System.out.println(i);
         switch (i) {
             case 1:
                 boolean moveSwarm = false;
@@ -110,24 +109,24 @@ public class DistributeSwarmAction extends AbstractGameAction {
                 }
                 break;
             case 3:
-                int n = 0;
+                int numMonstersToApplyTo = 0;
                 for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
                     if (m.hasPower(SwarmPowerEnemy.POWER_ID)) {
                         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(m, m, SwarmPowerEnemy.POWER_ID));
                     }
-                    if (!m.isDying && !m.halfDead){n++;}
+                    if (!m.isDying && !m.halfDead && !m.isDead && !(m.currentHealth <= 0)){numMonstersToApplyTo++;}
                 }
                 if (AbstractDungeon.player.hasPower(SwarmPower.POWER_ID)) {
                     AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, SwarmPower.POWER_ID));
                 }
-                int swarmdivide1;
-                int swarmdivide2;
-                if (n == 0 || s == 0){
+                int divisor;
+                int remainder;
+                if (numMonstersToApplyTo <= 0 || s <= 0){
                     isDone = true;
                 }
                 else if (s == 1){
                     for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                        if (!m.isDying && !m.halfDead) {
+                        if (!m.isDying && !m.halfDead && !m.isDead) {
                             if (f) {
                                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(m, AbstractDungeon.player, new FocusedSwarmE(m, AbstractDungeon.player, 1), 1));
                                 isDone = true;
@@ -138,9 +137,9 @@ public class DistributeSwarmAction extends AbstractGameAction {
                         }
                     }
                 }
-                else if (n > s){
+                else if (numMonstersToApplyTo > s){
                     for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                        if (!m.isDying && !m.halfDead) {
+                        if (!m.isDying && !m.halfDead && !m.isDead) {
                             if (f) {
                                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(m, AbstractDungeon.player, new FocusedSwarmE(m, AbstractDungeon.player, 1), 1));
                                 s--;
@@ -154,32 +153,22 @@ public class DistributeSwarmAction extends AbstractGameAction {
                     }
                 }
                 else {
-                    swarmdivide1 = (int) Math.floor(s / n);
-                    while (swarmdivide1*n < s){
-                        swarmdivide1++;
-                    }
-                    int toApply;
+                    remainder = s % numMonstersToApplyTo;
+                    divisor = s / numMonstersToApplyTo;
                     for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
                         if (!m.isDying && !m.halfDead) {
                             if (f) {
-                                toApply = swarmdivide1;
-                                while (toApply > s){
-                                    toApply--;
-                                }
+                                int toApply = divisor;
+                                if (remainder > 0){ toApply++; remainder--;}
                                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(m, AbstractDungeon.player, new FocusedSwarmE(m, AbstractDungeon.player, toApply), toApply));
-                                s -= toApply;
-                                if (s <= 0){ isDone = true; }
                             } else {
-                                toApply = swarmdivide1;
-                                while (toApply > s){
-                                    toApply--;
-                                }
+                                int toApply = divisor;
+                                if (remainder > 0){ toApply++; remainder--;}
                                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(m, AbstractDungeon.player, new SwarmPowerEnemy(m, AbstractDungeon.player, toApply), toApply));
-                                s -= toApply;
-                                if (s <= 0){ isDone = true; }
                             }
                         }
                     }
+                    if (remainder > 0){ System.out.println("Something went wrong. Incorrect swarm division");}
                 }
                 break;
             case 4:
@@ -199,44 +188,40 @@ public class DistributeSwarmAction extends AbstractGameAction {
                 }
                 break;
             case 5:
-                n = 0;
+                numMonstersToApplyTo = 1;
                 for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
                     if (m.hasPower(SwarmPowerEnemy.POWER_ID)) {
                         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(m, m, SwarmPowerEnemy.POWER_ID));
                     }
-                    if (!m.isDying && !m.halfDead){n++;}
+                    if (!m.isDying && !m.halfDead && !m.isDead && !(m.currentHealth <= 0)){numMonstersToApplyTo++;}
                 }
                 if (AbstractDungeon.player.hasPower(SwarmPower.POWER_ID)) {
                     AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, SwarmPower.POWER_ID));
                 }
-                n++;
-                System.out.println("Swarm amount: "+s+", Number of targets: "+n);
-                if (n == 0 || s == 0){
+                if (numMonstersToApplyTo <= 0 || s <= 0){
                     isDone = true;
                 }
-                else if (s == 1){
-                    if (f){
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(AbstractDungeon.player, AbstractDungeon.player, new FocusedSwarm(AbstractDungeon.player, AbstractDungeon.player, 1),1));
+                else if (s == 1) {
+                    if (f) {
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(AbstractDungeon.player, AbstractDungeon.player, new FocusedSwarm(AbstractDungeon.player, AbstractDungeon.player, 1), 1));
                         isDone = true;
-                    }
-                    else {
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(AbstractDungeon.player, AbstractDungeon.player, new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, 1),1));
+                    } else {
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(AbstractDungeon.player, AbstractDungeon.player, new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, 1), 1));
                         isDone = true;
                     }
                 }
-                else if (n > s){
-                    if (f){
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(AbstractDungeon.player, AbstractDungeon.player, new FocusedSwarm(AbstractDungeon.player, AbstractDungeon.player, 1),1));
+                else if (numMonstersToApplyTo > s){
+                    if (f) {
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(AbstractDungeon.player, AbstractDungeon.player, new FocusedSwarm(AbstractDungeon.player, AbstractDungeon.player, 1), 1));
                         s--;
                         if (s <= 0){ isDone = true; }
-                    }
-                    else {
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(AbstractDungeon.player, AbstractDungeon.player, new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, 1),1));
+                    } else {
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(AbstractDungeon.player, AbstractDungeon.player, new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, 1), 1));
                         s--;
                         if (s <= 0){ isDone = true; }
                     }
                     for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                        if (!m.isDying && !m.halfDead) {
+                        if (!m.isDying && !m.halfDead && !m.isDead) {
                             if (f) {
                                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(m, AbstractDungeon.player, new FocusedSwarmE(m, AbstractDungeon.player, 1), 1));
                                 s--;
@@ -250,36 +235,32 @@ public class DistributeSwarmAction extends AbstractGameAction {
                     }
                 }
                 else {
-                    swarmdivide1 = (int) Math.floor(s / n);
-                    swarmdivide2 = (int) Math.floor(s / n);
-                    swarmdivide1 += s % n;
-                    int toApply = swarmdivide1;
-                    System.out.println(swarmdivide1);
-                    if (f){
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(AbstractDungeon.player, AbstractDungeon.player, new FocusedSwarm(AbstractDungeon.player, AbstractDungeon.player, toApply),toApply));
-                        s -= toApply;
-                        if (s <= 0){ isDone = true; }
+                    remainder = s % numMonstersToApplyTo;
+                    divisor = s / numMonstersToApplyTo;
+                    if (f) {
+                        int toApply = divisor;
+                        if (remainder > 0){ toApply++; remainder--;}
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(AbstractDungeon.player, AbstractDungeon.player, new FocusedSwarm(AbstractDungeon.player, AbstractDungeon.player, toApply), toApply));
+                    } else {
+                        int toApply = divisor;
+                        if (remainder > 0){ toApply++; remainder--;}
+                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(AbstractDungeon.player, AbstractDungeon.player, new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, toApply), toApply));
                     }
-                    else {
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(AbstractDungeon.player, AbstractDungeon.player, new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, toApply),toApply));
-                        s -= toApply;
-                        if (s <= 0){ isDone = true; }
-                    }
+
                     for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
                         if (!m.isDying && !m.halfDead) {
                             if (f) {
-                                toApply = swarmdivide2;
+                                int toApply = divisor;
+                                if (remainder > 0){ toApply++; remainder--;}
                                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(m, AbstractDungeon.player, new FocusedSwarmE(m, AbstractDungeon.player, toApply), toApply));
-                                s -= toApply;
-                                if (s <= 0){ isDone = true; }
                             } else {
-                                toApply = swarmdivide2;
+                                int toApply = divisor;
+                                if (remainder > 0){ toApply++; remainder--;}
                                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerActionFast(m, AbstractDungeon.player, new SwarmPowerEnemy(m, AbstractDungeon.player, toApply), toApply));
-                                s -= toApply;
-                                if (s <= 0){ isDone = true; }
                             }
                         }
                     }
+                    if (remainder > 0){ System.out.println("Something went wrong. Incorrect swarm division");}
                 }
             default:
                 break;

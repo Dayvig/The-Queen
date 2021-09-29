@@ -73,8 +73,13 @@ public class FocusedSwarm extends AbstractPower {
 
     public void atEndOfTurn(boolean isPlayer) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this.owner, this.owner, this.amount));
-        if (this.amount > 1) {
+        if (this.amount > 1 && !AbstractDungeon.player.hasPower(SwarmStayPower.POWER_ID)) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new SwarmPower(this.owner, this.owner, this.amount - 1), this.amount - 1));
+        }
+        else {
+            if (AbstractDungeon.player.hasPower(SwarmStayPower.POWER_ID)) {
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new SwarmPower(this.owner, this.owner, this.amount), this.amount));
+            }
         }
         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this.POWER_ID));
     }

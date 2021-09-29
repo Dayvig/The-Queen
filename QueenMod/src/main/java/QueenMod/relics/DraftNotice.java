@@ -21,8 +21,8 @@ public class DraftNotice extends CustomRelic {
     // ID, images, text.
     public static final String ID = QueenMod.makeID("DraftNotice");
 
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("draftnotice.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("draftnotice.png"));
+    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("loveletters.png"));
+    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("loveletters.png"));
 
     public DraftNotice() {
         super(ID, IMG, OUTLINE, RelicTier.COMMON, LandingSound.FLAT);
