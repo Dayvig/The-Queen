@@ -40,9 +40,9 @@ public class Garrison extends AbstractDynamicCard {
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 1;
-    private static final int BLOCK = 8;
-    private static final int UPGRADE_PLUS_BLOCK = 3;
-    AbstractCard tmp;
+    private static final int BLOCK = 6;
+    private static final int MAGIC = 2;
+    private static final int UPGRADE_PLUS_MAGIC = 1;
 
     // /STAT DECLARATION/
 
@@ -50,6 +50,7 @@ public class Garrison extends AbstractDynamicCard {
     public Garrison() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = block = BLOCK;
+        baseMagicNumber = magicNumber = MAGIC;
         shuffleBackIntoDrawPile = true;
     }
 
@@ -57,6 +58,7 @@ public class Garrison extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
+        this.baseBlock += magicNumber;
     }
 
     //Upgraded stats.
@@ -64,7 +66,7 @@ public class Garrison extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBlock(UPGRADE_PLUS_BLOCK);
+            upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             initializeDescription();
         }
     }

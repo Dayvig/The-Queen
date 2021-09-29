@@ -2,7 +2,9 @@ package QueenMod.cards;
 
 import QueenMod.QueenMod;
 import QueenMod.characters.TheQueen;
+import QueenMod.powers.SwarmStayPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -26,31 +28,30 @@ public class Scatter extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
-    private static final CardTarget TARGET = CardTarget.ALL;  //   since they don't change much.
-    private static final CardType TYPE = CardType.ATTACK;       //
+    private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
+    private static final CardTarget TARGET = CardTarget.SELF;  //   since they don't change much.
+    private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 1;  // COST = ${COST}
-    private static final int DAMAGE = 4;
-    private static final int BLOCK = 4;
-    private static final int UPGRADE_PLUS_DAMAGE = 2;
-    private static final int UPGRADE_PLUS_BLOCK = 2;
+    private static final int BLOCK = 8;
+    private static final int UPGRADE_PLUS_BLOCK = 3;
+    private static final int MAGIC = 1;
     // /STAT DECLARATION/
 
 
     public Scatter() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = damage = DAMAGE;
         baseBlock = block = BLOCK;
+        baseMagicNumber = magicNumber = MAGIC;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SwarmStayPower(p, p, magicNumber),magicNumber));
     }
 
 
@@ -60,7 +61,6 @@ public class Scatter extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeBlock(UPGRADE_PLUS_BLOCK);
-            upgradeDamage(UPGRADE_PLUS_DAMAGE);
             initializeDescription();
         }
     }

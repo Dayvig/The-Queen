@@ -362,8 +362,8 @@
     "DESCRIPTION": "Gain 1 Block for each card in your draw pile. ( !B! Block. )"
   },
   "QueenMod:Scatter":{
-    "NAME": "Scatter",
-    "DESCRIPTION": "Deal !D! damage to all enemies. NL Gain !B! Block. NL queenmod:Lock your Swarm on all enemies and yourself this turn."
+    "NAME": "Hold Position",
+    "DESCRIPTION": "Gain !B! Block. NL queenmod:Lock your queenmod:Swarm on yourself this turn. NL Your queenmod:Swarm does not decrease at the end of this turn."
   },
   "QueenMod:Multiply":{
     "NAME": "Multiply",
@@ -514,7 +514,7 @@
   },
   "QueenMod:Garrison": {
   "NAME": "Garrison",
-  "DESCRIPTION": "Gain !B! Block. NL Add this card into your draw pile instead of your discard pile."
+  "DESCRIPTION": "Gain !B! Block. Increase this card's Block by !M!. NL Add this card into your draw pile instead of your discard pile."
 },
   "QueenMod:HiveDefenses": {
     "NAME": "Guard Patrols",
