@@ -35,7 +35,7 @@ public class BuildOrder extends AbstractDynamicCard {
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 1;  // COST = ${COST}
-    private static final int MAGIC = 1;
+    private static final int MAGIC = 3;
     // /STAT DECLARATION/
 
 

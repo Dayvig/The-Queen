@@ -31,8 +31,8 @@ public class SwarmStayPower extends AbstractPower implements CloneablePowerInter
 
     // We create 2 new textures *Using This Specific Texture Loader* - an 84x84 image and a 32x32 one.
     // There's a fallback "missing texture" image, so the game shouldn't crash if you accidentally put a non-existent file.
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("genius84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("genius32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("swarmstaypower84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("swarmstaypower32.png"));
 
     public SwarmStayPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = NAME;
@@ -77,9 +77,9 @@ public class SwarmStayPower extends AbstractPower implements CloneablePowerInter
     @Override
     public void updateDescription() {
         if (amount == 1) {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+            description = DESCRIPTIONS[0];
         } else if (amount > 1) {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2];
+            description = DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
         }
     }
 

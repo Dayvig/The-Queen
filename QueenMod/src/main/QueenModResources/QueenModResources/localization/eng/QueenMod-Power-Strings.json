@@ -51,8 +51,8 @@
                 "NAME": "At the ready",
                 "DESCRIPTIONS": [
                         "When attacked, automatically Exhausts up to ",
-                        "Bumblebee from your Draw Pile to gain its Block.",
-                        "Bumblebees from your Draw Pile to gain their Block."
+                        " Bumblebee from your Draw Pile to gain its Block.",
+                        " Bumblebees from your Draw Pile to gain their Block."
                 ]
         },
         "QueenMod:DefenderUpgradePower": {
@@ -74,9 +74,7 @@
         "QueenMod:PollinatePower": {
                 "NAME": "Pollinated",
                 "DESCRIPTIONS": [
-                        "When taking attack damage, the Queen gains 1 Nectar. At the end of the turn, reduce #yPollinate by #b1. #b",
-                        " Pollinated.",
-                        " Pollinated."
+                        "When taking attack damage, the Queen gains #b2 Nectar. At the end of the turn, reduce #yPollinate by #b1."
                 ]
         },
         "QueenMod:SwarmTacticsPower": {
@@ -299,16 +297,17 @@
                 "NAME": "Drone Workers",
                 "DESCRIPTIONS": [
                         "The first #b",
-                        " times you play a Workerbee this turn, add a Drone to your hand.",
-                        " times you play a Workerbee this turn, add a Drone to your hand."
+                        " times you play a Honeybee this turn, add a Drone to your hand.",
+                        " times you play a Honeybee this turn, add a Drone to your hand.",
+                        "The first time you play a Honeybee this turn, add a Drone to your hand."
                 ]
         },
         "QueenMod:WaxCraftersPower": {
                 "NAME": "Wax Crafters",
                 "DESCRIPTIONS": [
                         "Gain #b",
-                        " Block every time you play a Workerbee.",
-                        " Block every time you play a Workerbee."
+                        " Block every time you play a Honeybee.",
+                        " Block every time you play a Honeybee."
                 ]
         },
         "QueenMod:RavenousPower": {
@@ -325,6 +324,14 @@
                         "If you would die, instead lose half your Max Hp, Heal to full HP, and replace non-hive cards in your deck with 10 random cards.",
                         "",
                         ""
+                ]
+        },
+        "QueenMod:SwarmStayPower": {
+                "NAME": "Hold Position Power",
+                "DESCRIPTIONS": [
+                        "Your Swarm does not decrease this turn.",
+                        "Your Swarm does not decrease for the next #b",
+                        " turns."
                 ]
         }
 }

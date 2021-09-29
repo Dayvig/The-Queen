@@ -58,46 +58,45 @@ public class ReinforcementAction extends AbstractGameAction {
                 this.isDone = true;
                 return;
             }
-            AbstractCard c1 = upgradeMatrix.remove(AbstractDungeon.cardRandomRng.random(upgradeMatrix.size()-1));
-            c1.freeToPlayOnce = true;
-            c1.applyPowers();
-            AbstractDungeon.player.limbo.group.add(c1);
-            AbstractDungeon.player.drawPile.group.remove(c1);
-        if (AbstractDungeon.player.hand.group.contains(c1)){
-            AbstractDungeon.player.hand.removeCard(c1);
-            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, 1));
-        }
+            for (int i = 0;i < numTimes;i++) {
+                AbstractCard c1 = upgradeMatrix.remove(AbstractDungeon.cardRandomRng.random(upgradeMatrix.size() - 1));
+                c1.freeToPlayOnce = true;
+                c1.applyPowers();
+                AbstractDungeon.player.limbo.group.add(c1);
+                AbstractDungeon.player.drawPile.group.remove(c1);
+                if (AbstractDungeon.player.hand.group.contains(c1)) {
+                    AbstractDungeon.player.hand.removeCard(c1);
+                    AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, 1));
+                }
 
-        AbstractMonster mo = AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng);
-        for (AbstractMonster mon : AbstractDungeon.getCurrRoom().monsters.monsters){
-            if (mon.hasPower(HexPower.POWER_ID)){
-                mo = mon;
+                AbstractMonster mo = AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster) null, true, AbstractDungeon.cardRandomRng);
+                for (AbstractMonster mon : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                    if (mon.hasPower(HexPower.POWER_ID)) {
+                        mo = mon;
+                    }
+                }
+                if (c1.cardID.equals(Hornet.ID)) {
+                    Hornet tmp = (Hornet) c1;
+                    tmp.playedBySwarm = true;
+                    if ((mo.hasPower(TimeWarpPower.POWER_ID) && mo.getPower(TimeWarpPower.POWER_ID).amount == 11) || mo.hasPower(ThornsPower.POWER_ID) || mo.hasPower(SharpHidePower.POWER_ID) || mo.hasPower(BeatOfDeathPower.POWER_ID)) {
+                        AbstractDungeon.actionManager.addToTop(new DrawToHandAction(c1));
+                        AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, Text3, true));
+                    } else {
+                        AbstractDungeon.actionManager.addToTop(new QueueCardAction(c1, mo));
+                    }
+                } else {
+                    if (mo.hasPower(AngerPower.POWER_ID) || AbstractDungeon.player.hasPower(HexPower.POWER_ID) || (mo.hasPower(TimeWarpPower.POWER_ID) && mo.getPower(TimeWarpPower.POWER_ID).amount == 11)) {
+                        AbstractDungeon.actionManager.addToTop(new DrawToHandAction(c1));
+                        AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, Text3, true));
+                    } else {
+                        AbstractDungeon.actionManager.addToTop(new QueueCardAction(c1, mo));
+                    }
+                }
+                for (AbstractCard c : AbstractDungeon.player.limbo.group) {
+                    AbstractDungeon.actionManager.addToBottom(new UnlimboAction(c));
+                }
+                AbstractDungeon.player.hand.refreshHandLayout();
             }
-        }
-        if (c1.cardID.equals(Hornet.ID)){
-                Hornet tmp = (Hornet) c1;
-                tmp.playedBySwarm = true;
-                if ((mo.hasPower(TimeWarpPower.POWER_ID) && mo.getPower(TimeWarpPower.POWER_ID).amount == 11) || mo.hasPower(ThornsPower.POWER_ID) || mo.hasPower(SharpHidePower.POWER_ID) || mo.hasPower(BeatOfDeathPower.POWER_ID)){
-                    AbstractDungeon.actionManager.addToTop(new DrawToHandAction(c1));
-                    AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, Text3, true));
-                }
-                else {
-                    AbstractDungeon.actionManager.addToTop(new QueueCardAction(c1, mo));
-                }
-            }
-            else {
-                if (mo.hasPower(AngerPower.POWER_ID) || AbstractDungeon.player.hasPower(HexPower.POWER_ID) || (mo.hasPower(TimeWarpPower.POWER_ID) && mo.getPower(TimeWarpPower.POWER_ID).amount == 11)){
-                    AbstractDungeon.actionManager.addToTop(new DrawToHandAction(c1));
-                    AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, Text3, true));
-                }
-                else {
-                    AbstractDungeon.actionManager.addToTop(new QueueCardAction(c1, mo));
-                }
-            }
-        for (AbstractCard c : AbstractDungeon.player.limbo.group){
-            AbstractDungeon.actionManager.addToBottom(new UnlimboAction(c));
-        }
-        AbstractDungeon.player.hand.refreshHandLayout();
         this.isDone = true;
     }
 }

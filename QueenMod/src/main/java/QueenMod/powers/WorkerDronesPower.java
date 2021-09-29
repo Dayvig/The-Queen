@@ -50,7 +50,12 @@ public class WorkerDronesPower extends AbstractPower {
     }
 
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+        if (this.amount == 1){
+            this.description = DESCRIPTIONS[2];
+        }
+        else {
+            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+        }
         this.canGoNegative = false;
     }
 
