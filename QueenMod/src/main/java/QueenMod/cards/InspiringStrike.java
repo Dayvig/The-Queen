@@ -3,6 +3,7 @@ package QueenMod.cards;
 import QueenMod.QueenMod;
 import QueenMod.actions.UpgradeCardInDeckAction;
 import QueenMod.characters.TheQueen;
+import QueenMod.effects.ShowCardUpgradedEffect;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -41,7 +42,7 @@ public class InspiringStrike extends AbstractDynamicCard {
 
     private static final int DAMAGE = 6;    // DAMAGE = ${DAMAGE}
     private static final int UPGRADE_PLUS_DAMAGE = 2;
-    private int numLeft;
+    private static final int UPGRADE_PLUS_MAGIC = 1;
 
     // /STAT DECLARATION/
 
@@ -58,6 +59,7 @@ public class InspiringStrike extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new UpgradeCardInDeckAction(magicNumber));
+        CardCrawlGame.sound.play("TRUMPET", 0.4F);
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
     }
 
@@ -67,7 +69,7 @@ public class InspiringStrike extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DAMAGE);
-            this.upgradeMagicNumber(1);
+            this.upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
