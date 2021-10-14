@@ -327,7 +327,7 @@
                 ]
         },
         "QueenMod:SwarmStayPower": {
-                "NAME": "Hold Position Power",
+                "NAME": "Hold Position",
                 "DESCRIPTIONS": [
                         "Your Swarm does not decrease this turn.",
                         "Your Swarm does not decrease for the next #b",

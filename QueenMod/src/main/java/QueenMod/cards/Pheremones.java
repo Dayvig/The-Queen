@@ -2,6 +2,7 @@ package QueenMod.cards;
 
 import QueenMod.QueenMod;
 import QueenMod.actions.DrawSpecificCardTypeAction;
+import QueenMod.actions.StrategizeAction;
 import QueenMod.characters.TheQueen;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -50,38 +51,7 @@ public class Pheremones extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        typeToDraw = StrategicDraw(p);
-        AbstractDungeon.actionManager.addToBottom(new DrawSpecificCardTypeAction(p.drawPile, magicNumber, typeToDraw));
-    }
-
-    public CardType StrategicDraw(AbstractPlayer p){
-        int numAttacks = 0;
-        int numSkills = 0;
-        for (AbstractCard c : p.hand.group) {
-            if (!c.equals(this)) {
-                switch (c.type) {
-                    case ATTACK:
-                        numAttacks++;
-                        break;
-                    case SKILL:
-                        numSkills++;
-                        break;
-                    default:
-                }
-            }
-        }
-        if (numAttacks > numSkills){
-            System.out.println("Skills");
-            return CardType.SKILL;
-        }
-        else if (numSkills > numAttacks){
-            System.out.println("Attacks");
-            return CardType.ATTACK;
-        }
-        else {
-            System.out.println("Powers");
-            return CardType.POWER;
-        }
+        AbstractDungeon.actionManager.addToBottom(new StrategizeAction());
     }
 
     // Upgraded stats.

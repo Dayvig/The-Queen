@@ -26,6 +26,7 @@ public class Charge extends AbstractDynamicCard {
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    private static final String EXTENDED_DESCRIPTION[] = cardStrings.EXTENDED_DESCRIPTION;
 
 
     // /TEXT DECLARATION/
@@ -43,7 +44,7 @@ public class Charge extends AbstractDynamicCard {
     private static final int DAMAGE = 5;    // DAMAGE = ${DAMAGE}
     private static final int UPGRADE_PLUS_DAMAGE = 4;
     private static final int MAGIC = 1;
-    private static final int FACTOR = 10;
+    private static final int FACTOR = 5;
     // /STAT DECLARATION/
 
 
@@ -61,6 +62,12 @@ public class Charge extends AbstractDynamicCard {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         int drawAmnt = p.drawPile.group.size()*magicNumber / FACTOR;
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, drawAmnt));
+    }
+
+    @Override
+    public void applyPowers(){
+        int drawAmnt = AbstractDungeon.player.drawPile.group.size()*magicNumber / FACTOR;
+        this.rawDescription = this.description + EXTENDED_DESCRIPTION[0] + drawAmnt + EXTENDED_DESCRIPTION[1];
     }
 
 

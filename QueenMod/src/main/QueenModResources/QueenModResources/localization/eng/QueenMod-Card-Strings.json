@@ -270,7 +270,11 @@
   },
   "QueenMod:Charge":{
     "NAME": "Forward March!",
-    "DESCRIPTION": "Deal !D! damage. NL Draw a card for every 10 cards in your draw pile."
+    "DESCRIPTION": "Deal !D! damage. NL Draw a card for every 8 cards in your draw pile.",
+    "EXTENDED_DESCRIPTION": [
+      "(",
+      " cards.)"
+    ]
   },
   "QueenMod:PlanAhead":{
     "NAME": "Organize",
@@ -361,7 +365,7 @@
     "NAME": "Fortify",
     "DESCRIPTION": "Gain 1 Block for each card in your draw pile. ( !B! Block. )"
   },
-  "QueenMod:Scatter":{
+  "QueenMod:HoldPosition":{
     "NAME": "Hold Position",
     "DESCRIPTION": "Gain !B! Block. NL queenmod:Lock your queenmod:Swarm on yourself this turn. NL Your queenmod:Swarm does not decrease at the end of this turn."
   },

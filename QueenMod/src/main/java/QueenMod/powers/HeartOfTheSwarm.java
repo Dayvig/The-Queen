@@ -123,7 +123,7 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
                 tmp.target = ALL_ENEMY;
                 AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(tmp, true, totalSwarm, a));
             }
-            else if (c.cardID.equals(Scatter.ID)) {
+            else if (c.cardID.equals(HoldPosition.ID)) {
                 AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, true, totalSwarm, a));
             }
             else if (c.cardID.equals(Feint.ID)){

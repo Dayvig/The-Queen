@@ -24,7 +24,7 @@ import java.util.UUID;
 
 public class StrategizeAction extends AbstractGameAction {
     private int amount;
-    String[] TEXT = {" to discard."};
+    String[] TEXT = {"discard."};
     AbstractPlayer player;
     private static final float DURATION = 0.1f;
 
@@ -36,8 +36,13 @@ public class StrategizeAction extends AbstractGameAction {
 
     public void update() {
         if (this.duration == 0.1F) {
-            if (AbstractDungeon.player.hand.group.size() <= 0){ this.isDone = true; }
-            AbstractDungeon.handCardSelectScreen.open(TEXT[0], 1, false, false, false, false, true);
+            if (AbstractDungeon.player.hand.group.size() != 0) {
+                AbstractDungeon.handCardSelectScreen.open(TEXT[0], 1, false, false, false, false, true);
+            }
+            else {
+                this.isDone = true;
+                return;
+            }
             this.addToBot(new WaitAction(0.05F));
             this.tickDuration();
         } else {
@@ -56,7 +61,6 @@ public class StrategizeAction extends AbstractGameAction {
                 }
                 AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
             }
-
             this.tickDuration();
         }
     }

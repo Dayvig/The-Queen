@@ -45,6 +45,7 @@ public class KillerQueen extends AbstractDynamicCard {
     private static final int DAMAGE = 30;    // DAMAGE = ${DAMAGE}
     private static final int UPGRADE_PLUS_DAMAGE = 10;
     private static final int MAGIC = 3;
+    private static final int FACTOR = 10;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     // /STAT DECLARATION/
@@ -68,33 +69,29 @@ public class KillerQueen extends AbstractDynamicCard {
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         super.canUse(p, m);
-        return checkAttacks() > 0;
+        return checkAttacks() >= 10;
     }
 
     private int checkAttacks(){
         int numAttacks = 0;
-        int numSkills = 0;
         AbstractPlayer p = AbstractDungeon.player;
         for (AbstractCard c : p.drawPile.group) {
             if (c.type.equals(CardType.ATTACK)) {
                 numAttacks++;
             }
-            else if (c.type.equals(CardType.SKILL)) {
-                numSkills++;
-            }
         }
-        return numAttacks - numSkills;
+        return numAttacks;
     }
 
     @Override
     public void applyPowers() {
         int atks = checkAttacks();
-        if (atks <= 0) {
-            if (atks == -1) {
-                this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0] + ((checkAttacks() * -1) + 1) + cardStrings.EXTENDED_DESCRIPTION[2];
+        if (atks > 0) {
+            if (atks == 9) {
+                this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0] + (FACTOR - atks) + cardStrings.EXTENDED_DESCRIPTION[2];
             }
             else {
-                this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0] + ((checkAttacks() * -1) + 1) + cardStrings.EXTENDED_DESCRIPTION[1];
+                this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0] + (FACTOR - atks) + cardStrings.EXTENDED_DESCRIPTION[1];
             }
         }
         else {

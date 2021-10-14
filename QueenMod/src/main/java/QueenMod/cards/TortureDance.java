@@ -42,11 +42,11 @@ public class TortureDance extends AbstractDynamicCard {
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = -2;  // COST = ${COST}
-    private static final int DAMAGE = 20;
-    private static final int UPGRADE_PLUS_DAMAGE = 8;
+    private static final int DAMAGE = 14;
+    private static final int UPGRADE_PLUS_DAMAGE = 6;
 
     private int combo;
-    private static final int COMBO_LENGTH = 4;
+    private static final int COMBO_LENGTH = 3;
     CardType dance[] = new CardType[COMBO_LENGTH];
     String[] danceDescriptions = new String[COMBO_LENGTH];
     String danceDescAlt = "";

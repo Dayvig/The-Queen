@@ -24,15 +24,15 @@ public class Regroup extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
+    private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.SELF;  //   since they don't change much.
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 1;  // COST = ${COST}
     private static final int UPGRADED_COST = 1; // UPGRADED_COST = ${UPGRADED_COST}
-    private static final int BLOCK = 8;
-    private static final int UPGRADE_PLUS_BLOCK = 3;
+    private static final int BLOCK = 7;
+    private static final int UPGRADE_PLUS_BLOCK = 2;
 
     // /STAT DECLARATION/
 

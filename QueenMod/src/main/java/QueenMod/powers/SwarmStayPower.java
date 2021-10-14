@@ -69,7 +69,7 @@ public class SwarmStayPower extends AbstractPower implements CloneablePowerInter
     }
 
     @Override
-    public void atEndOfTurn(boolean isPlayer) {
+    public void atStartOfTurnPostDraw() {
         AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, SwarmStayPower.POWER_ID, 1));
     }
 

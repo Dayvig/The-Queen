@@ -53,12 +53,12 @@ public class ReinforcementAction extends AbstractGameAction {
                     upgradeMatrix.add(c);
                 }
             }
-            if (upgradeMatrix.isEmpty()) {
-                AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, Text2, true));
-                this.isDone = true;
-                return;
-            }
             for (int i = 0;i < numTimes;i++) {
+                if (upgradeMatrix.isEmpty()) {
+                    AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, Text2, true));
+                    this.isDone = true;
+                    return;
+                }
                 AbstractCard c1 = upgradeMatrix.remove(AbstractDungeon.cardRandomRng.random(upgradeMatrix.size() - 1));
                 c1.freeToPlayOnce = true;
                 c1.applyPowers();
