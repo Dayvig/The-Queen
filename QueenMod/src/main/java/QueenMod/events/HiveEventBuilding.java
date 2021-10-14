@@ -59,7 +59,7 @@ public class HiveEventBuilding extends AbstractImageEvent {
                         // The first dialogue options available to us.
                         imageEventText.updateDialogOption(0, OPTIONS[1]);
                         imageEventText.setDialogOption(OPTIONS[2], !hasBasic); // Delegate - Remove a basic card from your deck.
-                        imageEventText.setDialogOption(OPTIONS[3], !hasNonBasic); // Invest - [Remove a non-basic card from your deck]: Improve future Hive Events.
+                        imageEventText.setDialogOption(OPTIONS[3], !hasNonBasic || AbstractDungeon.actNum == 3); // Invest - [Remove a non-basic card from your deck]: Improve future Hive Events.
                         imageEventText.setDialogOption(OPTIONS[4]); // Leave
 
                         this.imageEventText.updateBodyText(DESCRIPTIONS[1]); // Update the text of the event

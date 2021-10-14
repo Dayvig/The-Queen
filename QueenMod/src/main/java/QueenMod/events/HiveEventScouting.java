@@ -53,7 +53,7 @@ public class HiveEventScouting extends AbstractImageEvent {
         // The first dialogue options available to us.
         imageEventText.setDialogOption(OPTIONS[0]); // Recall - Gain a yellow card and 100 gold.
         imageEventText.setDialogOption(OPTIONS[1], !hasBasic); // Delegate - Remove a basic card from your deck.
-        imageEventText.setDialogOption(OPTIONS[2], !hasNonBasic); // Invest - [Remove a non-basic card from your deck]: Improve future Hive Events.
+        imageEventText.setDialogOption(OPTIONS[2], !hasNonBasic || AbstractDungeon.actNum == 3); // Invest - [Remove a non-basic card from your deck]: Improve future Hive Events.
         imageEventText.setDialogOption(OPTIONS[3]); // Leave
 
     }

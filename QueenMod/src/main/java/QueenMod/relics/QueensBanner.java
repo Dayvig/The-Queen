@@ -69,11 +69,11 @@ public class QueensBanner extends CustomRelic implements CustomSavable<Boolean> 
     private String setDescription(AbstractPlayer.PlayerClass c) {
         String s = "";
         if (usedUp){
-            s = DESCRIPTIONS[1] + DESCRIPTIONS[2] + counter +" / 3"+ DESCRIPTIONS[3];
+            s = DESCRIPTIONS[1] + DESCRIPTIONS[2] + counter +" / 2"+ DESCRIPTIONS[3];
             s += DESCRIPTIONS[counter + 4];
             return s;
         }
-        s = DESCRIPTIONS[0] + DESCRIPTIONS[2] + counter +" / 3"+ DESCRIPTIONS[3];
+        s = DESCRIPTIONS[0] + DESCRIPTIONS[2] + counter +" / 2"+ DESCRIPTIONS[3];
         s += DESCRIPTIONS[counter + 4];
         return s;
     }
