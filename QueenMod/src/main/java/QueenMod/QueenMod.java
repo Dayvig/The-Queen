@@ -418,13 +418,13 @@ public class QueenMod implements
         BaseMod.addCard(new DignifiedSlap());
         BaseMod.addCard(new OverwhelmingForce());
         BaseMod.addCard(new KillerBee());
-        BaseMod.addCard(new BuildOrder());
+        //BaseMod.addCard(new BuildOrder());
         BaseMod.addCard(new Gather());
         BaseMod.addCard(new Feast());
         //BaseMod.addCard(new PerfectLanding());
         BaseMod.addCard(new Advisor());
         BaseMod.addCard(new ScoutingParty());
-        BaseMod.addCard(new HoldPosition());
+        //BaseMod.addCard(new HoldPosition());
         BaseMod.addCard(new Conscripts());
         BaseMod.addCard(new Charge());
         BaseMod.addCard(new Rally());
@@ -528,7 +528,7 @@ public class QueenMod implements
         UnlockTracker.unlockCard(DignifiedSlap.ID);
         UnlockTracker.unlockCard(OverwhelmingForce.ID);
         UnlockTracker.unlockCard(KillerBee.ID);
-        UnlockTracker.unlockCard(BuildOrder.ID);
+        //UnlockTracker.unlockCard(BuildOrder.ID);
         UnlockTracker.unlockCard(Gather.ID);
         UnlockTracker.unlockCard(Feast.ID);
         //UnlockTracker.unlockCard(PerfectLanding.ID);

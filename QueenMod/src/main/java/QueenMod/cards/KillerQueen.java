@@ -47,7 +47,7 @@ public class KillerQueen extends AbstractDynamicCard {
     private static final int MAGIC = 3;
     private static final int FACTOR = 10;
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-
+    private static final String TEXT = "I can't have skills in my hand.";
     // /STAT DECLARATION/
 
 
@@ -63,13 +63,18 @@ public class KillerQueen extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new ClashEffect(m.hb.cX, m.hb.cY), 0.1F));
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn)));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber)));
     }
 
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         super.canUse(p, m);
-        return checkAttacks() >= 10;
+        for (AbstractCard c : p.hand.group){
+            if (c.type.equals(CardType.SKILL)){
+                this.cantUseMessage = TEXT;
+                return false;
+            }
+        }
+        return true;
     }
 
     private int checkAttacks(){
@@ -83,8 +88,7 @@ public class KillerQueen extends AbstractDynamicCard {
         return numAttacks;
     }
 
-    @Override
-    public void applyPowers() {
+    /*public void applyPowers() {
         int atks = checkAttacks();
         if (atks > 0) {
             if (atks == 9) {
@@ -98,7 +102,7 @@ public class KillerQueen extends AbstractDynamicCard {
             this.rawDescription = cardStrings.DESCRIPTION;
         }
         initializeDescription();
-    }
+    }*/
 
     // Upgraded stats.
     @Override

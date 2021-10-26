@@ -69,10 +69,10 @@ public class ArtOfWarAction extends AbstractGameAction {
                     if (!this.shuffleCheck) {
                         if (this.amount > deckSize) {
                             int tmp = this.amount - deckSize;
-                            AbstractDungeon.actionManager.addToTop(new HiveNetAction(AbstractDungeon.player, tmp));
+                            AbstractDungeon.actionManager.addToTop(new ArtOfWarAction(AbstractDungeon.player, tmp));
                             AbstractDungeon.actionManager.addToTop(new EmptyDeckShuffleAction());
                             if (deckSize != 0) {
-                                AbstractDungeon.actionManager.addToTop(new HiveNetAction(AbstractDungeon.player, deckSize));
+                                AbstractDungeon.actionManager.addToTop(new ArtOfWarAction(AbstractDungeon.player, deckSize));
                             }
 
                             this.amount = 0;

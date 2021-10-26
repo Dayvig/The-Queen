@@ -2,6 +2,8 @@ package QueenMod.cards;
 
 import QueenMod.QueenMod;
 import QueenMod.characters.TheQueen;
+import QueenMod.effects.BeeAttackEffect;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -9,6 +11,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.rooms.MonsterRoom;
 
 import static QueenMod.QueenMod.makeCardPath;
 
@@ -23,6 +26,7 @@ public class Fortify extends AbstractDynamicCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String DESCRIPTION = cardStrings.DESCRIPTION;
     private static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    private static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     // /TEXT DECLARATION/
 
 
@@ -33,8 +37,7 @@ public class Fortify extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
-    private static final int COST = 3;
-    private static final int UPGRADED_COST = 2;
+    private static final int COST = 2;
     public int numCards = 0;
 
     // /STAT DECLARATION/
@@ -48,15 +51,35 @@ public class Fortify extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
-            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
-
+        AbstractDungeon.actionManager.addToTop(new VFXAction(new BeeAttackEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, 5, false, true), 0.01F));
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
     }
 
     @Override
     public void applyPowers() {
         super.applyPowers();
+            //checks if player is in combat or not to update text appropriately
+        if (!(AbstractDungeon.getCurrRoom() instanceof MonsterRoom)){
+            if (upgraded) {
+                this.rawDescription = UPGRADE_DESCRIPTION;
+            }
+            else {
+                this.rawDescription = DESCRIPTION;
+            }
+            return;
+        }
+
         baseBlock = AbstractDungeon.player.drawPile.group.size();
+
+        if (!upgraded && baseBlock > 20){
+            baseBlock = 20;
+        }
+        if (upgraded) {
+            this.rawDescription = UPGRADE_DESCRIPTION + EXTENDED_DESCRIPTION[0] + block + EXTENDED_DESCRIPTION[1];
+        }
+        else {
+            this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0] + block + EXTENDED_DESCRIPTION[1];
+        }
         initializeDescription();
     }
 
@@ -65,7 +88,7 @@ public class Fortify extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
+            this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

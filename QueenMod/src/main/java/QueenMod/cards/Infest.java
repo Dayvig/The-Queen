@@ -30,6 +30,7 @@ public class Infest extends AbstractDynamicCard {
 
     // /TEXT DECLARATION/
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+    private static final String DESCRIPTION = cardStrings.DESCRIPTION;
     private static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     private static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 
@@ -58,26 +59,29 @@ public class Infest extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         CardCrawlGame.sound.play("BEE_ATTACK1", -0.6F);
+        int boost = 0;
         if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10){
-            int boost = AbstractDungeon.player.getPower(Nectar.POWER_ID).amount/10;
-            for (int i = 0;i<boost;i++){
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SwarmPower(p, p, boost * defaultSecondMagicNumber), boost * defaultSecondMagicNumber));
-                for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters){
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new SwarmPowerEnemy(mo, p, boost * defaultSecondMagicNumber), boost * defaultSecondMagicNumber));
-                }
+            boost = AbstractDungeon.player.getPower(Nectar.POWER_ID).amount/10;
+        }
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SwarmPower(p, p, magicNumber + (boost * defaultSecondMagicNumber)), magicNumber + (boost * defaultSecondMagicNumber)));
+        for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            if (!(mo.isDead || mo.isDying || mo.halfDead)) {
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new SwarmPowerEnemy(mo, p, magicNumber + (boost * defaultSecondMagicNumber)), magicNumber + (boost * defaultSecondMagicNumber)));
             }
         }
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SwarmPower(p, p, magicNumber), magicNumber));
-        for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters){
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new SwarmPowerEnemy(mo, p, magicNumber), magicNumber));
-        }
+
     }
 
     public void triggerOnGlowCheck() {
         if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10){
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+            this.rawDescription = DESCRIPTION;
+            this.rawDescription += "(x"+(int)Math.floor(AbstractDungeon.player.getPower(Nectar.POWER_ID).amount / 10)+")";
+            initializeDescription();
         } else {
             this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+            this.rawDescription = DESCRIPTION;
+            initializeDescription();
         }
     }
 

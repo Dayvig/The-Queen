@@ -1,14 +1,14 @@
 package QueenMod.powers;
 
 import QueenMod.QueenMod;
+import QueenMod.actions.FormationAction;
+import QueenMod.cards.Formation;
+import QueenMod.interfaces.IsHive;
 import QueenMod.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -17,6 +17,9 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+
+import java.text.Normalizer;
+import java.util.ArrayList;
 
 import static QueenMod.QueenMod.makePowerPath;
 
@@ -35,6 +38,8 @@ public class GeneralPower extends AbstractPower implements CloneablePowerInterfa
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("generalform84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("generalform32.png"));
 
+    private final ArrayList <AbstractCard> HiveMatrix = new ArrayList <>();
+    private final ArrayList <AbstractCard> FormationMatrix = new ArrayList <>();
 
     public GeneralPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = NAME;
@@ -56,10 +61,20 @@ public class GeneralPower extends AbstractPower implements CloneablePowerInterfa
     }
 
     @Override
-    public void onAfterUseCard(AbstractCard c, UseCardAction a) {
-        if (this.owner.hasPower(Nectar.POWER_ID) && this.owner.getPower(Nectar.POWER_ID).amount >= this.amount * 5){
-            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, Nectar.POWER_ID, this.amount * 5));
-            AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(this.amount));
+    public void atStartOfTurn(){
+        for (AbstractCard c : AbstractDungeon.player.drawPile.group){
+            if (c instanceof IsHive) {
+                HiveMatrix.add(c);
+            }
+        }
+        AbstractCard[] comp = new AbstractCard[3];
+        if (HiveMatrix.size() >= 3){
+            for (int i=0;i<3;i++){
+                FormationMatrix.add(HiveMatrix.remove((int)(Math.random()*HiveMatrix.size()-1)));
+            }
+            AbstractDungeon.actionManager.addToTop(new MakeTempCardInHandAction(new Formation(FormationMatrix.get(0), FormationMatrix.get(1), FormationMatrix.get(2))));
+            HiveMatrix.clear();
+            FormationMatrix.clear();
         }
     }
 

@@ -67,7 +67,7 @@
   },
   "QueenMod:KillerQueen": {
     "NAME": "Killer Queen",
-    "DESCRIPTION": "Can only be played if there are more Attacks than Skills in your Draw Pile. NL Deal !D! damage. NL Gain !M! Strength.",
+    "DESCRIPTION": "Unplayable if you have skills in your hand. NL Deal !D! damage.",
     "EXTENDED_DESCRIPTION": [
       " NL (Add ",
       " more Attacks.)",
@@ -270,7 +270,7 @@
   },
   "QueenMod:Charge":{
     "NAME": "Forward March!",
-    "DESCRIPTION": "Deal !D! damage. NL Draw a card for every 8 cards in your draw pile.",
+    "DESCRIPTION": "Deal !D! damage. NL Draw a card for every 5 cards in your draw pile.",
     "EXTENDED_DESCRIPTION": [
       "(",
       " cards.)"
@@ -363,7 +363,12 @@
   },
   "QueenMod:Fortify":{
     "NAME": "Fortify",
-    "DESCRIPTION": "Gain 1 Block for each card in your draw pile. ( !B! Block. )"
+    "DESCRIPTION": "Gain Block equal to the number of cards in your draw pile (Max 20.)",
+    "UPGRADE_DESCRIPTION": "Gain Block equal to the number of cards in your draw pile.",
+    "EXTENDED_DESCRIPTION": [
+      " NL ( ",
+      " Block.)"
+    ]
   },
   "QueenMod:HoldPosition":{
     "NAME": "Hold Position",
@@ -474,7 +479,7 @@
   },
   "QueenMod:Infest": {
     "NAME": "Infest",
-    "DESCRIPTION": "Apply !M! queenmod:Swarm to everyone. NL queenmod:Honey-boost: Apply !QueenMod:second! queenmod:Swarm to everyone."
+    "DESCRIPTION": "Apply !M! queenmod:Swarm to everyone. NL queenmod:Honey-boost: Apply !QueenMod:second! more queenmod:Swarm to everyone."
   },
   "QueenMod:Advisor": {
     "NAME": "Reserve Force",
@@ -482,7 +487,7 @@
   },
   "QueenMod:RoyalBanquet": {
     "NAME": "Royal Banquet",
-    "DESCRIPTION": "Gain !B! Block. NL Add a random queenmod:Hive card to your hand. NL queenmod:Honey-boost: Add one more."
+    "DESCRIPTION": "Gain !B! Block. NL queenmod:Honey-boost: Add a random queenmod:Hive card to your hand."
   },
   "QueenMod:RoyalOrder": {
     "NAME": "Royal Orders",
@@ -494,7 +499,7 @@
   },
   "QueenMod:TortureDance": {
     "NAME": "Battle Dance",
-    "DESCRIPTION": "Unplayable. NL While in your hand, play a series of 4 card types in sequence to deal !D! damage to all enemies.",
+    "DESCRIPTION": "Unplayable. NL While in your hand, play a series of 3 card types in sequence to deal !D! damage to all enemies.",
     "EXTENDED_DESCRIPTION": [
       "Deal !D! damage to all enemies.",
       "I can't play this."

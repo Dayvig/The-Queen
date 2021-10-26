@@ -25,7 +25,7 @@ public class Charge extends AbstractDynamicCard {
     public static final String IMG = makeCardPath("charge.png");// "public static final String IMG = makeCardPath("${NAME}.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-    private static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    private static final String DESCRIPTION = cardStrings.DESCRIPTION;
     private static final String EXTENDED_DESCRIPTION[] = cardStrings.EXTENDED_DESCRIPTION;
 
 
@@ -58,7 +58,7 @@ public class Charge extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        CardCrawlGame.sound.playA("MARCH", ((float)Math.random()*1f) - 0.5f);
+        CardCrawlGame.sound.playA("MARCH", ((float)Math.random()) - 0.5f);
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         int drawAmnt = p.drawPile.group.size()*magicNumber / FACTOR;
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, drawAmnt));
@@ -67,7 +67,7 @@ public class Charge extends AbstractDynamicCard {
     @Override
     public void applyPowers(){
         int drawAmnt = AbstractDungeon.player.drawPile.group.size()*magicNumber / FACTOR;
-        this.rawDescription = this.description + EXTENDED_DESCRIPTION[0] + drawAmnt + EXTENDED_DESCRIPTION[1];
+        this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0] + drawAmnt + EXTENDED_DESCRIPTION[1];
     }
 
 

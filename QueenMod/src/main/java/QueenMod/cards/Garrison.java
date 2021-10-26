@@ -3,6 +3,8 @@ package QueenMod.cards;
 import QueenMod.QueenMod;
 import QueenMod.actions.FlybyAction;
 import QueenMod.characters.TheQueen;
+import QueenMod.effects.BeeAttackEffect;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -57,6 +59,7 @@ public class Garrison extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToTop(new VFXAction(new BeeAttackEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, 3, false, true), 0.01F));
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
         this.baseBlock += magicNumber;
     }

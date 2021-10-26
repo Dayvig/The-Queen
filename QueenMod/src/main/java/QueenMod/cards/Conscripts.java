@@ -2,8 +2,10 @@ package QueenMod.cards;
 
 import QueenMod.QueenMod;
 import QueenMod.characters.TheQueen;
+import QueenMod.effects.BeeAttackEffect;
 import QueenMod.interfaces.CardAddedToDeck;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -39,7 +41,7 @@ public class Conscripts extends AbstractDynamicCard {
     private static final int COST = 1;  // COST = ${COST}
 
     private static final int DAMAGE = 8;    // DAMAGE = ${DAMAGE}
-    private static final int UPGRADE_PLUS_DAMAGE = 3;
+    private static final int UPGRADE_PLUS_DAMAGE = 2;
     private int numLeft;
 
     // /STAT DECLARATION/
@@ -55,7 +57,8 @@ public class Conscripts extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         CardCrawlGame.sound.playA("BEE_ATTACK2", (float)Math.random()*0.5F - 0.5F);
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        AbstractDungeon.actionManager.addToTop(new VFXAction(new BeeAttackEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, m.hb.cX, m.hb.cY, 1, true, false), 0.01F));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(1));
     }
     /*

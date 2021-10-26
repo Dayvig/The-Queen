@@ -39,7 +39,7 @@ public class QueenOrb extends CustomEnergyOrb implements EnergyOrbInterface {
     private final String hornetLabel = "The number of Hornets in your draw pile.";
     private final String bumbleLabel = "The number of Bumblebees in your draw pile.";
     private final String workerLabel = "The number of Workerbees in your draw pile.";
-    private final String droneLabel = "The number of Drones in your draw pile. NL You can turn Drones into other bees by Recruiting.";
+    private final String droneLabel = "The number of Drones in your draw pile.";
 
     private static final String VFXTexture = ("QueenModResources/images/char/queen/orb/bee.png");
 

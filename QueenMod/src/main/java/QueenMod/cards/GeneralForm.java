@@ -47,7 +47,6 @@ public class GeneralForm extends AbstractDynamicCard {
     public GeneralForm() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = MAGIC;
-        this.isEthereal = true;
     }
 
     // Actions the card should do.
@@ -61,7 +60,6 @@ public class GeneralForm extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.isEthereal = false;
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }

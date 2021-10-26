@@ -116,7 +116,7 @@ public class HiveEventBuilding extends AbstractImageEvent {
                         if (CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck.getPurgeableCards()).size() > 0) {
                             CardGroup g = CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck.getPurgeableCards());
                             for (AbstractCard c : g.group){
-                                if (!c.rarity.equals(AbstractCard.CardRarity.BASIC)){
+                                if (!(c.rarity.equals(AbstractCard.CardRarity.BASIC)) && !(c.type.equals(AbstractCard.CardType.CURSE) || c.type.equals(AbstractCard.CardType.STATUS))){
                                     tmp2.addToBottom(c);
                                 }
                             }

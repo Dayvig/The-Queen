@@ -26,7 +26,7 @@ public class RoyalBanquet extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.RARE; //  Up to you, I like auto-complete on these
+    private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.NONE;  //   since they don't change much.
     private static final CardType TYPE = CardType.SKILL;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
@@ -34,6 +34,7 @@ public class RoyalBanquet extends AbstractDynamicCard {
     private static final int COST = 2;  // COST = ${COST}
     private static final int BLOCK = 14;
     private static final int UPGRADE_PLUS_BLOCK = 4;
+    private static final int DRAW = 0;
     // /STAT DECLARATION/
 
 
@@ -47,7 +48,7 @@ public class RoyalBanquet extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, block));
-        int boost = 1;
+        int boost = DRAW;
         if (AbstractDungeon.player.hasPower(Nectar.POWER_ID) && AbstractDungeon.player.getPower(Nectar.POWER_ID).amount >= 10){
             boost += (int)Math.floor(AbstractDungeon.player.getPower(Nectar.POWER_ID).amount/10);
         }

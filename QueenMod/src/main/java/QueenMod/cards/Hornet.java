@@ -8,6 +8,7 @@ import QueenMod.relics.Medal;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -59,8 +60,10 @@ public class Hornet extends AbstractDynamicCard implements IsHive {
         if (playedBySwarm && m.isDeadOrEscaped()){
             m =  AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng);
         }
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn)));
         AbstractDungeon.actionManager.addToTop(new VFXAction(new HornetEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, m.hb.cX, m.hb.cY, 1), 0.01F));
+        AbstractDungeon.actionManager.addToBottom(new WaitAction(0.8F));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn)));
+
         if ((Math.floor(Math.random()*2)) == 1) {
             CardCrawlGame.sound.playA("BEE_ATTACK1", 0.2F);
         }

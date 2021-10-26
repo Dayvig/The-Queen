@@ -21,7 +21,7 @@ public class ExhaustAllBeesAction extends AbstractGameAction {
     public int bee;
 
     public ExhaustAllBeesAction(int b) {
-        this.actionType = ActionType.WAIT;
+        this.actionType = ActionType.CARD_MANIPULATION;
         this.startingDuration = Settings.ACTION_DUR_FAST;
         this.duration = this.startingDuration;
         bee = b;
@@ -34,11 +34,11 @@ public class ExhaustAllBeesAction extends AbstractGameAction {
                     AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SwarmPower(AbstractDungeon.player, AbstractDungeon.player, this.bee), this.bee));
                     AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(c, AbstractDungeon.player.hand));
                 }
-                this.isDone = true;
                 if (AbstractDungeon.player.exhaustPile.size() >= 20) {
                     UnlockTracker.unlockAchievement("THE_PACT");
                 }
             }
         }
+        this.isDone = true;
     }
 }

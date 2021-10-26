@@ -77,7 +77,7 @@ public class WarriorDronePower extends AbstractPower {
 
     public void onAfterUseCard(AbstractCard c, UseCardAction a){
         if (c.cardID.equals(Drone.ID)){
-            AbstractDungeon.actionManager.addToBottom(new DamageRandomEnemyAction(new DamageInfo(this.owner, this.amount), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+            AbstractDungeon.actionManager.addToBottom(new DamageRandomEnemyAction(new DamageInfo(this.owner, this.amount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         }
     }
 

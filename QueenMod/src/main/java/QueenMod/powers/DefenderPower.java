@@ -68,14 +68,16 @@ public class DefenderPower extends AbstractPower implements CloneablePowerInterf
     public int onAttacked(DamageInfo info, int damageAmount) {
         System.out.println("numtimes: "+numTimes);
         if (usedThisTurn > 0 && info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != this.owner && this.owner.currentBlock < damageAmount) {
-                if (blockingCard.isEmpty() || damageAmount <= 0) {
-                    return damageAmount;
+                while (damageAmount > 0 && usedThisTurn > 0) {
+                    if (blockingCard.isEmpty()) {
+                        return damageAmount;
+                    }
+                    AbstractCard c = blockingCard.remove(AbstractDungeon.cardRandomRng.random(blockingCard.size() - 1));
+                    damageAmount -= c.block;
+                    AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.owner.hb.cX, this.owner.hb.cY, AbstractGameAction.AttackEffect.SHIELD));
+                    AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(c, AbstractDungeon.player.drawPile, true));
+                    usedThisTurn--;
                 }
-                AbstractCard c = blockingCard.remove(AbstractDungeon.cardRandomRng.random(blockingCard.size() - 1));
-                damageAmount -= c.block;
-                AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.owner.hb.cX, this.owner.hb.cY, AbstractGameAction.AttackEffect.SHIELD));
-                AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(c, AbstractDungeon.player.drawPile, true));
-                usedThisTurn--;
         }
         if (damageAmount == 0) {
             return damageAmount;
