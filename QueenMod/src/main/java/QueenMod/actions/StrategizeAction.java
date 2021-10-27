@@ -8,6 +8,7 @@ package QueenMod.actions;
 import QueenMod.powers.HeartOfTheSwarm;
 import QueenMod.powers.SwarmPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -48,7 +49,9 @@ public class StrategizeAction extends AbstractGameAction {
         } else {
             if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
                 AbstractCard c = AbstractDungeon.handCardSelectScreen.selectedCards.group.get(0);
-                AbstractDungeon.actionManager.addToBottom(new DiscardSpecificCardAction(c));
+                AbstractDungeon.player.hand.moveToDiscardPile(c);
+                c.triggerOnManualDiscard();
+
                 switch (c.type){
                     case ATTACK:
                         AbstractDungeon.actionManager.addToBottom(new DrawSpecificCardTypeAction(player.hand, 2, AbstractCard.CardType.SKILL));

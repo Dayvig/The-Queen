@@ -306,7 +306,7 @@ public class TheQueen extends CustomPlayer implements CustomSavable<Boolean> {
                     c.baseDamage = 0;
                 }
             }
-            if (c.cardID.equals(Conscripts.ID) || c.cardID.equals(Volunteers.ID) || c.cardID.equals(Wasps.ID)) {
+            if (c.cardID.equals(Conscripts.ID) || c.cardID.equals(Volunteers.ID) || c.cardID.equals(Wasps.ID) || (c.cardID.equals(Pheremones.ID) && c.upgraded)) {
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileActionFast(c, 2, true, false));
             }
         }

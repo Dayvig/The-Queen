@@ -2,7 +2,10 @@ package QueenMod.powers;
 
 import QueenMod.QueenMod;
 import QueenMod.actions.FormationAction;
+import QueenMod.actions.MakeTempCardInDrawPileActionFast;
+import QueenMod.cards.BumbleBee;
 import QueenMod.cards.Formation;
+import QueenMod.cards.Hornet;
 import QueenMod.interfaces.IsHive;
 import QueenMod.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
@@ -60,6 +63,7 @@ public class GeneralPower extends AbstractPower implements CloneablePowerInterfa
         updateDescription();
     }
 
+    /*
     @Override
     public void atStartOfTurn(){
         for (AbstractCard c : AbstractDungeon.player.drawPile.group){
@@ -75,6 +79,13 @@ public class GeneralPower extends AbstractPower implements CloneablePowerInterfa
             AbstractDungeon.actionManager.addToTop(new MakeTempCardInHandAction(new Formation(FormationMatrix.get(0), FormationMatrix.get(1), FormationMatrix.get(2))));
             HiveMatrix.clear();
             FormationMatrix.clear();
+        }
+    }*/
+
+        @Override
+    public void onAfterUseCard(AbstractCard c, UseCardAction a){
+        if (c instanceof IsHive){
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new SwarmPower(this.owner, this.owner, this.amount), this.amount));
         }
     }
 

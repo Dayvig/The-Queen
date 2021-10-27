@@ -162,7 +162,7 @@
 },
   "QueenMod:Feast": {
   "NAME": "Consume",
-  "DESCRIPTION": "Ethereal. NL Deal !D! damage and queenmod:Lock your queenmod:Swarm on the target. Deals additional damage equal to your total queenmod:Swarm.",
+  "DESCRIPTION": "Deal !D! damage twice. (Increased by your total queenmod:Swarm .) NL If Fatal, Heal 6.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage and queenmod:Lock your queenmod:Swarm on the target. Deals additional damage equal to your total queenmod:Swarm."
 },
   "QueenMod:BirthingCells": {
@@ -210,8 +210,8 @@
     "DESCRIPTION": "queenmod:Honey-boost: Deal !D! damage to all enemies."
   },
   "QueenMod:GeneralForm": {
-    "NAME": "General Form",
-    "DESCRIPTION": "When you play a card, spend 5 queenmod:Nectar to gain [E] . NL Ethereal.",
+    "NAME": "Royal Form",
+    "DESCRIPTION": "When you play a queenmod:Hive card, gain !M! queenmod:Swarm.",
     "UPGRADE_DESCRIPTION": "When you play a card, spend 5 queenmod:Nectar to gain [E] ."
   },
   "QueenMod:InspiringStrike": {
@@ -540,7 +540,7 @@
   "QueenMod:Pheremones": {
     "NAME": "Pheremone Trail",
     "DESCRIPTION": "queenmod:Strategize.",
-    "UPGRADE_DESCRIPTION": "Retain. NL queenmod:Strategize."
+    "UPGRADE_DESCRIPTION": "queenmod:Strategize. NL queenmod:Multiply."
   },
   "QueenMod:WaxCrafters": {
     "NAME": "Wax Crafters",
@@ -563,7 +563,7 @@
     "DESCRIPTION": "Add !M! Drones to your draw pile. NL Exhaust."
   },
   "QueenMod:Assault": {
-    "NAME": "All-out Assault",
+    "NAME": "Thermal Assault",
     "DESCRIPTION": "Deal !D! damage !M! times. NL Exhaust."
   }
 }

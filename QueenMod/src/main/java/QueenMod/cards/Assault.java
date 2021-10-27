@@ -3,14 +3,19 @@ package QueenMod.cards;
 import QueenMod.QueenMod;
 import QueenMod.characters.TheQueen;
 import QueenMod.effects.BeeAttackEffect;
+import QueenMod.effects.ThermalAttackEffect;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.FireBurstParticleEffect;
+import com.megacrit.cardcrawl.vfx.FlameAnimationEffect;
+import com.megacrit.cardcrawl.vfx.combat.FireballEffect;
 
 import static QueenMod.QueenMod.makeCardPath;
 
@@ -54,15 +59,7 @@ public class Assault extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (int i=0;i<magicNumber;i++) {
-            if ((Math.floor(Math.random()*2)) == 1) {
-                CardCrawlGame.sound.playA("BEE_ATTACK1", (float)Math.random()*0.3F + 0.3F);
-            }
-            else {
-                CardCrawlGame.sound.playA("BEE_ATTACK2", (float)Math.random()*0.3F + 0.3F);
-            }
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        }
+        AbstractDungeon.effectsQueue.add(new ThermalAttackEffect(true, m, damage, damageTypeForTurn, magicNumber));
     }
 
 

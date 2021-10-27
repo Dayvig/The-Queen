@@ -11,6 +11,7 @@ import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.InvisiblePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -34,7 +35,7 @@ import static com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase.COMBAT;
 
 //Gain 1 dex for the turn for each card played.
 
-public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInterface {
+public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInterface, InvisiblePower {
     public AbstractCreature source;
 
     public static final String POWER_ID = QueenMod.makeID("HeartOfTheSwarm");
@@ -110,10 +111,10 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
             if (c.type.equals(AbstractCard.CardType.STATUS) || c.type.equals(AbstractCard.CardType.CURSE) || c.type.equals(AbstractCard.CardType.POWER)) {
                 return;
             }
-            else if (c.cardID.equals(Feast.ID)) {
+            /*else if (c.cardID.equals(Feast.ID)) {
                 AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, true, totalSwarm, a));
                 AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(a.target, AbstractDungeon.player, SwarmPowerEnemy.POWER_ID));
-            }
+            }*/
             else if (c.cardID.equals(Mark.ID)) {
                 AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, true, totalSwarm, a));
                 AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(a.target, AbstractDungeon.player, SwarmPowerEnemy.POWER_ID));

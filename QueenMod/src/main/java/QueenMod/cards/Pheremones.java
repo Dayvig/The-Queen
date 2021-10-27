@@ -59,7 +59,6 @@ public class Pheremones extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.selfRetain = true;
             rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
