@@ -41,21 +41,21 @@
     "NAME": "Honey Pot",
     "FLAVOR": "A hereto unknown technology allowing the long term storage of nectar. Remarkable.",
     "DESCRIPTIONS": [
-      "Conserve 20% of your Nectar between combats. (Max 10.)"
+      "Conserve 20% of your #yqueenmod:Nectar between combats. (Max 10.)"
     ]
   },
   "QueenMod:Medal": {
     "NAME": "Medal of Honor",
     "FLAVOR": "Some troops will distinguish themselves on the battlefield, and fight not for money or glory, but for their nation and their pride.",
     "DESCRIPTIONS": [
-      "At the start of your turn, #yHornets and #yBumblebees in your hand cost 0."
+      "At the start of your turn, #yqueenmod:Hornets and #yqueenmod:Bumblebees in your hand cost 0."
     ]
   },
   "QueenMod:DraftNotice": {
     "NAME": "Love Letters",
     "FLAVOR": "The Queen has no shortage of suitors.",
     "DESCRIPTIONS": [
-      "At the start of combat, add 3 Drones to your draw pile. (0-cost skills which draw 2 cards and Exhaust.)"
+      "At the start of combat, add 3 #yqueenmod:Drones to your draw pile."
     ]
   },
   "QueenMod:BloatedManual": {
@@ -69,7 +69,7 @@
     "NAME": "White Hibiscus",
     "FLAVOR": "A beautiful flower whose pollen has a calming effect on those around it.",
     "DESCRIPTIONS": [
-      "When you apply Pollinate, also reduce the target's Strength by the same amount for the turn."
+      "When you apply #yqueenmod:Pollinate, also reduce the target's Strength by the same amount for the turn."
     ]
   },
   "QueenMod:QueenSceptre": {
@@ -83,7 +83,7 @@
     "NAME": "LÄMP",
     "FLAVOR": "For some reason, is an insect magnet.",
     "DESCRIPTIONS": [
-      "At the start of combat, gain 4 Swarm."
+      "At the start of combat, gain 4 #yqueenmod:Swarm."
     ]
   },
   "QueenMod:Tiara": {
@@ -97,7 +97,7 @@
     "NAME": "Hornet's Nest",
     "FLAVOR": "Don't poke it.",
     "DESCRIPTIONS": [
-      "The first time you lose HP this combat, add 3 Hornets to your hand."
+      "The first time you lose HP this combat, add 3 #yqueenmod:Hornets to your hand."
     ]
   }
 }

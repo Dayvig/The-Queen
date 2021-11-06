@@ -70,7 +70,7 @@ public class ThermalAttackEffect extends AbstractGameEffect {
             AbstractDungeon.effectsQueue.add(new ThermalAttackParticle(
                     AbstractDungeon.player.hb.x + 50F,
                     AbstractDungeon.player.hb.y + 50F,
-                    m.hb.x + m.hb.width/2, m.hb.y+m.hb.height/2, 100f, this.duration));
+                    m.hb.x + m.hb.width/2, m.hb.y+m.hb.height/2, 100f, this.duration + 0.2F));
         }
         if (damageTimer < 0.0f && !damageOff){
             for (int i = 0; i < mag; i++) {

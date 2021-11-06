@@ -230,11 +230,12 @@
                 ]
         },
         "QueenMod:GeneralPower": {
-                "NAME": "Royal Form",
+                "NAME": "General Power",
                 "DESCRIPTIONS": [
-                        "When you play a Hornet, Gain 1 Strength. When you play a BumbleBee, Gain 1 Dexterity. When you play a Honeybee, Gain 1 Production. NL When you play a Drone, draw 1 card next turn.",
-                        "",
-                        ""
+                        "When you play a hornet, gain #b",
+                        " Strength. NL ",
+                        "When you play a BumbleBee, gain #b",
+                        " Dexterity."
                 ]
         },
         "QueenMod:FromScratch": {

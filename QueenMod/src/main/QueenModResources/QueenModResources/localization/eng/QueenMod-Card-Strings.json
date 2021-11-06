@@ -210,7 +210,7 @@
     "DESCRIPTION": "queenmod:Honey-boost: Deal !D! damage to all enemies."
   },
   "QueenMod:GeneralForm": {
-    "NAME": "Royal Form",
+    "NAME": "General Form",
     "DESCRIPTION": "When you play a Hornet, Gain !M! Strength. NL When you play a BumbleBee, Gain !M! Dexterity.",
     "UPGRADE_DESCRIPTION": ""
   },

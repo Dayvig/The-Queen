@@ -32,7 +32,7 @@ public class RoyalBanquet extends AbstractDynamicCard {
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
     private static final int COST = 2;  // COST = ${COST}
-    private static final int BLOCK = 14;
+    private static final int BLOCK = 12;
     private static final int UPGRADE_PLUS_BLOCK = 4;
     private static final int DRAW = 0;
     // /STAT DECLARATION/

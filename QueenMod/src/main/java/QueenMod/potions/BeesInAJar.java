@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.PotionStrings;
@@ -28,7 +29,9 @@ public class BeesInAJar extends AbstractPotion {
     public BeesInAJar() {
         // The bottle shape and inside is determined by potion size and color. The actual colors are the main QueenMod.java
         super(NAME, POTION_ID, PotionRarity.COMMON, PotionSize.JAR, PotionEffect.NONE, Color.CLEAR, Color.CLEAR, Color.BROWN);
-        
+        this.labOutlineColor = Settings.LIGHT_YELLOW_COLOR;
+
+
         // Potency is the damage/magic number equivalent of potions.
         potency = getPotency();
         

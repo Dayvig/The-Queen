@@ -110,7 +110,7 @@ public class QueenMod implements
 
     // Character assets
     private static final String QUEEN_BUTTON = "QueenModResources/images/charSelect/DefaultCharacterButton.png";
-    private static final String QUEEN_PORTRAIT = "QueenModResources/images/charSelect/DefaultCharacterPortraitBG.png";
+    private static final String QUEEN_PORTRAIT = "QueenModResources/images/charSelect/QueenBG.png";
     public static final String QUEEN_SHOULDER_1 = "QueenModResources/images/char/queen/shoulder.png";
     public static final String QUEEN_SHOULDER_2 = "QueenModResources/images/char/queen/shoulder2.png";
     public static final String QUEEN_CORPSE = "QueenModResources/images/char/queen/corpse.png";

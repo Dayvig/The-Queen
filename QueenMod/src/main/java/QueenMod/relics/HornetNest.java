@@ -25,8 +25,8 @@ public class HornetNest extends CustomRelic {
     // ID, images, text.
     public static final String ID = QueenMod.makeID("HornetNest");
 
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("honeyjar.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("honeyjar.png"));
+    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("hornetnest.png"));
+    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("hornetnest.png"));
 
     private boolean usedThisCombat;
 
