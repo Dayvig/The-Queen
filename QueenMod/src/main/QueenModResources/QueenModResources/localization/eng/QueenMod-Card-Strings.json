@@ -211,8 +211,8 @@
   },
   "QueenMod:GeneralForm": {
     "NAME": "Royal Form",
-    "DESCRIPTION": "When you play a queenmod:Hive card, gain !M! queenmod:Swarm.",
-    "UPGRADE_DESCRIPTION": "When you play a card, spend 5 queenmod:Nectar to gain [E] ."
+    "DESCRIPTION": "When you play a Hornet, Gain !M! Strength. NL When you play a BumbleBee, Gain !M! Dexterity.",
+    "UPGRADE_DESCRIPTION": ""
   },
   "QueenMod:InspiringStrike": {
     "NAME": "Inspiring Strike",
@@ -363,8 +363,8 @@
   },
   "QueenMod:Fortify":{
     "NAME": "Fortify",
-    "DESCRIPTION": "Gain Block equal to the number of cards in your draw pile (Max 20.)",
-    "UPGRADE_DESCRIPTION": "Gain Block equal to the number of cards in your draw pile.",
+    "DESCRIPTION": "Gain Block equal to the number of cards in your draw pile.",
+    "UPGRADE_DESCRIPTION": "Gain Block equal to the number of cards in your draw pile + 5.",
     "EXTENDED_DESCRIPTION": [
       " NL ( ",
       " Block.)"
@@ -565,5 +565,9 @@
   "QueenMod:Assault": {
     "NAME": "Thermal Assault",
     "DESCRIPTION": "Deal !D! damage !M! times. NL Exhaust."
+  },
+  "QueenMod:Plague": {
+    "NAME": "Plague",
+    "DESCRIPTION": "Apply !M! queenmod:Swarm to a random target X times."
   }
 }

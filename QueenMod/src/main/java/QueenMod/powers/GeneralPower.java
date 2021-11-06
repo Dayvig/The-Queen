@@ -4,6 +4,7 @@ import QueenMod.QueenMod;
 import QueenMod.actions.FormationAction;
 import QueenMod.actions.MakeTempCardInDrawPileActionFast;
 import QueenMod.cards.BumbleBee;
+import QueenMod.cards.Drone;
 import QueenMod.cards.Formation;
 import QueenMod.cards.Hornet;
 import QueenMod.interfaces.IsHive;
@@ -19,6 +20,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import java.text.Normalizer;
@@ -31,7 +34,7 @@ import static QueenMod.QueenMod.makePowerPath;
 public class GeneralPower extends AbstractPower implements CloneablePowerInterface {
     public AbstractCreature source;
 
-    public static final String POWER_ID = QueenMod.makeID("AttackNextTurnPower");
+    public static final String POWER_ID = QueenMod.makeID("GeneralPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
@@ -58,7 +61,6 @@ public class GeneralPower extends AbstractPower implements CloneablePowerInterfa
         // We load those txtures here.
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
-        this.loadRegion("flight");
 
         updateDescription();
     }
@@ -85,7 +87,12 @@ public class GeneralPower extends AbstractPower implements CloneablePowerInterfa
         @Override
     public void onAfterUseCard(AbstractCard c, UseCardAction a){
         if (c instanceof IsHive){
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new SwarmPower(this.owner, this.owner, this.amount), this.amount));
+            if (c.cardID.equals(Hornet.ID)) {
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new StrengthPower(this.owner, this.amount)));
+            }
+            else if (c.cardID.equals(BumbleBee.ID)) {
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new DexterityPower(this.owner, this.amount)));
+            }
         }
     }
 

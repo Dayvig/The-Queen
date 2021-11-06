@@ -325,6 +325,7 @@ public class QueenMod implements
         BaseMod.addRelicToCustomPool(new QueenSceptre(), TheQueen.Enums.COLOR_YELLOW);
         BaseMod.addRelicToCustomPool(new Tiara(), TheQueen.Enums.COLOR_YELLOW);
         BaseMod.addRelicToCustomPool(new BugLantern(), TheQueen.Enums.COLOR_YELLOW);
+        BaseMod.addRelicToCustomPool(new HornetNest(), TheQueen.Enums.COLOR_YELLOW);
 
         // This adds a relic to the Shared pool. Every character can find this relic.
 
@@ -338,6 +339,7 @@ public class QueenMod implements
         UnlockTracker.markRelicAsSeen(Tiara.ID);
         UnlockTracker.markRelicAsSeen(BugLantern.ID);
         UnlockTracker.markRelicAsSeen(QueensBanner.ID);
+        UnlockTracker.markRelicAsSeen(HornetNest.ID);
 
         logger.info("Done adding relics!");
     }
@@ -477,6 +479,7 @@ public class QueenMod implements
         BaseMod.addCard(new MatingDance());
         BaseMod.addCard(new Multiply());
         BaseMod.addCard(new GeneralForm());
+        BaseMod.addCard(new Plague());
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -580,6 +583,7 @@ public class QueenMod implements
         UnlockTracker.unlockCard(WaxCrafters.ID);
         UnlockTracker.unlockCard(Coronation.ID);
         //UnlockTracker.unlockCard(Princess.ID);
+        UnlockTracker.unlockCard(Plague.ID);
 
         logger.info("Done adding cards!");
     }

@@ -69,10 +69,11 @@ public class Fortify extends AbstractDynamicCard {
             return;
         }
 
-        baseBlock = AbstractDungeon.player.drawPile.group.size();
-
-        if (!upgraded && baseBlock > 20){
-            baseBlock = 20;
+        if (upgraded) {
+            baseBlock = AbstractDungeon.player.drawPile.group.size() + 5;
+        }
+        else {
+            baseBlock = AbstractDungeon.player.drawPile.group.size();
         }
         if (upgraded) {
             this.rawDescription = UPGRADE_DESCRIPTION + EXTENDED_DESCRIPTION[0] + block + EXTENDED_DESCRIPTION[1];

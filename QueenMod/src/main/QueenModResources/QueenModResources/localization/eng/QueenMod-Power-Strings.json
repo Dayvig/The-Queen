@@ -230,10 +230,10 @@
                 ]
         },
         "QueenMod:GeneralPower": {
-                "NAME": "General Form",
+                "NAME": "Royal Form",
                 "DESCRIPTIONS": [
-                        "When you play a card, spend 5 queenmod:Nectar to gain [E] ",
-                        "/10",
+                        "When you play a Hornet, Gain 1 Strength. When you play a BumbleBee, Gain 1 Dexterity. When you play a Honeybee, Gain 1 Production. NL When you play a Drone, draw 1 card next turn.",
+                        "",
                         ""
                 ]
         },

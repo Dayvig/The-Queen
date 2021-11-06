@@ -92,5 +92,12 @@
     "DESCRIPTIONS": [
       "When you would die, instead reduce your Max HP by half, and fully heal, then replace your Deck with 10 random cards, keeping all Hive cards you currently have. (Works once.)"
     ]
+  },
+  "QueenMod:HornetNest": {
+    "NAME": "Hornet's Nest",
+    "FLAVOR": "Don't poke it.",
+    "DESCRIPTIONS": [
+      "The first time you lose HP this combat, add 3 Hornets to your hand."
+    ]
   }
 }
