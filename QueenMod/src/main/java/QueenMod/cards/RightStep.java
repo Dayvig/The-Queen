@@ -20,12 +20,12 @@ import com.megacrit.cardcrawl.vfx.combat.FireballEffect;
 import static QueenMod.QueenMod.makeCardPath;
 
 // public class ${NAME} extends AbstractDynamicCard
-public class Assault extends AbstractDynamicCard {
+public class RightStep extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = QueenMod.makeID(Assault.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
-    public static final String IMG = makeCardPath("assault.png");// "public static final String IMG = makeCardPath("${NAME}.png");
+    public static final String ID = QueenMod.makeID(RightStep.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
+    public static final String IMG = makeCardPath("rightstep.png");// "public static final String IMG = makeCardPath("${NAME}.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
 
@@ -34,32 +34,31 @@ public class Assault extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.RARE; //  Up to you, I like auto-complete on these
+    private static final CardRarity RARITY = CardRarity.SPECIAL; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
-    private static final int COST = 2;  // COST = ${COST}
+    private static final int COST = 0;  // COST = ${COST}
 
     private static final int DAMAGE = 2;    // DAMAGE = ${DAMAGE}
-    private static final int MAGIC = 8;
-    private static final int UPGRADE_PLUS_MAGIC = 2;
+    private static final int UPGRADE_PLUS_DAMAGE = 2;
 
     // /STAT DECLARATION/
 
 
-    public Assault() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
+    public RightStep() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
-        baseMagicNumber = magicNumber = MAGIC;
         this.exhaust = true;
+        this.isEthereal = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.effectsQueue.add(new ThermalAttackEffect(true, m, damage, damageTypeForTurn, magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
     }
 
 
@@ -68,7 +67,7 @@ public class Assault extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
+            upgradeDamage(UPGRADE_PLUS_DAMAGE);
             initializeDescription();
         }
     }

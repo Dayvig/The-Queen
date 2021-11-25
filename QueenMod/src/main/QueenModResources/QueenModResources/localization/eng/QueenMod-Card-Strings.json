@@ -216,7 +216,7 @@
   },
   "QueenMod:InspiringStrike": {
     "NAME": "Inspiring Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Upgrade a random card in your draw pile.",
+    "DESCRIPTION": "Deal !D! damage. NL Upgrade !M! random cards in your draw pile.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Upgrade !M! random cards in your draw pile."
   },
   "QueenMod:HornetCommander": {
@@ -355,7 +355,7 @@
   },
   "QueenMod:Rally":{
     "NAME": "Rally",
-    "DESCRIPTION": "Gain !M! Strength this turn only. NL Draw a card."
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! Strength this turn only."
   },
   "QueenMod:FullRetreat":{
     "NAME": "Full Retreat",
@@ -569,5 +569,22 @@
   "QueenMod:Plague": {
     "NAME": "Plague",
     "DESCRIPTION": "Apply !M! queenmod:Swarm to a random target X times."
+  },
+  "QueenMod:RightStep": {
+    "NAME": "Right Step",
+    "DESCRIPTION": "Deal !D! damage. NL Ethereal. NL Exhaust."
+  },
+  "QueenMod:LeftStep": {
+    "NAME": "Left Step",
+    "DESCRIPTION": "Gain !B! Block. NL Ethereal. NL Exhaust."
+  },
+  "QueenMod:Groove": {
+    "NAME": "Groove",
+    "DESCRIPTION": "Ethereal."
+  },
+  "QueenMod:DiscoHex": {
+    "NAME": "Disco Hex",
+    "DESCRIPTION": "Add a Groove to your hand. NL Add a Left Step and Right step to your hand. Repeat until your hand is full.",
+    "UPGRADE_DESCRIPTION": "Add a Groove+ to your hand. NL Add a Left Step+ and Right step+ to your hand. Repeat until your hand is full."
   }
 }

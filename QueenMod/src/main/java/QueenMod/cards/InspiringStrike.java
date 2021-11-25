@@ -32,7 +32,7 @@ public class InspiringStrike extends AbstractDynamicCard {
 
     // STAT DECLARATION
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON; //  Up to you, I like auto-complete on these
+    private static final CardRarity RARITY = CardRarity.COMMON; //  Up to you, I like auto-complete on these
     private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
@@ -41,6 +41,7 @@ public class InspiringStrike extends AbstractDynamicCard {
     private static final int UPGRADED_COST = 1; // UPGRADED_COST = ${UPGRADED_COST}
 
     private static final int DAMAGE = 6;    // DAMAGE = ${DAMAGE}
+    private static final int MAGIC = 2;
     private static final int UPGRADE_PLUS_DAMAGE = 2;
     private static final int UPGRADE_PLUS_MAGIC = 1;
 
@@ -49,8 +50,8 @@ public class InspiringStrike extends AbstractDynamicCard {
 
     public InspiringStrike() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = DAMAGE;
-        this.baseMagicNumber = this.magicNumber = 1;
+        baseDamage = damage = DAMAGE;
+        this.baseMagicNumber = this.magicNumber = MAGIC;
         this.tags.add(CardTags.STRIKE);
     }
 

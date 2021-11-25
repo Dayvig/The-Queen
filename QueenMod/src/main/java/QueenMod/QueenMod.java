@@ -480,6 +480,7 @@ public class QueenMod implements
         BaseMod.addCard(new Multiply());
         BaseMod.addCard(new GeneralForm());
         BaseMod.addCard(new Plague());
+        BaseMod.addCard(new DiscoHex());
 
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -584,6 +585,7 @@ public class QueenMod implements
         UnlockTracker.unlockCard(Coronation.ID);
         //UnlockTracker.unlockCard(Princess.ID);
         UnlockTracker.unlockCard(Plague.ID);
+        UnlockTracker.unlockCard(DiscoHex.ID);
 
         logger.info("Done adding cards!");
     }

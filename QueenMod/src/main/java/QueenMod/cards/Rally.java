@@ -33,6 +33,8 @@ public class Rally extends AbstractDynamicCard {
 
     private static final int COST = 1;  // COST = ${COST}
     private static final int MAGIC = 4;
+    private static final int BLOCK = 4;
+    private static final int UPGRADE_PLUS_BLOCK = 2;
     private static final int UPGRADE_PLUS_MAGIC = 1;
 
     // /STAT DECLARATION/
@@ -41,6 +43,7 @@ public class Rally extends AbstractDynamicCard {
     public Rally() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
+        baseBlock = block = BLOCK;
     }
 
 
@@ -49,7 +52,7 @@ public class Rally extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p, new StrengthPower(p, magicNumber),magicNumber));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LoseStrengthPower(p, magicNumber), magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, 1));
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, block));
     }
 
 
@@ -59,6 +62,7 @@ public class Rally extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
+            upgradeBlock(UPGRADE_PLUS_BLOCK);
             initializeDescription();
         }
     }

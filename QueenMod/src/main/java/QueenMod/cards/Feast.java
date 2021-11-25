@@ -46,8 +46,8 @@ public class Feast extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheQueen.Enums.COLOR_YELLOW;
 
-    private static final int COST = 2;  // COST = ${COST}
-    private static final int DAMAGE = 8;
+    private static final int COST = 1;  // COST = ${COST}
+    private static final int DAMAGE = 5;
     private static final int UPGRADE_PLUS_DAMAGE = 2;
     private static final int MAGIC = 6;
     // /STAT DECLARATION/
@@ -99,15 +99,10 @@ public class Feast extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         CardCrawlGame.sound.playA("BEE_SLOW", -0.2F);
-
+        for (int i = 0;i<2;i++) {
             AbstractDungeon.actionManager.addToBottom(new VFXAction(new BiteEffect((m.hb.cX + (float) Math.random() * 40f - 20f) * Settings.scale, (m.hb.cY + (float) Math.random() * 40.0F - 20f - 40.0F) * Settings.scale, Color.SCARLET.cpy()), 0.05F));
-            AbstractDungeon.actionManager.addToBottom(new FeastAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), magicNumber, false));
-            AbstractDungeon.actionManager.addToBottom(new WaitAction(0.25f));
-
-            AbstractDungeon.actionManager.addToBottom(new VFXAction(new BiteEffect((m.hb.cX + (float) Math.random() * 40f - 20f) * Settings.scale, (m.hb.cY + (float) Math.random() * 40.0F - 20f - 40.0F) * Settings.scale, Color.SCARLET.cpy()), 0.05F));
-            AbstractDungeon.actionManager.addToBottom(new FeastAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), magicNumber, true));
-            AbstractDungeon.actionManager.addToBottom(new WaitAction(0.25f));
-
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), false));
+        }
     }
 
     // Upgraded stats.
