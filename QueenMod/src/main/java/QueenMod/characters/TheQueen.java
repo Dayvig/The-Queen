@@ -22,6 +22,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
@@ -34,6 +35,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static QueenMod.QueenMod.*;
 import static QueenMod.characters.TheQueen.Enums.COLOR_YELLOW;
@@ -281,6 +283,15 @@ public class TheQueen extends CustomPlayer implements CustomSavable<Boolean> {
     @Override
     public String getSpireHeartText() {
         return TEXT[1];
+    }
+
+    @Override
+    public List<CutscenePanel> getCutscenePanels() {
+        List<CutscenePanel> panels = new ArrayList();
+        panels.add(new CutscenePanel("QueenModResources/images/events/heartimage1.png", "ATTACK_HEAVY"));
+        panels.add(new CutscenePanel("QueenModResources/images/events/heartimage2.png"));
+        panels.add(new CutscenePanel("QueenModResources/images/events/heartimage3.png"));
+        return panels;
     }
 
     // The vampire events refer to the base game characters as "brother", "sister",

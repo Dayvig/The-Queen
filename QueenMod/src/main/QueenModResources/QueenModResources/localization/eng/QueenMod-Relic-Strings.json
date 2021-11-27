@@ -62,7 +62,7 @@
     "NAME": "Bloated Manual",
     "FLAVOR": "I assure you, every bit of information is essential.",
     "DESCRIPTIONS": [
-      "At the end of the turn, Scry 1 for every 10 cards in your draw pile."
+      "At the start of your turn, if you have 8 or more cards in your draw pile, #yqueenmod:Strategize."
     ]
   },
   "QueenMod:WhiteHibiscus": {

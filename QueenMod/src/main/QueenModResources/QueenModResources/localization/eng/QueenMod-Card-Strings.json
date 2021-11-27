@@ -162,8 +162,8 @@
 },
   "QueenMod:Feast": {
   "NAME": "Consume",
-  "DESCRIPTION": "Deal !D! damage twice. (Increased by your total queenmod:Swarm .) NL If Fatal, Heal 6.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage and queenmod:Lock your queenmod:Swarm on the target. Deals additional damage equal to your total queenmod:Swarm."
+  "DESCRIPTION": "Deal !D! damage twice. (Increased by your total queenmod:Swarm .)",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage twice. (Increased by your total queenmod:Swarm .)"
 },
   "QueenMod:BirthingCells": {
     "NAME": "Birthing Cells",
@@ -584,7 +584,7 @@
   },
   "QueenMod:DiscoHex": {
     "NAME": "Disco Hex",
-    "DESCRIPTION": "Add a Groove to your hand. NL Add a Left Step and Right step to your hand. Repeat until your hand is full.",
-    "UPGRADE_DESCRIPTION": "Add a Groove+ to your hand. NL Add a Left Step+ and Right step+ to your hand. Repeat until your hand is full."
+    "DESCRIPTION": "Add a Groove to your hand. NL Add a Right Step and Left Step to your hand. Repeat until your hand is full.",
+    "UPGRADE_DESCRIPTION": "Add a Groove+ to your hand. NL Add a Right Step+ and Left step+ to your hand. Repeat until your hand is full."
   }
 }

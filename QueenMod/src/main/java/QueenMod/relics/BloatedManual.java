@@ -3,6 +3,7 @@ package QueenMod.relics;
 import QueenMod.QueenMod;
 import QueenMod.actions.MakeTempCardInDrawPileActionFast;
 import QueenMod.actions.ManualAction;
+import QueenMod.actions.StrategizeAction;
 import QueenMod.cards.Drone;
 import QueenMod.powers.Nectar;
 import QueenMod.util.TextureLoader;
@@ -24,13 +25,15 @@ public class BloatedManual extends CustomRelic {
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("manual.png"));
 
     public BloatedManual() {
-        super(ID, IMG, OUTLINE, RelicTier.UNCOMMON, LandingSound.SOLID);
+        super(ID, IMG, OUTLINE, RelicTier.SHOP, LandingSound.SOLID);
     }
 
     @Override
-    public void onPlayerEndTurn() {
-            AbstractDungeon.actionManager.addToTop(new ManualAction());
+    public void atTurnStart() {
+        if (AbstractDungeon.player.drawPile.size() >= 8) {
+            AbstractDungeon.actionManager.addToTop(new StrategizeAction());
             this.flash();
+        }
     }
 
 

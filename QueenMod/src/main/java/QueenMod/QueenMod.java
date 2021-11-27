@@ -320,10 +320,10 @@ public class QueenMod implements
         BaseMod.addRelicToCustomPool(new HoneyJar(), TheQueen.Enums.COLOR_YELLOW);
         BaseMod.addRelicToCustomPool(new Medal(), TheQueen.Enums.COLOR_YELLOW);
         BaseMod.addRelicToCustomPool(new DraftNotice(), TheQueen.Enums.COLOR_YELLOW);
-        //BaseMod.addRelicToCustomPool(new BloatedManual(), TheQueen.Enums.COLOR_YELLOW);
+        BaseMod.addRelicToCustomPool(new BloatedManual(), TheQueen.Enums.COLOR_YELLOW);
         BaseMod.addRelicToCustomPool(new WhiteHibiscus(), TheQueen.Enums.COLOR_YELLOW);
         BaseMod.addRelicToCustomPool(new QueenSceptre(), TheQueen.Enums.COLOR_YELLOW);
-        BaseMod.addRelicToCustomPool(new Tiara(), TheQueen.Enums.COLOR_YELLOW);
+        //BaseMod.addRelicToCustomPool(new Tiara(), TheQueen.Enums.COLOR_YELLOW);
         BaseMod.addRelicToCustomPool(new BugLantern(), TheQueen.Enums.COLOR_YELLOW);
         BaseMod.addRelicToCustomPool(new HornetNest(), TheQueen.Enums.COLOR_YELLOW);
 
@@ -336,7 +336,7 @@ public class QueenMod implements
         UnlockTracker.markRelicAsSeen(BloatedManual.ID);
         UnlockTracker.markRelicAsSeen(DraftNotice.ID);
         UnlockTracker.markRelicAsSeen(QueenSceptre.ID);
-        UnlockTracker.markRelicAsSeen(Tiara.ID);
+        //UnlockTracker.markRelicAsSeen(Tiara.ID);
         UnlockTracker.markRelicAsSeen(BugLantern.ID);
         UnlockTracker.markRelicAsSeen(QueensBanner.ID);
         UnlockTracker.markRelicAsSeen(HornetNest.ID);
