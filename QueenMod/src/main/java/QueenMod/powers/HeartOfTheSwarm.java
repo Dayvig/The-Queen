@@ -127,11 +127,6 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
             else if (c.cardID.equals(HoldPosition.ID)) {
                 AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, true, totalSwarm, a));
             }
-            else if (c.cardID.equals(Feint.ID)){
-                AbstractCard tmp = c.makeStatEquivalentCopy();
-                tmp.target = AbstractCard.CardTarget.NONE;
-                AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(tmp, false, totalSwarm, a));
-            }
             else if (c.cardID.equals(Anticipate.ID) || c.cardID.equals(Parry.ID)) {
                 AbstractCard tmp = c.makeStatEquivalentCopy();
                 tmp.target = AbstractCard.CardTarget.SELF;
@@ -150,7 +145,11 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
                 AbstractCard tmp = c.makeStatEquivalentCopy();
                 tmp.target = ALL_ENEMY;
                 AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(tmp, true, totalSwarm, a));
-            } else {
+            }
+            else if (c.target.equals(AbstractCard.CardTarget.SELF) && c.baseBlock == -1){
+                return;
+            }
+            else {
                 AbstractDungeon.actionManager.addToBottom(new DistributeSwarmAction(c, false, totalSwarm, a));
             }
         }

@@ -42,7 +42,6 @@ public class HornetSwarmAction extends AbstractGameAction {
 
     private void discardFromLimbo (){
         for (AbstractCard c : AbstractDungeon.player.limbo.group){
-            System.out.println("Trace");
             AbstractDungeon.actionManager.addToBottom(new UnlimboAction(c));
         }
     }

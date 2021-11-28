@@ -62,7 +62,7 @@ public class AmbushAction extends AbstractGameAction {
             return;
         }
         for (AbstractCard c : p.group) {
-            if (!c.freeToPlayOnce && c.cost != 0) {
+            if (!c.freeToPlayOnce && c.cost != 0 && !c.type.equals(AbstractCard.CardType.CURSE) && !c.type.equals(AbstractCard.CardType.STATUS)) {
                 upgradeMatrix.add(c);
             }
         }

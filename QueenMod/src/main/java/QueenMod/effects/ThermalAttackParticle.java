@@ -68,7 +68,6 @@ public class ThermalAttackParticle extends AbstractGameEffect {
 
     public void update() {
         if (this.duration > (startingDuration - DUR_1)){
-            System.out.println("Stage 1");
             //1.65 to 1.40
             //DUR1 = 0.25
             //startingDuration - DUR1 = 1.40
@@ -76,7 +75,6 @@ public class ThermalAttackParticle extends AbstractGameEffect {
             this.y = Interpolation.linear.apply(vY, sY, (this.duration - (startingDuration-DUR_1)) / DUR_1);
         }
         else if (this.duration > ((startingDuration - DUR_1 - wait))){
-            System.out.println("Stage 2");
         }
         else if (this.duration > ((startingDuration - DUR_1 - wait - DUR_2))){
             //float currentDur = ((wait + DUR_2));
@@ -84,7 +82,6 @@ public class ThermalAttackParticle extends AbstractGameEffect {
                 //CardCrawlGame.sound.playA("ATTACK_FIRE", 0.2f);
                 sfXTimer = 0.2f;
             }
-            System.out.println("Stage 3");
             int newAngle = (int)(Math.random()*360);
             int newRadius = 15;
             this.x = vX + (newRadius * (float)Math.cos(newAngle * (Math.PI / 180)));
@@ -94,7 +91,6 @@ public class ThermalAttackParticle extends AbstractGameEffect {
             //this.scale = Interpolation.pow2In.apply(1.0F, 1.5F, (this.duration - DUR_1 - currentDur) / currentDur) * Settings.scale;
         }
         else {
-            System.out.println("Stage 4");
             this.color.g = 1.0f;
             this.color.b = 1.0f;
             //0.15 to 0.0
@@ -107,7 +103,6 @@ public class ThermalAttackParticle extends AbstractGameEffect {
         this.sfXTimer -= Gdx.graphics.getDeltaTime();
 
         if (this.duration < 0){
-            System.out.println("Done");
             this.isDone = true;
         }
 

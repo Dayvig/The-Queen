@@ -64,7 +64,6 @@ public class BeeAttackParticle extends AbstractGameEffect {
 
     public void update() {
 
-        System.out.println("Running2");
         this.x = Interpolation.pow2In.apply(this.tX, this.sX, this.duration / this.startingDuration);
         this.y = Interpolation.pow2In.apply(this.tY, this.sY, this.duration / this.startingDuration);
 
