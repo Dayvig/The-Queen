@@ -54,6 +54,7 @@ public class FlankingStrike extends AbstractDynamicCard {
         baseDamage = DAMAGE;
         this.baseMagicNumber = this.magicNumber = MAGIC;
         this.exhaust = true;
+        this.isMultiDamage = true;
     }
 
 

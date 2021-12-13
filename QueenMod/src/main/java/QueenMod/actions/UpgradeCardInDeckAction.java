@@ -35,7 +35,7 @@ public class UpgradeCardInDeckAction extends AbstractGameAction {
         for (int i = 0;i<numTimes;i++) {
             numCards = 0;
             for (AbstractCard c : p.group) {
-                if (!c.upgraded) {
+                if (!c.upgraded && !c.type.equals(AbstractCard.CardType.CURSE) && !c.type.equals(AbstractCard.CardType.STATUS)) {
                     upgradeMatrix[numCards] = c;
                     numCards++;
                 }

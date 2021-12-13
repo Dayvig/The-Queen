@@ -54,6 +54,7 @@ public class PollenBlast extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
         this.baseMagicNumber = this.magicNumber = MAGIC;
+        this.isMultiDamage = true;
     }
 
 
@@ -63,7 +64,7 @@ public class PollenBlast extends AbstractDynamicCard {
             AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
             CardCrawlGame.sound.playA("PUFF", (float) Math.random() * 1.0F);
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            if (!mo.isDead && !mo.halfDead) {
+            if (!mo.isDead && !mo.halfDead && !mo.isDying) {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new PollinatePower(mo, p, magicNumber), magicNumber));
                 AbstractDungeon.effectsQueue.add(new pollenEffect(true, mo));
             }
