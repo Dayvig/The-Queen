@@ -25,6 +25,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.localization.*;
@@ -604,41 +605,54 @@ public class QueenMod implements
 
     // ================ LOAD THE TEXT ===================
 
+    public String DetermineLanguage(){
+        switch (Settings.language){
+            case ENG:
+                return "eng";
+            case ZHS:
+                return "zhs";
+            default:
+                return "eng";
+        }
+    }
+
     @Override
     public void receiveEditStrings() {
         logger.info("Beginning to edit strings");
 
+        String languageID = DetermineLanguage();
+
         // CardStrings
         BaseMod.loadCustomStringsFile(CardStrings.class,
-                getModID() + "Resources/localization/eng/QueenMod-Card-Strings.json");
+                getModID() + "Resources/localization/"+ languageID + "/QueenMod-Card-Strings.json");
 
         // PowerStrings
         BaseMod.loadCustomStringsFile(PowerStrings.class,
-                getModID() + "Resources/localization/eng/QueenMod-Power-Strings.json");
+                getModID() + "Resources/localization/"+languageID+"/QueenMod-Power-Strings.json");
 
         // RelicStrings
         BaseMod.loadCustomStringsFile(RelicStrings.class,
-                getModID() + "Resources/localization/eng/QueenMod-Relic-Strings.json");
+                getModID() + "Resources/localization/"+languageID+"/QueenMod-Relic-Strings.json");
 
         // Event Strings
         BaseMod.loadCustomStringsFile(EventStrings.class,
-                getModID() + "Resources/localization/eng/QueenMod-Event-Strings.json");
+                getModID() + "Resources/localization/"+languageID+"/QueenMod-Event-Strings.json");
 
         // PotionStrings
         BaseMod.loadCustomStringsFile(PotionStrings.class,
-                getModID() + "Resources/localization/eng/QueenMod-Potion-Strings.json");
+                getModID() + "Resources/localization/"+languageID+"/QueenMod-Potion-Strings.json");
 
         // CharacterStrings
         BaseMod.loadCustomStringsFile(CharacterStrings.class,
-                getModID() + "Resources/localization/eng/QueenMod-Character-Strings.json");
+                getModID() + "Resources/localization/"+languageID+"/QueenMod-Character-Strings.json");
 
         // OrbStrings
         BaseMod.loadCustomStringsFile(OrbStrings.class,
-                getModID() + "Resources/localization/eng/QueenMod-Orb-Strings.json");
+                getModID() + "Resources/localization/"+languageID+"/QueenMod-Orb-Strings.json");
 
         // UIStrings
         BaseMod.loadCustomStringsFile(UIStrings.class,
-                getModID() + "Resources/localization/eng/QueenMod-UI-Strings.json");
+                getModID() + "Resources/localization/"+languageID+"/QueenMod-UI-Strings.json");
 
 
         logger.info("Done edittting strings");
@@ -659,7 +673,8 @@ public class QueenMod implements
         // In Keyword-Strings.json you would have PROPER_NAME as A Long Keyword and the first element in NAMES be a long keyword, and the second element be a_long_keyword
 
         Gson gson = new Gson();
-        String json = Gdx.files.internal(getModID() + "Resources/localization/eng/QueenMod-Keyword-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String languageID = DetermineLanguage();
+        String json = Gdx.files.internal(getModID() + "Resources/localization/"+languageID+"/QueenMod-Keyword-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
         Keyword[] keywords = gson.fromJson(json, Keyword[].class);
 
         if (keywords != null) {
@@ -680,7 +695,6 @@ public class QueenMod implements
 
     @Override
     public void receiveStartAct() {
-        System.out.println("Banner Refreshed");
         if (AbstractDungeon.player.hasRelic(QueensBanner.ID)) {
             QueensBanner banner = (QueensBanner) AbstractDungeon.player.getRelic(QueensBanner.ID);
             banner.refreshForAct();
