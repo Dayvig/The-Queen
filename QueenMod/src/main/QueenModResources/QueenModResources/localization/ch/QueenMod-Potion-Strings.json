@@ -1,0 +1,9 @@
+{
+"QueenMod:HoneyPotion": {
+        "NAME": "蜂蜜药水",
+        "DESCRIPTIONS": ["获得 ", " 滴 琼浆 。"]
+}, "QueenMod:BeesInAJar": {
+        "NAME": "罐装蜜蜂",
+        "DESCRIPTIONS": ["给予一名敌人 ", " 层 蜂群 。"]
+}
+}

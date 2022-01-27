@@ -1,0 +1,103 @@
+{
+  "QueenMod:QueensBanner": {
+    "NAME": "女王的旗帜",
+    "FLAVOR": "女王不灭，帝国永存！",
+    "DESCRIPTIONS": [
+      "每层的第一个 事件 都是 蜂巢 事件 。",
+      "此遗物在本层的效果已经用完。",
+      " NL 蜂巢 现状（",
+      "） NL 下次奖励：",
+      "100金币，1张牌。",
+      "1个 罕见 遗物，200金币，2张牌。",
+      "2个 稀有 遗物，200金币，3张牌。"
+    ]
+  },
+  "QueenMod:PlaceholderRelic2": {
+    "NAME": "默认遗物2",
+    "FLAVOR": "你感到更加强大了。",
+    "DESCRIPTIONS": [
+      "每场战斗开始时，获得 #b1点 力量 。"
+    ]
+  },
+  "QueenMod:DefaultClickableRelic": {
+    "NAME": "默认右键触发遗物",
+    "FLAVOR": "每次右键点击，你这辈子都将多 激发 1次 充能球 。",
+    "DESCRIPTIONS": [
+      "[#2aecd7]每回合 [#2aecd7]限 [#2aecd7]1 [#2aecd7]次。[] NL 激发 你最右侧的 充能球 。",
+      "你是我的了！"
+    ]
+  },
+  "QueenMod:BottledPlaceholderRelic": {
+    "NAME": "默认瓶装遗物",
+    "FLAVOR": "这啥子哦？",
+    "DESCRIPTIONS": [
+      "选择一张牌瓶装。每当你打出1张牌，抽出这张瓶装牌。",
+      "每当你打出1张牌，抽",
+      "。",
+      "选择一张牌瓶装。"
+    ]
+  },
+  "QueenMod:HoneyJar": {
+    "NAME": "蜜罐",
+    "FLAVOR": "一种至今未知的长期保存琼浆的技术。令人称奇！",
+    "DESCRIPTIONS": [
+      "战斗结束后保留20%的 #yqueenmod:琼浆 到下一场战斗，最多保留10滴。"
+    ]
+  },
+  "QueenMod:Medal": {
+    "NAME": "荣誉勋章",
+    "FLAVOR": "战场上一些特别骁勇善战的部队，有时并不为了什么金钱或名誉杀敌，他们心里全是帝国和身为战士的尊严。",
+    "DESCRIPTIONS": [
+      "在你的回合开始时, 手牌 中的 #yqueenmod:马蜂 和 #yqueenmod:熊蜂 耗能为0。"
+    ]
+  },
+  "QueenMod:DraftNotice": {
+    "NAME": "情书",
+    "FLAVOR": "女王从来不缺追求者。",
+    "DESCRIPTIONS": [
+      "每场战斗开始时，在你的 抽牌堆 加入3张 #yqueenmod:雄蜂 。"
+    ]
+  },
+  "QueenMod:BloatedManual": {
+    "NAME": "臃肿的手册",
+    "FLAVOR": "我向你保证，这里面一字一句都至关重要。",
+    "DESCRIPTIONS": [
+      "你的回合开始时，如果你的 抽牌堆 至少有8张牌， #yqueenmod:谋划 。"
+    ]
+  },
+  "QueenMod:WhiteHibiscus": {
+    "NAME": "白芙蓉",
+    "FLAVOR": "一种美丽的花，它的花粉有镇定的功效。",
+    "DESCRIPTIONS": [
+      "每当你给予 #yqueenmod:花粉 时，在当前回合降低目标的 力量 #yqueenmod:花粉 层数点。"
+    ]
+  },
+  "QueenMod:QueenSceptre": {
+    "NAME": "女王权杖",
+    "FLAVOR": "只有真正的皇室才有资格使用。",
+    "DESCRIPTIONS": [
+      "每回合第一次在 抽牌堆 中加入牌时，改为加入到 手牌 。"
+    ]
+  },
+  "QueenMod:BugLantern": {
+    "NAME": "台灯",
+    "FLAVOR": "不知什么原因，这玩意对各种昆虫特别有吸引力。",
+    "DESCRIPTIONS": [
+      "在战斗开始时，获得4层 #yqueenmod:蜂群 。"
+    ]
+  },
+  "QueenMod:Tiara": {
+    "NAME": "公主的头饰",
+    "FLAVOR": "如果有人可以继承这衣钵，帝国将火种将延续下去。",
+    "DESCRIPTIONS": [
+      "当你将要死亡时，将你的最大生命降为一半，并回复全部生命。将你的牌组替换为10张随机牌，所有当前的 #yqueenmod:蜂巢 牌将得以保留。（只能生效一次）"
+    ]
+  },
+  "QueenMod:HornetNest": {
+    "NAME": "马蜂窝",
+    "FLAVOR": "别手欠。",
+    "DESCRIPTIONS": [
+      "你在一场战斗中第一次失去生命时，在你的 手牌 中加入3张 #yqueenmod:马蜂 。"
+    ]
+  }
+}

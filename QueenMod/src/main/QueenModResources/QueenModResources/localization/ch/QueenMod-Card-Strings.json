@@ -1,0 +1,590 @@
+{
+  "QueenMod:DignifiedSlap": {
+    "NAME": "认真一击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !M! 点临时 力量 。"
+  },
+  "QueenMod:GnatSquadron": {
+    "NAME": "空军中队",
+    "DESCRIPTION": "造成 !D! 点伤害 !M! 次。"
+  },
+  "QueenMod:AttackOrder": {
+    "NAME": "攻击指令",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 在你的 抽牌堆 中加入1张 queenmod:马蜂 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 在你的 抽牌堆 中加入 !M! 张 queenmod:马蜂 。"
+  },
+  "QueenMod:Hornet": {
+    "NAME": "马蜂",
+    "DESCRIPTION": "造成 !D! 点伤害。"
+  },
+  "QueenMod:DefendOrder": {
+    "NAME": "防御指令",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 在你的 抽牌堆 中加入1张 queenmod:熊蜂 。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL 在你的 抽牌堆 中加入 !M! 张 queenmod:熊蜂 。"
+  },
+  "QueenMod:BumbleBee": {
+    "NAME": "熊蜂",
+    "DESCRIPTION": "获得 !B! 点 格挡 。"
+  },
+  "QueenMod:MosquitoPlatoon": {
+    "NAME": "Mosquito Platoon",
+    "DESCRIPTION": "Deal !D! damage two times. NL Gain queenmod:Nectar equal to the damage dealt."
+  },
+  "QueenMod:GatheringSwarm": {
+    "NAME": "Gathering Swarm",
+    "DESCRIPTION": "At the start of your turn, gain !M! queenmod:Swarm."
+  },
+  "QueenMod:Godcard": {
+    "NAME": "God Card",
+    "DESCRIPTION": "Win the game"
+  },
+  "QueenMod:HexGuard": {
+    "NAME": "蜂巢防御",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL queenmod:蓄力 ：获得 !M! 点 格挡 。"
+  },
+  "QueenMod:HoneycombSmash": {
+    "NAME": "投掷蜂窝",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 虚弱 。 NL queenmod:蓄力 ：给予1层 虚弱 。"
+  },
+  "QueenMod:PopulateOrder": {
+    "NAME": "计划生育",
+    "DESCRIPTION": "在你的 抽牌堆 中加入 !M! 张 queenmod:雄蜂 。 NL 抽1张牌。"
+  },
+  "QueenMod:Drone": {
+    "NAME": "雄蜂",
+    "DESCRIPTION": "抽 !M! 张牌。 NL 消耗 。"
+  },
+  "QueenMod:Assimilate": {
+    "NAME": "吸收",
+    "DESCRIPTION": " 消耗 手牌 中所有 queenmod:蜂巢 牌。 NL 每 消耗 1张获得 !M! 层 queenmod:蜂群 。"
+  },
+  "QueenMod:HoneyBee": {
+    "NAME": "蜜蜂",
+    "DESCRIPTION": "获得 !M! 滴 queenmod:琼浆 。"
+  },
+  "QueenMod:BuildOrder": {
+    "NAME": "Build Order",
+    "DESCRIPTION": "Add 2 queenmod:Honeybees to your draw pile. NL At the start of your turn, gain !M! queenmod:Nectar."
+  },
+  "QueenMod:KillerQueen": {
+    "NAME": "杀手女王",
+    "DESCRIPTION": "只有 手牌 中没有 技能牌 时才能打出。 NL 造成 !D! 点伤害。",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Add ",
+      " more Attacks.)",
+      " more Attack.)"
+    ]
+  },
+  "QueenMod:HiveNetwork": {
+    "NAME": "蜂窝网",
+    "DESCRIPTION": "抽 !M! 张牌。 NL 每抽到1张 queenmod:蜂巢 牌，获得 [E] 。"
+  },
+  "QueenMod:BusyBees": {
+    "NAME": "忙碌的蜜蜂",
+    "DESCRIPTION": "每当你向你的 抽牌堆 中加入牌时，额外加入1张其复制。",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 每当你向你的 抽牌堆 中加入牌时，额外加入1张其复制。"
+  },
+  "QueenMod:Beekeeping": {
+    "NAME": "养蜂",
+    "DESCRIPTION": " 消耗 1张牌。 NL 在 手牌 中加入1张 queenmod:蜜蜂 。",
+    "UPGRADE_DESCRIPTION": " 消耗 1张牌。 NL 在 手牌 中加入1张 升级 的 queenmod:蜜蜂 。"
+  },
+  "QueenMod:Metamorphosis": {
+    "NAME": "Metamorphosis",
+    "DESCRIPTION": "Replace all queenmod:Drones with queenmod:Hornets, queenmod:Bumblebees, or queenmod:Honeybees."
+  },
+  "QueenMod:Nourish": {
+    "NAME": "Nourish",
+    "DESCRIPTION": "Heal 4. NL queenmod:Honey-boost: Heal 10 instead. NL Exhaust."
+  },
+  "QueenMod:HornetSwarm": {
+  "NAME": "马蜂群",
+  "DESCRIPTION": "对随机敌人打出你 手牌 和 抽牌堆 中的所有 queenmod:马蜂 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "对随机敌人打出你 手牌 和 抽牌堆 中的所有 queenmod:马蜂 。"
+  },
+  "QueenMod:WarBuzz": {
+  "NAME": "大战在即",
+  "DESCRIPTION": " 消耗 手牌 中所有 技能牌，替换为等量的 queenmod:马蜂 。"
+},
+  "QueenMod:ChainStrike": {
+  "NAME": "Chain strike",
+  "DESCRIPTION": "If you've played !M! or more cards this turn, Deal !D! damage."
+},
+  "QueenMod:ProtectQueen": {
+  "NAME": "保护女王！",
+  "DESCRIPTION": "当你要受到伤害时， 消耗 抽牌堆 中的1张  queenmod:熊蜂 并获得其 格挡 。 NL 在你的 抽牌堆 中加入2张 queenmod:熊蜂 。"
+},
+  "QueenMod:SharpStingers": {
+    "NAME": "蜇人的刺",
+    "DESCRIPTION": " queenmod:马蜂 造成的伤害增加 !M! 。 NL 在你的 抽牌堆 中加入2张 queenmod:马蜂 。"
+  },
+  "QueenMod:EnergyReserves": {
+    "NAME": "Stockpile",
+    "DESCRIPTION": "At the start of the turn, spend 10 queenmod:Nectar to gain [E]. NL queenmod:Recruit 2 queenmod:Honeybees."
+  },
+  "QueenMod:PheremoneSwap": {
+    "NAME": "信息素",
+    "DESCRIPTION": " 保留 。 NL 对换你的 queenmod:马蜂 和 queenmod:熊蜂 。",
+    "UPGRADE_DESCRIPTION": " 保留 。 NL 对换你的 queenmod:马蜂 和 queenmod:熊蜂 。 NL 抽1张牌。"
+  },
+  "QueenMod:Mark": {
+    "NAME": "标记",
+    "DESCRIPTION": "给予 !M! 层 易伤 。 NL 给予 !M! 层 queenmod:花粉 。 NL 给予1层 queenmod:锁定 。"
+  },
+  "QueenMod:SwarmTactics": {
+    "NAME": "蜂海战术",
+    "DESCRIPTION": "本回合你每打出1张牌，就获得 !M! 层 queenmod:蜂群 。"
+  },
+  "QueenMod:StrategicGenius": {
+  "NAME": "战术专家",
+  "DESCRIPTION": "本回合你每抽1张牌，就获得1点临时 力量 。"
+},
+  "QueenMod:OverwhelmingForce": {
+  "NAME": "皇家大军",
+  "DESCRIPTION": "造成等同于你 抽牌堆 牌数的伤害。",
+    "UPGRADE_DESCRIPTION": "对所有敌人造成等同于你 抽牌堆 牌数的伤害。",
+    "EXTENDED_DESCRIPTION": [
+      "（ !D! 点伤害。）",
+      "（ !D! 点伤害。）"
+
+    ]
+  },
+  "QueenMod:Flyby": {
+    "NAME": "掠过",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 这张牌将回到 抽牌堆 而非 弃牌堆 。"
+  },
+  "QueenMod:PerfectLanding": {
+    "NAME": "Perfect Landing",
+    "DESCRIPTION": "If you've played 5 or more cards this turn, gain !B! block."
+  },
+  "QueenMod:SplitStrike": {
+  "NAME": "分散打击",
+  "DESCRIPTION": "造成 !D! 点伤害。 NL queenmod:锁定 一半的 queenmod:蜂群 在在你身上，另一半在敌人身上。"
+},
+  "QueenMod:Feast": {
+  "NAME": "蚕食",
+  "DESCRIPTION": "造成 !D! 点伤害2次。 NL 伤害增加场上的 queenmod:蜂群 数量次。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害2次。 NL 伤害增加场上的 queenmod:蜂群 数量次。"
+},
+  "QueenMod:BirthingCells": {
+    "NAME": "孵化房",
+    "DESCRIPTION": "每回合开始时，在你的 抽牌堆 中加入1张 queenmod:雄蜂 。"
+  },
+  "QueenMod:CrossGuard": {
+    "NAME": "交叉防护",
+    "DESCRIPTION": "你 手牌 中每有1张 攻击牌 ，就获得 !B! 点 格挡 。"
+  },
+  "QueenMod:TakeFlight": {
+    "NAME": "Take Flight",
+    "DESCRIPTION": "Gain queenmod:Flight. Lose 3 queenmod:Nectar at the end of your turn or lose queenmod:Flight."
+  },
+  "QueenMod:Anticipate": {
+    "NAME": "Anticipate",
+    "DESCRIPTION": "If the enemy intends to attack, add a queenmod:Bumblebee to your hand. Otherwise add a queenmod:Hornet to your hand.",
+    "UPGRADE_DESCRIPTION": "If the enemy intends to attack, add an Upgraded queenmod:Bumblebee to your hand. Otherwise add an Upgraded queenmod:Hornet to your hand.",
+    "EXTENDED_DESCRIPTION": [
+      "queenmod:Recruit a queenmod:Bumblebee and add it to your hand.",
+      "queenmod:Recruit a queenmod:Hornet and add it to your hand.",
+      "queenmod:Recruit a queenmod:Honeybee and add it to your hand.",
+      "Gain !B! block. Add a Drone to your hand."
+    ]
+  },
+  "QueenMod:ScoutingParty": {
+    "NAME": "供应链",
+    "DESCRIPTION": "获得3层 queenmod:蜂群 。 NL 抽 !M! 张牌。 NL queenmod:蓄力 ：抽1张牌。"
+  },
+  "QueenMod:MilitaryHandbook": {
+    "NAME": "战争艺术",
+    "DESCRIPTION": "抽 !M! 张牌。 NL 本回合将 攻击牌 的费用降低1。 NL 消耗 。"
+  },
+  "QueenMod:PollenBlast": {
+    "NAME": "花粉大炮",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予所有敌人 !M! 层 queenmod:花粉 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 给予所有敌人 !M! 层 queenmod:花粉 。"
+  },
+  "QueenMod:BlindingSwarm": {
+    "NAME": "Blinding Swarm",
+    "DESCRIPTION": "If you have queenmod:Swarm, Apply !M! Weak to all enemies. NL Split your queenmod:Swarm among all enemies for the turn."
+  },
+  "QueenMod:SecretWeapon": {
+    "NAME": "秘蜜武器",
+    "DESCRIPTION": " queenmod:蓄力 ：对所有敌人造成 !D! 点伤害。"
+  },
+  "QueenMod:GeneralForm": {
+    "NAME": "将军形态",
+    "DESCRIPTION": "每当你打出1张 queenmod:马蜂 ，获得 !M! 点 力量 。 NL 每当你打出1张 queenmod:熊蜂 ，获得 !M! 点 敏捷 。",
+    "UPGRADE_DESCRIPTION": "每当你打出1张 queenmod:马蜂 ，获得 !M! 点 力量 。 NL 每当你打出1张 queenmod:熊蜂 ，获得 !M! 点 敏捷 。"
+  },
+  "QueenMod:InspiringStrike": {
+    "NAME": "启发打击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 随机 升级 你 抽牌堆 中的 !M! 张牌。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 随机 升级 你 抽牌堆 中的 !M! 张牌。"
+  },
+  "QueenMod:HornetCommander": {
+    "NAME": "Hornet Commander",
+    "DESCRIPTION": "Deal !D! damage. NL Upgrade all queenmod:Hornets in your draw pile."
+  },
+  "QueenMod:BumbleBeeCommander": {
+    "NAME": "Bumblebee Commander",
+    "DESCRIPTION": "Gain !B! Block. NL Upgrade all queenmod:Bumblebees in your draw pile."
+  },
+  "QueenMod:DroneCommander": {
+    "NAME": "Drone Commander",
+    "DESCRIPTION": "Upgrade all queenmod:Drones in your draw pile. NL Draw a card.",
+    "UPGRADE_DESCRIPTION": "Upgrade all queenmod:Drones in your draw pile. NL Draw 2 cards."
+  },
+  "QueenMod:HoneybeeCommander": {
+    "NAME": "Worker Bee Commander",
+    "DESCRIPTION": "Deal !D! damage. NL Inflict !M! queenmod:Pollinate. NL Upgrade all queenmod:Honeybees in your draw pile."
+  },
+  "QueenMod:EliteSoldiers": {
+    "NAME": "蜂巢长官",
+    "DESCRIPTION": " 升级 抽牌堆 中的所有 queenmod:蜂巢 牌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "在你的 抽牌堆 中加入 queenmod:蜂巢 牌每种各1张。 NL  升级 抽牌堆 中的所有 queenmod:蜂巢 牌。 NL 消耗 。"
+  },
+    "QueenMod:Knighting":{
+      "NAME": "册封",
+      "DESCRIPTION": "在你的 手牌 中加入1张 queenmod:蜂巢 牌，并永久获得这张牌。 NL 消耗 。",
+      "UPGRADE_DESCRIPTION": "在你的 手牌 中加入1张 queenmod:蜂巢 牌，并永久获得这张牌。 NL 获得5点 格挡 。 NL 消耗 。"
+    },
+  "QueenMod:Lunge":{
+    "NAME": "突刺",
+    "DESCRIPTION": "如果你打出的上1张牌是 技能牌 ，就造成 !D! 点伤害并抽1张牌。"
+  },
+  "QueenMod:Parry":{
+    "NAME": "闪避",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 给予1层 易伤 。 NL 在你的 手牌 中加入1张 queenmod:刺击 。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL 给予1层 易伤 。 NL 在你的 手牌 中加入1张 queenmod:刺击+ 。"
+  },
+  "QueenMod:Riposte":{
+    "NAME": "刺击",
+    "DESCRIPTION": "造车 !D! 点伤害。 NL 虚无 。 NL 消耗 。"
+  },
+  "QueenMod:FinishingBlow":{
+    "NAME": "Finishing Blow",
+    "DESCRIPTION": "Deal !D! damage to an enemy with !D! or less Health."
+  },
+  "QueenMod:Ambush":{
+    "NAME": "埋伏",
+    "DESCRIPTION": "将你 抽牌堆 中X张随机牌在打出前变为0费。",
+    "UPGRADE_DESCRIPTION": "将你 抽牌堆 中X+1张随机牌在打出前变为0费。"
+  },
+  "QueenMod:Charge":{
+    "NAME": "进军！",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 你 抽牌堆 中每有5张牌，就抽1张牌。",
+    "EXTENDED_DESCRIPTION": [
+      "（",
+      " 张牌）"
+    ]
+  },
+  "QueenMod:PlanAhead":{
+    "NAME": "Organize",
+    "DESCRIPTION": "Scry !M!. NL Draw a card."
+  },
+  "QueenMod:Spearhead":{
+  "NAME": "Spearhead",
+  "DESCRIPTION": "Deal !D! damage. NL Spend 5 queenmod:Nectar: Deal !M! damage to all enemies."
+},
+  "QueenMod:Conscripts":{
+    "NAME": "征召",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 抽1张牌。 NL queenmod:增殖 。"
+  },
+  "QueenMod:Volunteers":{
+    "NAME": "志愿兵",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 抽1张牌。 NL queenmod:增殖 。"
+  },
+  "QueenMod:Wasps":{
+    "NAME": "胡峰",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 抽1张牌。 NL queenmod:增殖 。"
+  },
+  "QueenMod:Strike":{
+    "NAME": "打击",
+    "DESCRIPTION": "造成 !D! 点伤害。"
+  },
+  "QueenMod:Defend":{
+    "NAME": "防御",
+    "DESCRIPTION": "获得 !B! 点 格挡 。"
+  },
+  "QueenMod:Recruit":{
+    "NAME": "集结",
+    "DESCRIPTION": "在你的 抽牌堆 中加入1张 queenmod:马蜂 和 queenmod:熊蜂 。"
+  },
+  "QueenMod:KillerBee":{
+    "NAME": "杀手蜂",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 在你的 抽牌堆 中时，每回合开始时这张牌增加8点伤害。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 在你的 抽牌堆 中时，每回合开始时这张牌增加10点伤害。 NL 消耗 。"
+  },
+  "QueenMod:FlankingStrike":{
+    "NAME": "夹击",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害，并给予 !M! 层 易伤 。 NL 消耗 。"
+  },
+  "QueenMod:Reinforcements":{
+    "NAME": "增员部队",
+    "DESCRIPTION": "在你的回合开始时，从你的 抽牌堆 中随机打出1张 queenmod:马蜂 或 queenmod:熊蜂 。"
+  },
+  "QueenMod:Regroup":{
+    "NAME": "重组阵型",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 将你的 弃牌堆 洗入 抽牌堆 。"
+  },
+  "QueenMod:WarTrumpet":{
+    "NAME": "War Trumpet",
+    "DESCRIPTION": "When you play an Attack this turn, add a queenmod:Drone to your Draw Pile."
+  },
+  "QueenMod:Gather": {
+    "NAME": "采集指令",
+    "DESCRIPTION": "给予 !M! 层 queenmod:花粉 。 NL 在你的 抽牌堆 中加入1张 queenmod:蜜蜂 。"
+  },
+  "QueenMod:HonorGuard":{
+    "NAME": "荣誉卫士",
+    "DESCRIPTION": " 保留 。 NL 在你的 手牌 中加入2张 queenmod:熊蜂 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 保留 。 NL 在你的 手牌 中加入2张 queenmod:熊蜂 。 NL 消耗 。"
+  },
+  "QueenMod:HoneyFactory":{
+    "NAME": "Honey Factory",
+    "DESCRIPTION": "Unplayable. When drawn, discard to gain !M! queenmod:Nectar and draw a card.",
+    "EXTENDED_DESCRIPTION": [
+      "I can't play this."
+    ]
+  },
+  "QueenMod:Synthesize":{
+    "NAME": "Synthesize",
+    "DESCRIPTION": "Gain !M! queenmod:Nectar. NL queenmod:Honey-boost: Gain !QueenMod:second! queenmod:Swarm instead."
+  },
+  "QueenMod:Catering":{
+    "NAME": "餐饮服务",
+    "DESCRIPTION": "获得 !M! 点临时 力量 。 NL queenmod:蓄力 ：获得 !M! 点临时 力量 。"
+  },
+  "QueenMod:Rally":{
+    "NAME": "动员",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 获得 !M! 点临时 力量 。"
+  },
+  "QueenMod:FullRetreat":{
+    "NAME": "全军撤退",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 将你的 手牌 洗入 抽牌堆 。"
+  },
+  "QueenMod:Fortify":{
+    "NAME": "坚守阵地",
+    "DESCRIPTION": "获得等同于你 抽牌堆 牌数的 格挡 。",
+    "UPGRADE_DESCRIPTION": "获得等同于你 抽牌堆 牌数+5的 格挡 。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （ ",
+      " 点 格挡 ）"
+    ]
+  },
+  "QueenMod:HoldPosition":{
+    "NAME": "Hold Position",
+    "DESCRIPTION": "Gain !B! Block. NL queenmod:Lock your queenmod:Swarm on yourself this turn. NL Your queenmod:Swarm does not decrease at the end of this turn."
+  },
+  "QueenMod:Multiply":{
+    "NAME": "增殖",
+    "DESCRIPTION": "复制你的 抽牌堆 。 NL 消耗 。"
+  },
+  "QueenMod:Fleche":{
+    "NAME": "冲刺",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 随机 消耗 你 抽牌堆 中的2张 技能牌 。"
+  },
+  "QueenMod:AggressionPolicy":{
+    "NAME": "Aggression Policy",
+    "DESCRIPTION": "queenmod:Aggressive: Attacks are played once more."
+  },
+  "QueenMod:MatingDance": {
+    "NAME": "交际舞",
+    "DESCRIPTION": " 不能被打出 。 NL 在 手牌 中时，打出一系列牌来触发其效果。",
+    "UPGRADE_DESCRIPTION": " 不能被打出 。 NL 在 手牌 中时，打出一系列牌来触发其效果。",
+    "EXTENDED_DESCRIPTION": [
+      "在你的 抽牌堆 中加入 !M! 张 queenmod:雄蜂 。",
+      "我不能打出这张牌。",
+      "（每回合都不一样。）",
+      "在你的 抽牌堆 中加入1张 queenmod:雄蜂 。"
+    ]
+  },
+  "QueenMod:SwarmDance": {
+    "NAME": "狂乱舞步",
+    "DESCRIPTION": " 不能被打出 。 NL 在 手牌 中时，打出一系列牌来触发其效果：获得 !M! 层 queenmod:蜂群 。",
+    "EXTENDED_DESCRIPTION": [
+      "获得 !M! 层 queenmod:蜂群 。",
+      "我不能打出这张牌。",
+      "（每回合都不一样。）"
+    ]
+  },
+  "QueenMod:OverwhelmingPower": {
+    "NAME": "Overwhelming Power",
+    "DESCRIPTION": "Deal !D! damage. NL Gain [E] for every 10 cards in your draw pile.",
+    "EXTENDED_DESCRIPTION": [
+      "Deal !D! damage.",
+      "Deal !D! damage. NL Gain [E]",
+      "Deal !D! damage. NL Gain [E] [E]",
+      "Deal !D! damage. NL Gain [E] [E] [E]f",
+      "Deal !D! damage. NL Gain [E] [E] [E] [E]",
+      "Deal !D! damage. NL Gain [E] [E] [E] [E] [E]",
+      "Deal !D! damage. NL Gain !M! [E]"
+    ]
+  },
+  "QueenMod:Blitz": {
+    "NAME": "Blitzkreig",
+    "DESCRIPTION": "Innate. NL Deal !D! damage. NL Exhaust."
+  },
+  "QueenMod:SupplyLines": {
+    "DESCRIPTION": "Exhaust one of each type of queenmod:Hive card in your draw pile. Combine them into a W.A.S.P. and add it to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Exhaust one of each type of queenmod:Hive card in your draw pile. Combine them into a W.A.S.P. upgrade it and add it to your hand. NL Exhaust."
+  },
+  "QueenMod:WASP": {
+    "NAME": "W.A.S.P.",
+    "DESCRIPTION": ""
+  },
+  "QueenMod:CallToArms": {
+    "NAME": "Call to Arms",
+    "DESCRIPTION": "Fill your hand with queenmod:Drones. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Fill your hand with upgraded queenmod:Drones. NL Exhaust."
+  },
+  "QueenMod:TeaTime": {
+    "NAME": "Tea Time",
+    "DESCRIPTION": "Gain !B! Block. NL Spend 10 queenmod:Nectar: Draw 2 cards. NL Costs 1 more for each Attack in your hand."
+  },
+  "QueenMod:Leadership": {
+    "NAME": "Leadership",
+    "DESCRIPTION": "Gain 1 Strength and Dexterity. NL queenmod:Recruit a queenmod:Hornet and queenmod:Bumblebee.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Gain 1 Strength and Dexterity. NL queenmod:Recruit a queenmod:Hornet and queenmod:Bumblebee."
+  },
+  "QueenMod:QuickJabs": {
+    "NAME": "快速刺击",
+    "DESCRIPTION": "造成 !D! 点伤害 !M! 次。"
+  },
+  "QueenMod:Feint": {
+    "NAME": "佯攻",
+    "DESCRIPTION": "如果本场战斗中打出的上1张牌是 攻击牌 ，给予 !M! 层 虚弱 并抽1张牌。"
+  },
+  "QueenMod:IAmTheSwarm": {
+    "NAME": "我即蜂群",
+    "DESCRIPTION": " 消耗 你的 抽牌堆 。 NL 每 消耗 1张牌就获得 !M! 层 queenmod:蜂群 。"
+  },
+  "QueenMod:WarMachine": {
+    "NAME": "War Machine",
+    "DESCRIPTION": "Deal !D! damage, if Fatal increase this card's queenmod:Production by 1. NL Gain !M! queenmod:Production."
+  },
+  "QueenMod:Ravage": {
+    "NAME": "蹂躏",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL queenmod:锁定 敌人身上的 queenmod:蜂群 。"
+  },
+  "QueenMod:SwordsToPlowshares": {
+    "NAME": "Swords to Plowshares",
+    "DESCRIPTION": "Gain !M! queenmod:Nectar. NL queenmod:Defensive: queenmod:Recruit a Honeybee and gain !B! Block."
+  },
+  "QueenMod:ForcedMarch": {
+    "NAME": "Loyal Subjects",
+    "DESCRIPTION": "At the start of your turn, shuffle your discard pile into your deck, then draw a card."
+  },
+  "QueenMod:Collect": {
+    "NAME": "Collect",
+    "DESCRIPTION": "Gain !M! queenmod:Nectar. NL Gain !B! Block."
+  },
+  "QueenMod:Infest": {
+    "NAME": "滋生",
+    "DESCRIPTION": "给予所有人 !M! 层 queenmod:蜂群 。 NL queenmod:蓄力 ：额外给予 !QueenMod:second! 层。"
+  },
+  "QueenMod:Advisor": {
+    "NAME": "后备力量",
+    "DESCRIPTION": " 固有 。 NL 在你的 抽牌堆 中加入每种 queenmod:蜂巢 牌各1张。 NL 消耗 。"
+  },
+  "QueenMod:RoyalBanquet": {
+    "NAME": "皇家宴会",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL queenmod:蓄力 ：在你的 手牌 中加入1张随机 queenmod:蜂巢 牌。"
+  },
+  "QueenMod:RoyalOrder": {
+    "NAME": "皇家指令",
+    "DESCRIPTION": "依次打出你 抽牌堆 中的所有 queenmod:蜂巢 牌。"
+  },
+  "QueenMod:Honeyblaster": {
+    "NAME": "蜂蜜大炮",
+    "DESCRIPTION": "造成 !D! 点伤害2次。 NL queenmod:蓄力 ：造成 !D! 点伤害。"
+  },
+  "QueenMod:TortureDance": {
+    "NAME": "战舞",
+    "DESCRIPTION": " 不能被打出 。 NL 在 手牌 中时，打出一系列牌来触发其效果：对所有敌人造成 !D! 点伤害。",
+    "EXTENDED_DESCRIPTION": [
+      "对所有敌人造成 !D! 点伤害。",
+      "我不能打出这张牌。"
+    ]
+  },
+  "QueenMod:HoneyTrap": {
+    "NAME": "Honey Trap",
+    "DESCRIPTION": "All enemies lose !M! Strength this turn. NL queenmod:Honey-boost: They lose 2 more."
+  },
+  "QueenMod:SwarmingStrike": {
+    "NAME": "蜂群打击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予等同于造成伤害数量层数的 queenmod:蜂群 。"
+  },
+  "QueenMod:WarriorDrones": {
+    "NAME": "雄蜂战士",
+    "DESCRIPTION": " 在你的 抽牌堆 中加入2张 queenmod:雄蜂 。 NL 每当你打出1张 queenmod:雄蜂 ，就对1名随机敌人造成 !M! 点伤害。"
+  },
+  "QueenMod:WorkerDrones": {
+    "NAME": "工蜂",
+    "DESCRIPTION": " 在你的 抽牌堆 中加入2张 queenmod:蜜蜂 。 NL 每回合你第一次打出 queenmod:蜜蜂 时，在 手牌 中加入1张 queenmod:雄蜂 。"
+  },
+  "QueenMod:Garrison": {
+  "NAME": "驻守",
+  "DESCRIPTION": "获得 !B! 点 格挡 。 NL 这张牌的 格挡 增加 !M! 。 NL 打出后这张牌将回到 抽牌堆 而不是 弃牌堆 。"
+},
+  "QueenMod:HiveDefenses": {
+    "NAME": "巡逻卫队",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 在你的回合开始时，如果这张牌在 抽牌堆 中，就对1名随机敌人造成 !D! 点伤害。"
+  },
+  "QueenMod:Strategize": {
+    "NAME": "作战计划",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL queenmod:谋划 。"
+  },
+  "QueenMod:Scramble": {
+    "NAME": "蜂拥而上",
+    "DESCRIPTION": "获得 !M! 层 queenmod:蜂群 。 NL 丢弃 你的 手牌 ，然后抽 !QueenMod:second! 张牌。"
+  },
+  "QueenMod:Pheremones": {
+    "NAME": "寻踪",
+    "DESCRIPTION": " queenmod:谋划 。",
+    "UPGRADE_DESCRIPTION": " queenmod:谋划 。 NL queenmod:增殖 。"
+  },
+  "QueenMod:WaxCrafters": {
+    "NAME": "蜂蜡",
+    "DESCRIPTION": "在你的 抽牌堆 中加入2张 queenmod:蜜蜂 。 NL 每当你打出1张 queenmod:蜜蜂 ，就获得 !M! 点 格挡 。"
+  },
+  "QueenMod:Coronation": {
+    "NAME": "Successor",
+    "DESCRIPTION": "If you would die, instead reduce your max HP by half, heal to full HP and replace all non-hive cards in your deck with 10 random cards."
+  },
+  "QueenMod:Princess": {
+    "NAME": "Princess Bee",
+    "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage twice. NL Add 2 random queenmod:Hive cards from your draw pile to your hand."
+  },
+  "QueenMod:Incubate": {
+    "NAME": "孵化",
+    "DESCRIPTION": "获得 !M! 层 queenmod:蜂群 。"
+  },
+  "QueenMod:Suitors": {
+    "NAME": "Suitors",
+    "DESCRIPTION": "Add !M! Drones to your draw pile. NL Exhaust."
+  },
+  "QueenMod:Assault": {
+    "NAME": "滋扰",
+    "DESCRIPTION": "造成 !D! 点伤害 !M! 次。 NL 消耗 。"
+  },
+  "QueenMod:Plague": {
+    "NAME": "虫灾",
+    "DESCRIPTION": "给予随机目标 !M! 层 queenmod:蜂群 X次。"
+  },
+  "QueenMod:RightStep": {
+    "NAME": "右右",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 虚无 。 NL 消耗 。"
+  },
+  "QueenMod:LeftStep": {
+    "NAME": "左左",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 虚无 。 NL 消耗 。"
+  },
+  "QueenMod:Groove": {
+    "NAME": "节奏",
+    "DESCRIPTION": " 虚无 。"
+  },
+  "QueenMod:DiscoHex": {
+    "NAME": "舞动节拍",
+    "DESCRIPTION": "在你的 手牌 中加入1张 节奏 。 NL 在你的 手牌 中加入1张 左左 和 右右 。 NL 重复直至 手牌 为满。",
+    "UPGRADE_DESCRIPTION": "在你的 手牌 中加入1张 节奏+ 。 NL 在你的 手牌 中加入1张 左左+ 和 右右+ 。 NL 重复直至 手牌 为满。"
+  }
+}
