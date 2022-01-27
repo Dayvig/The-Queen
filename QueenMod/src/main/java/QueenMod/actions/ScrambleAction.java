@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.UIStrings;
 
 import javax.swing.plaf.nimbus.AbstractRegionPainter;
 import java.util.Iterator;
@@ -21,9 +22,13 @@ public class ScrambleAction extends AbstractGameAction {
     int amount;
     int drawAmount;
     AbstractPlayer player;
-    private static final String[] TEXT = {" to keep."};
     private static final float DURATION = 0.5F;
-
+    private static final UIStrings uiStrings;
+    public static final String[] TEXT;
+    static {
+        uiStrings = CardCrawlGame.languagePack.getUIString("ScrambleAction");
+        TEXT = uiStrings.TEXT;
+    }
     public ScrambleAction(int m, AbstractPlayer p, int d){
         amount = m;
         player = p;
@@ -89,15 +94,12 @@ public class ScrambleAction extends AbstractGameAction {
             }
         }
         if (numAttacks > numSkills){
-            System.out.println("Skills");
             return AbstractCard.CardType.SKILL;
         }
         else if (numSkills > numAttacks){
-            System.out.println("Attacks");
             return AbstractCard.CardType.ATTACK;
         }
         else {
-            System.out.println("Powers");
             return AbstractCard.CardType.POWER;
         }
     }

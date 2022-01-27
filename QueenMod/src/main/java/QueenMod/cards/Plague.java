@@ -60,7 +60,9 @@ public class Plague extends AbstractDynamicCard {
         }
         effect = this.energyOnUse;
         if (p.hasRelic(ChemicalX.ID)){ effect += 2; }
-        p.energy.use(EnergyPanel.totalCount);
+        if (!this.freeToPlayOnce) {
+            p.energy.use(EnergyPanel.totalCount);
+        }
         for (int i=0;i<effect;i++){
             int numTargets = 1;
             for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters){

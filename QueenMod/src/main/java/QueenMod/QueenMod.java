@@ -2,6 +2,7 @@ package QueenMod;
 
 import QueenMod.cards.*;
 import QueenMod.characters.TheQueen;
+import QueenMod.enemies.HappyGuy;
 import QueenMod.events.HiveEventBuilding;
 import QueenMod.events.HiveEventColony;
 import QueenMod.events.HiveEventScouting;
@@ -27,6 +28,7 @@ import com.google.gson.Gson;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.monsters.MonsterInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -34,6 +36,8 @@ import org.apache.logging.log4j.Logger;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+
+import static basemod.BaseMod.*;
 
 
 //TODO: FIRST THINGS FIRST: RENAME YOUR PACKAGE AND ID NAMES FIRST-THING!!!
@@ -347,6 +351,8 @@ public class QueenMod implements
     // ================ /ADD RELICS/ ===================
 
 
+
+
     // ================ ADD AUDIO ====================
 
 
@@ -629,6 +635,11 @@ public class QueenMod implements
         // OrbStrings
         BaseMod.loadCustomStringsFile(OrbStrings.class,
                 getModID() + "Resources/localization/eng/QueenMod-Orb-Strings.json");
+
+        // UIStrings
+        BaseMod.loadCustomStringsFile(UIStrings.class,
+                getModID() + "Resources/localization/eng/QueenMod-UI-Strings.json");
+
 
         logger.info("Done edittting strings");
     }

@@ -6,7 +6,9 @@ import com.megacrit.cardcrawl.actions.utility.ShowCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
@@ -19,15 +21,17 @@ import static com.megacrit.cardcrawl.cards.CardGroup.DRAW_PILE_X;
 import static com.megacrit.cardcrawl.cards.CardGroup.DRAW_PILE_Y;
 
 public class AmbushAction extends AbstractGameAction {
-    AbstractMonster monster;
     int numCards;
     AbstractPlayer p;
     int energyOnUse;
     boolean upgr;
     boolean freeToPlayOnce;
-    String Text2 = "I should recruit more soldiers.";
-    String Text = "My Ambush is set.";
-
+    private static final UIStrings uiStrings;
+    public static final String[] TEXT;
+    static {
+        uiStrings = CardCrawlGame.languagePack.getUIString("AmbushAction");
+        TEXT = uiStrings.TEXT;
+    }
 
     public AmbushAction(AbstractPlayer source, int energyUse, boolean isUpgraded, boolean free) {
         p = source;
@@ -54,7 +58,7 @@ public class AmbushAction extends AbstractGameAction {
             numCards += 1;
         }
         if (p.group.isEmpty()){
-            AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, Text2, true));
+            AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, TEXT[1], true));
             if (!this.freeToPlayOnce) {
                 this.p.energy.use(EnergyPanel.totalCount);
             }
@@ -68,7 +72,7 @@ public class AmbushAction extends AbstractGameAction {
         }
         for (int i=0;i<numCards;i++){
             if (upgradeMatrix.isEmpty()){
-                AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, Text, true));
+                AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, TEXT[0], true));
                 this.p.energy.use(EnergyPanel.totalCount);
                 this.isDone = true;
             }

@@ -2,7 +2,6 @@ package QueenMod.cards;
 
 import QueenMod.QueenMod;
 import QueenMod.actions.MakeTempCardInDrawPileActionFast;
-import QueenMod.actions.RecruitAction;
 import QueenMod.characters.TheQueen;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;

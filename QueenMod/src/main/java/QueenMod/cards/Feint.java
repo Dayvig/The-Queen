@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
@@ -38,6 +39,8 @@ public class Feint extends AbstractDynamicCard {
     private static final int COST = 0;  // COST = ${COST}
     private static final int MAGIC = 1;
     public boolean attackPlayed;
+    private static final UIStrings uiStrings;
+    public static final String[] TEXT;
 
     // /STAT DECLARATION/
 
@@ -65,7 +68,7 @@ public class Feint extends AbstractDynamicCard {
             return true;
         }
         else {
-            this.cantUseMessage = "The last card I played has to be an attack.";
+            this.cantUseMessage = TEXT[0];
             return false;
         }
     }
@@ -89,5 +92,10 @@ public class Feint extends AbstractDynamicCard {
             upgradeMagicNumber(1);
             initializeDescription();
         }
+    }
+
+    static {
+            uiStrings = CardCrawlGame.languagePack.getUIString("Feint");
+            TEXT = uiStrings.TEXT;
     }
 }

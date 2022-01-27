@@ -4,7 +4,9 @@ import QueenMod.effects.ShowCardUpgradedEffect;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 
@@ -17,17 +19,18 @@ public class UpgradeCardInDeckAction extends AbstractGameAction {
     AbstractCard[] upgradeMatrix;
     private AbstractCard c1;
     private AbstractCard c2;
+    private static final UIStrings uiStrings;
+    public static final String[] TEXT;
+
 
     public UpgradeCardInDeckAction(int n) {
         numTimes = n;
-        Text = "My troops are well trained.";
-        Text2 = "I should probably recruit some more soldiers.";
     }
 
     public void update() {
         CardGroup p = AbstractDungeon.player.drawPile;
         if (p.group.isEmpty()){
-            AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, Text2, true));
+            AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, TEXT[1], true));
             isDone = true;
             return;
         }
@@ -41,7 +44,7 @@ public class UpgradeCardInDeckAction extends AbstractGameAction {
                 }
             }
             if (numCards == 0) {
-                AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, Text, true));
+                AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, TEXT[0], true));
                 isDone = true;
                 return;
             }
@@ -58,10 +61,14 @@ public class UpgradeCardInDeckAction extends AbstractGameAction {
             AbstractDungeon.effectsQueue.add(new ShowCardUpgradedEffect(c1));
         }
         else {
-            System.out.println("Trace");
             AbstractDungeon.effectsQueue.add(new ShowCardUpgradedEffect(c1, c2));
         }
         isDone = true;
+    }
+
+    static {
+        uiStrings = CardCrawlGame.languagePack.getUIString("UpgradeCardInDeckAction");
+        TEXT = uiStrings.TEXT;
     }
 }
 

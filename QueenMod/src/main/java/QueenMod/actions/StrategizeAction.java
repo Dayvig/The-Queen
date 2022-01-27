@@ -18,6 +18,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.GetAllInBattleInstances;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 
 import java.util.Iterator;
@@ -25,10 +26,14 @@ import java.util.UUID;
 
 public class StrategizeAction extends AbstractGameAction {
     private int amount;
-    String[] TEXT = {"discard."};
     AbstractPlayer player;
     private static final float DURATION = 0.1f;
-
+    private static final UIStrings uiStrings;
+    public static final String[] TEXT;
+    static {
+        uiStrings = CardCrawlGame.languagePack.getUIString("StrategizeAction");
+        TEXT = uiStrings.TEXT;
+    }
     public StrategizeAction() {
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = DURATION;
@@ -86,15 +91,12 @@ public class StrategizeAction extends AbstractGameAction {
             }
         }
         if (numAttacks > numSkills){
-            System.out.println("Skills");
             return AbstractCard.CardType.SKILL;
         }
         else if (numSkills > numAttacks){
-            System.out.println("Attacks");
             return AbstractCard.CardType.ATTACK;
         }
         else {
-            System.out.println("Powers");
             return AbstractCard.CardType.POWER;
         }
     }

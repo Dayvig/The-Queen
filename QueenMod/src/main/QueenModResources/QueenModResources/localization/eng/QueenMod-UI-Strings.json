@@ -1,0 +1,63 @@
+{
+  "AmbushAction":{
+  "TEXT": [
+    "My Ambush is set.",
+    "I should recruit more soldiers."
+  ]
+},
+  "Feint":{
+  "TEXT": [
+    "The last card I played has to be an attack."
+  ]
+},"UpgradeCardInDeckAction":{
+  "TEXT": [
+    "My troops are well trained.",
+    "I should probably recruit some more soldiers."
+  ]
+  },"KnightingAction":{
+  "TEXT": [
+    " to add to your hand permanently.",
+    "I have no subjects to knight."
+  ]
+},"Lunge":{
+  "TEXT": [
+    "The last card I played has to be a skill."
+  ]
+},"Dance":{
+  "TEXT": [
+    " NL (Changes each turn.)",
+    "[#00FF00]Skill",
+    "Skill, ",
+    "[#ff0000]Attack",
+    "Attack, ",
+    "[#0000FF]Power",
+    "Power, ",
+    "Attack",
+    "Skill",
+    "Play these card types in sequence: NL "
+  ]
+},"StrategizeAction":{
+  "TEXT": [
+    "discard."
+  ]
+},"ReinforcementAction":{
+  "TEXT": [
+    "My draw pile is empty!",
+    "I have no soldiers in my draw pile!",
+    "Wait! Hold your fire!"
+  ]
+},"DrawSpecificCardTypeAction":{
+  "TEXT": [
+    "attacks",
+    "skills",
+    "powers",
+    "cards of that type",
+    "Not enough ",
+    " in my draw pile!"
+  ]
+},"ScrambleAction": {
+  "TEXT": [
+    " to keep."
+  ]
+}
+}

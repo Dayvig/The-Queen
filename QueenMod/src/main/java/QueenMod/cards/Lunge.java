@@ -7,7 +7,9 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static QueenMod.QueenMod.makeCardPath;
@@ -38,7 +40,12 @@ public class Lunge extends AbstractDynamicCard {
     private static final int UPGRADE_PLUS_DAMAGE = 2;
     public boolean skillPlayed;
     // /STAT DECLARATION/
-
+    private static final UIStrings uiStrings;
+    public static final String[] TEXT;
+    static {
+        uiStrings = CardCrawlGame.languagePack.getUIString("Lunge");
+        TEXT = uiStrings.TEXT;
+    }
 
     public Lunge() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -61,7 +68,7 @@ public class Lunge extends AbstractDynamicCard {
             return true;
         }
         else {
-            this.cantUseMessage = "The last card I played has to be a skill.";
+            this.cantUseMessage = TEXT[0];
             return false;
         }
     }

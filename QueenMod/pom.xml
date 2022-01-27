@@ -3,8 +3,8 @@
     <groupId>QueenMod-2.0</groupId>
     <artifactId>QueenMod-2.0</artifactId>
     <!--<version>1.4.0</version>-->
-    <version>2.0</version>
-    <name>QueenMod-2.0</name>
+    <version>3.0</version>
+    <name>QueenMod-test</name>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>

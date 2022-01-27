@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static QueenMod.QueenMod.makeCardPath;
@@ -24,7 +25,12 @@ public class SwarmDance extends AbstractDynamicCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     String desc;
-
+    private static final UIStrings uiStrings;
+    public static final String[] TEXT;
+    static {
+        uiStrings = CardCrawlGame.languagePack.getUIString("Dance");
+        TEXT = uiStrings.TEXT;
+    }
     // /TEXT DECLARATION/
 
 
@@ -53,7 +59,7 @@ public class SwarmDance extends AbstractDynamicCard {
     public SwarmDance() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
-        this.rawDescription += " NL (Changes each turn.)";
+        this.rawDescription += TEXT[0];
         initializeDescription();
     }
 
@@ -132,7 +138,6 @@ public class SwarmDance extends AbstractDynamicCard {
             this.rawDescription = desc;
             initializeDescription();
         }
-        System.out.println(combo);
     }
 
     public void atTurnStart() {
@@ -175,37 +180,36 @@ public class SwarmDance extends AbstractDynamicCard {
         //Sets the first move of the dance
         if (danceMoves <= 45) {
             dance[0] = CardType.SKILL;
-            danceDescriptions[0] = "[#00FF00]Skill";
+            danceDescriptions[0] = TEXT[1];
             danceDescriptions[0] += ", ";
-            danceDescAlt = "Skill, ";
+            danceDescAlt = TEXT[2];
         } else if (danceMoves > 45 && danceMoves <= 90) {
             dance[0] = CardType.ATTACK;
-            danceDescriptions[0] = "[#ff0000]Attack";
+            danceDescriptions[0] = TEXT[3];
             danceDescriptions[0] += ", ";
-            danceDescAlt = "Attack, ";
+            danceDescAlt = TEXT[4];
         }
         //10% chance: if powers can be generated, generates a power, otherwise generates an attack.
         else {
             if (generatePowers) {
                 dance[0] = CardType.POWER;
-                danceDescriptions[0] = "[#0000FF]Power";
+                danceDescriptions[0] = TEXT[5];
                 danceDescriptions[0] += ", ";
-                danceDescAlt = "Power, ";
+                danceDescAlt = TEXT[6];
             }
             else {
                 dance[0] = CardType.ATTACK;
-                danceDescriptions[0] = "[#ff0000]Attack";
+                danceDescriptions[0] = TEXT[3];
                 danceDescriptions[0] += ", ";
-                danceDescAlt = "Attack, ";
+                danceDescAlt = TEXT[4];
             }
         }
-        //generates the next moves of the dance: weighted slightly to vary the card types.
         for (int i = 1; i < COMBO_LENGTH; i++) {
             danceMoves = AbstractDungeon.cardRandomRng.random(100);
             if (dance[i - 1].equals(CardType.ATTACK)) {
                 if (danceMoves <= 40) {
                     dance[i] = CardType.ATTACK;
-                    danceDescriptions[i] = "Attack";
+                    danceDescriptions[i] = TEXT[7];
                     if (i == COMBO_LENGTH-1) {
                         danceDescriptions[i] += ".";
                     } else {
@@ -213,7 +217,7 @@ public class SwarmDance extends AbstractDynamicCard {
                     }
                 } else {
                     dance[i] = CardType.SKILL;
-                    danceDescriptions[i] = "Skill";
+                    danceDescriptions[i] = TEXT[8];
                     if (i == COMBO_LENGTH-1) {
                         danceDescriptions[i] += ".";
                     } else {
@@ -223,16 +227,15 @@ public class SwarmDance extends AbstractDynamicCard {
             } else if (dance[i - 1].equals(CardType.SKILL)) {
                 if (danceMoves <= 40) {
                     dance[i] = CardType.SKILL;
-                    danceDescriptions[i] = "Skill";
+                    danceDescriptions[i] = TEXT[8];
                     if (i == COMBO_LENGTH-1) {
                         danceDescriptions[i] += ".";
                     } else {
                         danceDescriptions[i] += ", ";
                     }
-                }
-                else {
+                } else {
                     dance[i] = CardType.ATTACK;
-                    danceDescriptions[i] = "Attack";
+                    danceDescriptions[i] = TEXT[7];
                     if (i == COMBO_LENGTH-1) {
                         danceDescriptions[i] += ".";
                     } else {
@@ -242,7 +245,7 @@ public class SwarmDance extends AbstractDynamicCard {
             } else if (dance[i - 1].equals(CardType.POWER)) {
                 if (danceMoves <= 50) {
                     dance[i] = CardType.SKILL;
-                    danceDescriptions[i] = "Skill";
+                    danceDescriptions[i] = TEXT[8];
                     if (i == COMBO_LENGTH-1) {
                         danceDescriptions[i] += ".";
                     } else {
@@ -250,7 +253,7 @@ public class SwarmDance extends AbstractDynamicCard {
                     }
                 } else {
                     dance[i] = CardType.ATTACK;
-                    danceDescriptions[i] = "Attack";
+                    danceDescriptions[i] = TEXT[7];
                     if (i == COMBO_LENGTH-1) {
                         danceDescriptions[i] += ".";
                     } else {
@@ -260,7 +263,7 @@ public class SwarmDance extends AbstractDynamicCard {
             } else {
                 if (danceMoves <= 40) {
                     dance[i] = CardType.SKILL;
-                    danceDescriptions[i] = "Skill";
+                    danceDescriptions[i] = TEXT[7];
                     if (i == COMBO_LENGTH-1) {
                         danceDescriptions[i] += ".";
                     } else {
@@ -268,7 +271,7 @@ public class SwarmDance extends AbstractDynamicCard {
                     }
                 } else if (danceMoves <= 80) {
                     dance[i] = CardType.ATTACK;
-                    danceDescriptions[i] = "Attack";
+                    danceDescriptions[i] = TEXT[7];
                     if (i == COMBO_LENGTH-1) {
                         danceDescriptions[i] += ".";
                     } else {
@@ -276,7 +279,7 @@ public class SwarmDance extends AbstractDynamicCard {
                     }
                 } else {
                     dance[i] = CardType.POWER;
-                    danceDescriptions[i] = "Power";
+                    danceDescriptions[i] = TEXT[7];
                     if (i == COMBO_LENGTH-1) {
                         danceDescriptions[i] += ".";
                     } else {
@@ -285,15 +288,17 @@ public class SwarmDance extends AbstractDynamicCard {
                 }
             }
         }
+        String s;
         String s2 = "";
+        if (upgraded){ s = EXTENDED_DESCRIPTION[0]; }
+        else { s = EXTENDED_DESCRIPTION[3]; }
         for (int k = 0; k < COMBO_LENGTH; k++){
             s2 += danceDescriptions[k];
         }
-        this.rawDescription = "Play these card types in sequence: NL " + s2 +" NL "+ EXTENDED_DESCRIPTION[0];
+        this.rawDescription = TEXT[9] + s2 +" NL "+ s;
         combo = 0;
         initializeDescription();
         danceSet = true;
-
     }
 
     // Upgraded stats.

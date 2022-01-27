@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static QueenMod.QueenMod.makeCardPath;
@@ -40,7 +41,12 @@ public class MatingDance extends AbstractDynamicCard {
     private static final int COST = -2;  // COST = ${COST}
     private static final int MAGIC = 1;
     private static final int UPGRADE_MAGIC = 1;
-
+    private static final UIStrings uiStrings;
+    public static final String[] TEXT;
+    static {
+        uiStrings = CardCrawlGame.languagePack.getUIString("Dance");
+        TEXT = uiStrings.TEXT;
+    }
 
     private int combo;
     private static final int COMBO_LENGTH = 2;
@@ -55,7 +61,7 @@ public class MatingDance extends AbstractDynamicCard {
     public MatingDance() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAGIC;
-        this.rawDescription += " NL (Changes each turn.)";
+        this.rawDescription += TEXT[0];
         initializeDescription();
     }
 
@@ -177,28 +183,28 @@ public class MatingDance extends AbstractDynamicCard {
         //Sets the first move of the dance
         if (danceMoves <= 45) {
             dance[0] = CardType.SKILL;
-            danceDescriptions[0] = "[#00FF00]Skill";
+            danceDescriptions[0] = TEXT[1];
             danceDescriptions[0] += ", ";
-            danceDescAlt = "Skill, ";
+            danceDescAlt = TEXT[2];
         } else if (danceMoves > 45 && danceMoves <= 90) {
             dance[0] = CardType.ATTACK;
-            danceDescriptions[0] = "[#ff0000]Attack";
+            danceDescriptions[0] = TEXT[3];
             danceDescriptions[0] += ", ";
-            danceDescAlt = "Attack, ";
+            danceDescAlt = TEXT[4];
         }
         //10% chance: if powers can be generated, generates a power, otherwise generates an attack.
         else {
             if (generatePowers) {
                 dance[0] = CardType.POWER;
-                danceDescriptions[0] = "[#0000FF]Power";
+                danceDescriptions[0] = TEXT[5];
                 danceDescriptions[0] += ", ";
-                danceDescAlt = "Power, ";
+                danceDescAlt = TEXT[6];
             }
             else {
                 dance[0] = CardType.ATTACK;
-                danceDescriptions[0] = "[#ff0000]Attack";
+                danceDescriptions[0] = TEXT[3];
                 danceDescriptions[0] += ", ";
-                danceDescAlt = "Attack, ";
+                danceDescAlt = TEXT[4];
             }
         }
         for (int i = 1; i < COMBO_LENGTH; i++) {
@@ -206,7 +212,7 @@ public class MatingDance extends AbstractDynamicCard {
             if (dance[i - 1].equals(CardType.ATTACK)) {
                 if (danceMoves <= 40) {
                     dance[i] = CardType.ATTACK;
-                    danceDescriptions[i] = "Attack";
+                    danceDescriptions[i] = TEXT[7];
                     if (i == COMBO_LENGTH-1) {
                         danceDescriptions[i] += ".";
                     } else {
@@ -214,7 +220,7 @@ public class MatingDance extends AbstractDynamicCard {
                     }
                 } else {
                     dance[i] = CardType.SKILL;
-                    danceDescriptions[i] = "Skill";
+                    danceDescriptions[i] = TEXT[8];
                     if (i == COMBO_LENGTH-1) {
                         danceDescriptions[i] += ".";
                     } else {
@@ -224,7 +230,7 @@ public class MatingDance extends AbstractDynamicCard {
             } else if (dance[i - 1].equals(CardType.SKILL)) {
                 if (danceMoves <= 40) {
                     dance[i] = CardType.SKILL;
-                    danceDescriptions[i] = "Skill";
+                    danceDescriptions[i] = TEXT[8];
                     if (i == COMBO_LENGTH-1) {
                         danceDescriptions[i] += ".";
                     } else {
@@ -232,7 +238,7 @@ public class MatingDance extends AbstractDynamicCard {
                     }
                 } else {
                     dance[i] = CardType.ATTACK;
-                    danceDescriptions[i] = "Attack";
+                    danceDescriptions[i] = TEXT[7];
                     if (i == COMBO_LENGTH-1) {
                         danceDescriptions[i] += ".";
                     } else {
@@ -242,7 +248,7 @@ public class MatingDance extends AbstractDynamicCard {
             } else if (dance[i - 1].equals(CardType.POWER)) {
                 if (danceMoves <= 50) {
                     dance[i] = CardType.SKILL;
-                    danceDescriptions[i] = "Skill";
+                    danceDescriptions[i] = TEXT[8];
                     if (i == COMBO_LENGTH-1) {
                         danceDescriptions[i] += ".";
                     } else {
@@ -250,7 +256,7 @@ public class MatingDance extends AbstractDynamicCard {
                     }
                 } else {
                     dance[i] = CardType.ATTACK;
-                    danceDescriptions[i] = "Attack";
+                    danceDescriptions[i] = TEXT[7];
                     if (i == COMBO_LENGTH-1) {
                         danceDescriptions[i] += ".";
                     } else {
@@ -260,7 +266,7 @@ public class MatingDance extends AbstractDynamicCard {
             } else {
                 if (danceMoves <= 40) {
                     dance[i] = CardType.SKILL;
-                    danceDescriptions[i] = "Attack";
+                    danceDescriptions[i] = TEXT[7];
                     if (i == COMBO_LENGTH-1) {
                         danceDescriptions[i] += ".";
                     } else {
@@ -268,7 +274,7 @@ public class MatingDance extends AbstractDynamicCard {
                     }
                 } else if (danceMoves <= 80) {
                     dance[i] = CardType.ATTACK;
-                    danceDescriptions[i] = "Attack";
+                    danceDescriptions[i] = TEXT[7];
                     if (i == COMBO_LENGTH-1) {
                         danceDescriptions[i] += ".";
                     } else {
@@ -276,7 +282,7 @@ public class MatingDance extends AbstractDynamicCard {
                     }
                 } else {
                     dance[i] = CardType.POWER;
-                    danceDescriptions[i] = "Attack";
+                    danceDescriptions[i] = TEXT[7];
                     if (i == COMBO_LENGTH-1) {
                         danceDescriptions[i] += ".";
                     } else {
@@ -292,7 +298,7 @@ public class MatingDance extends AbstractDynamicCard {
         for (int k = 0; k < COMBO_LENGTH; k++){
             s2 += danceDescriptions[k];
         }
-        this.rawDescription = "Play these card types in sequence: NL " + s2 +" NL "+ s;
+        this.rawDescription = TEXT[9] + s2 +" NL "+ s;
         combo = 0;
         initializeDescription();
         danceSet = true;

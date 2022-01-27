@@ -10,7 +10,9 @@ import com.megacrit.cardcrawl.actions.utility.UnlimboAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.city.Chosen;
 import com.megacrit.cardcrawl.powers.*;
@@ -25,9 +27,13 @@ public class ReinforcementAction extends AbstractGameAction {
     ArrayList<AbstractCard> upgradeMatrix = new ArrayList<AbstractCard>();
     boolean isPlayer;
     AbstractCreature th;
-    String Text = "My draw pile is empty!";
-    String Text2 = "I have no soldiers in my draw pile!";
-    String Text3 = "Wait! Hold your fire!";
+    private static final UIStrings uiStrings;
+    public static final String[] TEXT;
+    static {
+        uiStrings = CardCrawlGame.languagePack.getUIString("ReinforcementAction");
+        TEXT = uiStrings.TEXT;
+    }
+
 
     public ReinforcementAction(AbstractCreature t, int n){
         numTimes = n;
@@ -43,7 +49,7 @@ public class ReinforcementAction extends AbstractGameAction {
         }
         CardGroup p = AbstractDungeon.player.drawPile;
         if (p.group.isEmpty()){
-            AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, Text, true));
+            AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, TEXT[0], true));
             this.isDone = true;
             return;
         }
@@ -55,7 +61,7 @@ public class ReinforcementAction extends AbstractGameAction {
             }
             for (int i = 0;i < numTimes;i++) {
                 if (upgradeMatrix.isEmpty()) {
-                    AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, Text2, true));
+                    AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, TEXT[1], true));
                     this.isDone = true;
                     return;
                 }
@@ -80,14 +86,14 @@ public class ReinforcementAction extends AbstractGameAction {
                     tmp.playedBySwarm = true;
                     if ((mo.hasPower(TimeWarpPower.POWER_ID) && mo.getPower(TimeWarpPower.POWER_ID).amount == 11) || mo.hasPower(ThornsPower.POWER_ID) || mo.hasPower(SharpHidePower.POWER_ID) || mo.hasPower(BeatOfDeathPower.POWER_ID)) {
                         AbstractDungeon.actionManager.addToTop(new DrawToHandAction(c1));
-                        AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, Text3, true));
+                        AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, TEXT[2], true));
                     } else {
                         AbstractDungeon.actionManager.addToTop(new QueueCardAction(c1, mo));
                     }
                 } else {
                     if (mo.hasPower(AngerPower.POWER_ID) || AbstractDungeon.player.hasPower(HexPower.POWER_ID) || (mo.hasPower(TimeWarpPower.POWER_ID) && mo.getPower(TimeWarpPower.POWER_ID).amount == 11)) {
                         AbstractDungeon.actionManager.addToTop(new DrawToHandAction(c1));
-                        AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, Text3, true));
+                        AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, TEXT[2], true));
                     } else {
                         AbstractDungeon.actionManager.addToTop(new QueueCardAction(c1, mo));
                     }

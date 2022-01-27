@@ -77,7 +77,6 @@ public class PollinatePower extends AbstractPower implements CloneablePowerInter
 
 
     public void activateHibiscus(AbstractCreature m, int am){
-        System.out.println("Hibiscus test");
         this.addToBot(new ApplyPowerAction(m, AbstractDungeon.player, new StrengthPower(m, -am), -am));
         if (m != null && !m.hasPower("Artifact")) {
             this.addToBot(new ApplyPowerAction(m, AbstractDungeon.player, new GainStrengthPower(m, am), am));

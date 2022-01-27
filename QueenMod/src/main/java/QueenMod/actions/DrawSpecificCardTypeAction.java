@@ -10,8 +10,10 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 
 import java.util.ArrayList;
@@ -24,7 +26,12 @@ public class DrawSpecificCardTypeAction extends AbstractGameAction {
     String Text;
     String typeText;
     AbstractCard.CardType t;
-
+    private static final UIStrings uiStrings;
+    public static final String[] TEXT;
+    static {
+        uiStrings = CardCrawlGame.languagePack.getUIString("DrawSpecificCardAction");
+        TEXT = uiStrings.TEXT;
+    }
     public DrawSpecificCardTypeAction(CardGroup player, int n, AbstractCard.CardType typeToDraw) {
         this.duration = Settings.ACTION_DUR_XFAST;
         this.actionType = ActionType.CARD_MANIPULATION;
@@ -33,15 +40,18 @@ public class DrawSpecificCardTypeAction extends AbstractGameAction {
         t = typeToDraw;
         switch(t){
             case ATTACK:
-                typeText = "attacks";
+                typeText = TEXT[0];
+                break;
             case SKILL:
-                typeText = "skills";
+                typeText = TEXT[1];
+                break;
             case POWER:
-                typeText = "powers";
+                typeText = TEXT[2];
+                break;
             default:
-                typeText = "cards of that type";
+                typeText = TEXT[3];
         }
-        Text = "Not enough "+typeText+" in my draw pile!";
+        Text = TEXT[4] + typeText + TEXT[5];
     }
 
     public void update() {

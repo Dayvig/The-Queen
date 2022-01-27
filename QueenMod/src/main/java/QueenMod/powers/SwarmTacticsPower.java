@@ -53,16 +53,13 @@ public class SwarmTacticsPower extends AbstractPower implements CloneablePowerIn
     @Override
     public void onUseCard(AbstractCard c, UseCardAction a){
         if (c.type.equals(AbstractCard.CardType.ATTACK) && c.target.equals(AbstractCard.CardTarget.ENEMY)){
-            System.out.println("Enemy");
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(a.target,a.source,new SwarmPowerEnemy(a.target,this.owner,this.amount),this.amount));
         }
         else if (c.type.equals(AbstractCard.CardType.ATTACK) && c.target.equals(AbstractCard.CardTarget.ALL_ENEMY)){
-            System.out.println("All Enemy");
             AbstractMonster r =  AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng);
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(r,this.owner,new SwarmPowerEnemy(r,this.owner,this.amount), this.amount));
         }
         else {
-            System.out.println("Other");
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner,this.owner,new SwarmPower(this.owner,this.owner,this.amount),this.amount));
         }
     }

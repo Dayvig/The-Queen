@@ -60,9 +60,10 @@ public class DiscoHex extends AbstractDynamicCard {
         int numToMake = BaseMod.MAX_HAND_SIZE - (p.hand.size()+1);
         int actualNumToMake = numToMake/2;
         numToMake = numToMake - actualNumToMake;
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Groove()));
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new RightStep(), numToMake));
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new LeftStep(), actualNumToMake));
+
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(grooveList[0]));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(grooveList[1], numToMake));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(grooveList[2], actualNumToMake));
     }
 
     @Override

@@ -52,7 +52,7 @@ public class AggressionPower extends AbstractPower implements CloneablePowerInte
     int numOther;
     float particleTimer;
     float particleTimer2;
-    String [] text = {"Double time!", "Forward march!"};
+    String [] text = {DESCRIPTIONS[3]};
     int ctr = 0;
 
     public AggressionPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
