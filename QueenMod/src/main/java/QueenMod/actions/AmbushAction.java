@@ -73,7 +73,9 @@ public class AmbushAction extends AbstractGameAction {
         for (int i=0;i<numCards;i++){
             if (upgradeMatrix.isEmpty()){
                 AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, TEXT[0], true));
-                this.p.energy.use(EnergyPanel.totalCount);
+                if (!this.freeToPlayOnce) {
+                    this.p.energy.use(EnergyPanel.totalCount);
+                }
                 this.isDone = true;
             }
             else {
@@ -83,7 +85,9 @@ public class AmbushAction extends AbstractGameAction {
                 upgradeMatrix.remove(c1);
             }
         }
-        this.p.energy.use(EnergyPanel.totalCount);
+        if (!this.freeToPlayOnce) {
+            this.p.energy.use(EnergyPanel.totalCount);
+        }
         isDone = true;
     }
 }

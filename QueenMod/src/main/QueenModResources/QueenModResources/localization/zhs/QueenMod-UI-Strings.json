@@ -1,63 +1,63 @@
 {
   "AmbushAction":{
   "TEXT": [
-    "My Ambush is set.",
-    "I should recruit more soldiers."
+    "兵力部署已完成。",
+    "我需要招募更多士兵！"
   ]
 },
   "Feint":{
   "TEXT": [
-    "The last card I played has to be an attack."
+    "上一张打出的牌必须是攻击牌！"
   ]
 },"UpgradeCardInDeckAction":{
   "TEXT": [
-    "My troops are well trained.",
-    "I should probably recruit some more soldiers."
+    "整装待发！",
+    "或许我应该招募更多士兵。"
   ]
   },"KnightingAction":{
   "TEXT": [
-    " to add to your hand permanently.",
-    "I have no subjects to knight."
+    "永久加入你的手牌。",
+    "没有册封的对象。"
   ]
 },"Lunge":{
   "TEXT": [
-    "The last card I played has to be a skill."
+    "上一张打出的牌必须是技能牌。"
   ]
 },"Dance":{
   "TEXT": [
-    " NL (Changes each turn.)",
-    "[#00FF00]Skill",
-    "Skill, ",
-    "[#ff0000]Attack",
-    "Attack, ",
-    "[#0000FF]Power",
-    "Power, ",
-    "Attack",
-    "Skill",
-    "Play these card types in sequence: NL "
+    " NL （每回合都变化）",
+    "[#00FF00]技能牌",
+    "技能牌, ",
+    "[#ff0000]攻击牌",
+    "攻击牌, ",
+    "[#0000FF]能力牌",
+    "能力牌, ",
+    "攻击牌",
+    "技能牌",
+    "连续打出如下的牌： NL "
   ]
 },"StrategizeAction":{
   "TEXT": [
-    "discard."
+    "丢弃。"
   ]
 },"ReinforcementAction":{
   "TEXT": [
-    "My draw pile is empty!",
-    "I have no soldiers in my draw pile!",
-    "Wait! Hold your fire!"
+    "我的抽牌堆是空的！",
+    "我的帐中没有士兵！",
+    "先别开枪！"
   ]
 },"DrawSpecificCardTypeAction":{
   "TEXT": [
-    "attacks",
-    "skills",
-    "powers",
-    "cards of that type",
-    "Not enough ",
-    " in my draw pile!"
+    "攻击牌",
+    "技能牌",
+    "能力牌",
+    "",
+    "抽牌堆中",
+    "数量不足！"
   ]
 },"ScrambleAction": {
   "TEXT": [
-    " to keep."
+    "要保留的牌。"
   ]
 }
 }

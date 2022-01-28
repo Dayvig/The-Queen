@@ -293,10 +293,8 @@ public class TortureDance extends AbstractDynamicCard {
                 }
             }
         }
-        String s;
+        String s = EXTENDED_DESCRIPTION[0];
         String s2 = "";
-        if (upgraded){ s = EXTENDED_DESCRIPTION[0]; }
-        else { s = EXTENDED_DESCRIPTION[3]; }
         for (int k = 0; k < COMBO_LENGTH; k++){
             s2 += danceDescriptions[k];
         }

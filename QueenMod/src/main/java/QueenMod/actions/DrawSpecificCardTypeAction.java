@@ -29,7 +29,7 @@ public class DrawSpecificCardTypeAction extends AbstractGameAction {
     private static final UIStrings uiStrings;
     public static final String[] TEXT;
     static {
-        uiStrings = CardCrawlGame.languagePack.getUIString("DrawSpecificCardAction");
+        uiStrings = CardCrawlGame.languagePack.getUIString("DrawSpecificCardTypeAction");
         TEXT = uiStrings.TEXT;
     }
     public DrawSpecificCardTypeAction(CardGroup player, int n, AbstractCard.CardType typeToDraw) {
