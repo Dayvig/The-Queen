@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.rooms.MonsterRoom;
 
 import static QueenMod.QueenMod.makeCardPath;
 
@@ -65,9 +66,16 @@ public class Charge extends AbstractDynamicCard {
     }
 
     @Override
-    public void applyPowers(){
-        int drawAmnt = AbstractDungeon.player.drawPile.group.size()*magicNumber / FACTOR;
-        this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0] + drawAmnt + EXTENDED_DESCRIPTION[1];
+    public void update(){
+        super.update();
+        if (AbstractDungeon.getCurrRoom() instanceof MonsterRoom) {
+            int drawAmnt = AbstractDungeon.player.drawPile.group.size() * magicNumber / FACTOR;
+            this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0] + drawAmnt + EXTENDED_DESCRIPTION[1];
+        }
+        else {
+            this.rawDescription = DESCRIPTION;
+        }
+        initializeDescription();
     }
 
 

@@ -42,7 +42,7 @@ public class RightStep extends AbstractDynamicCard {
     private static final int COST = 0;  // COST = ${COST}
 
     private static final int DAMAGE = 2;    // DAMAGE = ${DAMAGE}
-    private static final int UPGRADE_PLUS_DAMAGE = 2;
+    private static final int UPGRADE_PLUS_DAMAGE = 1;
 
     // /STAT DECLARATION/
 

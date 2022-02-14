@@ -27,16 +27,16 @@
                 "NAME": "Swarm",
                 "DESCRIPTIONS": [
                         "At the end of your turn, gain #b",
-                        " #yBlock. Then reduce #ySwarm by #b1.",
-                        " #yBlock. Then reduce #ySwarm by #b1."
+                        " #yBlock. Then reduce #ySwarm by #b1. Targeting an enemy will move the Swarm to that enemy.",
+                        " #yBlock. Then reduce #ySwarm by #b1. Targeting an enemy will move the Swarm to that enemy."
                 ]
         },
         "QueenMod:SwarmE": {
                 "NAME": "Swarmed Enemy",
                 "DESCRIPTIONS": [
                         "At the end of your turn, lose #b",
-                        " HP. Then reduce #ySwarm by #b1.",
-                        " HP. Then reduce #ySwarm by #b1."
+                        " HP. Then reduce #ySwarm by #b1. Blocking will move the Swarm to yourself, and targeting an enemy will move the Swarm to that enemy.",
+                        " HP. Then reduce #ySwarm by #b1. Blocking will move the Swarm to yourself, and targeting an enemy will move the Swarm to that enemy."
                 ]
         },
         "QueenMod:HoneyPower": {

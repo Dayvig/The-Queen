@@ -580,7 +580,8 @@
   },
   "QueenMod:Groove": {
     "NAME": "节奏",
-    "DESCRIPTION": " 虚无 。"
+    "DESCRIPTION": " 虚无 。",
+    "UPGRADE_DESCRIPTION": "虚无 。抽1张牌。"
   },
   "QueenMod:DiscoHex": {
     "NAME": "舞动节拍",

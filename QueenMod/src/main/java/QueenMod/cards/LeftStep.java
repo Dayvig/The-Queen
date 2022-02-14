@@ -35,7 +35,7 @@ public class LeftStep extends AbstractDynamicCard {
     private static final int COST = 0;  // COST = ${COST}
 
     private static final int BLOCK = 2;    // DAMAGE = ${DAMAGE}
-    private static final int UPGRADE_PLUS_BLOCK = 2;
+    private static final int UPGRADE_PLUS_BLOCK = 1;
 
     // /STAT DECLARATION/
 

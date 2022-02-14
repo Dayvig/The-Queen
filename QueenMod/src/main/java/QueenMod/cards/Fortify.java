@@ -56,8 +56,8 @@ public class Fortify extends AbstractDynamicCard {
     }
 
     @Override
-    public void applyPowers() {
-        super.applyPowers();
+    public void update() {
+        super.update();
             //checks if player is in combat or not to update text appropriately
         if (!(AbstractDungeon.getCurrRoom() instanceof MonsterRoom)){
             if (upgraded) {

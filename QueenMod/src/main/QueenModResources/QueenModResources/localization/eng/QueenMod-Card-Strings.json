@@ -150,7 +150,7 @@
   },
   "QueenMod:Flyby": {
     "NAME": "Flyby",
-    "DESCRIPTION": "Deal !D! damage to all enemies. NL Add this card to your draw pile instead of your discard pile."
+    "DESCRIPTION": "Deal !D! damage to all enemies. NL Shuffle this card into your draw pile."
   },
   "QueenMod:PerfectLanding": {
     "NAME": "Perfect Landing",
@@ -323,7 +323,7 @@
   },
   "QueenMod:Regroup":{
     "NAME": "Regroup",
-    "DESCRIPTION": "Gain !B! block. NL Shuffle your discard pile into your deck."
+    "DESCRIPTION": "Gain !B! block. NL Shuffle your discard pile into your draw pile."
   },
   "QueenMod:WarTrumpet":{
     "NAME": "War Trumpet",
@@ -523,7 +523,7 @@
   },
   "QueenMod:Garrison": {
   "NAME": "Garrison",
-  "DESCRIPTION": "Gain !B! Block. Increase this card's Block by !M!. NL Add this card into your draw pile instead of your discard pile."
+  "DESCRIPTION": "Gain !B! Block. Increase this card's Block by !M!. NL Shuffle this card into your draw pile."
 },
   "QueenMod:HiveDefenses": {
     "NAME": "Guard Patrols",
@@ -580,7 +580,8 @@
   },
   "QueenMod:Groove": {
     "NAME": "Groove",
-    "DESCRIPTION": "Ethereal."
+    "DESCRIPTION": "Ethereal.",
+    "UPGRADE_DESCRIPTION": "Ethereal. NL Draw a card."
   },
   "QueenMod:DiscoHex": {
     "NAME": "Disco Hex",
