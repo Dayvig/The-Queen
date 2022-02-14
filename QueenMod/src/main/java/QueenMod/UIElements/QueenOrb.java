@@ -101,9 +101,17 @@ public class QueenOrb extends CustomEnergyOrb implements EnergyOrbInterface {
         }
 
         if (active) {
-            sb.draw(energyLayers[0], current_x - 155.0F, current_y - 65.0F);
+            sb.draw(energyLayers[0],
+                    current_x - 155.0F,
+                    current_y - 65.0F,
+                    energyLayers[0].getWidth() * Settings.scale,
+                    energyLayers[0].getHeight() * Settings.scale);
         } else {
-            sb.draw(noEnergyLayers[0], current_x - 155.0F, current_y - 65.0F);
+            sb.draw(noEnergyLayers[0],
+                    current_x - 155.0F,
+                    current_y - 65.0F,
+                    noEnergyLayers[0].getWidth() * Settings.scale,
+                    noEnergyLayers[0].getHeight() * Settings.scale);
         }
 
         AbstractDungeon.player.getEnergyNumFont().getData().setScale(1.0F);
