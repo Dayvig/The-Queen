@@ -38,7 +38,7 @@ public class ApplyPowerActionFast extends AbstractGameAction {
 
     public ApplyPowerActionFast(AbstractCreature target, AbstractCreature source, AbstractPower powerToApply, int stackAmount, boolean isFast, AttackEffect effect) {
         if (Settings.FAST_MODE) {
-            this.startingDuration = 0.02F;
+            this.startingDuration = 0.01F;
         } else {
             this.startingDuration = Settings.ACTION_DUR_FAST;
         }

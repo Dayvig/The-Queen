@@ -273,7 +273,8 @@
     "DESCRIPTION": "造成 !D! 点伤害。 NL 你 抽牌堆 中每有5张牌，就抽1张牌。",
     "EXTENDED_DESCRIPTION": [
       "（",
-      " 张牌）"
+      " 张牌）",
+      " 张牌)"
     ]
   },
   "QueenMod:PlanAhead":{

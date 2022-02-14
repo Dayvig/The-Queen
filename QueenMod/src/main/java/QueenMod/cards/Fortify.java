@@ -56,8 +56,8 @@ public class Fortify extends AbstractDynamicCard {
     }
 
     @Override
-    public void update() {
-        super.update();
+    public void applyPowers() {
+        super.applyPowers();
             //checks if player is in combat or not to update text appropriately
         if (!(AbstractDungeon.getCurrRoom() instanceof MonsterRoom)){
             if (upgraded) {
@@ -82,6 +82,11 @@ public class Fortify extends AbstractDynamicCard {
             this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0] + block + EXTENDED_DESCRIPTION[1];
         }
         initializeDescription();
+    }
+
+    @Override
+    public void triggerWhenDrawn(){
+        applyPowers();
     }
 
     //Upgraded stats.

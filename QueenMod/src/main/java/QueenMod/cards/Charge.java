@@ -66,18 +66,22 @@ public class Charge extends AbstractDynamicCard {
     }
 
     @Override
-    public void update(){
-        super.update();
+    public void applyPowers(){
+        super.applyPowers();
         if (AbstractDungeon.getCurrRoom() instanceof MonsterRoom) {
             int drawAmnt = AbstractDungeon.player.drawPile.group.size() * magicNumber / FACTOR;
-            this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0] + drawAmnt + EXTENDED_DESCRIPTION[1];
+            if (drawAmnt == 1) {
+                this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0] + drawAmnt + EXTENDED_DESCRIPTION[2];
+            }
+            else {
+                this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0] + drawAmnt + EXTENDED_DESCRIPTION[1];
+            }
         }
         else {
             this.rawDescription = DESCRIPTION;
         }
         initializeDescription();
     }
-
 
     // Upgraded stats.
     @Override

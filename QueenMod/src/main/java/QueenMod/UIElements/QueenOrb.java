@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.Hitbox;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.ui.panels.energyorb.EnergyOrbInterface;
@@ -40,6 +41,7 @@ public class QueenOrb extends CustomEnergyOrb implements EnergyOrbInterface {
     private final String bumbleLabel = "The number of Bumblebees in your draw pile.";
     private final String workerLabel = "The number of Honeybees in your draw pile.";
     private final String droneLabel = "The number of Drones in your draw pile.";
+    private static final float QUEEN_ORB_SCALE;
 
     private static final String VFXTexture = ("QueenModResources/images/char/queen/orb/bee.png");
 
@@ -104,25 +106,52 @@ public class QueenOrb extends CustomEnergyOrb implements EnergyOrbInterface {
             sb.draw(energyLayers[0],
                     current_x - 155.0F,
                     current_y - 65.0F,
+                    155.0F,
+                    65.0F,
+                    219.0F,
+                    168.0F,
+                    QUEEN_ORB_SCALE,
+                    QUEEN_ORB_SCALE,
+                    0.0F, 0, 0, 219, 168, false, false);
+
+/*
+            sb.draw(energyLayers[0],
+                    current_x - 155.0F,
+                    current_y - 65.0F,
                     energyLayers[0].getWidth() * Settings.scale,
-                    energyLayers[0].getHeight() * Settings.scale);
+                    energyLayers[0].getHeight() * Settings.scale);*/
         } else {
             sb.draw(noEnergyLayers[0],
                     current_x - 155.0F,
                     current_y - 65.0F,
+                    155.0F,
+                    65.0F,
+                    219.0F,
+                    168.0F,
+                    QUEEN_ORB_SCALE,
+                    QUEEN_ORB_SCALE,
+                    0.0F, 0, 0, 219, 168, false, false);
+            /*
+            sb.draw(noEnergyLayers[0],
+                    current_x - 155.0F,
+                    current_y - 65.0F,
                     noEnergyLayers[0].getWidth() * Settings.scale,
-                    noEnergyLayers[0].getHeight() * Settings.scale);
+                    noEnergyLayers[0].getHeight() * Settings.scale);*/
         }
 
         AbstractDungeon.player.getEnergyNumFont().getData().setScale(1.0F);
-        tipHornet.x = current_x-60.0F; tipHornet.y = current_y +40.0F;
-        tipBumble.x = current_x-85.0F; tipBumble.y = current_y +8.0F;
-        tipWorker.x = current_x-60.0F; tipWorker.y = current_y -32.0F;
-        tipDrone.x = current_x-105.0F; tipDrone.y = current_y -32.0F;
-        FontHelper.renderFontCentered(sb, AbstractDungeon.player.getEnergyNumFont(), i[0]+"", current_x-45.0F, current_y+62.0F);
-        FontHelper.renderFontCentered(sb, AbstractDungeon.player.getEnergyNumFont(), i[1]+"", current_x-70.0F, current_y+20.0F);
-        FontHelper.renderFontCentered(sb, AbstractDungeon.player.getEnergyNumFont(), i[3]+"", current_x-45.0F, current_y-20.0F);
-        FontHelper.renderFontCentered(sb, AbstractDungeon.player.getEnergyNumFont(), i[2]+"", current_x-95.0F, current_y-20.0F);
+        tipHornet.x = current_x-(60.0F * QUEEN_ORB_SCALE); tipHornet.y = current_y +(40.0F * QUEEN_ORB_SCALE);
+        tipBumble.x = current_x-(85.0F * QUEEN_ORB_SCALE); tipBumble.y = current_y +(8.0F * QUEEN_ORB_SCALE);
+        tipWorker.x = current_x-(60.0F * QUEEN_ORB_SCALE); tipWorker.y = current_y -(32.0F * QUEEN_ORB_SCALE);
+        tipDrone.x = current_x-(105.0F * QUEEN_ORB_SCALE); tipDrone.y = current_y -(32.0F * QUEEN_ORB_SCALE);
+        FontHelper.renderFontCentered(sb, AbstractDungeon.player.getEnergyNumFont(), i[0]+"", current_x-(45.0F * QUEEN_ORB_SCALE), current_y+(62.0F * QUEEN_ORB_SCALE));
+        FontHelper.renderFontCentered(sb, AbstractDungeon.player.getEnergyNumFont(), i[1]+"", current_x-(70.0F * QUEEN_ORB_SCALE), current_y+(20.0F * QUEEN_ORB_SCALE));
+        FontHelper.renderFontCentered(sb, AbstractDungeon.player.getEnergyNumFont(), i[3]+"", current_x-(45.0F * QUEEN_ORB_SCALE), current_y-(20.0F * QUEEN_ORB_SCALE));
+        FontHelper.renderFontCentered(sb, AbstractDungeon.player.getEnergyNumFont(), i[2]+"", current_x-(95.0F * QUEEN_ORB_SCALE), current_y-(20.0F * QUEEN_ORB_SCALE));
 
+    }
+
+    static {
+        QUEEN_ORB_SCALE = 1.15F * Settings.scale;
     }
 }

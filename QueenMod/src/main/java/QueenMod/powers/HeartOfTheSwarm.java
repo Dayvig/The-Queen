@@ -2,6 +2,7 @@ package QueenMod.powers;
 
 import QueenMod.QueenMod;
 import QueenMod.actions.DistributeSwarmAction;
+import QueenMod.actions.FixFuckingFortifyAction;
 import QueenMod.cards.*;
 import QueenMod.cards.BlindingSwarm;
 import QueenMod.effects.AmbushEffect;
@@ -103,6 +104,11 @@ public class HeartOfTheSwarm extends AbstractPower implements CloneablePowerInte
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(mon, new DamageInfo(AbstractDungeon.player, c.damage, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
             }
         }
+    }
+
+    @Override
+    public void atStartOfTurnPostDraw() {
+        AbstractDungeon.actionManager.addToBottom(new FixFuckingFortifyAction());
     }
 
     @Override

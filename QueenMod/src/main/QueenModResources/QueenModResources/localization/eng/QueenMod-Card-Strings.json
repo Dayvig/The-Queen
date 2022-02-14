@@ -272,8 +272,9 @@
     "NAME": "Forward March!",
     "DESCRIPTION": "Deal !D! damage. NL Draw a card for every 5 cards in your draw pile.",
     "EXTENDED_DESCRIPTION": [
-      "(",
-      " cards.)"
+      " NL (",
+      " cards.)",
+      " card.)"
     ]
   },
   "QueenMod:PlanAhead":{
