@@ -16,22 +16,25 @@ public class BusybeesPatch {
 
     public static class BusybeesAdd {
     public static void Prefix(MakeTempCardInDrawPileAction __instance, AbstractCard ___cardToMake) {
-        if (AbstractDungeon.player.hasPower(BusyBeesPower.POWER_ID)){
-            __instance.amount += AbstractDungeon.player.getPower(BusyBeesPower.POWER_ID).amount;
-        }
-        if (AbstractDungeon.player.hasRelic(QueenSceptre.ID)){
-            QueenSceptre q = (QueenSceptre)AbstractDungeon.player.getRelic(QueenSceptre.ID);
-            if (q.isActive) {
-                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(___cardToMake, 1));
-                __instance.amount--;
-                q.isActive = false;
-                q.grayscale = true;
-                q.stopPulse();
-                if (__instance.amount <= 0) {
-                    __instance.isDone = true;
+        if (!(___cardToMake.type.equals(AbstractCard.CardType.CURSE)) && !(___cardToMake.type.equals(AbstractCard.CardType.STATUS))){
+            if (AbstractDungeon.player.hasPower(BusyBeesPower.POWER_ID)){
+                __instance.amount += AbstractDungeon.player.getPower(BusyBeesPower.POWER_ID).amount;
+            }
+            if (AbstractDungeon.player.hasRelic(QueenSceptre.ID)){
+                QueenSceptre q = (QueenSceptre)AbstractDungeon.player.getRelic(QueenSceptre.ID);
+                if (q.isActive) {
+                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(___cardToMake, 1));
+                    __instance.amount--;
+                    q.isActive = false;
+                    q.grayscale = true;
+                    q.stopPulse();
+                    if (__instance.amount <= 0) {
+                        __instance.isDone = true;
+                    }
                 }
             }
         }
     }
-}
+
+    }
 }
